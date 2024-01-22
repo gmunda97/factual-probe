@@ -41,3 +41,5 @@ class CreateBERTEmbeddingsWithCLS:
         cls_token_state = last_hidden_states[:, 0, :]
 
         return cls_token_state
+
+# TODO -> create a Base embedding class and inherit from it

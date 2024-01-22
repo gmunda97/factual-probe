@@ -7,7 +7,8 @@ import networkx as nx
 import torch
 import torch.nn as nn
 import torch.optim as optim
-from torch_geometric.data import Data, DataLoader
+from torch_geometric.data import Data
+from torch_geometric.loader import DataLoader
 from torch_geometric.nn import SAGEConv
 from sklearn.model_selection import train_test_split
 
@@ -40,7 +41,7 @@ def graph_to_pyg_data(graph: nx.DiGraph) -> Data:
     edge_index = torch.tensor([[node_to_index[edge[0]], 
                                 node_to_index[edge[1]]] for edge in graph.edges]).t().contiguous()
 
-    x = torch.randn(graph.number_of_nodes(), 100)  # Use random node features for illustration
+    x = torch.randn(graph.number_of_nodes(),100)  # Use random node features for illustration
     data = Data(x=x, edge_index=edge_index)
 
     return data
@@ -63,10 +64,11 @@ if __name__ == '__main__':
     JSONL_FILE_PATH = './data/dataset/TREx_all.jsonl'
     graph = create_graph(JSONL_FILE_PATH)
     data = graph_to_pyg_data(graph)
+    print(data)
     print(f"Number of Nodes: {graph.number_of_nodes()}")
     print(f"Number of Edges: {graph.number_of_edges()}")
 
-    model = GraphSAGEModel(in_channels=data.num_node_features, hidden_channels=600, out_channels=100)
+    model = GraphSAGEModel(in_channels=data.num_node_features, hidden_channels=600, out_channels=100) # 50 works very well
 
     loader = DataLoader([data], batch_size=1, shuffle=True)
     loss_function = nn.MSELoss()
