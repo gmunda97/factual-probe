@@ -23,9 +23,9 @@ def create_graph(file_path: str) -> nx.DiGraph:
         for line in jsonl_file:               
             triple = json.loads(line)
 
-            subject = triple['sub_label']
-            object_ = triple['obj_label']
-            predicate = triple['predicate_label']
+            subject = triple['sub_id'] # sub_label
+            object_ = triple['obj_id'] # obj_label
+            predicate = triple['pred_id'] # predicate_label
 
             graph.add_node(subject)
             graph.add_node(object_)
@@ -61,14 +61,14 @@ class GraphSAGEModel(torch.nn.Module):
     
 
 if __name__ == '__main__':
-    JSONL_FILE_PATH = './data/dataset/TREx_all.jsonl'
+    JSONL_FILE_PATH = './data/wikidata5m_inductive/wikidata5m_inductive_train_reduced.jsonl'
     graph = create_graph(JSONL_FILE_PATH)
     data = graph_to_pyg_data(graph)
     print(data)
     print(f"Number of Nodes: {graph.number_of_nodes()}")
     print(f"Number of Edges: {graph.number_of_edges()}")
 
-    model = GraphSAGEModel(in_channels=data.num_node_features, hidden_channels=600, out_channels=100) # 50 works very well
+    model = GraphSAGEModel(in_channels=data.num_node_features, hidden_channels=300, out_channels=100) # 50 works very well
 
     loader = DataLoader([data], batch_size=1, shuffle=True)
     loss_function = nn.MSELoss()
