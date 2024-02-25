@@ -1,21 +1,41 @@
 import requests
 import json
 import logging
+from pathlib import Path
 from tqdm import tqdm
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
 
 logging.basicConfig(level=logging.INFO)
 
+class RateLimitException(Exception):
+    pass
 
+@retry(
+    stop=stop_after_attempt(5),  # Stop after 5 attempts
+    wait=wait_exponential(multiplier=1, max=10),  # Wait exponentially between attempts, starting at 1s, max 10s
+    retry=retry_if_exception_type(RateLimitException),  # Retry only if a RateLimitException is raised
+)
 def fetch_entity_info(wikidata_ids):
-    wikidata_api_url = "https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&ids=" + "|".join(wikidata_ids)
+    wikidata_api_url = "https://www.wikidata.org/w/api.php"
+    params = {
+        'action': 'wbgetentities',
+        'format': 'json',
+        'ids': "|".join(wikidata_ids)
+    }
     try:
-        response = requests.get(wikidata_api_url)
+        response = requests.get(wikidata_api_url, params=params)
         response.raise_for_status()
         data = response.json()
         return data['entities']
-    except Exception as e:
-        print(f"Error fetching entity information: {e}")
+    except requests.exceptions.HTTPError as e:
+        if response.status_code == 429 or 500 <= response.status_code < 600:
+            raise RateLimitException("Rate limit exceeded or server error")
+        else:
+            logging.error(f"HTTP Error fetching entity information: {e}")
+            return {}
+    except requests.exceptions.RequestException as e:
+        logging.error(f"Request exception: {e}")
         return {}
 
 def get_entity_info(wikidata_ids):
@@ -23,55 +43,97 @@ def get_entity_info(wikidata_ids):
     return entities_info
 
 def add_entity_values_batch(entries, batch_size=50):
-    # Split entries into batches
     batches = [entries[i:i+batch_size] for i in range(0, len(entries), batch_size)]
-
     results = []
+    #logging.info(f"Processing {len(batches)} batches of {batch_size} entries each")
+    
     with ThreadPoolExecutor(max_workers=5) as executor:
-        for batch in tqdm(batches[:30], desc="Processing batches"):
-            futures = []
-            for entry in batch:
-                wikidata_ids = [entry['sub_id'], entry['pred_id'], entry['obj_id']]
-                futures.append(executor.submit(get_entity_info, wikidata_ids))
-            for future in futures:
+        futures = {executor.submit(get_entity_info, [
+            entry['sub_id'], entry['pred_id'], entry['obj_id']
+        ]): entry for batch in batches for entry in batch}
+
+        for future in as_completed(futures):
+            entry = futures[future]
+            try:
                 result = future.result()
-                results.append(result)
+                results.append((entry, result))
+            except Exception as exc:
+                logging.error(f"Entity fetch generated an exception: {exc}. Entry: {entry}")
 
     return results
+
+def process_chunk_and_save(entries, temp_dir, temp_file_prefix, chunk_index, include_entity_info=True):
+    results = add_entity_values_batch(entries)  # Use the existing function to process entries
+    
+    # Define temporary file path
+    temp_file_path = Path(temp_dir) / f"{temp_file_prefix}_chunk_{chunk_index}.jsonl"
+    
+    # Save results to a temporary file, including entity information if required
+    with temp_file_path.open('w', encoding='utf-8') as temp_file:
+        for entry, entities_info in results:
+            if include_entity_info:
+                # Extract and enrich entry with entity information
+                sub_info = entities_info.get(entry['sub_id'], {})
+                pred_info = entities_info.get(entry['pred_id'], {})
+                obj_info = entities_info.get(entry['obj_id'], {})
+                entry['sub_value'] = sub_info.get('labels', {}).get('en', {}).get('value', 'Unknown')
+                entry['pred_value'] = pred_info.get('labels', {}).get('en', {}).get('value', 'Unknown')
+                entry['obj_value'] = obj_info.get('labels', {}).get('en', {}).get('value', 'Unknown')
+                temp_file.write(json.dumps(entry, ensure_ascii=False) + '\n')
+    
+    return temp_file_path
+
+
+def incremental_concatenate(temp_file_path, output_file):
+    # Incrementally concatenate temp_file content to the output file
+    with open(output_file, 'a', encoding='utf-8') as final_file:
+        with open(temp_file_path, 'r', encoding='utf-8') as temp_file:
+            for line in temp_file:
+                final_file.write(line)
+    # Optionally, delete the temporary file after its content has been appended
+    Path(temp_file_path).unlink()
+
+def txt_to_jsonl_with_incremental_concat(input_file, output_file, temp_dir='./temp', temp_file_prefix='wikidata', batch_size=50):
+    with open(input_file, 'r', encoding='utf-8') as txt_file:
+        lines = txt_file.readlines()
+    
+    entries = [{'sub_id': line.split('\t')[0], 'pred_id': line.split('\t')[1], 'obj_id': line.split('\t')[2].strip()} for line in lines]
+    
+    # Ensure the temporary directory and output file are ready
+    Path(temp_dir).mkdir(exist_ok=True)
+    Path(output_file).unlink(missing_ok=True)  # Remove the output file if it exists
+    
+    # Process dataset in chunks, save to temporary files, and incrementally concatenate
+    for i in tqdm(range(0, len(entries), batch_size), desc="Overall Progress"):
+        chunk_entries = entries[i:i+batch_size]
+        temp_file_path = process_chunk_and_save(chunk_entries, temp_dir, temp_file_prefix, i // batch_size)
+        incremental_concatenate(temp_file_path, output_file)
+    
+    logging.info(f"Processed {len(entries)} entries and wrote to {output_file}")
+
+
 
 def txt_to_jsonl(input_file, output_file):
     with open(input_file, 'r', encoding='utf-8') as txt_file:
         lines = txt_file.readlines()
 
-    jsonl_entries = []
-    for line in lines:
-        parts = line.strip().split('\t')
-        # Extract subject, predicate, and object
-        sub_id, pred_id, obj_id = parts
-        entry = {
-            'sub_id': sub_id,
-            'pred_id': pred_id,
-            'obj_id': obj_id
-        }
-        jsonl_entries.append(entry)
+    jsonl_entries = [line.strip().split('\t') for line in lines]
+    entries = [{'sub_id': parts[0], 'pred_id': parts[1], 'obj_id': parts[2]} for parts in jsonl_entries]
 
-    # Batch processing of entries
-    results = add_entity_values_batch(jsonl_entries)
+    results = add_entity_values_batch(entries)
 
-    # Combine results and write to JSONL file
     with open(output_file, 'w', encoding='utf-8') as jsonl_file:
-        for entry, entities_info in zip(jsonl_entries, results):
+        for entry, entities_info in results:
             sub_info = entities_info.get(entry['sub_id'], {})
             pred_info = entities_info.get(entry['pred_id'], {})
             obj_info = entities_info.get(entry['obj_id'], {})
-
-            entry['sub_value'] = sub_info.get('labels', {}).get('en', {}).get('value')
-            entry['pred_value'] = pred_info.get('labels', {}).get('en', {}).get('value')
-            entry['obj_value'] = obj_info.get('labels', {}).get('en', {}).get('value')
-
+            entry['sub_value'] = sub_info.get('labels', {}).get('en', {}).get('value', 'Unknown')
+            entry['pred_value'] = pred_info.get('labels', {}).get('en', {}).get('value', 'Unknown')
+            entry['obj_value'] = obj_info.get('labels', {}).get('en', {}).get('value', 'Unknown')
             jsonl_file.write(json.dumps(entry, ensure_ascii=False) + '\n')
+    logging.info(f"Processed {len(entries)} entries and wrote to {output_file}")
 
 
 input_file = './../data/wikidata5m_inductive/wikidata5m_inductive_train_40k.tsv'
 output_file = './../data/wikidata5m_inductive/wikidata5m_inductive_train_40k.jsonl'
-txt_to_jsonl(input_file, output_file)
+txt_to_jsonl_with_incremental_concat(input_file, output_file)
