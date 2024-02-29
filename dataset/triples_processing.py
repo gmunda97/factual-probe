@@ -113,27 +113,6 @@ def txt_to_jsonl_with_incremental_concat(input_file, output_file, temp_dir='./te
 
 
 
-def txt_to_jsonl(input_file, output_file):
-    with open(input_file, 'r', encoding='utf-8') as txt_file:
-        lines = txt_file.readlines()
-
-    jsonl_entries = [line.strip().split('\t') for line in lines]
-    entries = [{'sub_id': parts[0], 'pred_id': parts[1], 'obj_id': parts[2]} for parts in jsonl_entries]
-
-    results = add_entity_values_batch(entries)
-
-    with open(output_file, 'w', encoding='utf-8') as jsonl_file:
-        for entry, entities_info in results:
-            sub_info = entities_info.get(entry['sub_id'], {})
-            pred_info = entities_info.get(entry['pred_id'], {})
-            obj_info = entities_info.get(entry['obj_id'], {})
-            entry['sub_value'] = sub_info.get('labels', {}).get('en', {}).get('value', 'Unknown')
-            entry['pred_value'] = pred_info.get('labels', {}).get('en', {}).get('value', 'Unknown')
-            entry['obj_value'] = obj_info.get('labels', {}).get('en', {}).get('value', 'Unknown')
-            jsonl_file.write(json.dumps(entry, ensure_ascii=False) + '\n')
-    logging.info(f"Processed {len(entries)} entries and wrote to {output_file}")
-
-
-input_file = './../data/wikidata5m_inductive/wikidata5m_inductive_train_40k.tsv'
-output_file = './../data/wikidata5m_inductive/wikidata5m_inductive_train_40k.jsonl'
+input_file = './../data/wikidata5m_inductive/wikidata5m_inductive_test.txt'
+output_file = './../data/wikidata5m_inductive/wikidata5m_inductive_test.jsonl'
 txt_to_jsonl_with_incremental_concat(input_file, output_file)

@@ -3,6 +3,7 @@ Module to process the dataset for the model training
 """
 
 import os
+from tqdm import tqdm
 import pickle
 import torch
 import pandas as pd
@@ -32,10 +33,10 @@ class DataPreparation:
         batch_normalized_embeddings = []
         batch_similarity_scores = []
 
-        for _, row in batch_data.iterrows():
-            entity1 = row['Entity1']
-            entity2 = row['Entity2']
-            similarity = row['Similarity']
+        for _, row in tqdm(batch_data.iterrows()):
+            entity1 = row['subject']
+            entity2 = row['object']
+            similarity = row['similarity']
 
             embeddings1_normalized = self.get_normalized_embeddings(entity1)
             embeddings2_normalized = self.get_normalized_embeddings(entity2)

@@ -11,7 +11,7 @@ import pandas as pd
 import numpy as np
 from scipy.stats import pearsonr, spearmanr
 
-from dataload import DataPreparation
+from dataload_batches import DataPreparation
 from bert_embeddings import CreateBERTEmbeddings, CreateBERTEmbeddingsWithCLS
 from linear_transformations import LinearTransformation, OrthogonalLayer
 
@@ -42,12 +42,12 @@ def compute_spearman_correlation(predicted: torch.Tensor, actual: torch.Tensor) 
 
 if __name__ == '__main__':
 
-    train_data = pd.read_csv('data/dataset/train.csv')
-    val_data = pd.read_csv('data/dataset/val.csv')
+    train_data = pd.read_csv('./data/dataset/wikidata5m_6k_train.csv')
+    val_data = pd.read_csv('data/dataset/wikidata5m_6k_val.csv')
 
     MODEL_NAME = 'bert-base-uncased'
-    EMBEDDINGS_PICKLE_TRAIN = 'data/embeddings/embeddings_train.pkl'
-    EMBEDDINGS_PICKLE_VAL = 'data/embeddings/embeddings_val.pkl'
+    EMBEDDINGS_PICKLE_TRAIN = 'data/embeddings/embeddings_train2.pkl'
+    EMBEDDINGS_PICKLE_VAL = 'data/embeddings/embeddings_val2.pkl'
 
     if os.path.exists(EMBEDDINGS_PICKLE_TRAIN):
         with open(EMBEDDINGS_PICKLE_TRAIN, 'rb') as file:
@@ -58,8 +58,8 @@ if __name__ == '__main__':
         print("Using saved embeddings\n")
         normalized_embeddings_train = saved_train_embeddings
         normalized_embeddings_val = saved_val_embeddings
-        similarity_scores_train = torch.Tensor(train_data['Similarity'].values).view(-1, 1)
-        similarity_scores_val = torch.Tensor(val_data['Similarity'].values).view(-1, 1)
+        similarity_scores_train = torch.Tensor(train_data['similarity'].values).view(-1, 1)
+        similarity_scores_val = torch.Tensor(val_data['similarity'].values).view(-1, 1)
     else:
         print("Generating embeddings using CreateBERTEmbeddingsWithCLS\n")
         bert_embeddings = CreateBERTEmbeddingsWithCLS(MODEL_NAME)
