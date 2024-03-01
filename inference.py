@@ -4,8 +4,8 @@ import torch.nn.functional as F
 from bert_embeddings import CreateBERTEmbeddingsWithCLS
 
 
-entiy1 = "Roman Empire"
-entity2 = "Julius Caesar"
+entiy1 = "All This, and Heaven Too"
+entity2 = "Jeffrey Lynn"
 
 embedding_entity1 = CreateBERTEmbeddingsWithCLS('bert-base-uncased')(entiy1)
 embedding_entity2 = CreateBERTEmbeddingsWithCLS('bert-base-uncased')(entity2)

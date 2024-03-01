@@ -7,6 +7,8 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
+from torch.optim.lr_scheduler import StepLR, ExponentialLR, ReduceLROnPlateau
+from torch.utils.tensorboard import SummaryWriter
 import pandas as pd
 import numpy as np
 from scipy.stats import pearsonr, spearmanr
@@ -64,8 +66,8 @@ if __name__ == '__main__':
         print("Generating embeddings using CreateBERTEmbeddingsWithCLS\n")
         bert_embeddings = CreateBERTEmbeddingsWithCLS(MODEL_NAME)
         data_prep = DataPreparation(MODEL_NAME, bert_embeddings)
-        normalized_embeddings_train, similarity_scores_train = data_prep.prepare_data(train_data)
-        normalized_embeddings_val, similarity_scores_val = data_prep.prepare_data(val_data)
+        normalized_embeddings_train, similarity_scores_train = data_prep.prepare_data(train_data[:100])
+        normalized_embeddings_val, similarity_scores_val = data_prep.prepare_data(val_data[:20])
 
     EMBEDDING_DIM = normalized_embeddings_train.shape[1]
 
@@ -75,9 +77,14 @@ if __name__ == '__main__':
     loss_function = nn.MSELoss()
     #optimizer = optim.SGD(linear_transformation.parameters(), lr=5.0, momentum=0.05) #weight_decay=0.005)
     optimizer = optim.AdamW(linear_transformation.parameters(), lr=0.05, weight_decay=0.005)
-
+    scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=10)
 
     NUM_EPOCHS = 100
+    early_stopping_patience = 10
+    best_val_loss = float('inf')
+    patience_counter = 0
+
+    writer = SummaryWriter('./runs/linear_transformation_experiment')
 
     for epoch in range(NUM_EPOCHS):
         optimizer.zero_grad()
@@ -111,13 +118,26 @@ if __name__ == '__main__':
             loss_val = loss_function(predicted_scores_val, similarity_scores_val)
             corr_val = compute_pearson_correlation(predicted_scores_val, similarity_scores_val)
 
-        print(f'Epoch [{epoch + 1}/{NUM_EPOCHS}], Loss: {loss.item()}, Pearson Correlation (Train): {corr_train}')
+            scheduler.step(loss_val)
+            current_lr = scheduler.optimizer.param_groups[0]['lr']
+            writer.add_scalar('Learning Rate', current_lr, epoch)
+
+            if loss_val < best_val_loss:
+                best_val_loss = loss_val
+                patience_counter = 0
+                torch.save(
+                    {'model_class': LinearTransformation,
+                     'state_dict': linear_transformation.state_dict()
+                    }, 'trained_models/best_linear_transformation.pth')
+            else:
+                patience_counter += 1
+                if patience_counter > early_stopping_patience:
+                    print(f'Early stopping at epoch {epoch + 1}')
+                    break
+
+        print(f'Epoch [{epoch + 1}/{NUM_EPOCHS}], Loss: {loss.item()}, Pearson Correlation (Train): {corr_train}, Learning Rate: {current_lr}')
         print(f'Validation - Loss: {loss_val.item()}, Pearson Correlation (Validation): {corr_val} \n')
 
-    # torch.save(
-    #     {'model_class': LinearTransformation,
-    #      'state_dict': linear_transformation.state_dict()
-    # }, 'models/linear_transformation.pth')
 
     learned_transformation = list(linear_transformation.parameters())[0].detach().numpy()
     print(learned_transformation.shape)
