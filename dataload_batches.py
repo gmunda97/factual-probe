@@ -7,7 +7,7 @@ from tqdm import tqdm
 import pickle
 import torch
 import pandas as pd
-from bert_embeddings import CreateBERTEmbeddings, CreateBERTEmbeddingsWithCLS
+from bert_embeddings import BERTEmbeddings, BERTEmbeddingsWithCLS
 
 
 
@@ -101,7 +101,7 @@ if __name__ == '__main__':
     val_data = pd.read_csv('data/dataset/val.csv')
 
     if os.path.exists(SAVE_PATH):
-        bert_embeddings = CreateBERTEmbeddingsWithCLS(MODEL_NAME)
+        bert_embeddings = BERTEmbeddingsWithCLS(MODEL_NAME)
         data_prep = DataPreparation(MODEL_NAME, bert_embeddings)
         normalized_embeddings, similarity_scores = data_prep.prepare_data(train_data)
         print(normalized_embeddings.shape)
@@ -109,7 +109,7 @@ if __name__ == '__main__':
         print(normalized_embeddings[0])
 
     else:
-        bert_embeddings = CreateBERTEmbeddingsWithCLS(MODEL_NAME)
+        bert_embeddings = BERTEmbeddingsWithCLS(MODEL_NAME)
         data_prep = EmbeddingsOnDisk(MODEL_NAME, bert_embeddings, SAVE_PATH)
         normalized_embeddings, _ = data_prep.prepare_embeddings_and_save(val_data)
 

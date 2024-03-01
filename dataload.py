@@ -4,7 +4,7 @@ Module to process the dataset for the model training
 
 import torch
 import pandas as pd
-from bert_embeddings import CreateBERTEmbeddings, CreateBERTEmbeddingsWithCLS
+from bert_embeddings import BERTEmbeddings, BERTEmbeddingsWithCLS
 
 
 
@@ -54,7 +54,7 @@ if __name__ == '__main__':
     MODEL_NAME = 'bert-base-uncased'
     data = pd.read_csv('data/dataset/train.csv')
 
-    bert_embeddings = CreateBERTEmbeddingsWithCLS(MODEL_NAME)
+    bert_embeddings = BERTEmbeddingsWithCLS(MODEL_NAME)
     data_prep = DataPreparation(MODEL_NAME, bert_embeddings)
 
     normalized_embeddings, similarity_scores = data_prep.prepare_data(data)

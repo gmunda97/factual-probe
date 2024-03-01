@@ -14,7 +14,7 @@ import numpy as np
 from scipy.stats import pearsonr, spearmanr
 
 from dataload_batches import DataPreparation
-from bert_embeddings import CreateBERTEmbeddings, CreateBERTEmbeddingsWithCLS
+from bert_embeddings import BERTEmbeddings, BERTEmbeddingsWithCLS
 from linear_transformations import LinearTransformation, OrthogonalLayer
 
 # Set seeds for reproducibility
@@ -64,7 +64,7 @@ if __name__ == '__main__':
         similarity_scores_val = torch.Tensor(val_data['similarity'].values).view(-1, 1)
     else:
         print("Generating embeddings using CreateBERTEmbeddingsWithCLS\n")
-        bert_embeddings = CreateBERTEmbeddingsWithCLS(MODEL_NAME)
+        bert_embeddings = BERTEmbeddingsWithCLS(MODEL_NAME)
         data_prep = DataPreparation(MODEL_NAME, bert_embeddings)
         normalized_embeddings_train, similarity_scores_train = data_prep.prepare_data(train_data[:100])
         normalized_embeddings_val, similarity_scores_val = data_prep.prepare_data(val_data[:20])
