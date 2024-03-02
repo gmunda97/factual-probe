@@ -69,6 +69,7 @@ if __name__ == '__main__':
         normalized_embeddings_train, similarity_scores_train = data_prep.prepare_data(train_data[:100])
         normalized_embeddings_val, similarity_scores_val = data_prep.prepare_data(val_data[:20])
 
+    print(f"Shape of the normalized embeddings: {normalized_embeddings_train.shape}")
     EMBEDDING_DIM = normalized_embeddings_train.shape[1]
 
     linear_transformation = LinearTransformation(EMBEDDING_DIM, EMBEDDING_DIM)

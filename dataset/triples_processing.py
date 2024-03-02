@@ -8,8 +8,10 @@ from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_excep
 
 logging.basicConfig(level=logging.INFO)
 
+
 class RateLimitException(Exception):
     pass
+
 
 @retry(
     stop=stop_after_attempt(5),  # Stop after 5 attempts
@@ -63,9 +65,8 @@ def add_entity_values_batch(entries, batch_size=50):
     return results
 
 def process_chunk_and_save(entries, temp_dir, temp_file_prefix, chunk_index, include_entity_info=True):
-    results = add_entity_values_batch(entries)  # Use the existing function to process entries
-    
-    # Define temporary file path
+    results = add_entity_values_batch(entries)
+
     temp_file_path = Path(temp_dir) / f"{temp_file_prefix}_chunk_{chunk_index}.jsonl"
     
     # Save results to a temporary file, including entity information if required
@@ -94,15 +95,21 @@ def incremental_concatenate(temp_file_path, output_file):
     Path(temp_file_path).unlink()
 
 def txt_to_jsonl_with_incremental_concat(input_file, output_file, temp_dir='./temp', temp_file_prefix='wikidata', batch_size=50):
-    with open(input_file, 'r', encoding='utf-8') as txt_file:
-        lines = txt_file.readlines()
-    
-    entries = [{'sub_id': line.split('\t')[0], 'pred_id': line.split('\t')[1], 'obj_id': line.split('\t')[2].strip()} for line in lines]
+    if input_file.endswith('.jsonl'):
+        with open(input_file, 'r', encoding='utf-8') as jsonl_file:
+            entries = [json.loads(line) for line in jsonl_file]
+    elif input_file.endswith('.tsv') or input_file.endswith('.txt'):
+        with open(input_file, 'r', encoding='utf-8') as txt_file:
+            lines = txt_file.readlines()
+        entries = [{'sub_id': line.split('\t')[0], 'pred_id': line.split('\t')[1], 'obj_id': line.split('\t')[2].strip()} for line in lines]
+    else:
+        logging.error(f"Unsupported input file format: {input_file}")
+        return
     
     # Ensure the temporary directory and output file are ready
     Path(temp_dir).mkdir(exist_ok=True)
     Path(output_file).unlink(missing_ok=True)  # Remove the output file if it exists
-    
+
     # Process dataset in chunks, save to temporary files, and incrementally concatenate
     for i in tqdm(range(0, len(entries), batch_size), desc="Overall Progress"):
         chunk_entries = entries[i:i+batch_size]
@@ -113,6 +120,6 @@ def txt_to_jsonl_with_incremental_concat(input_file, output_file, temp_dir='./te
 
 
 
-input_file = './../data/wikidata5m_inductive/wikidata5m_inductive_test.txt'
-output_file = './../data/wikidata5m_inductive/wikidata5m_inductive_test.jsonl'
+input_file = './../data/wikidata5m_inductive/wikidata5m_inductive_train_40k.tsv'
+output_file = './../data/wikidata5m_inductive/3wikidata5m_inductive_train_42k_sim_desc.jsonl'
 txt_to_jsonl_with_incremental_concat(input_file, output_file)

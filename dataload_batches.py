@@ -6,9 +6,21 @@ import os
 from tqdm import tqdm
 import pickle
 import torch
+from torch.utils.data import Dataset, DataLoader
 import pandas as pd
 from bert_embeddings import BERTEmbeddings, BERTEmbeddingsWithCLS
 
+
+class CustomDataset(Dataset):
+    def __init__(self, data):
+        self.data = data
+    
+    def __len__(self):
+        return len(self.data)
+    
+    def __getitem__(self, idx):
+        row = self.data.iloc[idx]
+        return row['subject'], row['object'], row['similarity']
 
 
 class DataPreparation:
@@ -22,7 +34,7 @@ class DataPreparation:
         '''
         embeddings = self.contextual_embeddings(entity_text)
         embeddings = embeddings.detach().clone().requires_grad_(True)
-        normalized_embeddings = embeddings / torch.linalg.vector_norm(embeddings)
+        normalized_embeddings = embeddings / torch.linalg.vector_norm(embeddings, dim=1, keepdim=True)
 
         return normalized_embeddings
 
@@ -30,23 +42,18 @@ class DataPreparation:
         '''
         Prepares a batch of normalized embeddings and similarity scores
         '''
+        subjects, objects, similarities = batch_data
         batch_normalized_embeddings = []
         batch_similarity_scores = []
 
-        for _, row in tqdm(batch_data.iterrows()):
-            entity1 = row['subject']
-            entity2 = row['object']
-            similarity = row['similarity']
-
-            embeddings1_normalized = self.get_normalized_embeddings(entity1)
-            embeddings2_normalized = self.get_normalized_embeddings(entity2)
-
+        for subject, obj in zip(subjects, objects):
+            embeddings1_normalized = self.get_normalized_embeddings(subject)
+            embeddings2_normalized = self.get_normalized_embeddings(obj)
             batch_normalized_embeddings.append(embeddings1_normalized)
             batch_normalized_embeddings.append(embeddings2_normalized)
-            batch_similarity_scores.append(similarity)
-
-        batch_normalized_embeddings = torch.cat(batch_normalized_embeddings)
-        batch_similarity_scores = torch.tensor(batch_similarity_scores).view(-1, 1)
+        
+        batch_normalized_embeddings = torch.cat(batch_normalized_embeddings, dim=0)
+        batch_similarity_scores = torch.as_tensor(similarities, dtype=torch.float32).view(-1, 1)
 
         return batch_normalized_embeddings, batch_similarity_scores
 
@@ -55,20 +62,17 @@ class DataPreparation:
         Returns a tuple with lists of normalized embeddings and 
         similarity scores for the given dataset
         '''
+        dataset = CustomDataset(data)
+        dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
+
         normalized_embeddings = []
         similarity_scores = []
 
-        num_rows = len(data)
-
-        for start in range(0, num_rows, batch_size):
-            end = min(start + batch_size, num_rows)
-            batch_data = data.iloc[start:end]
-
+        for batch_data in tqdm(dataloader):
             batch_normalized_embeddings, batch_similarity_scores = self.prepare_batch(batch_data)
-
             normalized_embeddings.append(batch_normalized_embeddings)
             similarity_scores.append(batch_similarity_scores)
-
+        
         normalized_embeddings = torch.cat(normalized_embeddings)
         similarity_scores = torch.cat(similarity_scores)
 
