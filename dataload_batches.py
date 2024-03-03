@@ -33,8 +33,10 @@ class DataPreparation:
         Method to L2 normalize embeddings for the given entity text
         '''
         embeddings = self.contextual_embeddings(entity_text)
-        embeddings = embeddings.detach().clone().requires_grad_(True)
-        normalized_embeddings = embeddings / torch.linalg.vector_norm(embeddings, dim=1, keepdim=True)
+        embeddings = embeddings.detach()#.clone().requires_grad_(True)
+        norm = torch.linalg.norm(embeddings, dim=1, keepdim=True)
+        norm[norm == 0] = 1 # prevent division by zero
+        normalized_embeddings = embeddings / norm
 
         return normalized_embeddings
 
@@ -62,8 +64,9 @@ class DataPreparation:
         Returns a tuple with lists of normalized embeddings and 
         similarity scores for the given dataset
         '''
+        data = data.sample(frac=1, random_state=42).reset_index(drop=True)
         dataset = CustomDataset(data)
-        dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True)
+        dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=False)
 
         normalized_embeddings = []
         similarity_scores = []
@@ -79,30 +82,29 @@ class DataPreparation:
         return normalized_embeddings, similarity_scores
     
 
-class EmbeddingsOnDisk(DataPreparation):
+class DataOnDisk(DataPreparation):
     def __init__(self, model_name: str, contextual_embeddings: torch.Tensor, save_path: str) -> None:
         super().__init__(model_name, contextual_embeddings)
         self.save_path = save_path
 
-    def _save_embeddings_to_pickle(self, embeddings: torch.Tensor) -> None:
-        with open(self.save_path, 'wb') as file:
-            pickle.dump(embeddings, file)
+    def _save_data_to_torch(self, embeddings: torch.Tensor, scores: torch.Tensor) -> None:
+        data_to_save = {'embeddings': embeddings, 'similarity_scores': scores}
+        torch.save(data_to_save, self.save_path)
 
-    def prepare_embeddings_and_save(self, data: pd.DataFrame, batch_size: int = 32) -> torch.Tensor:
-        normalized_embeddings, _ = self.prepare_data(data, batch_size)
-        self._save_embeddings_to_pickle(normalized_embeddings)
+    def prepare_data_and_save(self, data: pd.DataFrame, batch_size: int = 32) -> None:
+        normalized_embeddings, similarity_scores = self.prepare_data(data, batch_size)
+        self._save_data_to_torch(normalized_embeddings, similarity_scores)
 
-        return normalized_embeddings, None
+        return normalized_embeddings, similarity_scores
 
 
-    
 
 if __name__ == '__main__':
 
     MODEL_NAME = 'bert-base-uncased'
-    SAVE_PATH = 'data/embeddings/embeddings_val.pkl'
-    train_data = pd.read_csv('data/dataset/train.csv')
-    val_data = pd.read_csv('data/dataset/val.csv')
+    SAVE_PATH = './data/embeddings/3wikidata5m_6k_train_embeddings.pt'
+    train_data = pd.read_csv('./data/dataset/wikidata5m_6k_train.csv')
+    #val_data = pd.read_csv('./data/dataset/wikidata5m_6k_valid.csv')
 
     if os.path.exists(SAVE_PATH):
         bert_embeddings = BERTEmbeddingsWithCLS(MODEL_NAME)
@@ -114,9 +116,5 @@ if __name__ == '__main__':
 
     else:
         bert_embeddings = BERTEmbeddingsWithCLS(MODEL_NAME)
-        data_prep = EmbeddingsOnDisk(MODEL_NAME, bert_embeddings, SAVE_PATH)
-        normalized_embeddings, _ = data_prep.prepare_embeddings_and_save(val_data)
-
-
-
-
+        data_prep = DataOnDisk(MODEL_NAME, bert_embeddings, SAVE_PATH)
+        normalized_embeddings, _ = data_prep.prepare_data_and_save(train_data)

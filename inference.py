@@ -1,19 +1,19 @@
 import torch
 import torch.nn.functional as F
 
-from bert_embeddings import CreateBERTEmbeddingsWithCLS
+from bert_embeddings import BERTEmbeddingsWithCLS
 
 
-entiy1 = "All This, and Heaven Too"
-entity2 = "Jeffrey Lynn"
+entiy1 = "Les Saintes-Maries-de-la-Mer"
+entity2 = "UTC+02:00"
 
-embedding_entity1 = CreateBERTEmbeddingsWithCLS('bert-base-uncased')(entiy1)
-embedding_entity2 = CreateBERTEmbeddingsWithCLS('bert-base-uncased')(entity2)
+embedding_entity1 = BERTEmbeddingsWithCLS('bert-base-uncased')(entiy1)
+embedding_entity2 = BERTEmbeddingsWithCLS('bert-base-uncased')(entity2)
 
 EMBEDDING_DIM = embedding_entity1.shape[1]
 
 
-checkpoint = torch.load('models/linear_transformation.pth')
+checkpoint = torch.load('./trained_models/best_linear_transformation.pth')
 # load the weights into my linear model
 loaded_linear_transformation = checkpoint['model_class'](EMBEDDING_DIM, EMBEDDING_DIM)
 # loading the state dictionary

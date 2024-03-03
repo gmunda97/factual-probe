@@ -15,16 +15,16 @@ from scipy.stats import pearsonr, spearmanr
 
 from dataload_batches import DataPreparation
 from bert_embeddings import BERTEmbeddings, BERTEmbeddingsWithCLS
-from linear_transformations import LinearTransformation, OrthogonalLayer
+from transformations import LinearTransformation, OrthogonalLayer, MultilayerPerceptron, RBFKernelLayer
 
 # Set seeds for reproducibility
-seed = 42
-torch.manual_seed(seed)
-torch.cuda.manual_seed(seed)
-np.random.seed(seed)
-random.seed(seed)
-torch.backends.cudnn.deterministic = True
-torch.backends.cudnn.benchmark = False
+# seed = 42
+# torch.manual_seed(seed)
+# torch.cuda.manual_seed(seed)
+# np.random.seed(seed)
+# random.seed(seed)
+# torch.backends.cudnn.deterministic = True
+# torch.backends.cudnn.benchmark = False
 
 
 def compute_pearson_correlation(predicted: torch.Tensor, actual: torch.Tensor) -> float:
@@ -41,55 +41,68 @@ def compute_spearman_correlation(predicted: torch.Tensor, actual: torch.Tensor) 
 
     return corr
 
+def load_embeddings_and_scores_from_torch(file_path: str):
+    loaded_data = torch.load(file_path)
+    embeddings = loaded_data['embeddings']
+    similarity_scores = loaded_data['similarity_scores']
+
+    return embeddings, similarity_scores
+
 
 if __name__ == '__main__':
 
     train_data = pd.read_csv('./data/dataset/wikidata5m_6k_train.csv')
-    val_data = pd.read_csv('data/dataset/wikidata5m_6k_val.csv')
+    val_data = pd.read_csv('data/dataset/wikidata5m_6k_valid.csv')
 
     MODEL_NAME = 'bert-base-uncased'
-    EMBEDDINGS_PICKLE_TRAIN = 'data/embeddings/embeddings_train2.pkl'
-    EMBEDDINGS_PICKLE_VAL = 'data/embeddings/embeddings_val2.pkl'
+    EMBEDDINGS_PYTORCH_TRAIN = './data/embeddings/3wikidata5m_6k_train_embeddings.pt'
+    EMBEDDINGS_PYTORCH_VAL = './data/embeddings/3wikidata5m_6k_valid_embeddings.pt'
 
-    if os.path.exists(EMBEDDINGS_PICKLE_TRAIN):
-        with open(EMBEDDINGS_PICKLE_TRAIN, 'rb') as file:
-            saved_train_embeddings = pickle.load(file)
-        with open(EMBEDDINGS_PICKLE_VAL, 'rb') as file:
-            saved_val_embeddings = pickle.load(file)
+    if os.path.exists(EMBEDDINGS_PYTORCH_TRAIN):
+        saved_train_embeddings, similarity_scores_train = load_embeddings_and_scores_from_torch(EMBEDDINGS_PYTORCH_TRAIN)
+        saved_val_embeddings, similarity_scores_val = load_embeddings_and_scores_from_torch(EMBEDDINGS_PYTORCH_VAL)
         
         print("Using saved embeddings\n")
         normalized_embeddings_train = saved_train_embeddings
+        print(normalized_embeddings_train.shape)
+        print(type(normalized_embeddings_train))
         normalized_embeddings_val = saved_val_embeddings
-        similarity_scores_train = torch.Tensor(train_data['similarity'].values).view(-1, 1)
-        similarity_scores_val = torch.Tensor(val_data['similarity'].values).view(-1, 1)
+        print(normalized_embeddings_val.shape)
+        print(type(normalized_embeddings_val))
+        # similarity_scores_train = torch.Tensor(train_data['similarity'].values).view(-1, 1)
+        # similarity_scores_val = torch.Tensor(val_data['similarity'].values).view(-1, 1)
     else:
         print("Generating embeddings using CreateBERTEmbeddingsWithCLS\n")
         bert_embeddings = BERTEmbeddingsWithCLS(MODEL_NAME)
         data_prep = DataPreparation(MODEL_NAME, bert_embeddings)
-        normalized_embeddings_train, similarity_scores_train = data_prep.prepare_data(train_data[:100])
-        normalized_embeddings_val, similarity_scores_val = data_prep.prepare_data(val_data[:20])
+        normalized_embeddings_train, similarity_scores_train = data_prep.prepare_data(train_data)
+        normalized_embeddings_val, similarity_scores_val = data_prep.prepare_data(val_data)
 
     print(f"Shape of the normalized embeddings: {normalized_embeddings_train.shape}")
     EMBEDDING_DIM = normalized_embeddings_train.shape[1]
+    HIDDEN_DIM = 512
+    RBF_FEAUTURES = 100
 
-    linear_transformation = LinearTransformation(EMBEDDING_DIM, EMBEDDING_DIM)
-    #linear_transformation = OrthogonalLayer(EMBEDDING_DIM)
+    model = LinearTransformation(EMBEDDING_DIM, EMBEDDING_DIM)
+    #model = RBFKernelLayer(EMBEDDING_DIM, RBF_FEAUTURES, EMBEDDING_DIM)
+    #model = MultilayerPerceptron(EMBEDDING_DIM, HIDDEN_DIM, EMBEDDING_DIM)
+    #model = OrthogonalLayer(EMBEDDING_DIM)
 
     loss_function = nn.MSELoss()
-    #optimizer = optim.SGD(linear_transformation.parameters(), lr=5.0, momentum=0.05) #weight_decay=0.005)
-    optimizer = optim.AdamW(linear_transformation.parameters(), lr=0.05, weight_decay=0.005)
-    scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=10)
+    #optimizer = optim.SGD(model.parameters(), lr=5.0, momentum=0.05) #weight_decay=0.005)
+    optimizer = optim.AdamW(model.parameters(), lr=0.05, weight_decay=0.005)
+    scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=5)
 
     NUM_EPOCHS = 100
     early_stopping_patience = 10
     best_val_loss = float('inf')
     patience_counter = 0
 
-    writer = SummaryWriter('./runs/linear_transformation_experiment')
+    writer = SummaryWriter('./runs/model_experiment')
 
     for epoch in range(NUM_EPOCHS):
         optimizer.zero_grad()
-        transformed_embeddings = linear_transformation(normalized_embeddings_train)
+        transformed_embeddings = model(normalized_embeddings_train)
         print(f"Shape of the transformed embeddings: {transformed_embeddings.shape}")
         
         predicted_scores_train = F.cosine_similarity(
@@ -109,7 +122,7 @@ if __name__ == '__main__':
 
         # Evaluation on the validation set
         with torch.no_grad():
-            transformed_embeddings_val = linear_transformation(normalized_embeddings_val)
+            transformed_embeddings_val = model(normalized_embeddings_val)
             predicted_scores_val = F.cosine_similarity(
                 transformed_embeddings_val[::2],
                 transformed_embeddings_val[1::2],
@@ -128,8 +141,8 @@ if __name__ == '__main__':
                 patience_counter = 0
                 torch.save(
                     {'model_class': LinearTransformation,
-                     'state_dict': linear_transformation.state_dict()
-                    }, 'trained_models/best_linear_transformation.pth')
+                     'state_dict': model.state_dict()
+                    }, 'trained_models/best_model.pth')
             else:
                 patience_counter += 1
                 if patience_counter > early_stopping_patience:
@@ -140,5 +153,5 @@ if __name__ == '__main__':
         print(f'Validation - Loss: {loss_val.item()}, Pearson Correlation (Validation): {corr_val} \n')
 
 
-    learned_transformation = list(linear_transformation.parameters())[0].detach().numpy()
+    learned_transformation = list(model.parameters())[0].detach().numpy()
     print(learned_transformation.shape)
