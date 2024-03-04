@@ -3,3 +3,4 @@
 /data
 /trained_models
 /runs
+/train/__pycache__

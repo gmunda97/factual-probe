@@ -102,14 +102,14 @@ class DataOnDisk(DataPreparation):
 if __name__ == '__main__':
 
     MODEL_NAME = 'bert-base-uncased'
-    SAVE_PATH = './data/embeddings/3wikidata5m_6k_train_embeddings.pt'
-    train_data = pd.read_csv('./data/dataset/wikidata5m_6k_train.csv')
-    #val_data = pd.read_csv('./data/dataset/wikidata5m_6k_valid.csv')
+    SAVE_PATH = './../data/embeddings/wikidata5m_42k_valid_embeddings.pt'
+    #train_data = pd.read_csv('./data/dataset/wikidata5m_42k_train.csv')
+    val_data = pd.read_csv('./../data/dataset/wikidata5m_42k_valid.csv')
 
     if os.path.exists(SAVE_PATH):
         bert_embeddings = BERTEmbeddingsWithCLS(MODEL_NAME)
         data_prep = DataPreparation(MODEL_NAME, bert_embeddings)
-        normalized_embeddings, similarity_scores = data_prep.prepare_data(train_data)
+        normalized_embeddings, similarity_scores = data_prep.prepare_data(val_data)
         print(normalized_embeddings.shape)
         print(similarity_scores.shape)
         print(normalized_embeddings[0])
@@ -117,4 +117,4 @@ if __name__ == '__main__':
     else:
         bert_embeddings = BERTEmbeddingsWithCLS(MODEL_NAME)
         data_prep = DataOnDisk(MODEL_NAME, bert_embeddings, SAVE_PATH)
-        normalized_embeddings, _ = data_prep.prepare_data_and_save(train_data)
+        normalized_embeddings, _ = data_prep.prepare_data_and_save(val_data)

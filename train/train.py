@@ -51,12 +51,12 @@ def load_embeddings_and_scores_from_torch(file_path: str):
 
 if __name__ == '__main__':
 
-    train_data = pd.read_csv('./data/dataset/wikidata5m_6k_train.csv')
-    val_data = pd.read_csv('data/dataset/wikidata5m_6k_valid.csv')
+    train_data = pd.read_csv('./../data/dataset/wikidata5m_42k_train.csv')
+    val_data = pd.read_csv('./../data/dataset/wikidata5m_42k_valid.csv')
 
     MODEL_NAME = 'bert-base-uncased'
-    EMBEDDINGS_PYTORCH_TRAIN = './data/embeddings/3wikidata5m_6k_train_embeddings.pt'
-    EMBEDDINGS_PYTORCH_VAL = './data/embeddings/3wikidata5m_6k_valid_embeddings.pt'
+    EMBEDDINGS_PYTORCH_TRAIN = './../data/embeddings/wikidata5m_42k_train_embeddings.pt'
+    EMBEDDINGS_PYTORCH_VAL = './../data/embeddings/wikidata5m_42k_valid_embeddings.pt'
 
     if os.path.exists(EMBEDDINGS_PYTORCH_TRAIN):
         saved_train_embeddings, similarity_scores_train = load_embeddings_and_scores_from_torch(EMBEDDINGS_PYTORCH_TRAIN)
@@ -90,7 +90,7 @@ if __name__ == '__main__':
 
     loss_function = nn.MSELoss()
     #optimizer = optim.SGD(model.parameters(), lr=5.0, momentum=0.05) #weight_decay=0.005)
-    optimizer = optim.AdamW(model.parameters(), lr=0.05, weight_decay=0.005)
+    optimizer = optim.AdamW(model.parameters(), lr=0.005, weight_decay=0.005)
     scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=5)
 
     NUM_EPOCHS = 100
@@ -142,7 +142,7 @@ if __name__ == '__main__':
                 torch.save(
                     {'model_class': LinearTransformation,
                      'state_dict': model.state_dict()
-                    }, 'trained_models/best_model.pth')
+                    }, './../trained_models/best_model.pth')
             else:
                 patience_counter += 1
                 if patience_counter > early_stopping_patience:
