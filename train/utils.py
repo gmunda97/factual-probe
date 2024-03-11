@@ -27,7 +27,7 @@ class UtiliyFunctions:
     
     @staticmethod
     def is_orthogonal(matrix: np.ndarray) -> bool:
-        return np.allclose(matrix.T @ matrix, np.eye(matrix.shape[1]))
+        return np.allclose(matrix.T @ matrix, np.eye(matrix.shape[1]), atol=1e-5)
 
     @staticmethod
     def load_embeddings_and_scores_from_torch(file_path: str) -> Tuple[torch.Tensor, torch.Tensor]:
@@ -46,7 +46,7 @@ class UtiliyFunctions:
         plt.ylabel('Loss')
         plt.title('Loss over Epochs')
         plt.legend()
-        plt.show()
+        plt.savefig('./resources/plots/loss.png')
 
     @staticmethod
     def plot_pearson_correlations(train_corrs: list, val_corrs: list) -> None:
@@ -57,4 +57,4 @@ class UtiliyFunctions:
         plt.ylabel('Pearson Correlation')
         plt.title('Pearson Correlation over Epochs')
         plt.legend()
-        plt.show()
+        plt.savefig('./resources/plots/pearson_correlation.png')

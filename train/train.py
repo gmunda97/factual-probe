@@ -1,6 +1,7 @@
 """Module to train the linear transformation"""
 
 import os
+import random
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -8,7 +9,6 @@ import torch.optim as optim
 from torch.optim.lr_scheduler import StepLR, ExponentialLR, ReduceLROnPlateau
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
 
 from dataload_batches import DataPreparation
 from bert_embeddings import BERTEmbeddings, BERTEmbeddingsWithCLS
@@ -17,13 +17,13 @@ from utils import UtiliyFunctions
 
 
 # Set seeds for reproducibility
-# seed = 42
-# torch.manual_seed(seed)
-# torch.cuda.manual_seed(seed)
-# np.random.seed(seed)
-# random.seed(seed)
-# torch.backends.cudnn.deterministic = True
-# torch.backends.cudnn.benchmark = False
+seed = 42
+torch.manual_seed(seed)
+torch.cuda.manual_seed(seed)
+np.random.seed(seed)
+random.seed(seed)
+torch.backends.cudnn.deterministic = True
+torch.backends.cudnn.benchmark = False
 
 
 
@@ -63,10 +63,10 @@ if __name__ == '__main__':
     HIDDEN_DIM = 512
     RBF_FEAUTURES = 100
 
-    #model = LinearTransformation(EMBEDDING_DIM, EMBEDDING_DIM)
+    model = LinearTransformation(EMBEDDING_DIM, EMBEDDING_DIM)
     #model = RBFKernelLayer(EMBEDDING_DIM, RBF_FEAUTURES, EMBEDDING_DIM)
     #model = MultilayerPerceptron(EMBEDDING_DIM, HIDDEN_DIM, EMBEDDING_DIM)
-    model = OrthogonalLayer(EMBEDDING_DIM)
+    #model = OrthogonalLayer(EMBEDDING_DIM)
 
     loss_function = nn.MSELoss()
     #optimizer = optim.SGD(model.parameters(), lr=5.0, momentum=0.05) #weight_decay=0.005)
@@ -147,5 +147,5 @@ if __name__ == '__main__':
     print(learned_transformation.shape)
     print(learned_transformation)
 
-    orthogonality = utils.is_orthogonal(learned_transformation)
-    print(f"Is the learned transformation orthogonal? \n {orthogonality}")
+    orthogonality = utils.is_orthogonal(model.weights.detach().numpy())
+    print(f"Is the learned transformation orthogonal? {orthogonality}")
