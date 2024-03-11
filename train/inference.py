@@ -13,7 +13,7 @@ embedding_entity2 = BERTEmbeddingsWithCLS('bert-base-uncased')(entity2)
 EMBEDDING_DIM = embedding_entity1.shape[1]
 
 
-checkpoint = torch.load('./trained_models/best_linear_transformation.pth')
+checkpoint = torch.load('./../trained_models/42k_linear_transformation.pth')
 # load the weights into my linear model
 loaded_linear_transformation = checkpoint['model_class'](EMBEDDING_DIM, EMBEDDING_DIM)
 # loading the state dictionary
