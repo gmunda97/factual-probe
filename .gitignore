@@ -4,3 +4,4 @@
 /trained_models
 /runs
 /train/__pycache__
+**/__pycache__

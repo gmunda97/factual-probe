@@ -5,9 +5,10 @@ import torch
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import pearsonr, spearmanr
+from sklearn.metrics import mean_squared_error
 
 
-class UtiliyFunctions:
+class UtilityFunctions:
 
     @staticmethod
     def compute_pearson_correlation(predicted: torch.Tensor, actual: torch.Tensor) -> float:
@@ -24,6 +25,21 @@ class UtiliyFunctions:
         corr, _ = spearmanr(predicted, actual)
 
         return corr
+    
+    @staticmethod
+    def compute_mean_squared_error(predicted: torch.Tensor, actual: torch.Tensor) -> float:
+        predicted = predicted.squeeze().cpu().detach().numpy()
+        actual = actual.squeeze().cpu().detach().numpy()
+        mse = mean_squared_error(actual, predicted)
+        return mse
+    
+    @staticmethod
+    def compute_root_mean_squared_error(predicted: torch.Tensor, actual: torch.Tensor) -> float:
+        predicted = predicted.squeeze().cpu().detach().numpy()
+        actual = actual.squeeze().cpu().detach().numpy()
+        mse = mean_squared_error(actual, predicted)
+        rmse = np.sqrt(mse)
+        return rmse
     
     @staticmethod
     def is_orthogonal(matrix: np.ndarray) -> bool:

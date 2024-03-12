@@ -13,7 +13,7 @@ import numpy as np
 from dataload_batches import DataPreparation
 from bert_embeddings import BERTEmbeddings, BERTEmbeddingsWithCLS
 from transformations import LinearTransformation, OrthogonalLayer, MultilayerPerceptron, RBFKernelLayer
-from utils import UtiliyFunctions
+from utils import UtilityFunctions
 
 
 # Set seeds for reproducibility
@@ -36,7 +36,7 @@ if __name__ == '__main__':
     EMBEDDINGS_PYTORCH_TRAIN = './../data/embeddings/wikidata5m_42k_train_embeddings.pt'
     EMBEDDINGS_PYTORCH_VAL = './../data/embeddings/wikidata5m_42k_valid_embeddings.pt'
 
-    utils = UtiliyFunctions()
+    utils = UtilityFunctions()
 
     if os.path.exists(EMBEDDINGS_PYTORCH_TRAIN):
         saved_train_embeddings, similarity_scores_train = utils.load_embeddings_and_scores_from_torch(EMBEDDINGS_PYTORCH_TRAIN)
