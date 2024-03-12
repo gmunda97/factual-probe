@@ -4,7 +4,7 @@ Module to generate BERT embeddings for the entities
 
 from abc import ABC, abstractmethod
 import torch
-from transformers import BertModel, BertTokenizer
+from transformers import BertModel, BertTokenizer, GPT2Model, GPT2Tokenizer
 
 
 class BaseEmbeddings(ABC):
@@ -56,3 +56,20 @@ class BERTEmbeddingsWithCLS(BaseEmbeddings):
         cls_token_state = last_hidden_states[:, 0, :]
 
         return cls_token_state
+
+
+class GPTEmbeddings(BaseEmbeddings):
+    '''
+    Class to create GPT-2 embeddings by averaging
+    and pooling the last hidden state
+    '''
+    def __init__(self, model_name: str) -> None:
+        self.tokenizer = GPT2Tokenizer.from_pretrained(model_name)
+        self.model = GPT2Model.from_pretrained(model_name)
+
+    def __call__(self, entity_text: str) -> torch.Tensor:
+        inputs = self.tokenizer(entity_text, return_tensors='pt', padding=True, truncation=True)
+        outputs = self.model(**inputs)
+        embeddings = outputs.last_hidden_state.mean(dim=1)
+
+        return embeddings

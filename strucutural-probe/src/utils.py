@@ -15,7 +15,6 @@ class UtilityFunctions:
         predicted = predicted.squeeze().cpu().detach().numpy()
         actual = actual.squeeze().cpu().detach().numpy()
         corr, _ = pearsonr(predicted, actual)
-
         return corr
 
     @staticmethod
@@ -23,7 +22,6 @@ class UtilityFunctions:
         predicted = predicted.squeeze().cpu().detach().numpy()
         actual = actual.squeeze().cpu().detach().numpy()
         corr, _ = spearmanr(predicted, actual)
-
         return corr
     
     @staticmethod
@@ -50,7 +48,6 @@ class UtilityFunctions:
         loaded_data = torch.load(file_path)
         embeddings = loaded_data['embeddings']
         similarity_scores = loaded_data['similarity_scores']
-
         return embeddings, similarity_scores
 
     @staticmethod

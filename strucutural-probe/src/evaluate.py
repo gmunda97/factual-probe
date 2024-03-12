@@ -16,7 +16,7 @@ normalized_embeddings_test = saved_test_embeddings
 
 EMBEDDING_DIM = normalized_embeddings_test.shape[1]
 
-trained_model = './../../trained_models/42k_orthogonal.pth'
+trained_model = './../../trained_models/42k_linear_no_bias.pth'
 checkpoint = torch.load(trained_model)
 
 if 'orthogonal' in trained_model:

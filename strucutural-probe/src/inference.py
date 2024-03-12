@@ -1,7 +1,7 @@
 import torch
 import torch.nn.functional as F
 
-from bert_embeddings import BERTEmbeddingsWithCLS
+from embeddings import BERTEmbeddingsWithCLS
 
 
 entiy1 = "Les Saintes-Maries-de-la-Mer"

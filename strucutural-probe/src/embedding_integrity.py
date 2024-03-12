@@ -2,7 +2,7 @@ import torch
 import pandas as pd
 
 from dataload_batches import DataPreparation
-from bert_embeddings import BERTEmbeddings, BERTEmbeddingsWithCLS
+from embeddings import BERTEmbeddings, BERTEmbeddingsWithCLS
 
 
 def load_embeddings_and_scores_from_torch(file_path: str):

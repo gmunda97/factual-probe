@@ -11,7 +11,7 @@ import pandas as pd
 import numpy as np
 
 from dataload_batches import DataPreparation
-from bert_embeddings import BERTEmbeddings, BERTEmbeddingsWithCLS
+from embeddings import BERTEmbeddings, BERTEmbeddingsWithCLS
 from transformations import LinearTransformation, OrthogonalLayer, MultilayerPerceptron, RBFKernelLayer
 from utils import UtilityFunctions
 
