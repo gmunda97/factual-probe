@@ -49,6 +49,16 @@ class UtilityFunctions:
         embeddings = loaded_data['embeddings']
         similarity_scores = loaded_data['similarity_scores']
         return embeddings, similarity_scores
+    
+    @staticmethod
+    def get_batch(data: torch.Tensor, batch_idx: int, effective_batch_size: int) -> torch.Tensor:
+        start_idx = batch_idx * effective_batch_size
+        end_idx = start_idx + effective_batch_size
+        return data[start_idx:end_idx]
+    
+    @staticmethod
+    def calculate_n_batches(total_size: int, batch_size: int) -> int:
+        return (total_size + batch_size -1) // batch_size
 
     @staticmethod
     def plot_losses(train_losses: list, val_losses: list) -> None:
@@ -59,7 +69,7 @@ class UtilityFunctions:
         plt.ylabel('Loss')
         plt.title('Loss over Epochs')
         plt.legend()
-        plt.savefig('./resources/plots/loss.png')
+        plt.savefig('./../resources/plots/loss.png')
 
     @staticmethod
     def plot_pearson_correlations(train_corrs: list, val_corrs: list) -> None:
@@ -70,4 +80,4 @@ class UtilityFunctions:
         plt.ylabel('Pearson Correlation')
         plt.title('Pearson Correlation over Epochs')
         plt.legend()
-        plt.savefig('./resources/plots/pearson_correlation.png')
+        plt.savefig('./../resources/plots/pearson_correlation.png')

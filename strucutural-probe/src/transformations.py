@@ -55,7 +55,7 @@ class LinearTransformation(BaseModel):
 
 
 class OrthogonalLayer(BaseModel):
-    def __init__(self, input_dim):
+    def __init__(self, input_dim: int) -> None:
         super(OrthogonalLayer, self).__init__()
         self.weights = nn.Parameter(torch.Tensor(input_dim, input_dim))
         nn.init.orthogonal_(self.weights)

@@ -3,7 +3,7 @@ config = {
     'embedding_dim': 768,
     'hidden_dim': 512,
     'rbf_features': 100,
-    'learning_rate': 0.05,
+    'learning_rate': 0.005,
     'weight_decay': 0.005,
     'num_epochs': 100,
     'early_stopping_patience': 10,

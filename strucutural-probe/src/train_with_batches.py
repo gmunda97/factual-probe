@@ -33,8 +33,8 @@ if __name__ == '__main__':
     val_data = pd.read_csv('./../../data/dataset/wikidata5m_42k_valid.csv')
 
     MODEL_NAME = 'bert-base-uncased'
-    EMBEDDINGS_PYTORCH_TRAIN = './../../data/embeddings/wikidata5m_42k_train_embeddings_bert.pt'
-    EMBEDDINGS_PYTORCH_VAL = './../../data/embeddings/wikidata5m_42k_valid_embeddings_bert.pt'
+    EMBEDDINGS_PYTORCH_TRAIN = './../../data/embeddings/wikidata5m_42k_train_embeddings.pt'
+    EMBEDDINGS_PYTORCH_VAL = './../../data/embeddings/wikidata5m_42k_valid_embeddings.pt'
 
     utils = UtilityFunctions()
 
@@ -83,59 +83,68 @@ if __name__ == '__main__':
     train_corrs = []
     val_corrs = []
 
+    batch_size = 32
+    effective_batch_size = batch_size * 2
+
+    # n_batches_train = utils.calculate_n_batches(normalized_embeddings_train.shape[0], 32)
+    # n_batches_val = utils.calculate_n_batches(normalized_embeddings_val.shape[0], 32)
+
     for epoch in range(NUM_EPOCHS):
-        optimizer.zero_grad()
-        transformed_embeddings = model(normalized_embeddings_train)
-        print(f"Shape of the transformed embeddings: {transformed_embeddings.shape}")
-        
-        predicted_scores_train = F.cosine_similarity(
-            transformed_embeddings[::2], # select every other embedding starting from the first one
-            transformed_embeddings[1::2], # select every other embedding starting from the second one
-            dim=1                         # if we have e1, e2, e3, e4 it will compute the similarity between (e1, e2), (e3, e4)
-        ).view(-1, 1)
+        model.train()
+        for batch_idx in range(utils.calculate_n_batches(normalized_embeddings_train.shape[0], effective_batch_size)):
+            batch_embeddings = utils.get_batch(normalized_embeddings_train, batch_idx, effective_batch_size)
+            batch_similarity_scores = utils.get_batch(similarity_scores_train, batch_idx, batch_size)
 
-        print(f"Shape of the predicted scores: {predicted_scores_train.shape}")
-
-        loss = loss_function(predicted_scores_train, similarity_scores_train)
-        loss.backward(retain_graph=True)
-        optimizer.step()
-
-        # Calculate the Pearson correlation coefficient for evaluation
-        corr_train = utils.compute_pearson_correlation(predicted_scores_train, similarity_scores_train)
-
-        train_losses.append(loss.item())
-        train_corrs.append(corr_train)
-
-        # Evaluation on the validation set
-        with torch.no_grad():
-            transformed_embeddings_val = model(normalized_embeddings_val)
-            predicted_scores_val = F.cosine_similarity(
-                transformed_embeddings_val[::2],
-                transformed_embeddings_val[1::2],
+            optimizer.zero_grad()
+            transformed_embeddings = model(batch_embeddings)
+            predicted_scores_train = F.cosine_similarity(
+                transformed_embeddings[::2],
+                transformed_embeddings[1::2],
                 dim=1
             ).view(-1, 1)
 
-            loss_val = loss_function(predicted_scores_val, similarity_scores_val)
-            corr_val = utils.compute_pearson_correlation(predicted_scores_val, similarity_scores_val)
+            loss = loss_function(predicted_scores_train, batch_similarity_scores)
+            loss.backward(retain_graph=True)
+            optimizer.step()
 
-            scheduler.step(loss_val)
-            current_lr = scheduler.optimizer.param_groups[0]['lr']
+            corr_train = utils.compute_pearson_correlation(predicted_scores_train, batch_similarity_scores)
+            
+            train_losses.append(loss.item())
+            train_corrs.append(corr_train)
 
-            val_losses.append(loss_val.item())
-            val_corrs.append(corr_val)
+        model.eval()
+        with torch.no_grad():
+            for batch_idx in range(utils.calculate_n_batches(normalized_embeddings_val.shape[0], effective_batch_size)):
+                batch_embeddings_val = utils.get_batch(normalized_embeddings_val, batch_idx, effective_batch_size)
+                batch_similarity_scores_val = utils.get_batch(similarity_scores_val, batch_idx, batch_size)
 
-            if loss_val < best_val_loss:
-                best_val_loss = loss_val
-                patience_counter = 0
-                torch.save(
-                    {'model_class': LinearTransformation,
-                     'state_dict': model.state_dict()
-                    }, './../../trained_models/best_model.pth')
-            else:
-                patience_counter += 1
-                if patience_counter > early_stopping_patience:
-                    print(f'Early stopping at epoch {epoch + 1}')
-                    break
+                transformed_embeddings_val = model(batch_embeddings_val)
+                predicted_scores_val = F.cosine_similarity(
+                    transformed_embeddings_val[::2],
+                    transformed_embeddings_val[1::2],
+                    dim=1
+                ).view(-1, 1)
+
+                loss_val = loss_function(predicted_scores_val, batch_similarity_scores_val)
+                corr_val = utils.compute_pearson_correlation(predicted_scores_val, batch_similarity_scores_val)
+                scheduler.step(loss_val)
+                current_lr = scheduler.optimizer.param_groups[0]['lr']
+
+                val_losses.append(loss_val.item())
+                val_corrs.append(corr_val)
+
+                if loss_val < best_val_loss:
+                    best_val_loss = loss_val
+                    patience_counter = 0
+                    torch.save(
+                        {'model_class': LinearTransformation,
+                         'state_dict': model.state_dict()
+                        }, './../../trained_models/best_model.pth')
+                else:
+                    patience_counter += 1
+                    if patience_counter > early_stopping_patience:
+                        print(f'Early stopping at epoch {epoch + 1}')
+                        break
 
         print(f'Epoch [{epoch + 1}/{NUM_EPOCHS}], Loss: {loss.item()}, Pearson Correlation (Train): {corr_train}, Learning Rate: {current_lr}')
         print(f'Validation - Loss: {loss_val.item()}, Pearson Correlation (Validation): {corr_val} \n')
@@ -147,5 +156,5 @@ if __name__ == '__main__':
     print(learned_transformation.shape)
     print(learned_transformation)
 
-    # orthogonality = utils.is_orthogonal(model.weights.detach().numpy())
-    # print(f"Is the learned transformation orthogonal? {orthogonality}")
+    orthogonality = utils.is_orthogonal(model.weights.detach().numpy())
+    print(f"Is the learned transformation orthogonal? {orthogonality}")

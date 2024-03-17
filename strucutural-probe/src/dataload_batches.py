@@ -8,7 +8,7 @@ import pickle
 import torch
 from torch.utils.data import Dataset, DataLoader
 import pandas as pd
-from bert_embeddings import BERTEmbeddings, BERTEmbeddingsWithCLS
+from embeddings import BERTEmbeddings, BERTEmbeddingsWithCLS, GPTEmbeddings
 
 
 class CustomDataset(Dataset):
@@ -101,21 +101,21 @@ class DataOnDisk(DataPreparation):
 
 if __name__ == '__main__':
 
-    MODEL_NAME = 'bert-base-uncased'
-    SAVE_PATH = './../data/embeddings/wikidata5m_42k_test_embeddings.pt'
-    #train_data = pd.read_csv('./data/dataset/wikidata5m_42k_train.csv')
-    #val_data = pd.read_csv('./../data/dataset/wikidata5m_42k_valid.csv')
-    test_data = pd.read_csv('./../data/dataset/wikidata5m_42k_test.csv')
+    MODEL_NAME = 'openai-community/gpt2'
+    SAVE_PATH = './../../data/embeddings/wikidata5m_42k_valid_embeddings_gpt2.pt'
+    #train_data = pd.read_csv('./../../data/dataset/wikidata5m_42k_train.csv')
+    val_data = pd.read_csv('./../../data/dataset/wikidata5m_42k_valid.csv')
+    #test_data = pd.read_csv('./../../data/dataset/wikidata5m_42k_test.csv')
 
     if os.path.exists(SAVE_PATH):
         bert_embeddings = BERTEmbeddingsWithCLS(MODEL_NAME)
         data_prep = DataPreparation(MODEL_NAME, bert_embeddings)
-        normalized_embeddings, similarity_scores = data_prep.prepare_data(test_data)
+        normalized_embeddings, similarity_scores = data_prep.prepare_data(val_data)
         print(normalized_embeddings.shape)
         print(similarity_scores.shape)
         print(normalized_embeddings[0])
 
     else:
-        bert_embeddings = BERTEmbeddingsWithCLS(MODEL_NAME)
+        bert_embeddings = GPTEmbeddings(MODEL_NAME)
         data_prep = DataOnDisk(MODEL_NAME, bert_embeddings, SAVE_PATH)
-        normalized_embeddings, _ = data_prep.prepare_data_and_save(test_data)
+        normalized_embeddings, _ = data_prep.prepare_data_and_save(val_data)
