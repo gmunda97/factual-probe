@@ -32,9 +32,9 @@ if __name__ == '__main__':
     train_data = pd.read_csv('./../../data/dataset/wikidata5m_42k_train.csv')
     val_data = pd.read_csv('./../../data/dataset/wikidata5m_42k_valid.csv')
 
-    MODEL_NAME = 'bert-base-uncased'
-    EMBEDDINGS_PYTORCH_TRAIN = './../../data/embeddings/wikidata5m_42k_train_embeddings_bert.pt'
-    EMBEDDINGS_PYTORCH_VAL = './../../data/embeddings/wikidata5m_42k_valid_embeddings_bert.pt'
+    MODEL_NAME = 'facebook/bart-base'
+    EMBEDDINGS_PYTORCH_TRAIN = './../../data/embeddings/wikidata5m_42k_train_embeddings_bart.pt'
+    EMBEDDINGS_PYTORCH_VAL = './../../data/embeddings/wikidata5m_42k_valid_embeddings_bart.pt'
 
     utils = UtilityFunctions()
 
@@ -63,18 +63,18 @@ if __name__ == '__main__':
     HIDDEN_DIM = 512
     RBF_FEAUTURES = 100
 
-    model = LinearTransformation(EMBEDDING_DIM, EMBEDDING_DIM)
+    #model = LinearTransformation(EMBEDDING_DIM, EMBEDDING_DIM)
     #model = RBFKernelLayer(EMBEDDING_DIM, RBF_FEAUTURES, EMBEDDING_DIM)
     #model = MultilayerPerceptron(EMBEDDING_DIM, HIDDEN_DIM, EMBEDDING_DIM)
-    #model = OrthogonalLayer(EMBEDDING_DIM)
+    model = OrthogonalLayer(EMBEDDING_DIM)
 
     loss_function = nn.MSELoss()
     #optimizer = optim.SGD(model.parameters(), lr=5.0, momentum=0.05) #weight_decay=0.005)
-    optimizer = optim.AdamW(model.parameters(), lr=0.005, weight_decay=0.005)
+    optimizer = optim.AdamW(model.parameters(), lr=0.001, weight_decay=0.005)
     scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=5)
 
     NUM_EPOCHS = 100
-    early_stopping_patience = 10
+    early_stopping_patience = 100
     best_val_loss = float('inf')
     patience_counter = 0
 
@@ -128,7 +128,7 @@ if __name__ == '__main__':
                 best_val_loss = loss_val
                 patience_counter = 0
                 torch.save(
-                    {'model_class': LinearTransformation,
+                    {'model_class': OrthogonalLayer,
                      'state_dict': model.state_dict()
                     }, './../../trained_models/best_model.pth')
             else:

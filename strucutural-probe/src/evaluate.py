@@ -6,9 +6,9 @@ from utils import UtilityFunctions
 
 
 test_data = pd.read_csv('./../../data/dataset/wikidata5m_42k_test.csv')
-MODEL_NAME = 'openai-community/gpt2'
+MODEL_NAME = 'facebook/bart-base'
 
-EMBEDDINGS_PYTORCH_TEST = './../../data/embeddings/wikidata5m_42k_test_embeddings_gpt2.pt'
+EMBEDDINGS_PYTORCH_TEST = './../../data/embeddings/wikidata5m_42k_test_embeddings_bart.pt'
 utils = UtilityFunctions()
 
 saved_test_embeddings, similarity_scores_test = utils.load_embeddings_and_scores_from_torch(EMBEDDINGS_PYTORCH_TEST)
@@ -16,7 +16,7 @@ normalized_embeddings_test = saved_test_embeddings
 
 EMBEDDING_DIM = normalized_embeddings_test.shape[1]
 
-trained_model = './../../trained_models/42k_orthogonal_gpt2.pth'
+trained_model = './../../trained_models/42k_linear_bart.pth'
 checkpoint = torch.load(trained_model)
 
 if 'orthogonal' in trained_model:
