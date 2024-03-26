@@ -17,13 +17,13 @@ from utils import UtilityFunctions
 
 
 # Set seeds for reproducibility
-seed = 42
-torch.manual_seed(seed)
-torch.cuda.manual_seed(seed)
-np.random.seed(seed)
-random.seed(seed)
-torch.backends.cudnn.deterministic = True
-torch.backends.cudnn.benchmark = False
+# seed = 42
+# torch.manual_seed(seed)
+# torch.cuda.manual_seed(seed)
+# np.random.seed(seed)
+# random.seed(seed)
+# torch.backends.cudnn.deterministic = True
+# torch.backends.cudnn.benchmark = False
 
 
 
@@ -33,8 +33,8 @@ if __name__ == '__main__':
     val_data = pd.read_csv('./../../data/dataset/wikidata5m_42k_valid.csv')
 
     MODEL_NAME = 'facebook/bart-base'
-    EMBEDDINGS_PYTORCH_TRAIN = './../../data/embeddings/wikidata5m_42k_train_embeddings_bart.pt'
-    EMBEDDINGS_PYTORCH_VAL = './../../data/embeddings/wikidata5m_42k_valid_embeddings_bart.pt'
+    EMBEDDINGS_PYTORCH_TRAIN = './../../data/embeddings/wikidata5m_42k_train_embeddings_bert_cls.pt'
+    EMBEDDINGS_PYTORCH_VAL = './../../data/embeddings/wikidata5m_42k_valid_embeddings_bert_cls.pt'
 
     utils = UtilityFunctions()
 
@@ -70,11 +70,11 @@ if __name__ == '__main__':
 
     loss_function = nn.MSELoss()
     #optimizer = optim.SGD(model.parameters(), lr=5.0, momentum=0.05) #weight_decay=0.005)
-    optimizer = optim.AdamW(model.parameters(), lr=0.001, weight_decay=0.005)
+    optimizer = optim.AdamW(model.parameters(), lr=0.002, weight_decay=0.005)
     scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=5)
 
     NUM_EPOCHS = 100
-    early_stopping_patience = 100
+    early_stopping_patience = 10
     best_val_loss = float('inf')
     patience_counter = 0
 
