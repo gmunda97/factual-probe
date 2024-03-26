@@ -1,4 +1,4 @@
-"""Module to train the linear transformation"""
+'''Module to train the various transformation'''
 
 import os
 import random

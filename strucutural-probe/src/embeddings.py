@@ -1,6 +1,4 @@
-"""
-Module to generate BERT embeddings for the entities
-"""
+'''Module to extract embeddings from PLMs for the entities'''
 
 from abc import ABC, abstractmethod
 import torch

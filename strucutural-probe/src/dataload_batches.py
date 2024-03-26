@@ -1,6 +1,4 @@
-"""
-Module to process the dataset for the model training
-"""
+'''Module to process the dataset for the model training'''
 
 import os
 from tqdm import tqdm

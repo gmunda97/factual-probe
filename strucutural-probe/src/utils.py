@@ -1,4 +1,4 @@
-"""Python file for utility functions"""
+'''Python file for utility functions'''
 
 from typing import Tuple
 import torch
