@@ -90,3 +90,6 @@ class BARTEmbeddings(BaseEmbeddings):
         embeddings = outputs.last_hidden_state.mean(dim=1)
 
         return embeddings
+
+
+# TODO -> modifiy the embeddings classes for the Wikipedia descriptions

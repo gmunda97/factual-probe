@@ -78,7 +78,13 @@ class DataPreparation:
         similarity_scores = torch.cat(similarity_scores)
 
         return normalized_embeddings, similarity_scores
-    
+
+# DataPreparation normalizes the embeddings using L2 normalization, meaning that
+# when we calculate the cosine similarity between two embeddings, we are actually
+# calculating only the dot product between the two embeddings, since the denominator
+# of the cosine similarity is the product of the L2 norms of the two embeddings.
+# Nevertheless, we are computing the cosine similarity between transformed embeddings,
+# which should not be normalized? -> Ask Tobi
 
 class DataOnDisk(DataPreparation):
     def __init__(self, model_name: str, contextual_embeddings: torch.Tensor, save_path: str) -> None:

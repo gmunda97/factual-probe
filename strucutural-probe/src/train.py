@@ -2,7 +2,7 @@
 
 import os
 import random
-from typing import Tuple, Union
+from typing import Tuple
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -15,6 +15,7 @@ from dataload_batches import DataPreparation
 from embeddings import BERTEmbeddings, BERTEmbeddingsWithCLS
 from transformations import LinearTransformation, OrthogonalLayer, MultilayerPerceptron, RBFKernelLayer
 from utils import UtilityFunctions
+from config import get_config
 
 
 # Set seeds for reproducibility
@@ -86,11 +87,12 @@ def validate(
         return loss, utility_funcs.compute_pearson_correlation(predicted_scores, val_scores)
 
 def main() -> None:
-    train_data_path = './../../data/dataset/wikidata5m_42k_train.csv'
-    val_data_path = './../../data/dataset/wikidata5m_42k_valid.csv'
-    model_name = 'bert-base-uncased'
-    embeddings_train_path = './../../data/embeddings/wikidata5m_42k_train_embeddings_bert_cls.pt'
-    embeddings_val_path = './../../data/embeddings/wikidata5m_42k_valid_embeddings_bert_cls.pt'
+    config = get_config()
+    train_data_path = config['data_paths']['train_data']
+    val_data_path = config['data_paths']['val_data']
+    model_name = config['model_name']
+    embeddings_train_path = config['data_paths']['train_embeddings']
+    embeddings_val_path = config['data_paths']['val_embeddings']
     utils = UtilityFunctions()
     
     train_embeddings, train_scores = load_or_generate_embeddings(train_data_path, embeddings_train_path, model_name, utils)
@@ -103,8 +105,8 @@ def main() -> None:
     train_corrs = []
     val_corrs = []
     
-    NUM_EPOCHS = 100  # Define the number of epochs
-    early_stopping_patience = 10
+    NUM_EPOCHS = config['num_epochs']
+    early_stopping_patience = config['early_stopping_patience']
     best_val_loss = float('inf')
     patience_counter = 0
 
@@ -126,7 +128,7 @@ def main() -> None:
             torch.save(
                 {'model_class': OrthogonalLayer,
                  'state_dict': model.state_dict()
-                }, './../../trained_models/best_model.pth')
+                }, config['model_paths']['saved_model'])
         else:
             patience_counter += 1
             if patience_counter > early_stopping_patience:
