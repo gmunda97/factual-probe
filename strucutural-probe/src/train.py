@@ -1,7 +1,8 @@
-'''Module to train the various transformation'''
+'''Module to train the various transformations'''
 
 import os
 import random
+from typing import Tuple, Union
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -26,120 +27,116 @@ from utils import UtilityFunctions
 # torch.backends.cudnn.benchmark = False
 
 
-
-if __name__ == '__main__':
-
-    train_data = pd.read_csv('./../../data/dataset/wikidata5m_42k_train.csv')
-    val_data = pd.read_csv('./../../data/dataset/wikidata5m_42k_valid.csv')
-
-    MODEL_NAME = 'facebook/bart-base'
-    EMBEDDINGS_PYTORCH_TRAIN = './../../data/embeddings/wikidata5m_42k_train_embeddings_bert_cls.pt'
-    EMBEDDINGS_PYTORCH_VAL = './../../data/embeddings/wikidata5m_42k_valid_embeddings_bert_cls.pt'
-
-    utils = UtilityFunctions()
-
-    if os.path.exists(EMBEDDINGS_PYTORCH_TRAIN):
-        saved_train_embeddings, similarity_scores_train = utils.load_embeddings_and_scores_from_torch(EMBEDDINGS_PYTORCH_TRAIN)
-        saved_val_embeddings, similarity_scores_val = utils.load_embeddings_and_scores_from_torch(EMBEDDINGS_PYTORCH_VAL)
-        
-        print("Using saved embeddings\n")
-        normalized_embeddings_train = saved_train_embeddings
-        print(normalized_embeddings_train.shape)
-        print(type(normalized_embeddings_train))
-        normalized_embeddings_val = saved_val_embeddings
-        print(normalized_embeddings_val.shape)
-        print(type(normalized_embeddings_val))
-        # similarity_scores_train = torch.Tensor(train_data['similarity'].values).view(-1, 1)
-        # similarity_scores_val = torch.Tensor(val_data['similarity'].values).view(-1, 1)
+def load_or_generate_embeddings(
+        data_path: str,
+        embeddings_path: str,
+        model_name: str,
+        utility_funcs: UtilityFunctions
+    ) -> Tuple[torch.Tensor, torch.Tensor]:
+    if os.path.exists(embeddings_path):
+        return utility_funcs.load_embeddings_and_scores_from_torch(embeddings_path)
     else:
-        print("Generating embeddings using CreateBERTEmbeddingsWithCLS\n")
-        bert_embeddings = BERTEmbeddingsWithCLS(MODEL_NAME)
-        data_prep = DataPreparation(MODEL_NAME, bert_embeddings)
-        normalized_embeddings_train, similarity_scores_train = data_prep.prepare_data(train_data)
-        normalized_embeddings_val, similarity_scores_val = data_prep.prepare_data(val_data)
+        print("Generating embeddings using CreateBERTEmbeddingsWithCLS")
+        bert_embeddings = BERTEmbeddingsWithCLS(model_name)
+        data_prep = DataPreparation(model_name, bert_embeddings)
+        return data_prep.prepare_data(pd.read_csv(data_path))
 
-    print(f"Shape of the normalized embeddings: {normalized_embeddings_train.shape}")
-    EMBEDDING_DIM = normalized_embeddings_train.shape[1]
-    HIDDEN_DIM = 512
-    RBF_FEAUTURES = 100
-
-    #model = LinearTransformation(EMBEDDING_DIM, EMBEDDING_DIM)
-    #model = RBFKernelLayer(EMBEDDING_DIM, RBF_FEAUTURES, EMBEDDING_DIM)
-    #model = MultilayerPerceptron(EMBEDDING_DIM, HIDDEN_DIM, EMBEDDING_DIM)
-    model = OrthogonalLayer(EMBEDDING_DIM)
-
+def initialize_model(embedding_dim: int) -> Tuple[nn.Module, nn.Module, optim.Optimizer, optim.lr_scheduler._LRScheduler]:
+    #model = LinearTransformation(embedding_dim, embedding_dim) # choose the model here
+    model = OrthogonalLayer(embedding_dim)
     loss_function = nn.MSELoss()
-    #optimizer = optim.SGD(model.parameters(), lr=5.0, momentum=0.05) #weight_decay=0.005)
     optimizer = optim.AdamW(model.parameters(), lr=0.002, weight_decay=0.005)
     scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=5)
+    return model, loss_function, optimizer, scheduler
 
-    NUM_EPOCHS = 100
-    early_stopping_patience = 10
-    best_val_loss = float('inf')
-    patience_counter = 0
+def compute_predicted_scores(transformed_embeddings: torch.Tensor) -> torch.Tensor:
+    return F.cosine_similarity(
+        transformed_embeddings[::2], # select every other embedding starting from the first one
+        transformed_embeddings[1::2], # select every other embedding starting from the second one
+        dim=1                         # if we have e1, e2, e3, e4 it will compute the similarity between (e1, e2), (e3, e4)
+    ).view(-1, 1)
 
+def train_epoch(
+        model: nn.Module,
+        optimizer: optim.Optimizer,
+        train_embeddings: torch.Tensor,
+        train_scores: torch.Tensor,
+        loss_function: nn.Module,
+        utility_funcs: UtilityFunctions
+    ) -> Tuple[torch.Tensor, float]:
+    optimizer.zero_grad()
+    transformed_embeddings = model(train_embeddings)
+    predicted_scores = compute_predicted_scores(transformed_embeddings)
+    loss = loss_function(predicted_scores, train_scores)
+    loss.backward(retain_graph=True)
+    optimizer.step()
+    return loss, utility_funcs.compute_pearson_correlation(predicted_scores, train_scores)
+
+def validate(
+        model: nn.Module,
+        val_data: torch.Tensor,
+        val_scores: torch.Tensor,
+        loss_function: nn.Module,
+        utility_funcs: UtilityFunctions
+    ) -> Tuple[torch.Tensor, float]:
+    with torch.no_grad():
+        transformed_embeddings = model(val_data)
+        predicted_scores = compute_predicted_scores(transformed_embeddings)
+        loss = loss_function(predicted_scores, val_scores)
+        return loss, utility_funcs.compute_pearson_correlation(predicted_scores, val_scores)
+
+def main() -> None:
+    train_data_path = './../../data/dataset/wikidata5m_42k_train.csv'
+    val_data_path = './../../data/dataset/wikidata5m_42k_valid.csv'
+    model_name = 'bert-base-uncased'
+    embeddings_train_path = './../../data/embeddings/wikidata5m_42k_train_embeddings_bert_cls.pt'
+    embeddings_val_path = './../../data/embeddings/wikidata5m_42k_valid_embeddings_bert_cls.pt'
+    utils = UtilityFunctions()
+    
+    train_embeddings, train_scores = load_or_generate_embeddings(train_data_path, embeddings_train_path, model_name, utils)
+    val_embeddings, val_scores = load_or_generate_embeddings(val_data_path, embeddings_val_path, model_name, utils)
+    
+    model, loss_function, optimizer, scheduler = initialize_model(train_embeddings.shape[1])
+    
     train_losses = []
     val_losses = []
     train_corrs = []
     val_corrs = []
+    
+    NUM_EPOCHS = 100  # Define the number of epochs
+    early_stopping_patience = 10
+    best_val_loss = float('inf')
+    patience_counter = 0
 
     for epoch in range(NUM_EPOCHS):
-        optimizer.zero_grad()
-        transformed_embeddings = model(normalized_embeddings_train)
-        print(f"Shape of the transformed embeddings: {transformed_embeddings.shape}")
+        train_loss, train_corr = train_epoch(model, optimizer, train_embeddings, train_scores, loss_function, utils)
+        val_loss, val_corr = validate(model, val_embeddings, val_scores, loss_function, utils)
         
-        predicted_scores_train = F.cosine_similarity(
-            transformed_embeddings[::2], # select every other embedding starting from the first one
-            transformed_embeddings[1::2], # select every other embedding starting from the second one
-            dim=1                         # if we have e1, e2, e3, e4 it will compute the similarity between (e1, e2), (e3, e4)
-        ).view(-1, 1)
+        scheduler.step(val_loss)
+        current_lr = scheduler.optimizer.param_groups[0]['lr']
+        
+        train_losses.append(train_loss.item())
+        val_losses.append(val_loss.item())
+        train_corrs.append(train_corr)
+        val_corrs.append(val_corr)
 
-        print(f"Shape of the predicted scores: {predicted_scores_train.shape}")
-
-        loss = loss_function(predicted_scores_train, similarity_scores_train)
-        loss.backward(retain_graph=True)
-        optimizer.step()
-
-        # Calculate the Pearson correlation coefficient for evaluation
-        corr_train = utils.compute_pearson_correlation(predicted_scores_train, similarity_scores_train)
-
-        train_losses.append(loss.item())
-        train_corrs.append(corr_train)
-
-        # Evaluation on the validation set
-        with torch.no_grad():
-            transformed_embeddings_val = model(normalized_embeddings_val)
-            predicted_scores_val = F.cosine_similarity(
-                transformed_embeddings_val[::2],
-                transformed_embeddings_val[1::2],
-                dim=1
-            ).view(-1, 1)
-
-            loss_val = loss_function(predicted_scores_val, similarity_scores_val)
-            corr_val = utils.compute_pearson_correlation(predicted_scores_val, similarity_scores_val)
-
-            scheduler.step(loss_val)
-            current_lr = scheduler.optimizer.param_groups[0]['lr']
-
-            val_losses.append(loss_val.item())
-            val_corrs.append(corr_val)
-
-            if loss_val < best_val_loss:
-                best_val_loss = loss_val
-                patience_counter = 0
-                torch.save(
-                    {'model_class': OrthogonalLayer,
-                     'state_dict': model.state_dict()
-                    }, './../../trained_models/best_model.pth')
-            else:
-                patience_counter += 1
-                if patience_counter > early_stopping_patience:
-                    print(f'Early stopping at epoch {epoch + 1}')
-                    break
-
-        print(f'Epoch [{epoch + 1}/{NUM_EPOCHS}], Loss: {loss.item()}, Pearson Correlation (Train): {corr_train}, Learning Rate: {current_lr}')
-        print(f'Validation - Loss: {loss_val.item()}, Pearson Correlation (Validation): {corr_val} \n')
-
+        if val_loss < best_val_loss:
+            best_val_loss = val_loss
+            patience_counter = 0
+            torch.save(
+                {'model_class': OrthogonalLayer,
+                 'state_dict': model.state_dict()
+                }, './../../trained_models/best_model.pth')
+        else:
+            patience_counter += 1
+            if patience_counter > early_stopping_patience:
+                print(f'Early stopping at epoch {epoch + 1}')
+                break
+        
+        print(f'Epoch [{epoch + 1}/{NUM_EPOCHS}], Loss: {train_loss.item()}, Pearson Correlation (Train): {train_corr}, Learning Rate: {current_lr}')
+        print(f'Validation - Loss: {val_loss.item()}, Pearson Correlation (Validation): {val_corr} \n')
+    
+    # Plotting after the training loop
     utils.plot_losses(train_losses, val_losses)
     utils.plot_pearson_correlations(train_corrs, val_corrs)
 
@@ -147,5 +144,6 @@ if __name__ == '__main__':
     print(learned_transformation.shape)
     print(learned_transformation)
 
-    # orthogonality = utils.is_orthogonal(model.weights.detach().numpy())
-    # print(f"Is the learned transformation orthogonal? {orthogonality}")
+
+if __name__ == '__main__':
+    main()
