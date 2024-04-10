@@ -2,6 +2,7 @@
 
 from typing import Tuple
 import torch
+import torch.nn as nn
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import pearsonr, spearmanr
@@ -42,6 +43,16 @@ class UtilityFunctions:
     @staticmethod
     def is_orthogonal(matrix: np.ndarray) -> bool:
         return np.allclose(matrix.T @ matrix, np.eye(matrix.shape[1]), atol=1e-5)
+    
+    @staticmethod
+    def orthogonal_regularization(model: nn.Module, lambda_orth: float = 0.001) -> torch.Tensor:
+        orth_loss = 0.0
+        for param in model.parameters():
+            if param.requires_grad and param.data.shape[0] == param.data.shape[1]:  # Check for square matrices
+                identity_matrix = torch.eye(param.data.shape[0], requires_grad=False)
+                orth_loss += (torch.norm(torch.mm(param, torch.transpose(param, 0, 1)) - identity_matrix, p='fro') ** 2)
+        
+        return lambda_orth * orth_loss
 
     @staticmethod
     def load_embeddings_and_scores_from_torch(file_path: str) -> Tuple[torch.Tensor, torch.Tensor]:

@@ -64,11 +64,14 @@ def train_epoch(
         train_scores: torch.Tensor,
         loss_function: nn.Module,
         utility_funcs: UtilityFunctions
+        #lambda_orth: float = 0.1
     ) -> Tuple[torch.Tensor, float]:
     optimizer.zero_grad()
     transformed_embeddings = model(train_embeddings)
     predicted_scores = compute_predicted_scores(transformed_embeddings)
     loss = loss_function(predicted_scores, train_scores)
+    # orth_loss = utility_funcs.orthogonal_regularization(model, lambda_orth)
+    # total_loss = loss + orth_loss
     loss.backward(retain_graph=True)
     optimizer.step()
     return loss, utility_funcs.compute_pearson_correlation(predicted_scores, train_scores)
@@ -145,6 +148,7 @@ def main() -> None:
     learned_transformation = list(model.parameters())[0].detach().numpy()
     print(learned_transformation.shape)
     print(learned_transformation)
+    #print(utils.is_orthogonal(learned_transformation))
 
 
 if __name__ == '__main__':

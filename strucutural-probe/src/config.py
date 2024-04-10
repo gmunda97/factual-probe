@@ -1,5 +1,5 @@
 config = {
-    'model_name': 'bert-base-uncased',
+    'model_name': 'bert-base-uncased', # bert-base-uncased, openai-community/gpt2, facebook/bart-base
     'embedding_dim': 768,
     'hidden_dim': 512,
     'rbf_features': 100,

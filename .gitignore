@@ -5,3 +5,4 @@
 /runs
 /train/__pycache__
 **/__pycache__
+/QA_evaluation/resources/data
