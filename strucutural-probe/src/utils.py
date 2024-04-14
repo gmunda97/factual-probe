@@ -80,7 +80,7 @@ class UtilityFunctions:
         plt.ylabel('Loss')
         plt.title('Loss over Epochs')
         plt.legend()
-        plt.savefig('./../resources/plots/loss.png')
+        plt.savefig('./../resources/plots/full_dim/loss.png')
 
     @staticmethod
     def plot_pearson_correlations(train_corrs: list, val_corrs: list) -> None:
@@ -91,4 +91,30 @@ class UtilityFunctions:
         plt.ylabel('Pearson Correlation')
         plt.title('Pearson Correlation over Epochs')
         plt.legend()
-        plt.savefig('./../resources/plots/pearson_correlation.png')
+        plt.savefig('./../resources/plots/full_dim/pearson_correlation.png')
+    
+    @staticmethod
+    def plot_all_losses(all_train_losses: dict, all_val_losses: dict) -> None:
+        plt.figure(figsize=(12, 6))
+        for output_dim, losses in all_train_losses.items():
+            plt.plot(losses, label=f'Training Loss (dim={output_dim})')
+        for output_dim, losses in all_val_losses.items():
+            plt.plot(losses, label=f'Validation Loss (dim={output_dim})')
+        plt.xlabel('Epoch')
+        plt.ylabel('Loss')
+        plt.title('Loss over Epochs by Output Dimension')
+        plt.legend()
+        plt.savefig('./../resources/plots/reduced_dim/all_losses.png')
+    
+    @staticmethod
+    def plot_all_pearson_correlations(all_train_corrs: dict, all_val_corrs: dict) -> None:
+        plt.figure(figsize=(12, 6))
+        for output_dim, corrs in all_train_corrs.items():
+            plt.plot(corrs, label=f'Training Pearson Correlation (dim={output_dim})')
+        for output_dim, corrs in all_val_corrs.items():
+            plt.plot(corrs, label=f'Validation Pearson Correlation (dim={output_dim})')
+        plt.xlabel('Epoch')
+        plt.ylabel('Pearson Correlation')
+        plt.title('Pearson Correlation over Epochs by Output Dimension')
+        plt.legend()
+        plt.savefig('./../resources/plots/reduced_dim/all_pearson_correlations.png')

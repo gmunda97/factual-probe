@@ -18,11 +18,12 @@ config = {
     'data_paths': {
         'train_data': './../../data/dataset/wikidata5m_42k_train.csv',
         'val_data': './../../data/dataset/wikidata5m_42k_valid.csv',
-        'train_embeddings': './../../data/embeddings/wikidata5m_42k_train_embeddings_bert_cls.pt',
-        'val_embeddings': './../../data/embeddings/wikidata5m_42k_valid_embeddings_bert_cls.pt',
+        'train_embeddings': './../../data/embeddings/wikidata5m_42k_train_embeddings_bert.pt',
+        'val_embeddings': './../../data/embeddings/wikidata5m_42k_valid_embeddings_bert.pt',
     },
     'model_paths': {
-        'saved_model': './../../trained_models/best_model.pth'
+        'saved_model_full_dim': './../../trained_models/full_dim/best_model.pth',
+        'saved_model_reduced_dim': './../../trained_models/reduced_dim/best_model',
     },
 }
 

@@ -31,7 +31,7 @@ class Evaluator:
         if 'orthogonal' in self.trained_model_path:
             loaded_transformation = checkpoint['model_class'](embedding_dim)
         else:
-            loaded_transformation = checkpoint['model_class'](embedding_dim, embedding_dim)
+            loaded_transformation = checkpoint['model_class'](embedding_dim, 512)
         loaded_transformation.load_state_dict(checkpoint['state_dict'])
         loaded_transformation.eval()
         return loaded_transformation
@@ -80,8 +80,8 @@ class Evaluator:
 if __name__ == "__main__":
 
     evaluator = Evaluator(
-        embeddings_path='./../../data/embeddings/wikidata5m_42k_test_embeddings_bart.pt',
+        embeddings_path='./../../data/embeddings/wikidata5m_42k_test_embeddings_bert.pt',
         test_data_path='./../../data/dataset/wikidata5m_42k_test.csv',
-        trained_model_path='./../../trained_models/42k_orthogonal_bert_avg.pth'
+        trained_model_path='./../../trained_models/reduced_dim/bert/best_model_dim_512_avg.pth'
     )
     evaluator.run_evaluation()
