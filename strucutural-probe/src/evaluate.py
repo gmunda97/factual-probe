@@ -80,8 +80,8 @@ class Evaluator:
 if __name__ == "__main__":
 
     evaluator = Evaluator(
-        embeddings_path='./../../data/embeddings/wikidata5m_42k_test_embeddings_bert.pt',
+        embeddings_path='./../../data/embeddings/wikidata5m_42k_test_embeddings_bart.pt',
         test_data_path='./../../data/dataset/wikidata5m_42k_test.csv',
-        trained_model_path='./../../trained_models/reduced_dim/bert/best_model_dim_512_avg.pth'
+        trained_model_path='./../../trained_models/reduced_dim/bart/best_model_dim_512.pth'
     )
     evaluator.run_evaluation()
