@@ -45,7 +45,7 @@ class UtilityFunctions:
         return np.allclose(matrix.T @ matrix, np.eye(matrix.shape[1]), atol=1e-5)
     
     @staticmethod
-    def orthogonal_regularization(model: nn.Module, lambda_orth: float = 0.001) -> torch.Tensor:
+    def orthogonal_regularization(model: nn.Module, lambda_orth: float = 0.0001) -> torch.Tensor:
         orth_loss = 0.0
         for param in model.parameters():
             if param.requires_grad and param.data.shape[0] == param.data.shape[1]:  # Check for square matrices

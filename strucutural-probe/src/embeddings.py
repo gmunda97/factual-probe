@@ -15,7 +15,7 @@ class BaseEmbeddings(ABC):
         pass
 
     @abstractmethod
-    def __call__(self, entity_text: str) -> torch.Tensor:
+    def __call__(self, entity_text: str, entity_description: str = None) -> torch.Tensor:
         pass
 
 
@@ -28,7 +28,9 @@ class BERTEmbeddings(BaseEmbeddings):
         self.tokenizer = BertTokenizer.from_pretrained(model_name)
         self.model = BertModel.from_pretrained(model_name)
 
-    def __call__(self, entity_text: str) -> torch.Tensor:
+    def __call__(self, entity_text: str, entity_description: str = None) -> torch.Tensor:
+        if entity_description:
+            entity_text = entity_text + ' [SEP] ' + entity_description
         inputs = self.tokenizer(entity_text, return_tensors='pt', padding=True, truncation=True)
         outputs = self.model(**inputs)
         embeddings = outputs.last_hidden_state.mean(dim=1)
@@ -45,7 +47,9 @@ class BERTEmbeddingsWithCLS(BaseEmbeddings):
         self.tokenizer = BertTokenizer.from_pretrained(model_name)
         self.model = BertModel.from_pretrained(model_name)
 
-    def __call__(self, entity_text: str) -> torch.Tensor:
+    def __call__(self, entity_text: str, entity_description: str = None) -> torch.Tensor:
+        if entity_description:
+            entity_text = entity_text + ' [SEP] ' + entity_description
         inputs = self.tokenizer(entity_text, return_tensors='pt', padding=True, truncation=True)
         outputs = self.model(**inputs)
         # Extract the hidden states from the last layer
@@ -67,7 +71,9 @@ class GPTEmbeddings(BaseEmbeddings):
         self.tokenizer.pad_token = self.tokenizer.eos_token
         self.model = GPT2Model.from_pretrained(model_name)
 
-    def __call__(self, entity_text: str) -> torch.Tensor:
+    def __call__(self, entity_text: str, entity_description: str = None) -> torch.Tensor:
+        if entity_description:
+            entity_text = entity_text + ' [SEP] ' + entity_description
         inputs = self.tokenizer(entity_text, return_tensors='pt', padding=True, truncation=True)
         outputs = self.model(**inputs)
         embeddings = outputs.last_hidden_state.mean(dim=1)
@@ -84,7 +90,9 @@ class BARTEmbeddings(BaseEmbeddings):
         self.tokenizer = BartTokenizer.from_pretrained(model_name)
         self.model = BartModel.from_pretrained(model_name)
 
-    def __call__(self, entity_text: str) -> torch.Tensor:
+    def __call__(self, entity_text: str, entity_description: str = None) -> torch.Tensor:
+        if entity_description:
+            entity_text = entity_text + ' [SEP] ' + entity_description
         inputs = self.tokenizer(entity_text, return_tensors='pt', padding=True, truncation=True)
         outputs = self.model(**inputs)
         embeddings = outputs.last_hidden_state.mean(dim=1)

@@ -7,7 +7,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
-from torch.optim.lr_scheduler import StepLR, ExponentialLR, ReduceLROnPlateau
+from torch.optim.lr_scheduler import ReduceLROnPlateau
 import pandas as pd
 import numpy as np
 
@@ -17,15 +17,6 @@ from transformations import LinearTransformation, OrthogonalLayer, MultilayerPer
 from utils import UtilityFunctions
 from config import get_config
 
-
-# Set seeds for reproducibility
-# seed = 42
-# torch.manual_seed(seed)
-# torch.cuda.manual_seed(seed)
-# np.random.seed(seed)
-# random.seed(seed)
-# torch.backends.cudnn.deterministic = True
-# torch.backends.cudnn.benchmark = False
 
 
 def load_or_generate_embeddings(
@@ -160,7 +151,6 @@ def main() -> None:
         learned_transformation = list(model.parameters())[0].detach().numpy()
         print(learned_transformation.shape)
         print(learned_transformation)
-    #print(utils.is_orthogonal(learned_transformation))
 
 
 if __name__ == '__main__':

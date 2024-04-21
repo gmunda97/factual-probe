@@ -11,7 +11,7 @@ from torch.optim.lr_scheduler import StepLR, ExponentialLR, ReduceLROnPlateau
 import pandas as pd
 import numpy as np
 
-from dataload_batches import DataPreparation
+from dataload import DataPreparation
 from embeddings import BERTEmbeddings, BERTEmbeddingsWithCLS
 from transformations import LinearTransformation, OrthogonalLayer, MultilayerPerceptron, RBFKernelLayer
 from utils import UtilityFunctions
@@ -43,19 +43,22 @@ def load_or_generate_embeddings(
         return data_prep.prepare_data(pd.read_csv(data_path))
 
 def initialize_model(embedding_dim: int) -> Tuple[nn.Module, nn.Module, optim.Optimizer, optim.lr_scheduler._LRScheduler]:
-    #model = LinearTransformation(embedding_dim, embedding_dim) # choose the model here
-    model = OrthogonalLayer(embedding_dim)
+    model = LinearTransformation(embedding_dim, embedding_dim) # choose the model here
+    #model = OrthogonalLayer(embedding_dim)
     loss_function = nn.MSELoss()
-    optimizer = optim.AdamW(model.parameters(), lr=0.006, weight_decay=0.005)
+    optimizer = optim.AdamW(model.parameters(), lr=0.001, weight_decay=0.005)
     scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=5)
     return model, loss_function, optimizer, scheduler
 
 def compute_predicted_scores(transformed_embeddings: torch.Tensor) -> torch.Tensor:
+    #normalized_embeddings = F.normalize(transformed_embeddings, p=2, dim=1)
     return F.cosine_similarity(
         transformed_embeddings[::2], # select every other embedding starting from the first one
         transformed_embeddings[1::2], # select every other embedding starting from the second one
         dim=1                         # if we have e1, e2, e3, e4 it will compute the similarity between (e1, e2), (e3, e4)
     ).view(-1, 1)
+    # scores = (normalized_embeddings[::2] * normalized_embeddings[1::2]).sum(dim=1)
+    # return scores.view(-1, 1)
 
 def train_epoch(
         model: nn.Module,
@@ -64,15 +67,15 @@ def train_epoch(
         train_scores: torch.Tensor,
         loss_function: nn.Module,
         utility_funcs: UtilityFunctions
-        #lambda_orth: float = 0.1
+        #lambda_orth: float = 0.0001
     ) -> Tuple[torch.Tensor, float]:
     optimizer.zero_grad()
     transformed_embeddings = model(train_embeddings)
     print(transformed_embeddings.size())
     predicted_scores = compute_predicted_scores(transformed_embeddings)
     loss = loss_function(predicted_scores, train_scores)
-    # orth_loss = utility_funcs.orthogonal_regularization(model, lambda_orth)
-    # total_loss = loss + orth_loss
+    #orth_loss = utility_funcs.orthogonal_regularization(model, lambda_orth)
+    #total_loss = loss + orth_loss
     loss.backward(retain_graph=True)
     optimizer.step()
     return loss, utility_funcs.compute_pearson_correlation(predicted_scores, train_scores)
@@ -130,7 +133,7 @@ def main() -> None:
             best_val_loss = val_loss
             patience_counter = 0
             torch.save(
-                {'model_class': OrthogonalLayer,
+                {'model_class': LinearTransformation,
                  'state_dict': model.state_dict()
                 }, config['model_paths']['saved_model_full_dim'])
         else:
