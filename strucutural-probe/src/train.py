@@ -43,10 +43,10 @@ def load_or_generate_embeddings(
         return data_prep.prepare_data(pd.read_csv(data_path))
 
 def initialize_model(embedding_dim: int) -> Tuple[nn.Module, nn.Module, optim.Optimizer, optim.lr_scheduler._LRScheduler]:
-    model = LinearTransformation(embedding_dim, embedding_dim) # choose the model here
+    model = LinearTransformation(embedding_dim, embedding_dim)
     #model = OrthogonalLayer(embedding_dim)
     loss_function = nn.MSELoss()
-    optimizer = optim.AdamW(model.parameters(), lr=0.001, weight_decay=0.005)
+    optimizer = optim.AdamW(model.parameters(), lr=0.004, weight_decay=0.005)
     scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=5)
     return model, loss_function, optimizer, scheduler
 
