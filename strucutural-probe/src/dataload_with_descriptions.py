@@ -112,8 +112,8 @@ class DataOnDisk(DataPreparation):
 
 if __name__ == '__main__':
 
-    MODEL_NAME = 'openai-community/gpt2'
-    SAVE_PATH = './../../data/embeddings/wikidata5m_42k_desc_train_embeddings_gpt2.pt'
+    MODEL_NAME = 'facebook/bart-base'
+    SAVE_PATH = './../../data/embeddings/wikidata5m_42k_desc_train_embeddings_bart.pt'
     train_data = pd.read_csv('./../../data/dataset/wikidata5m_42k_desc_train.csv')
     #val_data = pd.read_csv('./../../data/dataset/wikidata5m_42k_desc_valid.csv')
     #test_data = pd.read_csv('./../../data/dataset/wikidata5m_42k_desc_test.csv')
@@ -127,6 +127,6 @@ if __name__ == '__main__':
         print(normalized_embeddings[0])
 
     else:
-        embeddings = GPTEmbeddings(MODEL_NAME)
+        embeddings = BARTEmbeddings(MODEL_NAME)
         data_prep = DataOnDisk(MODEL_NAME, embeddings, SAVE_PATH)
         normalized_embeddings, _ = data_prep.prepare_data_and_save(train_data)

@@ -46,7 +46,7 @@ def initialize_model(embedding_dim: int) -> Tuple[nn.Module, nn.Module, optim.Op
     model = LinearTransformation(embedding_dim, embedding_dim)
     #model = OrthogonalLayer(embedding_dim)
     loss_function = nn.MSELoss()
-    optimizer = optim.AdamW(model.parameters(), lr=0.004, weight_decay=0.005)
+    optimizer = optim.AdamW(model.parameters(), lr=0.001, weight_decay=0.005)
     scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=5)
     return model, loss_function, optimizer, scheduler
 

@@ -80,7 +80,7 @@ class Evaluator:
 if __name__ == "__main__":
 
     evaluator = Evaluator(
-        embeddings_path='./../../data/embeddings/wikidata5m_42k_desc_test_embeddings_gpt2.pt',
+        embeddings_path='./../../data/embeddings/wikidata5m_42k_desc_test_embeddings_bart.pt',
         test_data_path='./../../data/dataset/wikidata5m_42k_test.csv',
         trained_model_path='./../../trained_models/wiki_desc/full_dim/best_model.pth'
     )

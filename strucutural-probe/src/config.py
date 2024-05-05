@@ -1,5 +1,5 @@
 config = {
-    'model_name': 'openai-community/gpt2', # bert-base-uncased, openai-community/gpt2, facebook/bart-base
+    'model_name': 'facebook/bart-base', # bert-base-uncased, openai-community/gpt2, facebook/bart-base
     'embedding_dim': 768,
     'hidden_dim': 512,
     'rbf_features': 100,
@@ -18,8 +18,8 @@ config = {
     'data_paths': {
         'train_data': './../../data/dataset/wikidata5m_42k_desc_train.csv',
         'val_data': './../../data/dataset/wikidata5m_42k_desc_valid.csv',
-        'train_embeddings': './../../data/embeddings/wikidata5m_42k_desc_train_embeddings_gpt2.pt',
-        'val_embeddings': './../../data/embeddings/wikidata5m_42k_desc_valid_embeddings_gpt2.pt',
+        'train_embeddings': './../../data/embeddings/wikidata5m_42k_desc_train_embeddings_bart.pt',
+        'val_embeddings': './../../data/embeddings/wikidata5m_42k_desc_valid_embeddings_bart.pt',
     },
     'model_paths': {
         'saved_model_full_dim': './../../trained_models/wiki_desc/full_dim/best_model.pth',
