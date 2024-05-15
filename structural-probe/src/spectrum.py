@@ -27,7 +27,7 @@ class Spectrum:
         plt.grid(True)
         plt.axhline(0, color='black',linewidth=0.5)
         plt.axvline(0, color='black',linewidth=0.5)
-        plt.savefig('./../resources/plots/spectrum/entities_only/spectrum_bert_cls.png')
+        plt.savefig('./../resources/plots/spectrum/entities_only/spectrum_bert_cls2.png')
 
 
 
@@ -36,4 +36,6 @@ if __name__ == '__main__':
     spectrum = Spectrum('./../../trained_models/entities_only/full_dim/42k_linear_bert_cls.pth')
     matrix = spectrum.load_model()
     eigenvalues = spectrum.compute_eigenvalues(matrix)
+    print(eigenvalues)
+    print(eigenvalues.imag)
     spectrum.plot_eigenvalues(eigenvalues)
