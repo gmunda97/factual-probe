@@ -1,5 +1,7 @@
 import json
 import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
 
 
 
@@ -20,6 +22,28 @@ class KnowledgeGraphAnalyzer:
                     unique_keys.add(keys)
         return len(unique_keys)
 
+    def _get_relation_counts(self, dataset_path):
+        relation_counts = {}
+        with open(dataset_path, 'r') as file:
+            for line in file:
+                if dataset_path.endswith('.jsonl'):
+                    data = json.loads(line)
+                    relation_id = data['pred_id']
+                else:
+                    parts = line.strip().split('\t')
+                    relation_id = parts[1]
+                if relation_id in relation_counts:
+                    relation_counts[relation_id] += 1
+                else:
+                    relation_counts[relation_id] = 1
+
+        counts = list(relation_counts.values())
+        total_triples = sum(counts)
+        normalized_counts = [count / total_triples for count in counts]
+
+        print(f"Dataset: {dataset_path} - Relation Counts: {counts[:10]} - Normalized Counts: {normalized_counts[:10]}")  # Debugging
+        return normalized_counts
+
     def count_unique_entities(self):
         return self._read_dataset(lambda data: (data['sub_id'], data['obj_id']))
 
@@ -38,53 +62,74 @@ class KnowledgeGraphAnalyzer:
         )
 
     def plot_relation_distribution(self):
-        relation_counts = {}
-        with open(self.file_path, 'r') as file:
-            for line in file:
-                data = json.loads(line)
-                if data['pred_id'] in relation_counts:
-                    relation_counts[data['pred_id']] += 1
-                else:
-                    relation_counts[data['pred_id']] = 1
-
-        counts = list(relation_counts.values())
+        counts = self._get_relation_counts(self.file_path)
 
         plt.figure(figsize=(10, 8))
-        plt.hist(counts, bins=20, color='green', edgecolor='black')
-        plt.xlabel('Number of Triples per Relation')
-        plt.ylabel('Number of Relations')
-        plt.title('Relation Distribution in the Reduced Dataset')
+        sns.kdeplot(counts, fill=True, color='blue')
+        plt.xlabel('Proportion of Triples per Relation')
+        plt.ylabel('Density')
+        plt.title('Relation Distribution KDE in the Reduced Dataset')
         plt.grid(True)
-        plt.savefig('./../resources/plots/relation_distribution.png')
+        plt.savefig('./../resources/plots/reduced_relation_distribution_kde.png')
+
+        plt.figure(figsize=(10, 8))
+        sns.ecdfplot(counts, color='blue')
+        plt.xlabel('Proportion of Triples per Relation')
+        plt.ylabel('Cumulative Probability')
+        plt.title('Relation Distribution CDF in the Reduced Dataset')
+        plt.grid(True)
+        plt.savefig('./../resources/plots/reduced_relation_distribution_cdf.png')
 
     def plot_original_relation_distribution(self):
         if not self.original_dataset:
             print("Original dataset path is not set.")
             return
 
-        relation_counts = {}
-        with open(self.original_dataset, 'r') as file:
-            for line in file:
-                parts = line.strip().split('\t')
-                relation_id = parts[1]
-                if relation_id in relation_counts:
-                    relation_counts[relation_id] += 1
-                else:
-                    relation_counts[relation_id] = 1
-
-        counts = list(relation_counts.values())
+        counts = self._get_relation_counts(self.original_dataset)
 
         plt.figure(figsize=(10, 8))
-        plt.hist(counts, bins=20, color='red', edgecolor='black')
-        plt.xlabel('Number of Triples per Relation')
-        plt.ylabel('Number of Relations')
-        plt.title('Relation Distribution in the Original Dataset')
+        sns.kdeplot(counts, fill=True, color='red')
+        plt.xlabel('Proportion of Triples per Relation')
+        plt.ylabel('Density')
+        plt.title('Relation Distribution KDE in the Original Dataset')
         plt.grid(True)
-        plt.savefig('./../resources/plots/original_relation_distribution.png')
+        plt.savefig('./../resources/plots/original_relation_distribution_kde.png')
+
+        plt.figure(figsize=(10, 8))
+        sns.ecdfplot(counts, color='red')
+        plt.xlabel('Proportion of Triples per Relation')
+        plt.ylabel('Cumulative Probability')
+        plt.title('Relation Distribution CDF in the Original Dataset')
+        plt.grid(True)
+        plt.savefig('./../resources/plots/original_relation_distribution_cdf.png')
+
+    def plot_comparison(self):
+        reduced_counts = self._get_relation_counts(self.file_path)
+        original_counts = self._get_relation_counts(self.original_dataset)
+
+        plt.figure(figsize=(10, 8))
+        sns.kdeplot(reduced_counts, fill=True, color='blue', label='wikidata5m-sm')
+        sns.kdeplot(original_counts, fill=True, color='red', label='wikidata5m')
+        plt.xlabel('Proportion of Triples per Relation')
+        plt.ylabel('Density')
+        plt.title('Relation Distribution KDE')
+        plt.legend()
+        plt.grid(True)
+        plt.savefig('./../resources/plots/relation_distribution_kde_comparison.png')
+
+        plt.figure(figsize=(10, 8))
+        sns.ecdfplot(reduced_counts, color='blue', label='wikidata5m-sm')
+        sns.ecdfplot(original_counts, color='red', label='wikidata5m')
+        plt.xlabel('Proportion of Triples per Relation')
+        plt.ylabel('Cumulative Probability')
+        plt.title('Relation Distribution CDF')
+        plt.legend()
+        plt.grid(True)
+        plt.savefig('./../resources/plots/relation_distribution_cdf_comparison.png')
+
 
 
 if __name__ == '__main__':
-
     file_path = './../../data/wikidata5m_inductive/wikidata5m_inductive_train_42k_sim_desc.jsonl'
     original_dataset = './../../data/wikidata5m_inductive/wikidata5m_inductive_train.txt'
 
@@ -96,4 +141,4 @@ if __name__ == '__main__':
     print("Unique Triples:", analyzer.count_unique_triples())
     analyzer.plot_relation_distribution()
     analyzer.plot_original_relation_distribution()
-
+    analyzer.plot_comparison()
