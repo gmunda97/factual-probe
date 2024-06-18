@@ -65,11 +65,14 @@ class Evaluator:
             'predicted': predicted_similarity_scores.detach().squeeze().cpu().numpy(),
             'actual': similarity_scores_test.detach().squeeze().cpu().numpy()
         })
-        results_df['pearson_residual'] = results_df['predicted'] - results_df['actual']
+        results_df['pearson_residual'] = results_df['predicted'] - results_df['actual']     # Uncomment if you want to display the worst performing data points
         results_df['spearman_residual'] = results_df['predicted'].rank() - results_df['actual'].rank()
+
+        lowest_pearson = results_df.sort_values(by='pearson_residual').head(50)
+        lowest_spearman = results_df.sort_values(by='spearman_residual').head(50)
+        # best_pearson = results_df.reindex(results_df['pearson_residual'].abs().sort_values().index).head(50)
+        # best_spearman = results_df.reindex(results_df['spearman_residual'].abs().sort_values().index).head(50)
         
-        lowest_pearson = results_df.sort_values(by='pearson_residual').head(20)
-        lowest_spearman = results_df.sort_values(by='spearman_residual').head(20)
         results_df.to_csv('./../resources/predictions/predictions_bert_cls.csv', index=False)
 
         # Print the results with the lowest correlations
@@ -98,8 +101,8 @@ class Evaluator:
 if __name__ == "__main__":
 
     evaluator = Evaluator(
-        embeddings_path='./../../data/embeddings/wikidata5m_42k_test_embeddings_bert_cls.pt',
+        embeddings_path='./../../data/embeddings/wikidata5m_42k_test_embeddings_bart.pt',
         test_data_path='./../../data/dataset/wikidata5m_42k_test.csv',
-        trained_model_path='./../../trained_models/entities_only/full_dim/42k_linear_bert_cls.pth'
+        trained_model_path='./../../trained_models/entities_only/full_dim/42k_linear_bart.pth'
     )
     evaluator.run_evaluation()

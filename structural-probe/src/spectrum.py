@@ -19,15 +19,18 @@ class Spectrum:
         return torch.linalg.eigvals(matrix)
     
     def plot_eigenvalues(self, eigenvalues):
-        plt.figure(figsize=(8, 8))
-        plt.scatter(eigenvalues.real, eigenvalues.imag, color='darkcyan', s=8)
-        plt.xlabel('Real Part')
-        plt.ylabel('Imaginary Part')
-        plt.title('Spectrum of the Transformation Matrix for BERT-cls')
+        plt.figure(figsize=(7, 7))
+        plt.scatter(eigenvalues.real, eigenvalues.imag, color='darkcyan', s=7)
+        plt.xlabel('Real Part', fontsize=14)
+        plt.ylabel('Imaginary Part', fontsize=14)
+        plt.title('BERT-cls', fontsize=14)
         plt.grid(True)
         plt.axhline(0, color='black',linewidth=0.5)
         plt.axvline(0, color='black',linewidth=0.5)
-        plt.savefig('./../resources/plots/spectrum/entities_only/spectrum_bert_cls2.png')
+        plt.xticks(fontsize=14)
+        plt.yticks(fontsize=14)
+        plt.tight_layout()
+        plt.savefig('./../resources/plots/spectrum/entities_only/spectrum_bert_cls.png')
 
 
 

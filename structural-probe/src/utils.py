@@ -73,25 +73,32 @@ class UtilityFunctions:
 
     @staticmethod
     def plot_losses(train_losses: list, val_losses: list) -> None:
-        plt.figure(figsize=(10, 5))
+        plt.figure(figsize=(5, 4))
         plt.plot(train_losses, label='Training Loss')
         plt.plot(val_losses, label='Validation Loss')
-        plt.xlabel('Epoch')
-        plt.ylabel('Loss')
-        plt.title('Loss over Epochs')
-        plt.legend()
-        plt.savefig('./../resources/plots/training/wiki_desc/full_dim/loss.png')
+        plt.xlabel('Epoch', fontsize=12)
+        plt.ylabel('Loss', fontsize=12)
+        #plt.title('Loss over Epochs')
+        plt.xticks(fontsize=12)
+        plt.yticks(fontsize=12)
+        plt.legend(fontsize=12)
+        plt.tight_layout()
+        plt.savefig('./../resources/plots/training/entities_only/full_dim/loss.png')
 
     @staticmethod
     def plot_pearson_correlations(train_corrs: list, val_corrs: list) -> None:
-        plt.figure(figsize=(10, 5))
+        plt.figure(figsize=(5, 4))
         plt.plot(train_corrs, label='Training Pearson Correlation')
         plt.plot(val_corrs, label='Validation Pearson Correlation')
-        plt.xlabel('Epoch')
-        plt.ylabel('Pearson Correlation')
-        plt.title('Pearson Correlation over Epochs')
-        plt.legend()
-        plt.savefig('./../resources/plots/training/wiki_desc/full_dim/pearson_correlation.png')
+        plt.xlabel('Epoch', fontsize=12)
+        plt.ylabel('Pearson Correlation', fontsize=12)
+        #plt.title('Pearson Correlation over Epochs', fontsize=16)
+        plt.xticks(fontsize=12)
+        plt.yticks(fontsize=12)
+        plt.legend(fontsize=12)
+        plt.tight_layout()
+        plt.savefig('./../resources/plots/training/entities_only/full_dim/pearson_correlation.png')
+
     
     @staticmethod
     def plot_all_losses(all_train_losses: dict, all_val_losses: dict) -> None:
