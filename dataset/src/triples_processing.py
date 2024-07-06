@@ -1,3 +1,8 @@
+'''
+Script to retrieve entity information (textual values)
+for the triples in the dataset using the Wikidata API.
+'''
+
 import requests
 import json
 import logging
@@ -19,7 +24,7 @@ class RateLimitException(Exception):
     retry=retry_if_exception_type(RateLimitException),  # Retry only if a RateLimitException is raised
 )
 def fetch_entity_info(wikidata_ids):
-    wikidata_api_url = "https://www.wikidata.org/w/api.php"
+    wikidata_api_url = 'https://www.wikidata.org/w/api.php'
     params = {
         'action': 'wbgetentities',
         'format': 'json',
@@ -32,12 +37,12 @@ def fetch_entity_info(wikidata_ids):
         return data['entities']
     except requests.exceptions.HTTPError as e:
         if response.status_code == 429 or 500 <= response.status_code < 600:
-            raise RateLimitException("Rate limit exceeded or server error")
+            raise RateLimitException('Rate limit exceeded or server error')
         else:
-            logging.error(f"HTTP Error fetching entity information: {e}")
+            logging.error(f'HTTP Error fetching entity information: {e}')
             return {}
     except requests.exceptions.RequestException as e:
-        logging.error(f"Request exception: {e}")
+        logging.error(f'Request exception: {e}')
         return {}
 
 def get_entity_info(wikidata_ids):
@@ -47,7 +52,6 @@ def get_entity_info(wikidata_ids):
 def add_entity_values_batch(entries, batch_size=50):
     batches = [entries[i:i+batch_size] for i in range(0, len(entries), batch_size)]
     results = []
-    #logging.info(f"Processing {len(batches)} batches of {batch_size} entries each")
     
     with ThreadPoolExecutor(max_workers=5) as executor:
         futures = {executor.submit(get_entity_info, [
@@ -60,7 +64,7 @@ def add_entity_values_batch(entries, batch_size=50):
                 result = future.result()
                 results.append((entry, result))
             except Exception as exc:
-                logging.error(f"Entity fetch generated an exception: {exc}. Entry: {entry}")
+                logging.error(f'Entity fetch generated an exception: {exc}. Entry: {entry}')
 
     return results
 
@@ -103,7 +107,7 @@ def txt_to_jsonl_with_incremental_concat(input_file, output_file, temp_dir='./te
             lines = txt_file.readlines()
         entries = [{'sub_id': line.split('\t')[0], 'pred_id': line.split('\t')[1], 'obj_id': line.split('\t')[2].strip()} for line in lines]
     else:
-        logging.error(f"Unsupported input file format: {input_file}")
+        logging.error(f'Unsupported input file format: {input_file}')
         return
     
     # Ensure the temporary directory and output file are ready
@@ -111,15 +115,16 @@ def txt_to_jsonl_with_incremental_concat(input_file, output_file, temp_dir='./te
     Path(output_file).unlink(missing_ok=True)  # Remove the output file if it exists
 
     # Process dataset in chunks, save to temporary files, and incrementally concatenate
-    for i in tqdm(range(0, len(entries), batch_size), desc="Overall Progress"):
+    for i in tqdm(range(0, len(entries), batch_size), desc='Overall Progress'):
         chunk_entries = entries[i:i+batch_size]
         temp_file_path = process_chunk_and_save(chunk_entries, temp_dir, temp_file_prefix, i // batch_size)
         incremental_concatenate(temp_file_path, output_file)
     
-    logging.info(f"Processed {len(entries)} entries and wrote to {output_file}")
+    logging.info(f'Processed {len(entries)} entries and wrote to {output_file}')
 
 
+if __name__ == '__main__':
 
-input_file = './../data/wikidata5m_inductive/wikidata5m_inductive_train_40k.tsv'
-output_file = './../data/wikidata5m_inductive/3wikidata5m_inductive_train_42k_sim_desc.jsonl'
-txt_to_jsonl_with_incremental_concat(input_file, output_file)
+    input_file = './../data/wikidata5m_inductive/wikidata5m_inductive_train_40k.tsv'
+    output_file = './../data/wikidata5m_inductive/3wikidata5m_inductive_train_42k_sim_desc.jsonl'
+    txt_to_jsonl_with_incremental_concat(input_file, output_file)

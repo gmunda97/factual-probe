@@ -1,11 +1,17 @@
+'''
+Simple script to perform inference on the trained model
+and to compare the similarity scores between the original
+embeddings and the transformed embeddings.
+'''
+
 import torch
 import torch.nn.functional as F
 
 from embeddings import BERTEmbeddingsWithCLS, BERTEmbeddings, BARTEmbeddings
 
 
-entiy1 = "The Origin of the Milky Way"
-entity2 = "Hercules"
+entiy1 = 'The Origin of the Milky Way'
+entity2 = 'Hercules'
 
 embedding_entity1 = BARTEmbeddings('facebook/bart-base')(entiy1)
 embedding_entity2 = BARTEmbeddings('facebook/bart-base')(entity2)
@@ -34,5 +40,5 @@ def get_plain_similarity(entity1_embedding: torch.Tensor, entity2_embedding: tor
     return similarity_score
 
 
-print(f"Transformed Similarity: {get_transformed_similarity(embedding_entity1, embedding_entity2)}")
-print(f"Plain Similarity: {get_plain_similarity(embedding_entity1, embedding_entity2)}")
+print(f'Transformed Similarity: {get_transformed_similarity(embedding_entity1, embedding_entity2)}')
+print(f'Plain Similarity: {get_plain_similarity(embedding_entity1, embedding_entity2)}')

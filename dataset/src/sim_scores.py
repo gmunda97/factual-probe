@@ -1,3 +1,8 @@
+'''
+Script to fetch similarity scores for the triples in the dataset
+using the WEmbedder API.
+'''
+
 import requests
 import json
 import logging
@@ -9,9 +14,9 @@ logging.basicConfig(level=logging.INFO)
 
 
 def get_similarity_score(sub_id, obj_id):
-    api_url = f"https://wembedder.toolforge.org/api/similarity/{sub_id}/{obj_id}"
+    api_url = f'https://wembedder.toolforge.org/api/similarity/{sub_id}/{obj_id}'
     try:
-        response = requests.get(api_url, timeout=10)  # Adding timeout for robustness
+        response = requests.get(api_url, timeout=10)
         response.raise_for_status()
         data = response.json()
         return data.get('similarity')

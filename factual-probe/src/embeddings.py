@@ -99,5 +99,3 @@ class BARTEmbeddings(BaseEmbeddings):
 
         return embeddings
 
-
-# TODO -> modifiy the embeddings classes for the Wikipedia descriptions

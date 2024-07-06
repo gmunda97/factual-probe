@@ -1,3 +1,8 @@
+'''
+Script to compute the spectrum of the transformation matrix
+and to visualize it using a scatter plot.
+'''
+
 import torch
 import matplotlib.pyplot as plt
 
@@ -40,5 +45,4 @@ if __name__ == '__main__':
     matrix = spectrum.load_model()
     eigenvalues = spectrum.compute_eigenvalues(matrix)
     print(eigenvalues)
-    print(eigenvalues.imag)
     spectrum.plot_eigenvalues(eigenvalues)

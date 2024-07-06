@@ -1,4 +1,7 @@
-'''Module to evaluate the trained models on the test data'''
+'''
+Module to evaluate in a quantitative way
+the trained models on the test data.
+'''
 
 from typing import Tuple, Dict, Optional
 import pandas as pd
@@ -31,7 +34,7 @@ class Evaluator:
         if 'orthogonal' in self.trained_model_path:
             loaded_transformation = checkpoint['model_class'](embedding_dim)
         else:
-            loaded_transformation = checkpoint['model_class'](embedding_dim, embedding_dim)
+            loaded_transformation = checkpoint['model_class'](embedding_dim, 512)
         loaded_transformation.load_state_dict(checkpoint['state_dict'])
         loaded_transformation.eval()
         return loaded_transformation
@@ -55,37 +58,16 @@ class Evaluator:
                 normalized_embeddings_test[1::2],
                 dim=1
             ).view(-1, 1)
-        
-        pearson_corr = self.utils.compute_pearson_correlation(predicted_similarity_scores, similarity_scores_test)
-        spearman_corr = self.utils.compute_spearman_correlation(predicted_similarity_scores, similarity_scores_test)
-        mse = self.utils.compute_mean_squared_error(predicted_similarity_scores, similarity_scores_test)
-        rmse = self.utils.compute_root_mean_squared_error(predicted_similarity_scores, similarity_scores_test)
-
-        results_df = pd.DataFrame({
-            'predicted': predicted_similarity_scores.detach().squeeze().cpu().numpy(),
-            'actual': similarity_scores_test.detach().squeeze().cpu().numpy()
-        })
-        results_df['pearson_residual'] = results_df['predicted'] - results_df['actual']     # Uncomment if you want to display the worst performing data points
-        results_df['spearman_residual'] = results_df['predicted'].rank() - results_df['actual'].rank()
-
-        lowest_pearson = results_df.sort_values(by='pearson_residual').head(50)
-        lowest_spearman = results_df.sort_values(by='spearman_residual').head(50)
-        # best_pearson = results_df.reindex(results_df['pearson_residual'].abs().sort_values().index).head(50)
-        # best_spearman = results_df.reindex(results_df['spearman_residual'].abs().sort_values().index).head(50)
-        
-        results_df.to_csv('./../resources/predictions/predictions_bert_cls.csv', index=False)
-
-        # Print the results with the lowest correlations
-        print("Lowest Pearson Correlation Data Points:")
-        print(lowest_pearson)
-        print("\nLowest Spearman Correlation Data Points:")
-        print(lowest_spearman)
 
         results = {
-            "Person correlation": pearson_corr,
-            "Spearman correlation": spearman_corr,
-            "Mean squared error": mse,
-            "Root mean squared error": rmse
+            "Person correlation": self.utils.compute_pearson_correlation(
+                predicted_similarity_scores, similarity_scores_test),
+            "Spearman correlation": self.utils.compute_spearman_correlation(
+                predicted_similarity_scores, similarity_scores_test),
+            "Mean squared error": self.utils.compute_mean_squared_error(
+                predicted_similarity_scores, similarity_scores_test),
+            "Root mean squared error": self.utils.compute_root_mean_squared_error(
+                predicted_similarity_scores, similarity_scores_test)
         }
         return results
     
@@ -101,8 +83,8 @@ class Evaluator:
 if __name__ == "__main__":
 
     evaluator = Evaluator(
-        embeddings_path='./../../data/embeddings/wikidata5m_42k_test_embeddings_bart.pt',
+        embeddings_path='./../../data/embeddings/wikidata5m_42k_desc_test_embeddings_bart.pt',
         test_data_path='./../../data/dataset/wikidata5m_42k_test.csv',
-        trained_model_path='./../../trained_models/entities_only/full_dim/42k_linear_bart.pth'
+        trained_model_path='./../../trained_models/wiki_desc/reduced_dim/bart/best_model_dim_512.pth'
     )
     evaluator.run_evaluation()

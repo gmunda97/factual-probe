@@ -1,8 +1,11 @@
+'''
+Script to analyze the complete knowledge graph dataset
+in JSONL format.
+'''
+
 import json
 import matplotlib.pyplot as plt
-import numpy as np
 import seaborn as sns
-
 
 
 class KnowledgeGraphAnalyzer:
@@ -140,11 +143,11 @@ if __name__ == '__main__':
     original_dataset = './../../data/wikidata5m_inductive/wikidata5m_inductive_train.txt'
 
     analyzer = KnowledgeGraphAnalyzer(file_path, original_dataset)
-    print("Unique Entities:", analyzer.count_unique_entities())
-    print("Unique Relations:", analyzer.count_unique_relations())
-    print("Unique Objects:", analyzer.count_unique_objects())
-    print("Unique Subjects:", analyzer.count_unique_subjects())
-    print("Unique Triples:", analyzer.count_unique_triples())
+    print('Unique Entities:', analyzer.count_unique_entities())
+    print('Unique Relations:', analyzer.count_unique_relations())
+    print('Unique Objects:', analyzer.count_unique_objects())
+    print('Unique Subjects:', analyzer.count_unique_subjects())
+    print('Unique Triples:', analyzer.count_unique_triples())
     analyzer.plot_relation_distribution()
     analyzer.plot_original_relation_distribution()
     analyzer.plot_comparison()

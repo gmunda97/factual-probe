@@ -13,19 +13,10 @@ import numpy as np
 
 from dataload import DataPreparation
 from embeddings import BERTEmbeddings, BERTEmbeddingsWithCLS
-from transformations import LinearTransformation, OrthogonalLayer, MultilayerPerceptron, RBFKernelLayer
+from transformations import LinearTransformation
 from utils import UtilityFunctions
 from config import get_config
 
-
-# Set seeds for reproducibility
-# seed = 42
-# torch.manual_seed(seed)
-# torch.cuda.manual_seed(seed)
-# np.random.seed(seed)
-# random.seed(seed)
-# torch.backends.cudnn.deterministic = True
-# torch.backends.cudnn.benchmark = False
 
 
 def load_or_generate_embeddings(
@@ -50,14 +41,11 @@ def initialize_model(embedding_dim: int) -> Tuple[nn.Module, nn.Module, optim.Op
     return model, loss_function, optimizer, scheduler
 
 def compute_predicted_scores(transformed_embeddings: torch.Tensor) -> torch.Tensor:
-    #normalized_embeddings = F.normalize(transformed_embeddings, p=2, dim=1)
     return F.cosine_similarity(
         transformed_embeddings[::2], # select every other embedding starting from the first one
         transformed_embeddings[1::2], # select every other embedding starting from the second one
         dim=1                         # if we have e1, e2, e3, e4 it will compute the similarity between (e1, e2), (e3, e4)
     ).view(-1, 1)
-    # scores = (normalized_embeddings[::2] * normalized_embeddings[1::2]).sum(dim=1)
-    # return scores.view(-1, 1)
 
 def train_epoch(
         model: nn.Module,
@@ -66,15 +54,12 @@ def train_epoch(
         train_scores: torch.Tensor,
         loss_function: nn.Module,
         utility_funcs: UtilityFunctions
-        #lambda_orth: float = 0.0001
     ) -> Tuple[torch.Tensor, float]:
     optimizer.zero_grad()
     transformed_embeddings = model(train_embeddings)
     print(transformed_embeddings.size())
     predicted_scores = compute_predicted_scores(transformed_embeddings)
     loss = loss_function(predicted_scores, train_scores)
-    #orth_loss = utility_funcs.orthogonal_regularization(model, lambda_orth)
-    #total_loss = loss + orth_loss
     loss.backward(retain_graph=True)
     optimizer.step()
     return loss, utility_funcs.compute_pearson_correlation(predicted_scores, train_scores)
@@ -151,7 +136,6 @@ def main() -> None:
     learned_transformation = list(model.parameters())[0].detach().numpy()
     print(learned_transformation.shape)
     print(learned_transformation)
-    #print(utils.is_orthogonal(learned_transformation))
 
 
 if __name__ == '__main__':

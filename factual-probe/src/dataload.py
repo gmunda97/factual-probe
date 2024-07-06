@@ -1,8 +1,10 @@
-'''Module to process the dataset for the model training'''
+'''
+Module to process the dataset for the model training
+using only the embeddings ot the entities' names.
+'''
 
 import os
 from tqdm import tqdm
-import pickle
 import torch
 from torch.utils.data import Dataset, DataLoader
 import pandas as pd
@@ -18,7 +20,7 @@ class CustomDataset(Dataset):
     
     def __getitem__(self, idx):
         row = self.data.iloc[idx]
-        return row['subject'], row['subject_desc'], row['object'], row['object_desc'], row['similarity']
+        return row['subject'], row['object'], row['similarity']
 
 
 class DataPreparation:
@@ -26,11 +28,11 @@ class DataPreparation:
         self.model_name = model_name
         self.contextual_embeddings = contextual_embeddings
 
-    def get_normalized_embeddings(self, entity_text: str, entity_description: str = None) -> torch.Tensor:
+    def get_normalized_embeddings(self, entity_text: str) -> torch.Tensor:
         '''
         Method to L2 normalize embeddings for the given entity text
         '''
-        embeddings = self.contextual_embeddings(entity_text, entity_description)
+        embeddings = self.contextual_embeddings(entity_text)
         embeddings = embeddings.detach()#.clone().requires_grad_(True)
         norm = torch.linalg.norm(embeddings, dim=1, keepdim=True)
         norm[norm == 0] = 1 # prevent division by zero
@@ -42,25 +44,18 @@ class DataPreparation:
         '''
         Prepares a batch of normalized embeddings and similarity scores
         '''
-        subjects, subjects_desc, objects, objects_desc, similarities = batch_data
+        subjects, objects, similarities = batch_data
         batch_normalized_embeddings = []
         batch_similarity_scores = []
 
-        for idx in range(len(similarities)):
-            subject = subjects[idx]
-            subject_desc = subjects_desc[idx]
-            obj = objects[idx]
-            obj_desc = objects_desc[idx]
-            similarity = similarities[idx]
-
-            embeddings1_normalized = self.get_normalized_embeddings(subject, subject_desc)
-            embeddings2_normalized = self.get_normalized_embeddings(obj, obj_desc)
+        for subject, obj in zip(subjects, objects):
+            embeddings1_normalized = self.get_normalized_embeddings(subject)
+            embeddings2_normalized = self.get_normalized_embeddings(obj)
             batch_normalized_embeddings.append(embeddings1_normalized)
             batch_normalized_embeddings.append(embeddings2_normalized)
-            batch_similarity_scores.append(similarity)
         
         batch_normalized_embeddings = torch.cat(batch_normalized_embeddings, dim=0)
-        batch_similarity_scores = torch.tensor(batch_similarity_scores, dtype=torch.float32).view(-1, 1)
+        batch_similarity_scores = torch.as_tensor(similarities, dtype=torch.float32).view(-1, 1)
 
         return batch_normalized_embeddings, batch_similarity_scores
 
@@ -86,12 +81,7 @@ class DataPreparation:
 
         return normalized_embeddings, similarity_scores
 
-# DataPreparation normalizes the embeddings using L2 normalization, meaning that
-# when we calculate the cosine similarity between two embeddings, we are actually
-# calculating only the dot product between the two embeddings, since the denominator
-# of the cosine similarity is the product of the L2 norms of the two embeddings.
-# Nevertheless, we are computing the cosine similarity between transformed embeddings,
-# which should not be normalized? -> Ask Tobi
+
 
 class DataOnDisk(DataPreparation):
     def __init__(self, model_name: str, contextual_embeddings: torch.Tensor, save_path: str) -> None:
@@ -112,21 +102,21 @@ class DataOnDisk(DataPreparation):
 
 if __name__ == '__main__':
 
-    MODEL_NAME = 'facebook/bart-base'
-    SAVE_PATH = './../../data/embeddings/wikidata5m_42k_desc_train_embeddings_bart.pt'
-    train_data = pd.read_csv('./../../data/dataset/wikidata5m_42k_desc_train.csv')
-    #val_data = pd.read_csv('./../../data/dataset/wikidata5m_42k_desc_valid.csv')
-    #test_data = pd.read_csv('./../../data/dataset/wikidata5m_42k_desc_test.csv')
+    MODEL_NAME = 'bert-base-uncased'
+    SAVE_PATH = './../../data/embeddings/wikidata5m_42k_valid_embeddings_bert.pt'
+    #train_data = pd.read_csv('./../../data/dataset/wikidata5m_42k_train.csv')
+    val_data = pd.read_csv('./../../data/dataset/wikidata5m_42k_valid.csv')
+    #test_data = pd.read_csv('./../../data/dataset/wikidata5m_42k_test.csv')
 
     if os.path.exists(SAVE_PATH):
         bert_embeddings = BERTEmbeddingsWithCLS(MODEL_NAME)
         data_prep = DataPreparation(MODEL_NAME, bert_embeddings)
-        normalized_embeddings, similarity_scores = data_prep.prepare_data(train_data)
+        normalized_embeddings, similarity_scores = data_prep.prepare_data(val_data)
         print(normalized_embeddings.shape)
         print(similarity_scores.shape)
         print(normalized_embeddings[0])
 
     else:
-        embeddings = BARTEmbeddings(MODEL_NAME)
-        data_prep = DataOnDisk(MODEL_NAME, embeddings, SAVE_PATH)
-        normalized_embeddings, _ = data_prep.prepare_data_and_save(train_data)
+        bert_embeddings = BERTEmbeddings(MODEL_NAME)
+        data_prep = DataOnDisk(MODEL_NAME, bert_embeddings, SAVE_PATH)
+        normalized_embeddings, _ = data_prep.prepare_data_and_save(val_data)

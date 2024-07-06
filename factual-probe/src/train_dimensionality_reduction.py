@@ -1,7 +1,9 @@
-'''Module to train the various transformations'''
+'''
+Module to train the various transformations
+on different dimensionalities.
+'''
 
 import os
-import random
 from typing import Tuple
 import torch
 import torch.nn as nn
@@ -9,11 +11,10 @@ import torch.nn.functional as F
 import torch.optim as optim
 from torch.optim.lr_scheduler import ReduceLROnPlateau
 import pandas as pd
-import numpy as np
 
 from dataload import DataPreparation
 from embeddings import BERTEmbeddings, BERTEmbeddingsWithCLS
-from transformations import LinearTransformation, OrthogonalLayer, MultilayerPerceptron, RBFKernelLayer
+from transformations import LinearTransformation
 from utils import UtilityFunctions
 from config import get_config
 
@@ -35,7 +36,6 @@ def load_or_generate_embeddings(
 
 def initialize_model(embedding_dim: int, output_dim: int) -> Tuple[nn.Module, nn.Module, optim.Optimizer, optim.lr_scheduler._LRScheduler]:
     model = LinearTransformation(embedding_dim, output_dim) # choose the model here
-    #model = OrthogonalLayer(embedding_dim)
     loss_function = nn.MSELoss()
     optimizer = optim.AdamW(model.parameters(), lr=0.001, weight_decay=0.005)
     scheduler = ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=5)

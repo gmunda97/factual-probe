@@ -7,7 +7,7 @@ config = {
     'weight_decay': 0.005,
     'num_epochs': 100,
     'early_stopping_patience': 10,
-    'optimizer': 'AdamW',  # Could be SGD, Adam, etc.
+    'optimizer': 'AdamW',
     'loss_function': 'MSELoss',
     'scheduler': {
         'type': 'ReduceLROnPlateau',
