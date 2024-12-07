@@ -1,15 +1,13 @@
 '''Module to train the various transformations'''
 
 import os
-import random
 from typing import Tuple
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
-from torch.optim.lr_scheduler import StepLR, ExponentialLR, ReduceLROnPlateau
+from torch.optim.lr_scheduler import ReduceLROnPlateau
 import pandas as pd
-import numpy as np
 
 from dataload import DataPreparation
 from embeddings import BERTEmbeddings, BERTEmbeddingsWithCLS
