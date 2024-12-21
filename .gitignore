@@ -1,4 +1,13 @@
-/.DS_Store
+.DS_Store
 /__pycache__
 /data
 /trained_models
+/runs
+/train/__pycache__
+**/__pycache__
+#/QA_evaluation/resources/data
+/QA_evaluation
+/dataset/jupyter_notebooks
+**/jupyter_notebooks
+/linear-venv
+/gnn.py
