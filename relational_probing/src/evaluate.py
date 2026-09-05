@@ -12,6 +12,7 @@ Usage:
 
 import os
 import sys
+from datetime import datetime
 from typing import Optional
 
 # ── Shared src must be on the path before any local imports ──────────────────
@@ -25,6 +26,7 @@ from tqdm import tqdm
 
 from embeddings import BERTEmbeddings, BERTEmbeddingsWithCLS, ModernBERTEmbeddings, ModernBERTEmbeddingsWithCLS
 from transformations import LinearTransformation
+from config import get_config
 
 COLS = ["subject", "pred_value", "object"]
 
@@ -35,7 +37,7 @@ class Evaluator:
         data_path: str,
         cache_dir: str,
         model_path: str,
-        model_name: str = "answerdotai/ModernBERT-base",
+        model_name: str = "bert-base-uncased",
         cache_prefix: str = "42k_test_rel",
         k_list: tuple = (1, 3, 10),
     ) -> None:
@@ -45,21 +47,20 @@ class Evaluator:
         self.model_name   = model_name
         self.cache_prefix = cache_prefix
         self.k_list       = k_list
-        self._encoder: Optional[ModernBERTEmbeddings] = None
+        self._encoder: Optional[BERTEmbeddings] = None
 
     # ── Internal helpers ──────────────────────────────────────────────────────
 
     @property
-    def encoder(self) -> ModernBERTEmbeddings:
+    def encoder(self) -> BERTEmbeddings:
         """Lazy-load the BERT encoder once."""
         if self._encoder is None:
             print(f"Loading encoder: {self.model_name}")
-            self._encoder = ModernBERTEmbeddings(self.model_name)
-            self._encoder.model.eval()
+            self._encoder = BERTEmbeddings(self.model_name)
         return self._encoder
 
-    def _embed_strings(self, encoder: ModernBERTEmbeddings, texts: list[str], batch_size: int = 64) -> torch.Tensor:
-        """Encode *texts* in batches. Returns a (N, D) mean-pooled tensor."""
+    def _embed_strings(self, encoder: BERTEmbeddings, texts: list[str], batch_size: int = 64) -> torch.Tensor:
+        """Encode *texts* in batches. Returns a (N, D) tensor."""
         encoder.model.eval()
         all_vecs = []
         for i in tqdm(range(0, len(texts), batch_size), desc="Encoding", leave=False):
@@ -98,20 +99,20 @@ class Evaluator:
         """
         h_s = self._load_or_compute(
             df["subject"].tolist(),
-            os.path.join(self.cache_dir, f"{self.cache_prefix}_h_s_modernbert.pt"),
+            os.path.join(self.cache_dir, f"{self.cache_prefix}_h_s_bert.pt"),
         )
         h_r = self._load_or_compute(
             df["pred_value"].tolist(),
-            os.path.join(self.cache_dir, f"{self.cache_prefix}_h_r_modernbert.pt"),
+            os.path.join(self.cache_dir, f"{self.cache_prefix}_h_r_bert.pt"),
         )
         h_o = self._load_or_compute(
             df["object"].tolist(),
-            os.path.join(self.cache_dir, f"{self.cache_prefix}_h_o_modernbert.pt"),
+            os.path.join(self.cache_dir, f"{self.cache_prefix}_h_o_bert.pt"),
         )
         return h_s, h_r, h_o
 
     def load_model(self, embedding_dim: int) -> LinearTransformation:
-        checkpoint = torch.load(self.model_path, map_location="cpu", weights_only=True)
+        checkpoint = torch.load(self.model_path, map_location="cpu", weights_only=False)
         model = LinearTransformation(embedding_dim, embedding_dim)
         model.load_state_dict(checkpoint["state_dict"])
         model.eval()
@@ -254,6 +255,26 @@ class Evaluator:
 
         return pd.DataFrame(rows)
 
+    def save_results(
+        self,
+        metrics_df: pd.DataFrame,
+        inspection_before: pd.DataFrame,
+        inspection_after: pd.DataFrame,
+        output_path: str,
+    ) -> None:
+        """
+        Save evaluation results to an Excel workbook with three sheets:
+          - Metrics             : before/after aggregate metrics
+          - Inspection Before W : per-query top-k inspection before W
+          - Inspection After W  : per-query top-k inspection after W
+        """
+        os.makedirs(os.path.dirname(output_path), exist_ok=True)
+        with pd.ExcelWriter(output_path, engine="openpyxl") as writer:
+            metrics_df.to_excel(writer, sheet_name="Metrics")
+            inspection_before.to_excel(writer, sheet_name="Inspection Before W", index=False)
+            inspection_after.to_excel(writer, sheet_name="Inspection After W", index=False)
+        print(f"Results saved → {output_path}")
+
     def run_evaluation(self) -> pd.DataFrame:
         """
         Full evaluation pipeline. Returns a DataFrame with before/after metrics.
@@ -281,10 +302,14 @@ class Evaluator:
 
 
 if __name__ == "__main__":
+
+    config = get_config()
+
     evaluator = Evaluator(
-        data_path=os.path.join(_ROOT, "data", "dataset", "wikidata5m_42k_test_relations.csv"),
-        cache_dir=os.path.join(_ROOT, "data", "embeddings"),
-        model_path=os.path.join(_ROOT, "trained_models", "relational_probing", "transform_triples_modernbert.pt"),
+        data_path=config['data_paths']['test'],
+        cache_dir=os.path.join(_ROOT, "data", "embeddings", "relational_probing"),
+        model_path=config['model_paths']['saved_model'],
+        model_name=config['model_name'],
     )
 
     df_test        = evaluator.load_data()
@@ -312,3 +337,13 @@ if __name__ == "__main__":
         df_test, h_o_hat_W, unique_h_o, unique_names, true_indices, top_k=5
     )
     print(inspection_after[["subject", "relation", "true_object", "true_rank", "top_1", "top_2", "top_3"]].to_string())
+
+    # ── Save to Excel ────────────────────────────────────────────────────────
+    results_df = pd.DataFrame(
+        {"Before W": evaluator.compute_metrics(h_o_hat,   unique_h_o, true_indices),
+         "After W":  evaluator.compute_metrics(h_o_hat_W, unique_h_o, true_indices)}
+    ).T.round(4)
+    base_path = config["results_paths"]["evaluation_results"]
+    stem, ext = os.path.splitext(base_path)
+    output_path = f"{stem}_{datetime.now().strftime('%Y%m%d')}{ext}"
+    evaluator.save_results(results_df, inspection_before, inspection_after, output_path)

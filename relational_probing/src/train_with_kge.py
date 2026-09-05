@@ -1,5 +1,5 @@
 """
-Train a linear transformation W such that W(h_s + h_r) ≈ h_o.
+Train a linear transformation W such that W(h_s + h_r) ≈ h_o, but h_o is computed using a knowledge graph embedding (KGE) model instead of an LLM.
 
 Loss: mean cosine distance = mean(1 - cos(W(h_s + h_r), h_o))
 
@@ -29,7 +29,7 @@ from config import get_config
 
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
-def embed_strings(encoder: BERTEmbeddings, texts: list[str], batch_size: int = 64) -> torch.Tensor:
+def embed_strings(encoder: BERTEmbeddingsWithCLS, texts: list[str], batch_size: int = 64) -> torch.Tensor:
     """Encode *texts* in batches. Returns a (N, D) mean-pooled tensor."""
     encoder.model.eval()
     all_vecs = []
@@ -44,7 +44,15 @@ def embed_strings(encoder: BERTEmbeddings, texts: list[str], batch_size: int = 6
     return torch.cat(all_vecs, dim=0)
 
 
-def load_or_compute(encoder: BERTEmbeddings, texts: list[str], cache_path: str) -> torch.Tensor:
+def parse_kge_embeddings(df: pd.DataFrame) -> torch.Tensor:
+    """Convert the space-separated obj_embedding strings to a (N, D_kge) tensor."""
+    return torch.tensor(
+        df['obj_embedding'].apply(lambda s: list(map(float, s.split()))).tolist(),
+        dtype=torch.float32,
+    )
+
+
+def load_or_compute(encoder: BERTEmbeddingsWithCLS, texts: list[str], cache_path: str) -> torch.Tensor:
     """Return cached embeddings if available, otherwise compute and save them."""
     if os.path.exists(cache_path):
         print(f"  [cache hit]  {os.path.basename(cache_path)}")
@@ -98,22 +106,24 @@ def main() -> None:
     print("\n=== Train embeddings ===")
     train_h_s = load_or_compute(encoder, train_df["subject"].tolist(),    config['cache_paths']['train_h_s'])
     train_h_r = load_or_compute(encoder, train_df["pred_value"].tolist(), config['cache_paths']['train_h_r'])
-    train_h_o = load_or_compute(encoder, train_df["object"].tolist(),     config['cache_paths']['train_h_o'])
+    train_h_o = parse_kge_embeddings(train_df)
 
     print("\n=== Val embeddings ===")
     val_h_s = load_or_compute(encoder, val_df["subject"].tolist(),    config['cache_paths']['val_h_s'])
     val_h_r = load_or_compute(encoder, val_df["pred_value"].tolist(), config['cache_paths']['val_h_r'])
-    val_h_o = load_or_compute(encoder, val_df["object"].tolist(),     config['cache_paths']['val_h_o'])
+    val_h_o = parse_kge_embeddings(val_df)
 
     train_h_o_hat = train_h_s + train_h_r   # (N_train, D)
     val_h_o_hat   = val_h_s   + val_h_r     # (N_val,   D)
-    print(f"\nEmbedding dim : {train_h_o.shape[1]}")
+    print(f"\nInput dim  (h_s + h_r) : {train_h_o_hat.shape[1]}")
+    print(f"Target dim (KGE h_o)   : {train_h_o.shape[1]}")
     print(f"Train tensors : {train_h_o_hat.shape}")
     print(f"Val tensors   : {val_h_o_hat.shape}")
 
     # --- Model ---
-    D = train_h_o_hat.shape[1]
-    model     = LinearTransformation(D, D)
+    D_in  = train_h_o_hat.shape[1]   # LM hidden size (e.g. 768)
+    D_out = train_h_o.shape[1]        # KGE dim (e.g. 100)
+    model     = LinearTransformation(D_in, D_out)
     optimizer = optim.AdamW(model.parameters(), lr=config['lr'], weight_decay=config['weight_decay'])
     scheduler = ReduceLROnPlateau(optimizer, mode="min", factor=0.5, patience=5)
 
@@ -172,12 +182,9 @@ def main() -> None:
     with torch.no_grad():
         val_pred_W = model(val_h_o_hat)
 
-    metrics_before = evaluate(val_h_o_hat, val_h_o)
-    metrics_after  = evaluate(val_pred_W,  val_h_o)
+    metrics = evaluate(val_pred_W, val_h_o)
 
-    metrics_df = pd.DataFrame(
-        {"Before W": metrics_before, "After W": metrics_after}
-    ).T.round(4)
+    metrics_df = pd.DataFrame({"After W": metrics}).T.round(4)
     print(metrics_df)
 
 

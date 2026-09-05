@@ -28,8 +28,11 @@ class BERTEmbeddings(BaseEmbeddings):
         self.tokenizer = BertTokenizer.from_pretrained(model_name)
         self.model = BertModel.from_pretrained(model_name)
 
-    def pool(self, last_hidden_state: torch.Tensor, attention_mask: torch.Tensor = None) -> torch.Tensor:
-        return last_hidden_state.mean(dim=1)
+    def pool(self, last_hidden_state: torch.Tensor, attention_mask: torch.Tensor) -> torch.Tensor:
+        mask = attention_mask.unsqueeze(-1).expand(last_hidden_state.size()).float()
+        summed = (last_hidden_state * mask).sum(dim=1)
+        counts = mask.sum(dim=1).clamp(min=1e-9)
+        return summed / counts
 
     def __call__(self, entity_text: str, entity_description: str = None) -> torch.Tensor:
         if entity_description:
