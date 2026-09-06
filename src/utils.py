@@ -1,5 +1,9 @@
 '''Python file for utility functions'''
 
+import os
+import json
+import subprocess
+
 from typing import Tuple
 import torch
 import torch.nn as nn
@@ -7,6 +11,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import pearsonr, spearmanr
 from sklearn.metrics import mean_squared_error
+
+_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 class UtilityFunctions:
@@ -139,3 +145,23 @@ class UtilityFunctions:
         plt.title('Pearson Correlation over Epochs by Output Dimension')
         plt.legend()
         plt.savefig('./../resources/plots/training/wiki_desc/reduced_dim/all_pearson_correlations.png')
+
+    @staticmethod
+    def save_run_metadata(metadata_path: str, metadata: dict) -> None:
+        os.makedirs(os.path.dirname(metadata_path), exist_ok=True)
+        with open(metadata_path, "w", encoding="utf-8") as file:
+            json.dump(metadata, file, indent=2, default=str)
+
+    @staticmethod
+    def get_git_commit() -> str | None:
+        try:
+            result = subprocess.run(
+                ["git", "rev-parse", "HEAD"],
+                cwd=_ROOT,
+                capture_output=True,
+                text=True,
+                check=True,
+            )
+        except (OSError, subprocess.CalledProcessError):
+            return None
+        return result.stdout.strip()

@@ -9,6 +9,8 @@ Usage:
 
 import os
 import sys
+import platform
+from datetime import datetime
 
 # ── Shared src must be on the path before any local imports ──────────────────
 _ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -18,6 +20,7 @@ import pandas as pd
 import torch
 import torch.nn.functional as F
 import torch.optim as optim
+from torch.utils.data import DataLoader, TensorDataset
 from torch.optim.lr_scheduler import ReduceLROnPlateau
 import matplotlib.pyplot as plt
 from tqdm import tqdm
@@ -25,12 +28,74 @@ from tqdm import tqdm
 from embeddings import BERTEmbeddings, BERTEmbeddingsWithCLS, ModernBERTEmbeddings, ModernBERTEmbeddingsWithCLS
 from transformations import LinearTransformation
 from utils import UtilityFunctions
-from config import get_config
+from config import MODEL_SPEC, get_config
+
+
+def cosine_loss(o_hat: torch.Tensor, o: torch.Tensor) -> torch.Tensor:
+    """Mean cosine distance between predicted and true object embeddings."""
+    return (1 - F.cosine_similarity(o_hat, o)).mean()
+
+
+def infonce_loss(o_hat: torch.Tensor, o: torch.Tensor, temperature: float = 0.1) -> torch.Tensor:
+    """
+    Compute the InfoNCE loss for a batch of predicted and true object embeddings.
+
+    Args:
+        o_hat: Predicted object embeddings (N, D)
+        o: True object embeddings (N, D)
+        temperature: Scaling factor for logits
+
+    Returns:
+        InfoNCE loss (scalar)
+    """
+    q = F.normalize(o_hat, dim=1)       # (N, D)
+    k = F.normalize(o, dim=1)           # (N, D)
+    logits = (q @ k.T) / temperature    # (N, N) similarity matrix
+    labels = torch.arange(len(q), device=q.device)
+    return F.cross_entropy(logits, labels)
+
+
+def infonce_loss_chunked(
+    o_hat: torch.Tensor,
+    o: torch.Tensor,
+    temperature: float,
+    chunk_size: int,
+) -> torch.Tensor:
+    """Compute InfoNCE against all targets without an N x N logits matrix."""
+    k = F.normalize(o, dim=1)
+    losses = []
+    for start in range(0, len(o_hat), chunk_size):
+        stop = start + chunk_size
+        q_chunk = F.normalize(o_hat[start:stop], dim=1)
+        logits = (q_chunk @ k.T) / temperature
+        labels = torch.arange(start, min(stop, len(o_hat)), device=o_hat.device)
+        losses.append(F.cross_entropy(logits, labels, reduction="sum"))
+    return torch.stack(losses).sum() / len(o_hat)
+
+
+def total_loss(
+    o_hat: torch.Tensor,
+    o: torch.Tensor,
+    use_infonce: bool,
+    infonce_lambda: float,
+    infonce_temperature: float,
+) -> torch.Tensor:
+    loss = cosine_loss(o_hat, o)
+    if use_infonce:
+        loss = loss + infonce_lambda * infonce_loss(o_hat, o, infonce_temperature)
+    return loss
+
+
 
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
-def embed_strings(encoder: BERTEmbeddings, texts: list[str], batch_size: int = 64) -> torch.Tensor:
-    """Encode *texts* in batches. Returns a (N, D) mean-pooled tensor."""
+def embed_strings(
+    encoder: BERTEmbeddings,
+    texts: list[str],
+    transformer_layer: int,
+    batch_size: int = 64,
+) -> torch.Tensor:
+    """Encode *texts* from one transformer layer and mean-pool the tokens."""
     encoder.model.eval()
     all_vecs = []
     for i in tqdm(range(0, len(texts), batch_size), desc="Encoding", leave=False):
@@ -39,18 +104,24 @@ def embed_strings(encoder: BERTEmbeddings, texts: list[str], batch_size: int = 6
             batch, return_tensors="pt", padding=True, truncation=True, max_length=64
         )
         with torch.no_grad():
-            out = encoder.model(**inputs)
-        all_vecs.append(encoder.pool(out.last_hidden_state, inputs['attention_mask']))
+            out = encoder.model(**inputs, output_hidden_states=True)
+        layer_hidden_state = out.hidden_states[transformer_layer]
+        all_vecs.append(encoder.pool(layer_hidden_state, inputs['attention_mask']))
     return torch.cat(all_vecs, dim=0)
 
 
-def load_or_compute(encoder: BERTEmbeddings, texts: list[str], cache_path: str) -> torch.Tensor:
+def load_or_compute(
+    encoder: BERTEmbeddings,
+    texts: list[str],
+    cache_path: str,
+    transformer_layer: int,
+) -> torch.Tensor:
     """Return cached embeddings if available, otherwise compute and save them."""
     if os.path.exists(cache_path):
         print(f"  [cache hit]  {os.path.basename(cache_path)}")
         return torch.load(cache_path, map_location="cpu")
     print(f"  [computing]  {os.path.basename(cache_path)}")
-    vecs = embed_strings(encoder, texts)
+    vecs = embed_strings(encoder, texts, transformer_layer)
     torch.save(vecs, cache_path)
     return vecs
 
@@ -82,6 +153,23 @@ def evaluate(queries: torch.Tensor, targets: torch.Tensor, k_list: tuple = (1, 3
 # ── Main ──────────────────────────────────────────────────────────────────────
 def main() -> None:
     config = get_config()
+    start_time = datetime.now().astimezone()
+    run_id = start_time.strftime("%Y%m%dT%H%M%S%z")
+    metadata_path = os.path.join(
+        config['results_paths']['run_metadata_dir'],
+        f"{MODEL_SPEC}_{run_id}.json",
+    )
+    run_metadata = {
+        "run_id": run_id,
+        "status": "running",
+        "started_at": start_time.isoformat(),
+        "script": os.path.abspath(__file__),
+        "git_commit": UtilityFunctions.get_git_commit(),
+        "python_version": platform.python_version(),
+        "torch_version": torch.__version__,
+        "platform": platform.platform(),
+        "config": config,
+    }
 
     # --- Data ---
     train_df = pd.read_csv(config['data_paths']['train'])[config['cols']]
@@ -96,14 +184,15 @@ def main() -> None:
 
     # --- Embeddings (cached) ---
     print("\n=== Train embeddings ===")
-    train_h_s = load_or_compute(encoder, train_df["subject"].tolist(),    config['cache_paths']['train_h_s'])
-    train_h_r = load_or_compute(encoder, train_df["pred_value"].tolist(), config['cache_paths']['train_h_r'])
-    train_h_o = load_or_compute(encoder, train_df["object"].tolist(),     config['cache_paths']['train_h_o'])
+    layer = config['transformer_layer']
+    train_h_s = load_or_compute(encoder, train_df["subject"].tolist(),    config['cache_paths']['train_h_s'], layer)
+    train_h_r = load_or_compute(encoder, train_df["pred_value"].tolist(), config['cache_paths']['train_h_r'], layer)
+    train_h_o = load_or_compute(encoder, train_df["object"].tolist(),     config['cache_paths']['train_h_o'], layer)
 
     print("\n=== Val embeddings ===")
-    val_h_s = load_or_compute(encoder, val_df["subject"].tolist(),    config['cache_paths']['val_h_s'])
-    val_h_r = load_or_compute(encoder, val_df["pred_value"].tolist(), config['cache_paths']['val_h_r'])
-    val_h_o = load_or_compute(encoder, val_df["object"].tolist(),     config['cache_paths']['val_h_o'])
+    val_h_s = load_or_compute(encoder, val_df["subject"].tolist(),    config['cache_paths']['val_h_s'], layer)
+    val_h_r = load_or_compute(encoder, val_df["pred_value"].tolist(), config['cache_paths']['val_h_r'], layer)
+    val_h_o = load_or_compute(encoder, val_df["object"].tolist(),     config['cache_paths']['val_h_o'], layer)
 
     train_h_o_hat = train_h_s + train_h_r   # (N_train, D)
     val_h_o_hat   = val_h_s   + val_h_r     # (N_val,   D)
@@ -115,7 +204,23 @@ def main() -> None:
     D = train_h_o_hat.shape[1]
     model     = LinearTransformation(D, D)
     optimizer = optim.AdamW(model.parameters(), lr=config['lr'], weight_decay=config['weight_decay'])
-    scheduler = ReduceLROnPlateau(optimizer, mode="min", factor=0.5, patience=5)
+    scheduler = ReduceLROnPlateau(
+        optimizer,
+        mode="min",
+        factor=config['scheduler_factor'],
+        patience=config['scheduler_patience'],
+    )
+
+    train_loader = DataLoader(
+        TensorDataset(train_h_o_hat, train_h_o),
+        batch_size=config['batch_size'],
+        shuffle=True,
+    )
+    val_loader = DataLoader(
+        TensorDataset(val_h_o_hat, val_h_o),
+        batch_size=config['batch_size'],
+        shuffle=False,
+    )
 
     best_val_loss    = float("inf")
     patience_counter = 0
@@ -125,23 +230,49 @@ def main() -> None:
     print("\n=== Training ===")
     for epoch in range(config['num_epochs']):
         model.train()
-        optimizer.zero_grad()
-        train_loss = (1 - F.cosine_similarity(model(train_h_o_hat), train_h_o)).mean()
-        train_loss.backward()
-        optimizer.step()
+        train_loss_sum = 0.0
+        train_count = 0
+        for batch_queries, batch_targets in train_loader:
+            optimizer.zero_grad()
+            train_output = model(batch_queries)
+            batch_loss = total_loss(
+                train_output,
+                batch_targets,
+                config['use_infonce'],
+                config['infonce_lambda'],
+                config['infonce_temperature'],
+            )
+            batch_loss.backward()
+            optimizer.step()
+            train_loss_sum += batch_loss.item() * len(batch_queries)
+            train_count += len(batch_queries)
+        train_loss = train_loss_sum / train_count
 
         model.eval()
         with torch.no_grad():
-            val_loss = (1 - F.cosine_similarity(model(val_h_o_hat), val_h_o)).mean()
+            val_loss_sum = 0.0
+            val_count = 0
+            for batch_queries, batch_targets in val_loader:
+                val_output = model(batch_queries)
+                batch_loss = total_loss(
+                    val_output,
+                    batch_targets,
+                    config['use_infonce'],
+                    config['infonce_lambda'],
+                    config['infonce_temperature'],
+                )
+                val_loss_sum += batch_loss.item() * len(batch_queries)
+                val_count += len(batch_queries)
+            val_loss = val_loss_sum / val_count
 
         scheduler.step(val_loss)
         current_lr = optimizer.param_groups[0]["lr"]
 
-        train_losses.append(train_loss.item())
-        val_losses.append(val_loss.item())
+        train_losses.append(train_loss)
+        val_losses.append(val_loss)
 
-        if val_loss.item() < best_val_loss:
-            best_val_loss    = val_loss.item()
+        if val_loss < best_val_loss:
+            best_val_loss    = val_loss
             patience_counter = 0
             torch.save({"state_dict": model.state_dict()},
                        config['model_paths']['saved_model'])
@@ -153,8 +284,8 @@ def main() -> None:
 
         if (epoch + 1) % 10 == 0:
             print(f"Epoch {epoch+1:>3}/{config['num_epochs']}  "
-                  f"train_loss={train_loss.item():.6f}  "
-                  f"val_loss={val_loss.item():.6f}  "
+                  f"train_loss={train_loss:.6f}  "
+                  f"val_loss={val_loss:.6f}  "
                   f"lr={current_lr:.2e}")
 
     print(f"\nBest val loss: {best_val_loss:.6f}  (saved → {config['model_paths']['saved_model']})")
@@ -179,6 +310,19 @@ def main() -> None:
         {"Before W": metrics_before, "After W": metrics_after}
     ).T.round(4)
     print(metrics_df)
+
+    run_metadata.update({
+        "status": "completed",
+        "finished_at": datetime.now().astimezone().isoformat(),
+        "train_size": len(train_df),
+        "validation_size": len(val_df),
+        "embedding_dimension": D,
+        "epochs_completed": len(train_losses),
+        "best_validation_loss": best_val_loss,
+        "metrics": metrics_df.to_dict(),
+    })
+    UtilityFunctions.save_run_metadata(metadata_path, run_metadata)
+    print(f"Completed run metadata saved: {metadata_path}")
 
 
 if __name__ == "__main__":

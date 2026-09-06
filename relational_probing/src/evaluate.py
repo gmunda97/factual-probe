@@ -35,17 +35,17 @@ class Evaluator:
     def __init__(
         self,
         data_path: str,
-        cache_dir: str,
+        cache_paths: dict[str, str],
         model_path: str,
-        model_name: str = "bert-base-uncased",
-        cache_prefix: str = "42k_test_rel",
+        model_name: str,
+        transformer_layer: int,
         k_list: tuple = (1, 3, 10),
     ) -> None:
         self.data_path    = data_path
-        self.cache_dir    = cache_dir
+        self.cache_paths  = cache_paths
         self.model_path   = model_path
         self.model_name   = model_name
-        self.cache_prefix = cache_prefix
+        self.transformer_layer = transformer_layer
         self.k_list       = k_list
         self._encoder: Optional[BERTEmbeddings] = None
 
@@ -69,8 +69,9 @@ class Evaluator:
                 batch, return_tensors="pt", padding=True, truncation=True, max_length=64
             )
             with torch.no_grad():
-                out = encoder.model(**inputs)
-            all_vecs.append(encoder.pool(out.last_hidden_state, inputs['attention_mask']))
+                out = encoder.model(**inputs, output_hidden_states=True)
+            layer_hidden_state = out.hidden_states[self.transformer_layer]
+            all_vecs.append(encoder.pool(layer_hidden_state, inputs['attention_mask']))
         return torch.cat(all_vecs, dim=0)
 
     def _load_or_compute(self, texts: list[str], cache_path: str) -> torch.Tensor:
@@ -99,15 +100,15 @@ class Evaluator:
         """
         h_s = self._load_or_compute(
             df["subject"].tolist(),
-            os.path.join(self.cache_dir, f"{self.cache_prefix}_h_s_bert.pt"),
+            self.cache_paths["test_h_s"],
         )
         h_r = self._load_or_compute(
             df["pred_value"].tolist(),
-            os.path.join(self.cache_dir, f"{self.cache_prefix}_h_r_bert.pt"),
+            self.cache_paths["test_h_r"],
         )
         h_o = self._load_or_compute(
             df["object"].tolist(),
-            os.path.join(self.cache_dir, f"{self.cache_prefix}_h_o_bert.pt"),
+            self.cache_paths["test_h_o"],
         )
         return h_s, h_r, h_o
 
@@ -307,9 +308,10 @@ if __name__ == "__main__":
 
     evaluator = Evaluator(
         data_path=config['data_paths']['test'],
-        cache_dir=os.path.join(_ROOT, "data", "embeddings", "relational_probing"),
+        cache_paths=config['cache_paths'],
         model_path=config['model_paths']['saved_model'],
         model_name=config['model_name'],
+        transformer_layer=config['transformer_layer'],
     )
 
     df_test        = evaluator.load_data()

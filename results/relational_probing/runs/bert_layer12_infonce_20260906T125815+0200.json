@@ -1,0 +1,82 @@
+{
+  "run_id": "20260906T125815+0200",
+  "status": "completed",
+  "started_at": "2026-09-06T12:58:15.171023+02:00",
+  "script": "/Users/giacomomunda/Documents/MSc Multilingual Technologies/Masters_Thesis/code/kg_linear_transformation/relational_probing/src/train.py",
+  "git_commit": "dd384f9fb973a15d5a798fb6a9aeba182c09aadc",
+  "python_version": "3.10.1",
+  "torch_version": "2.13.0",
+  "platform": "macOS-15.4.1-arm64-arm-64bit",
+  "config": {
+    "model_name": "bert-base-uncased",
+    "transformer_layer": 12,
+    "batch_size": 264,
+    "num_epochs": 60,
+    "lr": 0.001,
+    "weight_decay": 0.0001,
+    "early_stopping_patience": 12,
+    "scheduler_factor": 0.5,
+    "scheduler_patience": 5,
+    "use_infonce": true,
+    "infonce_lambda": 1.0,
+    "infonce_temperature": 0.05,
+    "load_balance_weight": 0.01,
+    "cols": [
+      "subject",
+      "pred_value",
+      "object"
+    ],
+    "data_paths": {
+      "train": "/Users/giacomomunda/Documents/MSc Multilingual Technologies/Masters_Thesis/code/kg_linear_transformation/data/dataset/wikidata5m_42k_train_relations.csv",
+      "val": "/Users/giacomomunda/Documents/MSc Multilingual Technologies/Masters_Thesis/code/kg_linear_transformation/data/dataset/wikidata5m_42k_valid_relations.csv",
+      "test": "/Users/giacomomunda/Documents/MSc Multilingual Technologies/Masters_Thesis/code/kg_linear_transformation/data/dataset/wikidata5m_42k_test_relations.csv"
+    },
+    "cache_paths": {
+      "train_h_s": "/Users/giacomomunda/Documents/MSc Multilingual Technologies/Masters_Thesis/code/kg_linear_transformation/data/embeddings/relational_probing/42k_train_rel_h_s_bert_layer12.pt",
+      "train_h_r": "/Users/giacomomunda/Documents/MSc Multilingual Technologies/Masters_Thesis/code/kg_linear_transformation/data/embeddings/relational_probing/42k_train_rel_h_r_bert_layer12.pt",
+      "train_h_o": "/Users/giacomomunda/Documents/MSc Multilingual Technologies/Masters_Thesis/code/kg_linear_transformation/data/embeddings/relational_probing/42k_train_rel_h_o_bert_layer12.pt",
+      "val_h_s": "/Users/giacomomunda/Documents/MSc Multilingual Technologies/Masters_Thesis/code/kg_linear_transformation/data/embeddings/relational_probing/42k_val_rel_h_s_bert_layer12.pt",
+      "val_h_r": "/Users/giacomomunda/Documents/MSc Multilingual Technologies/Masters_Thesis/code/kg_linear_transformation/data/embeddings/relational_probing/42k_val_rel_h_r_bert_layer12.pt",
+      "val_h_o": "/Users/giacomomunda/Documents/MSc Multilingual Technologies/Masters_Thesis/code/kg_linear_transformation/data/embeddings/relational_probing/42k_val_rel_h_o_bert_layer12.pt",
+      "test_h_s": "/Users/giacomomunda/Documents/MSc Multilingual Technologies/Masters_Thesis/code/kg_linear_transformation/data/embeddings/relational_probing/42k_test_rel_h_s_bert_layer12.pt",
+      "test_h_r": "/Users/giacomomunda/Documents/MSc Multilingual Technologies/Masters_Thesis/code/kg_linear_transformation/data/embeddings/relational_probing/42k_test_rel_h_r_bert_layer12.pt",
+      "test_h_o": "/Users/giacomomunda/Documents/MSc Multilingual Technologies/Masters_Thesis/code/kg_linear_transformation/data/embeddings/relational_probing/42k_test_rel_h_o_bert_layer12.pt"
+    },
+    "model_paths": {
+      "saved_model": "/Users/giacomomunda/Documents/MSc Multilingual Technologies/Masters_Thesis/code/kg_linear_transformation/trained_models/relational_probing/transform_triples_bert_layer12_infonce_test.pt",
+      "loss_curve": "./../resources/plots/bert/loss_curve_bert_layer12_infonce_test.png"
+    },
+    "results_paths": {
+      "evaluation_results": "/Users/giacomomunda/Documents/MSc Multilingual Technologies/Masters_Thesis/code/kg_linear_transformation/data/results/relational_probing/evaluation_results_bert_layer12_infonce_test.xlsx",
+      "run_metadata_dir": "/Users/giacomomunda/Documents/MSc Multilingual Technologies/Masters_Thesis/code/kg_linear_transformation/data/results/relational_probing/runs"
+    }
+  },
+  "finished_at": "2026-09-06T12:58:33.201880+02:00",
+  "train_size": 33937,
+  "validation_size": 4242,
+  "embedding_dimension": 768,
+  "epochs_completed": 22,
+  "best_validation_loss": 3.06081523466987,
+  "metrics": {
+    "mean_cos_sim": {
+      "Before W": 0.6352,
+      "After W": 0.5599
+    },
+    "MRR": {
+      "Before W": 0.0482,
+      "After W": 0.2227
+    },
+    "Hits@1": {
+      "Before W": 0.0285,
+      "After W": 0.1539
+    },
+    "Hits@3": {
+      "Before W": 0.05,
+      "After W": 0.231
+    },
+    "Hits@10": {
+      "Before W": 0.0811,
+      "After W": 0.3652
+    }
+  }
+}
