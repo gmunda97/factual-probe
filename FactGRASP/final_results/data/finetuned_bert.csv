@@ -1,0 +1,6 @@
+row,seed,MRR,Hits@1,Hits@10,best_epoch,valid_MRR
+simkgc_finetuned_bert_base,0,0.385030,0.283997,0.583549,5,0.373340
+simkgc_finetuned_bert_base,1,0.378751,0.279755,0.575772,3,0.373542
+simkgc_finetuned_bert_base,2,0.379210,0.279519,0.572001,4,0.372621
+simkgc_finetuned_bert_base,mean,0.380997,0.281090,0.577107,,
+frozen_probe_bert_base_bert_controls,mean,0.354671,0.263257,0.540325,,

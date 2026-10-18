@@ -1,0 +1,1350 @@
+graph,model,relation,n,MRR
+wikidata,Qwen/Qwen3.5-0.8B,"award received",85,0.231234
+wikidata,Qwen/Qwen3.5-0.8B,"capital",10,0.439195
+wikidata,Qwen/Qwen3.5-0.8B,"cast member",329,0.031035
+wikidata,Qwen/Qwen3.5-0.8B,"cause of death",11,0.464129
+wikidata,Qwen/Qwen3.5-0.8B,"child",23,0.517412
+wikidata,Qwen/Qwen3.5-0.8B,"chromosome",12,0.275606
+wikidata,Qwen/Qwen3.5-0.8B,"composer",24,0.018626
+wikidata,Qwen/Qwen3.5-0.8B,"contains the administrative territorial entity",87,0.104801
+wikidata,Qwen/Qwen3.5-0.8B,"country",168,0.729143
+wikidata,Qwen/Qwen3.5-0.8B,"country of citizenship",160,0.623090
+wikidata,Qwen/Qwen3.5-0.8B,"country of origin",59,0.503382
+wikidata,Qwen/Qwen3.5-0.8B,"depicts",15,0.309791
+wikidata,Qwen/Qwen3.5-0.8B,"described by source",39,0.454304
+wikidata,Qwen/Qwen3.5-0.8B,"director",31,0.034124
+wikidata,Qwen/Qwen3.5-0.8B,"director of photography",17,0.076076
+wikidata,Qwen/Qwen3.5-0.8B,"distributed by",15,0.221484
+wikidata,Qwen/Qwen3.5-0.8B,"educated at",72,0.224490
+wikidata,Qwen/Qwen3.5-0.8B,"employer",16,0.252806
+wikidata,Qwen/Qwen3.5-0.8B,"family name",18,0.878434
+wikidata,Qwen/Qwen3.5-0.8B,"father",17,0.734764
+wikidata,Qwen/Qwen3.5-0.8B,"filming location",13,0.137655
+wikidata,Qwen/Qwen3.5-0.8B,"followed by",10,0.586696
+wikidata,Qwen/Qwen3.5-0.8B,"genre",88,0.224924
+wikidata,Qwen/Qwen3.5-0.8B,"given name",82,0.534094
+wikidata,Qwen/Qwen3.5-0.8B,"has part(s)",12,0.435288
+wikidata,Qwen/Qwen3.5-0.8B,"instance of",407,0.765422
+wikidata,Qwen/Qwen3.5-0.8B,"instrument",11,0.655844
+wikidata,Qwen/Qwen3.5-0.8B,"languages spoken, written or signed",59,0.808148
+wikidata,Qwen/Qwen3.5-0.8B,"located in the administrative territorial entity",155,0.222798
+wikidata,Qwen/Qwen3.5-0.8B,"located in time zone",126,0.692707
+wikidata,Qwen/Qwen3.5-0.8B,"main subject",12,0.398035
+wikidata,Qwen/Qwen3.5-0.8B,"manner of death",18,0.822531
+wikidata,Qwen/Qwen3.5-0.8B,"member of",50,0.317660
+wikidata,Qwen/Qwen3.5-0.8B,"member of sports team",287,0.107172
+wikidata,Qwen/Qwen3.5-0.8B,"mother",12,0.183115
+wikidata,Qwen/Qwen3.5-0.8B,"narrative location",18,0.225990
+wikidata,Qwen/Qwen3.5-0.8B,"native language",10,0.781268
+wikidata,Qwen/Qwen3.5-0.8B,"nominated for",28,0.245016
+wikidata,Qwen/Qwen3.5-0.8B,"occupation",242,0.218968
+wikidata,Qwen/Qwen3.5-0.8B,"original language of film or TV show",43,0.631646
+wikidata,Qwen/Qwen3.5-0.8B,"parent taxon",19,0.248071
+wikidata,Qwen/Qwen3.5-0.8B,"participant in",55,0.228849
+wikidata,Qwen/Qwen3.5-0.8B,"participating team",14,0.386947
+wikidata,Qwen/Qwen3.5-0.8B,"place of birth",128,0.169894
+wikidata,Qwen/Qwen3.5-0.8B,"place of burial",12,0.430198
+wikidata,Qwen/Qwen3.5-0.8B,"place of death",63,0.261880
+wikidata,Qwen/Qwen3.5-0.8B,"position held",19,0.529807
+wikidata,Qwen/Qwen3.5-0.8B,"position played on team / speciality",25,0.476667
+wikidata,Qwen/Qwen3.5-0.8B,"producer",22,0.060455
+wikidata,Qwen/Qwen3.5-0.8B,"record label",11,0.311374
+wikidata,Qwen/Qwen3.5-0.8B,"religion or worldview",11,0.835642
+wikidata,Qwen/Qwen3.5-0.8B,"said to be the same as",20,0.321834
+wikidata,Qwen/Qwen3.5-0.8B,"screenwriter",15,0.127053
+wikidata,Qwen/Qwen3.5-0.8B,"shares border with",345,0.121984
+wikidata,Qwen/Qwen3.5-0.8B,"sibling",59,0.467006
+wikidata,Qwen/Qwen3.5-0.8B,"sport",58,0.614294
+wikidata,Qwen/Qwen3.5-0.8B,"spouse",22,0.270619
+wikidata,Qwen/Qwen3.5-0.8B,"subclass of",15,0.509779
+wikidata,Qwen/Qwen3.5-0.8B,"taxon rank",37,0.978979
+wikidata,Qwen/Qwen3.5-0.8B,"twinned administrative body",40,0.042570
+wikidata,Qwen/Qwen3.5-0.8B,"winner",26,0.136659
+wikidata,Qwen/Qwen3.5-0.8B,"work location",23,0.393028
+wikidata,Qwen/Qwen3.5-2B,"award received",85,0.218577
+wikidata,Qwen/Qwen3.5-2B,"capital",10,0.552204
+wikidata,Qwen/Qwen3.5-2B,"cast member",329,0.035304
+wikidata,Qwen/Qwen3.5-2B,"cause of death",11,0.495986
+wikidata,Qwen/Qwen3.5-2B,"child",23,0.597110
+wikidata,Qwen/Qwen3.5-2B,"chromosome",12,0.321781
+wikidata,Qwen/Qwen3.5-2B,"composer",24,0.118439
+wikidata,Qwen/Qwen3.5-2B,"contains the administrative territorial entity",87,0.139424
+wikidata,Qwen/Qwen3.5-2B,"country",168,0.783388
+wikidata,Qwen/Qwen3.5-2B,"country of citizenship",160,0.693826
+wikidata,Qwen/Qwen3.5-2B,"country of origin",59,0.588276
+wikidata,Qwen/Qwen3.5-2B,"depicts",15,0.258860
+wikidata,Qwen/Qwen3.5-2B,"described by source",39,0.450751
+wikidata,Qwen/Qwen3.5-2B,"director",31,0.070642
+wikidata,Qwen/Qwen3.5-2B,"director of photography",17,0.106336
+wikidata,Qwen/Qwen3.5-2B,"distributed by",15,0.282341
+wikidata,Qwen/Qwen3.5-2B,"educated at",72,0.303239
+wikidata,Qwen/Qwen3.5-2B,"employer",16,0.365887
+wikidata,Qwen/Qwen3.5-2B,"family name",18,0.925154
+wikidata,Qwen/Qwen3.5-2B,"father",17,0.732436
+wikidata,Qwen/Qwen3.5-2B,"filming location",13,0.093215
+wikidata,Qwen/Qwen3.5-2B,"followed by",10,0.749875
+wikidata,Qwen/Qwen3.5-2B,"genre",88,0.300105
+wikidata,Qwen/Qwen3.5-2B,"given name",82,0.527243
+wikidata,Qwen/Qwen3.5-2B,"has part(s)",12,0.471366
+wikidata,Qwen/Qwen3.5-2B,"instance of",407,0.779105
+wikidata,Qwen/Qwen3.5-2B,"instrument",11,0.689394
+wikidata,Qwen/Qwen3.5-2B,"languages spoken, written or signed",59,0.814944
+wikidata,Qwen/Qwen3.5-2B,"located in the administrative territorial entity",155,0.268083
+wikidata,Qwen/Qwen3.5-2B,"located in time zone",126,0.742846
+wikidata,Qwen/Qwen3.5-2B,"main subject",12,0.374284
+wikidata,Qwen/Qwen3.5-2B,"manner of death",18,0.830247
+wikidata,Qwen/Qwen3.5-2B,"member of",50,0.356220
+wikidata,Qwen/Qwen3.5-2B,"member of sports team",287,0.129027
+wikidata,Qwen/Qwen3.5-2B,"mother",12,0.189406
+wikidata,Qwen/Qwen3.5-2B,"narrative location",18,0.263249
+wikidata,Qwen/Qwen3.5-2B,"native language",10,0.894444
+wikidata,Qwen/Qwen3.5-2B,"nominated for",28,0.262560
+wikidata,Qwen/Qwen3.5-2B,"occupation",242,0.279286
+wikidata,Qwen/Qwen3.5-2B,"original language of film or TV show",43,0.626450
+wikidata,Qwen/Qwen3.5-2B,"parent taxon",19,0.286092
+wikidata,Qwen/Qwen3.5-2B,"participant in",55,0.296308
+wikidata,Qwen/Qwen3.5-2B,"participating team",14,0.536751
+wikidata,Qwen/Qwen3.5-2B,"place of birth",128,0.178466
+wikidata,Qwen/Qwen3.5-2B,"place of burial",12,0.431592
+wikidata,Qwen/Qwen3.5-2B,"place of death",63,0.314076
+wikidata,Qwen/Qwen3.5-2B,"position held",19,0.567996
+wikidata,Qwen/Qwen3.5-2B,"position played on team / speciality",25,0.542000
+wikidata,Qwen/Qwen3.5-2B,"producer",22,0.146784
+wikidata,Qwen/Qwen3.5-2B,"record label",11,0.334788
+wikidata,Qwen/Qwen3.5-2B,"religion or worldview",11,0.837410
+wikidata,Qwen/Qwen3.5-2B,"said to be the same as",20,0.398526
+wikidata,Qwen/Qwen3.5-2B,"screenwriter",15,0.078915
+wikidata,Qwen/Qwen3.5-2B,"shares border with",345,0.142937
+wikidata,Qwen/Qwen3.5-2B,"sibling",59,0.463109
+wikidata,Qwen/Qwen3.5-2B,"sport",58,0.737154
+wikidata,Qwen/Qwen3.5-2B,"spouse",22,0.319962
+wikidata,Qwen/Qwen3.5-2B,"subclass of",15,0.588328
+wikidata,Qwen/Qwen3.5-2B,"taxon rank",37,0.978078
+wikidata,Qwen/Qwen3.5-2B,"twinned administrative body",40,0.041452
+wikidata,Qwen/Qwen3.5-2B,"winner",26,0.220105
+wikidata,Qwen/Qwen3.5-2B,"work location",23,0.464568
+wikidata,Qwen/Qwen3.5-4B,"award received",85,0.293013
+wikidata,Qwen/Qwen3.5-4B,"capital",10,0.522775
+wikidata,Qwen/Qwen3.5-4B,"cast member",329,0.059178
+wikidata,Qwen/Qwen3.5-4B,"cause of death",11,0.379786
+wikidata,Qwen/Qwen3.5-4B,"child",23,0.573522
+wikidata,Qwen/Qwen3.5-4B,"chromosome",12,0.395944
+wikidata,Qwen/Qwen3.5-4B,"composer",24,0.195801
+wikidata,Qwen/Qwen3.5-4B,"contains the administrative territorial entity",87,0.214056
+wikidata,Qwen/Qwen3.5-4B,"country",168,0.796609
+wikidata,Qwen/Qwen3.5-4B,"country of citizenship",160,0.750123
+wikidata,Qwen/Qwen3.5-4B,"country of origin",59,0.574503
+wikidata,Qwen/Qwen3.5-4B,"depicts",15,0.283145
+wikidata,Qwen/Qwen3.5-4B,"described by source",39,0.524485
+wikidata,Qwen/Qwen3.5-4B,"director",31,0.143049
+wikidata,Qwen/Qwen3.5-4B,"director of photography",17,0.152960
+wikidata,Qwen/Qwen3.5-4B,"distributed by",15,0.371395
+wikidata,Qwen/Qwen3.5-4B,"educated at",72,0.305774
+wikidata,Qwen/Qwen3.5-4B,"employer",16,0.394814
+wikidata,Qwen/Qwen3.5-4B,"family name",18,0.921531
+wikidata,Qwen/Qwen3.5-4B,"father",17,0.768989
+wikidata,Qwen/Qwen3.5-4B,"filming location",13,0.092684
+wikidata,Qwen/Qwen3.5-4B,"followed by",10,0.759271
+wikidata,Qwen/Qwen3.5-4B,"genre",88,0.363429
+wikidata,Qwen/Qwen3.5-4B,"given name",82,0.450679
+wikidata,Qwen/Qwen3.5-4B,"has part(s)",12,0.514345
+wikidata,Qwen/Qwen3.5-4B,"instance of",407,0.817654
+wikidata,Qwen/Qwen3.5-4B,"instrument",11,0.729798
+wikidata,Qwen/Qwen3.5-4B,"languages spoken, written or signed",59,0.842772
+wikidata,Qwen/Qwen3.5-4B,"located in the administrative territorial entity",155,0.325969
+wikidata,Qwen/Qwen3.5-4B,"located in time zone",126,0.703761
+wikidata,Qwen/Qwen3.5-4B,"main subject",12,0.393667
+wikidata,Qwen/Qwen3.5-4B,"manner of death",18,0.831790
+wikidata,Qwen/Qwen3.5-4B,"member of",50,0.446124
+wikidata,Qwen/Qwen3.5-4B,"member of sports team",287,0.137584
+wikidata,Qwen/Qwen3.5-4B,"mother",12,0.200567
+wikidata,Qwen/Qwen3.5-4B,"narrative location",18,0.279141
+wikidata,Qwen/Qwen3.5-4B,"native language",10,0.840179
+wikidata,Qwen/Qwen3.5-4B,"nominated for",28,0.308517
+wikidata,Qwen/Qwen3.5-4B,"occupation",242,0.354192
+wikidata,Qwen/Qwen3.5-4B,"original language of film or TV show",43,0.721023
+wikidata,Qwen/Qwen3.5-4B,"parent taxon",19,0.465517
+wikidata,Qwen/Qwen3.5-4B,"participant in",55,0.342866
+wikidata,Qwen/Qwen3.5-4B,"participating team",14,0.422533
+wikidata,Qwen/Qwen3.5-4B,"place of birth",128,0.198647
+wikidata,Qwen/Qwen3.5-4B,"place of burial",12,0.447825
+wikidata,Qwen/Qwen3.5-4B,"place of death",63,0.418834
+wikidata,Qwen/Qwen3.5-4B,"position held",19,0.599959
+wikidata,Qwen/Qwen3.5-4B,"position played on team / speciality",25,0.477333
+wikidata,Qwen/Qwen3.5-4B,"producer",22,0.150206
+wikidata,Qwen/Qwen3.5-4B,"record label",11,0.487172
+wikidata,Qwen/Qwen3.5-4B,"religion or worldview",11,0.830207
+wikidata,Qwen/Qwen3.5-4B,"said to be the same as",20,0.494476
+wikidata,Qwen/Qwen3.5-4B,"screenwriter",15,0.155088
+wikidata,Qwen/Qwen3.5-4B,"shares border with",345,0.172025
+wikidata,Qwen/Qwen3.5-4B,"sibling",59,0.534951
+wikidata,Qwen/Qwen3.5-4B,"sport",58,0.790396
+wikidata,Qwen/Qwen3.5-4B,"spouse",22,0.309355
+wikidata,Qwen/Qwen3.5-4B,"subclass of",15,0.721130
+wikidata,Qwen/Qwen3.5-4B,"taxon rank",37,0.979730
+wikidata,Qwen/Qwen3.5-4B,"twinned administrative body",40,0.060635
+wikidata,Qwen/Qwen3.5-4B,"winner",26,0.251507
+wikidata,Qwen/Qwen3.5-4B,"work location",23,0.469680
+wikidata,Qwen/Qwen3.5-4B-Base,"award received",85,0.313407
+wikidata,Qwen/Qwen3.5-4B-Base,"capital",10,0.491290
+wikidata,Qwen/Qwen3.5-4B-Base,"cast member",329,0.065694
+wikidata,Qwen/Qwen3.5-4B-Base,"cause of death",11,0.462530
+wikidata,Qwen/Qwen3.5-4B-Base,"child",23,0.564018
+wikidata,Qwen/Qwen3.5-4B-Base,"chromosome",12,0.321197
+wikidata,Qwen/Qwen3.5-4B-Base,"composer",24,0.223571
+wikidata,Qwen/Qwen3.5-4B-Base,"contains the administrative territorial entity",87,0.219080
+wikidata,Qwen/Qwen3.5-4B-Base,"country",168,0.795538
+wikidata,Qwen/Qwen3.5-4B-Base,"country of citizenship",160,0.778022
+wikidata,Qwen/Qwen3.5-4B-Base,"country of origin",59,0.577750
+wikidata,Qwen/Qwen3.5-4B-Base,"depicts",15,0.248999
+wikidata,Qwen/Qwen3.5-4B-Base,"described by source",39,0.516276
+wikidata,Qwen/Qwen3.5-4B-Base,"director",31,0.137946
+wikidata,Qwen/Qwen3.5-4B-Base,"director of photography",17,0.113264
+wikidata,Qwen/Qwen3.5-4B-Base,"distributed by",15,0.291813
+wikidata,Qwen/Qwen3.5-4B-Base,"educated at",72,0.319025
+wikidata,Qwen/Qwen3.5-4B-Base,"employer",16,0.403323
+wikidata,Qwen/Qwen3.5-4B-Base,"family name",18,0.922616
+wikidata,Qwen/Qwen3.5-4B-Base,"father",17,0.696935
+wikidata,Qwen/Qwen3.5-4B-Base,"filming location",13,0.112076
+wikidata,Qwen/Qwen3.5-4B-Base,"followed by",10,0.753802
+wikidata,Qwen/Qwen3.5-4B-Base,"genre",88,0.395195
+wikidata,Qwen/Qwen3.5-4B-Base,"given name",82,0.580358
+wikidata,Qwen/Qwen3.5-4B-Base,"has part(s)",12,0.542431
+wikidata,Qwen/Qwen3.5-4B-Base,"instance of",407,0.821031
+wikidata,Qwen/Qwen3.5-4B-Base,"instrument",11,0.699495
+wikidata,Qwen/Qwen3.5-4B-Base,"languages spoken, written or signed",59,0.859005
+wikidata,Qwen/Qwen3.5-4B-Base,"located in the administrative territorial entity",155,0.330908
+wikidata,Qwen/Qwen3.5-4B-Base,"located in time zone",126,0.687331
+wikidata,Qwen/Qwen3.5-4B-Base,"main subject",12,0.458925
+wikidata,Qwen/Qwen3.5-4B-Base,"manner of death",18,0.734568
+wikidata,Qwen/Qwen3.5-4B-Base,"member of",50,0.407595
+wikidata,Qwen/Qwen3.5-4B-Base,"member of sports team",287,0.148337
+wikidata,Qwen/Qwen3.5-4B-Base,"mother",12,0.291207
+wikidata,Qwen/Qwen3.5-4B-Base,"narrative location",18,0.236019
+wikidata,Qwen/Qwen3.5-4B-Base,"native language",10,0.807723
+wikidata,Qwen/Qwen3.5-4B-Base,"nominated for",28,0.306509
+wikidata,Qwen/Qwen3.5-4B-Base,"occupation",242,0.362026
+wikidata,Qwen/Qwen3.5-4B-Base,"original language of film or TV show",43,0.680925
+wikidata,Qwen/Qwen3.5-4B-Base,"parent taxon",19,0.425667
+wikidata,Qwen/Qwen3.5-4B-Base,"participant in",55,0.316423
+wikidata,Qwen/Qwen3.5-4B-Base,"participating team",14,0.498573
+wikidata,Qwen/Qwen3.5-4B-Base,"place of birth",128,0.196666
+wikidata,Qwen/Qwen3.5-4B-Base,"place of burial",12,0.476579
+wikidata,Qwen/Qwen3.5-4B-Base,"place of death",63,0.424759
+wikidata,Qwen/Qwen3.5-4B-Base,"position held",19,0.593063
+wikidata,Qwen/Qwen3.5-4B-Base,"position played on team / speciality",25,0.553333
+wikidata,Qwen/Qwen3.5-4B-Base,"producer",22,0.177041
+wikidata,Qwen/Qwen3.5-4B-Base,"record label",11,0.428459
+wikidata,Qwen/Qwen3.5-4B-Base,"religion or worldview",11,0.846648
+wikidata,Qwen/Qwen3.5-4B-Base,"said to be the same as",20,0.477935
+wikidata,Qwen/Qwen3.5-4B-Base,"screenwriter",15,0.187306
+wikidata,Qwen/Qwen3.5-4B-Base,"shares border with",345,0.179123
+wikidata,Qwen/Qwen3.5-4B-Base,"sibling",59,0.535787
+wikidata,Qwen/Qwen3.5-4B-Base,"sport",58,0.776210
+wikidata,Qwen/Qwen3.5-4B-Base,"spouse",22,0.366534
+wikidata,Qwen/Qwen3.5-4B-Base,"subclass of",15,0.713945
+wikidata,Qwen/Qwen3.5-4B-Base,"taxon rank",37,0.978528
+wikidata,Qwen/Qwen3.5-4B-Base,"twinned administrative body",40,0.066807
+wikidata,Qwen/Qwen3.5-4B-Base,"winner",26,0.266971
+wikidata,Qwen/Qwen3.5-4B-Base,"work location",23,0.439647
+wikidata,Qwen/Qwen3.5-9B,"award received",85,0.351773
+wikidata,Qwen/Qwen3.5-9B,"capital",10,0.618537
+wikidata,Qwen/Qwen3.5-9B,"cast member",329,0.087588
+wikidata,Qwen/Qwen3.5-9B,"cause of death",11,0.553260
+wikidata,Qwen/Qwen3.5-9B,"child",23,0.625566
+wikidata,Qwen/Qwen3.5-9B,"chromosome",12,0.348479
+wikidata,Qwen/Qwen3.5-9B,"composer",24,0.235730
+wikidata,Qwen/Qwen3.5-9B,"contains the administrative territorial entity",87,0.286798
+wikidata,Qwen/Qwen3.5-9B,"country",168,0.827923
+wikidata,Qwen/Qwen3.5-9B,"country of citizenship",160,0.794131
+wikidata,Qwen/Qwen3.5-9B,"country of origin",59,0.643581
+wikidata,Qwen/Qwen3.5-9B,"depicts",15,0.279856
+wikidata,Qwen/Qwen3.5-9B,"described by source",39,0.447029
+wikidata,Qwen/Qwen3.5-9B,"director",31,0.147518
+wikidata,Qwen/Qwen3.5-9B,"director of photography",17,0.200015
+wikidata,Qwen/Qwen3.5-9B,"distributed by",15,0.407210
+wikidata,Qwen/Qwen3.5-9B,"educated at",72,0.387571
+wikidata,Qwen/Qwen3.5-9B,"employer",16,0.450742
+wikidata,Qwen/Qwen3.5-9B,"family name",18,0.914796
+wikidata,Qwen/Qwen3.5-9B,"father",17,0.734984
+wikidata,Qwen/Qwen3.5-9B,"filming location",13,0.136123
+wikidata,Qwen/Qwen3.5-9B,"followed by",10,0.780602
+wikidata,Qwen/Qwen3.5-9B,"genre",88,0.400565
+wikidata,Qwen/Qwen3.5-9B,"given name",82,0.595995
+wikidata,Qwen/Qwen3.5-9B,"has part(s)",12,0.629183
+wikidata,Qwen/Qwen3.5-9B,"instance of",407,0.841827
+wikidata,Qwen/Qwen3.5-9B,"instrument",11,0.676768
+wikidata,Qwen/Qwen3.5-9B,"languages spoken, written or signed",59,0.862411
+wikidata,Qwen/Qwen3.5-9B,"located in the administrative territorial entity",155,0.449742
+wikidata,Qwen/Qwen3.5-9B,"located in time zone",126,0.744925
+wikidata,Qwen/Qwen3.5-9B,"main subject",12,0.447507
+wikidata,Qwen/Qwen3.5-9B,"manner of death",18,0.825617
+wikidata,Qwen/Qwen3.5-9B,"member of",50,0.514221
+wikidata,Qwen/Qwen3.5-9B,"member of sports team",287,0.164436
+wikidata,Qwen/Qwen3.5-9B,"mother",12,0.276144
+wikidata,Qwen/Qwen3.5-9B,"narrative location",18,0.205642
+wikidata,Qwen/Qwen3.5-9B,"native language",10,0.862554
+wikidata,Qwen/Qwen3.5-9B,"nominated for",28,0.388370
+wikidata,Qwen/Qwen3.5-9B,"occupation",242,0.397005
+wikidata,Qwen/Qwen3.5-9B,"original language of film or TV show",43,0.700188
+wikidata,Qwen/Qwen3.5-9B,"parent taxon",19,0.567647
+wikidata,Qwen/Qwen3.5-9B,"participant in",55,0.342446
+wikidata,Qwen/Qwen3.5-9B,"participating team",14,0.470636
+wikidata,Qwen/Qwen3.5-9B,"place of birth",128,0.237863
+wikidata,Qwen/Qwen3.5-9B,"place of burial",12,0.527380
+wikidata,Qwen/Qwen3.5-9B,"place of death",63,0.442384
+wikidata,Qwen/Qwen3.5-9B,"position held",19,0.665371
+wikidata,Qwen/Qwen3.5-9B,"position played on team / speciality",25,0.648222
+wikidata,Qwen/Qwen3.5-9B,"producer",22,0.189582
+wikidata,Qwen/Qwen3.5-9B,"record label",11,0.462915
+wikidata,Qwen/Qwen3.5-9B,"religion or worldview",11,0.841896
+wikidata,Qwen/Qwen3.5-9B,"said to be the same as",20,0.569043
+wikidata,Qwen/Qwen3.5-9B,"screenwriter",15,0.143657
+wikidata,Qwen/Qwen3.5-9B,"shares border with",345,0.239448
+wikidata,Qwen/Qwen3.5-9B,"sibling",59,0.582959
+wikidata,Qwen/Qwen3.5-9B,"sport",58,0.765689
+wikidata,Qwen/Qwen3.5-9B,"spouse",22,0.424913
+wikidata,Qwen/Qwen3.5-9B,"subclass of",15,0.699564
+wikidata,Qwen/Qwen3.5-9B,"taxon rank",37,0.980480
+wikidata,Qwen/Qwen3.5-9B,"twinned administrative body",40,0.077041
+wikidata,Qwen/Qwen3.5-9B,"winner",26,0.265663
+wikidata,Qwen/Qwen3.5-9B,"work location",23,0.508762
+wikidata,google/gemma-4-E2B,"award received",85,0.298777
+wikidata,google/gemma-4-E2B,"capital",10,0.453662
+wikidata,google/gemma-4-E2B,"cast member",329,0.060767
+wikidata,google/gemma-4-E2B,"cause of death",11,0.474723
+wikidata,google/gemma-4-E2B,"child",23,0.418163
+wikidata,google/gemma-4-E2B,"chromosome",12,0.220348
+wikidata,google/gemma-4-E2B,"composer",24,0.151148
+wikidata,google/gemma-4-E2B,"contains the administrative territorial entity",87,0.192240
+wikidata,google/gemma-4-E2B,"country",168,0.829501
+wikidata,google/gemma-4-E2B,"country of citizenship",160,0.707828
+wikidata,google/gemma-4-E2B,"country of origin",59,0.518595
+wikidata,google/gemma-4-E2B,"depicts",15,0.231044
+wikidata,google/gemma-4-E2B,"described by source",39,0.407890
+wikidata,google/gemma-4-E2B,"director",31,0.091388
+wikidata,google/gemma-4-E2B,"director of photography",17,0.067465
+wikidata,google/gemma-4-E2B,"distributed by",15,0.362650
+wikidata,google/gemma-4-E2B,"educated at",72,0.290612
+wikidata,google/gemma-4-E2B,"employer",16,0.253837
+wikidata,google/gemma-4-E2B,"family name",18,0.436299
+wikidata,google/gemma-4-E2B,"father",17,0.463221
+wikidata,google/gemma-4-E2B,"filming location",13,0.120984
+wikidata,google/gemma-4-E2B,"followed by",10,0.735731
+wikidata,google/gemma-4-E2B,"genre",88,0.363129
+wikidata,google/gemma-4-E2B,"given name",82,0.439270
+wikidata,google/gemma-4-E2B,"has part(s)",12,0.576894
+wikidata,google/gemma-4-E2B,"instance of",407,0.825545
+wikidata,google/gemma-4-E2B,"instrument",11,0.755050
+wikidata,google/gemma-4-E2B,"languages spoken, written or signed",59,0.840337
+wikidata,google/gemma-4-E2B,"located in the administrative territorial entity",155,0.278139
+wikidata,google/gemma-4-E2B,"located in time zone",126,0.779319
+wikidata,google/gemma-4-E2B,"main subject",12,0.280809
+wikidata,google/gemma-4-E2B,"manner of death",18,0.723765
+wikidata,google/gemma-4-E2B,"member of",50,0.447754
+wikidata,google/gemma-4-E2B,"member of sports team",287,0.141028
+wikidata,google/gemma-4-E2B,"mother",12,0.275107
+wikidata,google/gemma-4-E2B,"narrative location",18,0.216864
+wikidata,google/gemma-4-E2B,"native language",10,0.766427
+wikidata,google/gemma-4-E2B,"nominated for",28,0.373540
+wikidata,google/gemma-4-E2B,"occupation",242,0.345162
+wikidata,google/gemma-4-E2B,"original language of film or TV show",43,0.691467
+wikidata,google/gemma-4-E2B,"parent taxon",19,0.250775
+wikidata,google/gemma-4-E2B,"participant in",55,0.279029
+wikidata,google/gemma-4-E2B,"participating team",14,0.346096
+wikidata,google/gemma-4-E2B,"place of birth",128,0.188588
+wikidata,google/gemma-4-E2B,"place of burial",12,0.417853
+wikidata,google/gemma-4-E2B,"place of death",63,0.375696
+wikidata,google/gemma-4-E2B,"position held",19,0.610430
+wikidata,google/gemma-4-E2B,"position played on team / speciality",25,0.613778
+wikidata,google/gemma-4-E2B,"producer",22,0.102751
+wikidata,google/gemma-4-E2B,"record label",11,0.398156
+wikidata,google/gemma-4-E2B,"religion or worldview",11,0.799219
+wikidata,google/gemma-4-E2B,"said to be the same as",20,0.529896
+wikidata,google/gemma-4-E2B,"screenwriter",15,0.098771
+wikidata,google/gemma-4-E2B,"shares border with",345,0.152583
+wikidata,google/gemma-4-E2B,"sibling",59,0.350572
+wikidata,google/gemma-4-E2B,"sport",58,0.769893
+wikidata,google/gemma-4-E2B,"spouse",22,0.448309
+wikidata,google/gemma-4-E2B,"subclass of",15,0.647810
+wikidata,google/gemma-4-E2B,"taxon rank",37,0.976512
+wikidata,google/gemma-4-E2B,"twinned administrative body",40,0.073744
+wikidata,google/gemma-4-E2B,"winner",26,0.288377
+wikidata,google/gemma-4-E2B,"work location",23,0.420448
+wikidata,google/gemma-4-E4B,"award received",85,0.356654
+wikidata,google/gemma-4-E4B,"capital",10,0.584598
+wikidata,google/gemma-4-E4B,"cast member",329,0.081957
+wikidata,google/gemma-4-E4B,"cause of death",11,0.447656
+wikidata,google/gemma-4-E4B,"child",23,0.393208
+wikidata,google/gemma-4-E4B,"chromosome",12,0.284392
+wikidata,google/gemma-4-E4B,"composer",24,0.207307
+wikidata,google/gemma-4-E4B,"contains the administrative territorial entity",87,0.265403
+wikidata,google/gemma-4-E4B,"country",168,0.836542
+wikidata,google/gemma-4-E4B,"country of citizenship",160,0.760414
+wikidata,google/gemma-4-E4B,"country of origin",59,0.629053
+wikidata,google/gemma-4-E4B,"depicts",15,0.257340
+wikidata,google/gemma-4-E4B,"described by source",39,0.429823
+wikidata,google/gemma-4-E4B,"director",31,0.196974
+wikidata,google/gemma-4-E4B,"director of photography",17,0.126758
+wikidata,google/gemma-4-E4B,"distributed by",15,0.293466
+wikidata,google/gemma-4-E4B,"educated at",72,0.365370
+wikidata,google/gemma-4-E4B,"employer",16,0.308670
+wikidata,google/gemma-4-E4B,"family name",18,0.471308
+wikidata,google/gemma-4-E4B,"father",17,0.575671
+wikidata,google/gemma-4-E4B,"filming location",13,0.122648
+wikidata,google/gemma-4-E4B,"followed by",10,0.819786
+wikidata,google/gemma-4-E4B,"genre",88,0.400362
+wikidata,google/gemma-4-E4B,"given name",82,0.473294
+wikidata,google/gemma-4-E4B,"has part(s)",12,0.620425
+wikidata,google/gemma-4-E4B,"instance of",407,0.849005
+wikidata,google/gemma-4-E4B,"instrument",11,0.661616
+wikidata,google/gemma-4-E4B,"languages spoken, written or signed",59,0.866956
+wikidata,google/gemma-4-E4B,"located in the administrative territorial entity",155,0.369523
+wikidata,google/gemma-4-E4B,"located in time zone",126,0.806668
+wikidata,google/gemma-4-E4B,"main subject",12,0.361002
+wikidata,google/gemma-4-E4B,"manner of death",18,0.862654
+wikidata,google/gemma-4-E4B,"member of",50,0.480438
+wikidata,google/gemma-4-E4B,"member of sports team",287,0.155052
+wikidata,google/gemma-4-E4B,"mother",12,0.186242
+wikidata,google/gemma-4-E4B,"narrative location",18,0.220467
+wikidata,google/gemma-4-E4B,"native language",10,0.668227
+wikidata,google/gemma-4-E4B,"nominated for",28,0.384344
+wikidata,google/gemma-4-E4B,"occupation",242,0.400151
+wikidata,google/gemma-4-E4B,"original language of film or TV show",43,0.685346
+wikidata,google/gemma-4-E4B,"parent taxon",19,0.382489
+wikidata,google/gemma-4-E4B,"participant in",55,0.407424
+wikidata,google/gemma-4-E4B,"participating team",14,0.355963
+wikidata,google/gemma-4-E4B,"place of birth",128,0.214510
+wikidata,google/gemma-4-E4B,"place of burial",12,0.383065
+wikidata,google/gemma-4-E4B,"place of death",63,0.391928
+wikidata,google/gemma-4-E4B,"position held",19,0.661488
+wikidata,google/gemma-4-E4B,"position played on team / speciality",25,0.549111
+wikidata,google/gemma-4-E4B,"producer",22,0.096295
+wikidata,google/gemma-4-E4B,"record label",11,0.503260
+wikidata,google/gemma-4-E4B,"religion or worldview",11,0.740588
+wikidata,google/gemma-4-E4B,"said to be the same as",20,0.569846
+wikidata,google/gemma-4-E4B,"screenwriter",15,0.137016
+wikidata,google/gemma-4-E4B,"shares border with",345,0.215168
+wikidata,google/gemma-4-E4B,"sibling",59,0.427057
+wikidata,google/gemma-4-E4B,"sport",58,0.724587
+wikidata,google/gemma-4-E4B,"spouse",22,0.448537
+wikidata,google/gemma-4-E4B,"subclass of",15,0.591884
+wikidata,google/gemma-4-E4B,"taxon rank",37,0.975225
+wikidata,google/gemma-4-E4B,"twinned administrative body",40,0.059736
+wikidata,google/gemma-4-E4B,"winner",26,0.318199
+wikidata,google/gemma-4-E4B,"work location",23,0.458690
+wikidata,google/gemma-4-E4B-it,"award received",85,0.116495
+wikidata,google/gemma-4-E4B-it,"capital",10,0.315077
+wikidata,google/gemma-4-E4B-it,"cast member",329,0.014614
+wikidata,google/gemma-4-E4B-it,"cause of death",11,0.409049
+wikidata,google/gemma-4-E4B-it,"child",23,0.390422
+wikidata,google/gemma-4-E4B-it,"chromosome",12,0.352260
+wikidata,google/gemma-4-E4B-it,"composer",24,0.073817
+wikidata,google/gemma-4-E4B-it,"contains the administrative territorial entity",87,0.043766
+wikidata,google/gemma-4-E4B-it,"country",168,0.475105
+wikidata,google/gemma-4-E4B-it,"country of citizenship",160,0.439423
+wikidata,google/gemma-4-E4B-it,"country of origin",59,0.534350
+wikidata,google/gemma-4-E4B-it,"depicts",15,0.111171
+wikidata,google/gemma-4-E4B-it,"described by source",39,0.388480
+wikidata,google/gemma-4-E4B-it,"director",31,0.017056
+wikidata,google/gemma-4-E4B-it,"director of photography",17,0.022571
+wikidata,google/gemma-4-E4B-it,"distributed by",15,0.218996
+wikidata,google/gemma-4-E4B-it,"educated at",72,0.119517
+wikidata,google/gemma-4-E4B-it,"employer",16,0.165254
+wikidata,google/gemma-4-E4B-it,"family name",18,0.688171
+wikidata,google/gemma-4-E4B-it,"father",17,0.597009
+wikidata,google/gemma-4-E4B-it,"filming location",13,0.075246
+wikidata,google/gemma-4-E4B-it,"followed by",10,0.526559
+wikidata,google/gemma-4-E4B-it,"genre",88,0.192429
+wikidata,google/gemma-4-E4B-it,"given name",82,0.484926
+wikidata,google/gemma-4-E4B-it,"has part(s)",12,0.338735
+wikidata,google/gemma-4-E4B-it,"instance of",407,0.625877
+wikidata,google/gemma-4-E4B-it,"instrument",11,0.626038
+wikidata,google/gemma-4-E4B-it,"languages spoken, written or signed",59,0.696882
+wikidata,google/gemma-4-E4B-it,"located in the administrative territorial entity",155,0.126027
+wikidata,google/gemma-4-E4B-it,"located in time zone",126,0.585043
+wikidata,google/gemma-4-E4B-it,"main subject",12,0.327592
+wikidata,google/gemma-4-E4B-it,"manner of death",18,0.782407
+wikidata,google/gemma-4-E4B-it,"member of",50,0.134881
+wikidata,google/gemma-4-E4B-it,"member of sports team",287,0.058684
+wikidata,google/gemma-4-E4B-it,"mother",12,0.229697
+wikidata,google/gemma-4-E4B-it,"narrative location",18,0.217514
+wikidata,google/gemma-4-E4B-it,"native language",10,0.646363
+wikidata,google/gemma-4-E4B-it,"nominated for",28,0.167446
+wikidata,google/gemma-4-E4B-it,"occupation",242,0.160399
+wikidata,google/gemma-4-E4B-it,"original language of film or TV show",43,0.606099
+wikidata,google/gemma-4-E4B-it,"parent taxon",19,0.246478
+wikidata,google/gemma-4-E4B-it,"participant in",55,0.193760
+wikidata,google/gemma-4-E4B-it,"participating team",14,0.284613
+wikidata,google/gemma-4-E4B-it,"place of birth",128,0.051990
+wikidata,google/gemma-4-E4B-it,"place of burial",12,0.356513
+wikidata,google/gemma-4-E4B-it,"place of death",63,0.210535
+wikidata,google/gemma-4-E4B-it,"position held",19,0.344914
+wikidata,google/gemma-4-E4B-it,"position played on team / speciality",25,0.498000
+wikidata,google/gemma-4-E4B-it,"producer",22,0.015535
+wikidata,google/gemma-4-E4B-it,"record label",11,0.257649
+wikidata,google/gemma-4-E4B-it,"religion or worldview",11,0.669090
+wikidata,google/gemma-4-E4B-it,"said to be the same as",20,0.378777
+wikidata,google/gemma-4-E4B-it,"screenwriter",15,0.016803
+wikidata,google/gemma-4-E4B-it,"shares border with",345,0.086487
+wikidata,google/gemma-4-E4B-it,"sibling",59,0.414217
+wikidata,google/gemma-4-E4B-it,"sport",58,0.473584
+wikidata,google/gemma-4-E4B-it,"spouse",22,0.164759
+wikidata,google/gemma-4-E4B-it,"subclass of",15,0.177589
+wikidata,google/gemma-4-E4B-it,"taxon rank",37,0.953239
+wikidata,google/gemma-4-E4B-it,"twinned administrative body",40,0.034309
+wikidata,google/gemma-4-E4B-it,"winner",26,0.023076
+wikidata,google/gemma-4-E4B-it,"work location",23,0.258765
+wikidata,google/gemma-4-12B,"award received",85,0.384999
+wikidata,google/gemma-4-12B,"capital",10,0.618868
+wikidata,google/gemma-4-12B,"cast member",329,0.089275
+wikidata,google/gemma-4-12B,"cause of death",11,0.427671
+wikidata,google/gemma-4-12B,"child",23,0.580978
+wikidata,google/gemma-4-12B,"chromosome",12,0.376334
+wikidata,google/gemma-4-12B,"composer",24,0.207777
+wikidata,google/gemma-4-12B,"contains the administrative territorial entity",87,0.396129
+wikidata,google/gemma-4-12B,"country",168,0.861300
+wikidata,google/gemma-4-12B,"country of citizenship",160,0.798894
+wikidata,google/gemma-4-12B,"country of origin",59,0.643176
+wikidata,google/gemma-4-12B,"depicts",15,0.205284
+wikidata,google/gemma-4-12B,"described by source",39,0.504213
+wikidata,google/gemma-4-12B,"director",31,0.121056
+wikidata,google/gemma-4-12B,"director of photography",17,0.139210
+wikidata,google/gemma-4-12B,"distributed by",15,0.353051
+wikidata,google/gemma-4-12B,"educated at",72,0.388018
+wikidata,google/gemma-4-12B,"employer",16,0.372483
+wikidata,google/gemma-4-12B,"family name",18,0.850397
+wikidata,google/gemma-4-12B,"father",17,0.753851
+wikidata,google/gemma-4-12B,"filming location",13,0.154808
+wikidata,google/gemma-4-12B,"followed by",10,0.760275
+wikidata,google/gemma-4-12B,"genre",88,0.319098
+wikidata,google/gemma-4-12B,"given name",82,0.412982
+wikidata,google/gemma-4-12B,"has part(s)",12,0.488548
+wikidata,google/gemma-4-12B,"instance of",407,0.810468
+wikidata,google/gemma-4-12B,"instrument",11,0.792929
+wikidata,google/gemma-4-12B,"languages spoken, written or signed",59,0.854931
+wikidata,google/gemma-4-12B,"located in the administrative territorial entity",155,0.462021
+wikidata,google/gemma-4-12B,"located in time zone",126,0.792002
+wikidata,google/gemma-4-12B,"main subject",12,0.290187
+wikidata,google/gemma-4-12B,"manner of death",18,0.799471
+wikidata,google/gemma-4-12B,"member of",50,0.454908
+wikidata,google/gemma-4-12B,"member of sports team",287,0.177277
+wikidata,google/gemma-4-12B,"mother",12,0.397873
+wikidata,google/gemma-4-12B,"narrative location",18,0.226473
+wikidata,google/gemma-4-12B,"native language",10,0.707934
+wikidata,google/gemma-4-12B,"nominated for",28,0.310095
+wikidata,google/gemma-4-12B,"occupation",242,0.416101
+wikidata,google/gemma-4-12B,"original language of film or TV show",43,0.677352
+wikidata,google/gemma-4-12B,"parent taxon",19,0.483751
+wikidata,google/gemma-4-12B,"participant in",55,0.403411
+wikidata,google/gemma-4-12B,"participating team",14,0.450794
+wikidata,google/gemma-4-12B,"place of birth",128,0.243855
+wikidata,google/gemma-4-12B,"place of burial",12,0.459738
+wikidata,google/gemma-4-12B,"place of death",63,0.370538
+wikidata,google/gemma-4-12B,"position held",19,0.564054
+wikidata,google/gemma-4-12B,"position played on team / speciality",25,0.583111
+wikidata,google/gemma-4-12B,"producer",22,0.145613
+wikidata,google/gemma-4-12B,"record label",11,0.607466
+wikidata,google/gemma-4-12B,"religion or worldview",11,0.776936
+wikidata,google/gemma-4-12B,"said to be the same as",20,0.438648
+wikidata,google/gemma-4-12B,"screenwriter",15,0.201251
+wikidata,google/gemma-4-12B,"shares border with",345,0.329436
+wikidata,google/gemma-4-12B,"sibling",59,0.464753
+wikidata,google/gemma-4-12B,"sport",58,0.834129
+wikidata,google/gemma-4-12B,"spouse",22,0.433282
+wikidata,google/gemma-4-12B,"subclass of",15,0.622122
+wikidata,google/gemma-4-12B,"taxon rank",37,0.974475
+wikidata,google/gemma-4-12B,"twinned administrative body",40,0.058900
+wikidata,google/gemma-4-12B,"winner",26,0.287485
+wikidata,google/gemma-4-12B,"work location",23,0.502101
+wikidata,meta-llama/Llama-3.1-8B,"award received",85,0.372872
+wikidata,meta-llama/Llama-3.1-8B,"capital",10,0.664288
+wikidata,meta-llama/Llama-3.1-8B,"cast member",329,0.127188
+wikidata,meta-llama/Llama-3.1-8B,"cause of death",11,0.517942
+wikidata,meta-llama/Llama-3.1-8B,"child",23,0.592997
+wikidata,meta-llama/Llama-3.1-8B,"chromosome",12,0.331504
+wikidata,meta-llama/Llama-3.1-8B,"composer",24,0.242435
+wikidata,meta-llama/Llama-3.1-8B,"contains the administrative territorial entity",87,0.341578
+wikidata,meta-llama/Llama-3.1-8B,"country",168,0.861681
+wikidata,meta-llama/Llama-3.1-8B,"country of citizenship",160,0.839507
+wikidata,meta-llama/Llama-3.1-8B,"country of origin",59,0.661033
+wikidata,meta-llama/Llama-3.1-8B,"depicts",15,0.219082
+wikidata,meta-llama/Llama-3.1-8B,"described by source",39,0.508185
+wikidata,meta-llama/Llama-3.1-8B,"director",31,0.279065
+wikidata,meta-llama/Llama-3.1-8B,"director of photography",17,0.289456
+wikidata,meta-llama/Llama-3.1-8B,"distributed by",15,0.361526
+wikidata,meta-llama/Llama-3.1-8B,"educated at",72,0.392611
+wikidata,meta-llama/Llama-3.1-8B,"employer",16,0.439642
+wikidata,meta-llama/Llama-3.1-8B,"family name",18,0.866001
+wikidata,meta-llama/Llama-3.1-8B,"father",17,0.750034
+wikidata,meta-llama/Llama-3.1-8B,"filming location",13,0.127793
+wikidata,meta-llama/Llama-3.1-8B,"followed by",10,0.859764
+wikidata,meta-llama/Llama-3.1-8B,"genre",88,0.429959
+wikidata,meta-llama/Llama-3.1-8B,"given name",82,0.417003
+wikidata,meta-llama/Llama-3.1-8B,"has part(s)",12,0.743598
+wikidata,meta-llama/Llama-3.1-8B,"instance of",407,0.849911
+wikidata,meta-llama/Llama-3.1-8B,"instrument",11,0.729798
+wikidata,meta-llama/Llama-3.1-8B,"languages spoken, written or signed",59,0.877598
+wikidata,meta-llama/Llama-3.1-8B,"located in the administrative territorial entity",155,0.454048
+wikidata,meta-llama/Llama-3.1-8B,"located in time zone",126,0.782955
+wikidata,meta-llama/Llama-3.1-8B,"main subject",12,0.545829
+wikidata,meta-llama/Llama-3.1-8B,"manner of death",18,0.773148
+wikidata,meta-llama/Llama-3.1-8B,"member of",50,0.584837
+wikidata,meta-llama/Llama-3.1-8B,"member of sports team",287,0.187609
+wikidata,meta-llama/Llama-3.1-8B,"mother",12,0.370629
+wikidata,meta-llama/Llama-3.1-8B,"narrative location",18,0.338350
+wikidata,meta-llama/Llama-3.1-8B,"native language",10,0.810000
+wikidata,meta-llama/Llama-3.1-8B,"nominated for",28,0.398982
+wikidata,meta-llama/Llama-3.1-8B,"occupation",242,0.436326
+wikidata,meta-llama/Llama-3.1-8B,"original language of film or TV show",43,0.715786
+wikidata,meta-llama/Llama-3.1-8B,"parent taxon",19,0.797386
+wikidata,meta-llama/Llama-3.1-8B,"participant in",55,0.377303
+wikidata,meta-llama/Llama-3.1-8B,"participating team",14,0.478893
+wikidata,meta-llama/Llama-3.1-8B,"place of birth",128,0.283012
+wikidata,meta-llama/Llama-3.1-8B,"place of burial",12,0.533361
+wikidata,meta-llama/Llama-3.1-8B,"place of death",63,0.499496
+wikidata,meta-llama/Llama-3.1-8B,"position held",19,0.708835
+wikidata,meta-llama/Llama-3.1-8B,"position played on team / speciality",25,0.578222
+wikidata,meta-llama/Llama-3.1-8B,"producer",22,0.296977
+wikidata,meta-llama/Llama-3.1-8B,"record label",11,0.551463
+wikidata,meta-llama/Llama-3.1-8B,"religion or worldview",11,0.793939
+wikidata,meta-llama/Llama-3.1-8B,"said to be the same as",20,0.564644
+wikidata,meta-llama/Llama-3.1-8B,"screenwriter",15,0.359308
+wikidata,meta-llama/Llama-3.1-8B,"shares border with",345,0.277670
+wikidata,meta-llama/Llama-3.1-8B,"sibling",59,0.527500
+wikidata,meta-llama/Llama-3.1-8B,"sport",58,0.876274
+wikidata,meta-llama/Llama-3.1-8B,"spouse",22,0.523603
+wikidata,meta-llama/Llama-3.1-8B,"subclass of",15,0.607027
+wikidata,meta-llama/Llama-3.1-8B,"taxon rank",37,0.981231
+wikidata,meta-llama/Llama-3.1-8B,"twinned administrative body",40,0.091228
+wikidata,meta-llama/Llama-3.1-8B,"winner",26,0.307839
+wikidata,meta-llama/Llama-3.1-8B,"work location",23,0.494558
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"award received",85,0.375034
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"capital",10,0.673330
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"cast member",329,0.108945
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"cause of death",11,0.458153
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"child",23,0.559141
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"chromosome",12,0.436321
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"composer",24,0.293925
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"contains the administrative territorial entity",87,0.333270
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"country",168,0.865254
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"country of citizenship",160,0.830221
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"country of origin",59,0.679427
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"depicts",15,0.246831
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"described by source",39,0.486681
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"director",31,0.215079
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"director of photography",17,0.276774
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"distributed by",15,0.433288
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"educated at",72,0.411490
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"employer",16,0.406744
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"family name",18,0.910452
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"father",17,0.741375
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"filming location",13,0.119800
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"followed by",10,0.865873
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"genre",88,0.429566
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"given name",82,0.460764
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"has part(s)",12,0.681310
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"instance of",407,0.841205
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"instrument",11,0.813131
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"languages spoken, written or signed",59,0.870179
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"located in the administrative territorial entity",155,0.481434
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"located in time zone",126,0.731437
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"main subject",12,0.548507
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"manner of death",18,0.780864
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"member of",50,0.565404
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"member of sports team",287,0.186157
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"mother",12,0.402806
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"narrative location",18,0.254290
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"native language",10,0.825648
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"nominated for",28,0.395137
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"occupation",242,0.444776
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"original language of film or TV show",43,0.708873
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"parent taxon",19,0.714101
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"participant in",55,0.382068
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"participating team",14,0.429365
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"place of birth",128,0.274470
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"place of burial",12,0.504570
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"place of death",63,0.459754
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"position held",19,0.648094
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"position played on team / speciality",25,0.598889
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"producer",22,0.260335
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"record label",11,0.564051
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"religion or worldview",11,0.787374
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"said to be the same as",20,0.544837
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"screenwriter",15,0.333080
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"shares border with",345,0.282672
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"sibling",59,0.584948
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"sport",58,0.865278
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"spouse",22,0.493027
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"subclass of",15,0.681282
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"taxon rank",37,0.979279
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"twinned administrative body",40,0.092691
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"winner",26,0.253732
+wikidata,meta-llama/Llama-3.1-8B-Instruct,"work location",23,0.510363
+wikidata,meta-llama/Llama-3.2-1B,"award received",85,0.317391
+wikidata,meta-llama/Llama-3.2-1B,"capital",10,0.549567
+wikidata,meta-llama/Llama-3.2-1B,"cast member",329,0.071214
+wikidata,meta-llama/Llama-3.2-1B,"cause of death",11,0.466607
+wikidata,meta-llama/Llama-3.2-1B,"child",23,0.515908
+wikidata,meta-llama/Llama-3.2-1B,"chromosome",12,0.360328
+wikidata,meta-llama/Llama-3.2-1B,"composer",24,0.186306
+wikidata,meta-llama/Llama-3.2-1B,"contains the administrative territorial entity",87,0.221505
+wikidata,meta-llama/Llama-3.2-1B,"country",168,0.807124
+wikidata,meta-llama/Llama-3.2-1B,"country of citizenship",160,0.727003
+wikidata,meta-llama/Llama-3.2-1B,"country of origin",59,0.625002
+wikidata,meta-llama/Llama-3.2-1B,"depicts",15,0.266253
+wikidata,meta-llama/Llama-3.2-1B,"described by source",39,0.529165
+wikidata,meta-llama/Llama-3.2-1B,"director",31,0.156372
+wikidata,meta-llama/Llama-3.2-1B,"director of photography",17,0.097961
+wikidata,meta-llama/Llama-3.2-1B,"distributed by",15,0.451414
+wikidata,meta-llama/Llama-3.2-1B,"educated at",72,0.342925
+wikidata,meta-llama/Llama-3.2-1B,"employer",16,0.417655
+wikidata,meta-llama/Llama-3.2-1B,"family name",18,0.932494
+wikidata,meta-llama/Llama-3.2-1B,"father",17,0.655941
+wikidata,meta-llama/Llama-3.2-1B,"filming location",13,0.092312
+wikidata,meta-llama/Llama-3.2-1B,"followed by",10,0.774206
+wikidata,meta-llama/Llama-3.2-1B,"genre",88,0.365751
+wikidata,meta-llama/Llama-3.2-1B,"given name",82,0.393293
+wikidata,meta-llama/Llama-3.2-1B,"has part(s)",12,0.594112
+wikidata,meta-llama/Llama-3.2-1B,"instance of",407,0.820971
+wikidata,meta-llama/Llama-3.2-1B,"instrument",11,0.704545
+wikidata,meta-llama/Llama-3.2-1B,"languages spoken, written or signed",59,0.896608
+wikidata,meta-llama/Llama-3.2-1B,"located in the administrative territorial entity",155,0.331354
+wikidata,meta-llama/Llama-3.2-1B,"located in time zone",126,0.737057
+wikidata,meta-llama/Llama-3.2-1B,"main subject",12,0.461772
+wikidata,meta-llama/Llama-3.2-1B,"manner of death",18,0.754630
+wikidata,meta-llama/Llama-3.2-1B,"member of",50,0.442359
+wikidata,meta-llama/Llama-3.2-1B,"member of sports team",287,0.145225
+wikidata,meta-llama/Llama-3.2-1B,"mother",12,0.325458
+wikidata,meta-llama/Llama-3.2-1B,"narrative location",18,0.247861
+wikidata,meta-llama/Llama-3.2-1B,"native language",10,0.872222
+wikidata,meta-llama/Llama-3.2-1B,"nominated for",28,0.367664
+wikidata,meta-llama/Llama-3.2-1B,"occupation",242,0.340921
+wikidata,meta-llama/Llama-3.2-1B,"original language of film or TV show",43,0.691743
+wikidata,meta-llama/Llama-3.2-1B,"parent taxon",19,0.436139
+wikidata,meta-llama/Llama-3.2-1B,"participant in",55,0.308071
+wikidata,meta-llama/Llama-3.2-1B,"participating team",14,0.307635
+wikidata,meta-llama/Llama-3.2-1B,"place of birth",128,0.191435
+wikidata,meta-llama/Llama-3.2-1B,"place of burial",12,0.423944
+wikidata,meta-llama/Llama-3.2-1B,"place of death",63,0.400345
+wikidata,meta-llama/Llama-3.2-1B,"position held",19,0.622015
+wikidata,meta-llama/Llama-3.2-1B,"position played on team / speciality",25,0.534222
+wikidata,meta-llama/Llama-3.2-1B,"producer",22,0.159236
+wikidata,meta-llama/Llama-3.2-1B,"record label",11,0.350797
+wikidata,meta-llama/Llama-3.2-1B,"religion or worldview",11,0.797980
+wikidata,meta-llama/Llama-3.2-1B,"said to be the same as",20,0.445907
+wikidata,meta-llama/Llama-3.2-1B,"screenwriter",15,0.179957
+wikidata,meta-llama/Llama-3.2-1B,"shares border with",345,0.173575
+wikidata,meta-llama/Llama-3.2-1B,"sibling",59,0.475776
+wikidata,meta-llama/Llama-3.2-1B,"sport",58,0.791582
+wikidata,meta-llama/Llama-3.2-1B,"spouse",22,0.410358
+wikidata,meta-llama/Llama-3.2-1B,"subclass of",15,0.582655
+wikidata,meta-llama/Llama-3.2-1B,"taxon rank",37,0.979730
+wikidata,meta-llama/Llama-3.2-1B,"twinned administrative body",40,0.074521
+wikidata,meta-llama/Llama-3.2-1B,"winner",26,0.235937
+wikidata,meta-llama/Llama-3.2-1B,"work location",23,0.517284
+wikidata,meta-llama/Llama-3.2-3B,"award received",85,0.329184
+wikidata,meta-llama/Llama-3.2-3B,"capital",10,0.648595
+wikidata,meta-llama/Llama-3.2-3B,"cast member",329,0.098006
+wikidata,meta-llama/Llama-3.2-3B,"cause of death",11,0.478319
+wikidata,meta-llama/Llama-3.2-3B,"child",23,0.552342
+wikidata,meta-llama/Llama-3.2-3B,"chromosome",12,0.400254
+wikidata,meta-llama/Llama-3.2-3B,"composer",24,0.220446
+wikidata,meta-llama/Llama-3.2-3B,"contains the administrative territorial entity",87,0.273553
+wikidata,meta-llama/Llama-3.2-3B,"country",168,0.855968
+wikidata,meta-llama/Llama-3.2-3B,"country of citizenship",160,0.812434
+wikidata,meta-llama/Llama-3.2-3B,"country of origin",59,0.639462
+wikidata,meta-llama/Llama-3.2-3B,"depicts",15,0.231997
+wikidata,meta-llama/Llama-3.2-3B,"described by source",39,0.494520
+wikidata,meta-llama/Llama-3.2-3B,"director",31,0.151986
+wikidata,meta-llama/Llama-3.2-3B,"director of photography",17,0.173561
+wikidata,meta-llama/Llama-3.2-3B,"distributed by",15,0.353464
+wikidata,meta-llama/Llama-3.2-3B,"educated at",72,0.371252
+wikidata,meta-llama/Llama-3.2-3B,"employer",16,0.389173
+wikidata,meta-llama/Llama-3.2-3B,"family name",18,0.899495
+wikidata,meta-llama/Llama-3.2-3B,"father",17,0.669942
+wikidata,meta-llama/Llama-3.2-3B,"filming location",13,0.132614
+wikidata,meta-llama/Llama-3.2-3B,"followed by",10,0.852104
+wikidata,meta-llama/Llama-3.2-3B,"genre",88,0.427185
+wikidata,meta-llama/Llama-3.2-3B,"given name",82,0.447112
+wikidata,meta-llama/Llama-3.2-3B,"has part(s)",12,0.627149
+wikidata,meta-llama/Llama-3.2-3B,"instance of",407,0.844811
+wikidata,meta-llama/Llama-3.2-3B,"instrument",11,0.797980
+wikidata,meta-llama/Llama-3.2-3B,"languages spoken, written or signed",59,0.873778
+wikidata,meta-llama/Llama-3.2-3B,"located in the administrative territorial entity",155,0.392760
+wikidata,meta-llama/Llama-3.2-3B,"located in time zone",126,0.710909
+wikidata,meta-llama/Llama-3.2-3B,"main subject",12,0.520588
+wikidata,meta-llama/Llama-3.2-3B,"manner of death",18,0.824074
+wikidata,meta-llama/Llama-3.2-3B,"member of",50,0.476836
+wikidata,meta-llama/Llama-3.2-3B,"member of sports team",287,0.161151
+wikidata,meta-llama/Llama-3.2-3B,"mother",12,0.374161
+wikidata,meta-llama/Llama-3.2-3B,"narrative location",18,0.238982
+wikidata,meta-llama/Llama-3.2-3B,"native language",10,0.798651
+wikidata,meta-llama/Llama-3.2-3B,"nominated for",28,0.412294
+wikidata,meta-llama/Llama-3.2-3B,"occupation",242,0.402827
+wikidata,meta-llama/Llama-3.2-3B,"original language of film or TV show",43,0.686104
+wikidata,meta-llama/Llama-3.2-3B,"parent taxon",19,0.668156
+wikidata,meta-llama/Llama-3.2-3B,"participant in",55,0.317903
+wikidata,meta-llama/Llama-3.2-3B,"participating team",14,0.362981
+wikidata,meta-llama/Llama-3.2-3B,"place of birth",128,0.250254
+wikidata,meta-llama/Llama-3.2-3B,"place of burial",12,0.484852
+wikidata,meta-llama/Llama-3.2-3B,"place of death",63,0.453426
+wikidata,meta-llama/Llama-3.2-3B,"position held",19,0.573686
+wikidata,meta-llama/Llama-3.2-3B,"position played on team / speciality",25,0.561111
+wikidata,meta-llama/Llama-3.2-3B,"producer",22,0.270931
+wikidata,meta-llama/Llama-3.2-3B,"record label",11,0.495016
+wikidata,meta-llama/Llama-3.2-3B,"religion or worldview",11,0.830316
+wikidata,meta-llama/Llama-3.2-3B,"said to be the same as",20,0.602419
+wikidata,meta-llama/Llama-3.2-3B,"screenwriter",15,0.303358
+wikidata,meta-llama/Llama-3.2-3B,"shares border with",345,0.219836
+wikidata,meta-llama/Llama-3.2-3B,"sibling",59,0.474057
+wikidata,meta-llama/Llama-3.2-3B,"sport",58,0.808144
+wikidata,meta-llama/Llama-3.2-3B,"spouse",22,0.459737
+wikidata,meta-llama/Llama-3.2-3B,"subclass of",15,0.590439
+wikidata,meta-llama/Llama-3.2-3B,"taxon rank",37,0.979730
+wikidata,meta-llama/Llama-3.2-3B,"twinned administrative body",40,0.084622
+wikidata,meta-llama/Llama-3.2-3B,"winner",26,0.284821
+wikidata,meta-llama/Llama-3.2-3B,"work location",23,0.536265
+wikidata,allenai/Olmo-3-1025-7B,"award received",85,0.295436
+wikidata,allenai/Olmo-3-1025-7B,"capital",10,0.676749
+wikidata,allenai/Olmo-3-1025-7B,"cast member",329,0.077279
+wikidata,allenai/Olmo-3-1025-7B,"cause of death",11,0.552259
+wikidata,allenai/Olmo-3-1025-7B,"child",23,0.574357
+wikidata,allenai/Olmo-3-1025-7B,"chromosome",12,0.337676
+wikidata,allenai/Olmo-3-1025-7B,"composer",24,0.150712
+wikidata,allenai/Olmo-3-1025-7B,"contains the administrative territorial entity",87,0.191841
+wikidata,allenai/Olmo-3-1025-7B,"country",168,0.770109
+wikidata,allenai/Olmo-3-1025-7B,"country of citizenship",160,0.740636
+wikidata,allenai/Olmo-3-1025-7B,"country of origin",59,0.643090
+wikidata,allenai/Olmo-3-1025-7B,"depicts",15,0.233975
+wikidata,allenai/Olmo-3-1025-7B,"described by source",39,0.423947
+wikidata,allenai/Olmo-3-1025-7B,"director",31,0.144078
+wikidata,allenai/Olmo-3-1025-7B,"director of photography",17,0.112984
+wikidata,allenai/Olmo-3-1025-7B,"distributed by",15,0.404030
+wikidata,allenai/Olmo-3-1025-7B,"educated at",72,0.308677
+wikidata,allenai/Olmo-3-1025-7B,"employer",16,0.426550
+wikidata,allenai/Olmo-3-1025-7B,"family name",18,0.755090
+wikidata,allenai/Olmo-3-1025-7B,"father",17,0.571396
+wikidata,allenai/Olmo-3-1025-7B,"filming location",13,0.173555
+wikidata,allenai/Olmo-3-1025-7B,"followed by",10,0.753945
+wikidata,allenai/Olmo-3-1025-7B,"genre",88,0.432459
+wikidata,allenai/Olmo-3-1025-7B,"given name",82,0.631888
+wikidata,allenai/Olmo-3-1025-7B,"has part(s)",12,0.575876
+wikidata,allenai/Olmo-3-1025-7B,"instance of",407,0.821583
+wikidata,allenai/Olmo-3-1025-7B,"instrument",11,0.669192
+wikidata,allenai/Olmo-3-1025-7B,"languages spoken, written or signed",59,0.855829
+wikidata,allenai/Olmo-3-1025-7B,"located in the administrative territorial entity",155,0.317101
+wikidata,allenai/Olmo-3-1025-7B,"located in time zone",126,0.689846
+wikidata,allenai/Olmo-3-1025-7B,"main subject",12,0.477418
+wikidata,allenai/Olmo-3-1025-7B,"manner of death",18,0.825617
+wikidata,allenai/Olmo-3-1025-7B,"member of",50,0.423520
+wikidata,allenai/Olmo-3-1025-7B,"member of sports team",287,0.145048
+wikidata,allenai/Olmo-3-1025-7B,"mother",12,0.347742
+wikidata,allenai/Olmo-3-1025-7B,"narrative location",18,0.250447
+wikidata,allenai/Olmo-3-1025-7B,"native language",10,0.800992
+wikidata,allenai/Olmo-3-1025-7B,"nominated for",28,0.321658
+wikidata,allenai/Olmo-3-1025-7B,"occupation",242,0.334458
+wikidata,allenai/Olmo-3-1025-7B,"original language of film or TV show",43,0.693694
+wikidata,allenai/Olmo-3-1025-7B,"parent taxon",19,0.386427
+wikidata,allenai/Olmo-3-1025-7B,"participant in",55,0.319876
+wikidata,allenai/Olmo-3-1025-7B,"participating team",14,0.448914
+wikidata,allenai/Olmo-3-1025-7B,"place of birth",128,0.183095
+wikidata,allenai/Olmo-3-1025-7B,"place of burial",12,0.468453
+wikidata,allenai/Olmo-3-1025-7B,"place of death",63,0.384743
+wikidata,allenai/Olmo-3-1025-7B,"position held",19,0.603737
+wikidata,allenai/Olmo-3-1025-7B,"position played on team / speciality",25,0.530222
+wikidata,allenai/Olmo-3-1025-7B,"producer",22,0.203156
+wikidata,allenai/Olmo-3-1025-7B,"record label",11,0.484254
+wikidata,allenai/Olmo-3-1025-7B,"religion or worldview",11,0.864647
+wikidata,allenai/Olmo-3-1025-7B,"said to be the same as",20,0.467108
+wikidata,allenai/Olmo-3-1025-7B,"screenwriter",15,0.150528
+wikidata,allenai/Olmo-3-1025-7B,"shares border with",345,0.161463
+wikidata,allenai/Olmo-3-1025-7B,"sibling",59,0.516347
+wikidata,allenai/Olmo-3-1025-7B,"sport",58,0.783646
+wikidata,allenai/Olmo-3-1025-7B,"spouse",22,0.525879
+wikidata,allenai/Olmo-3-1025-7B,"subclass of",15,0.602016
+wikidata,allenai/Olmo-3-1025-7B,"taxon rank",37,0.978528
+wikidata,allenai/Olmo-3-1025-7B,"twinned administrative body",40,0.095299
+wikidata,allenai/Olmo-3-1025-7B,"winner",26,0.259063
+wikidata,allenai/Olmo-3-1025-7B,"work location",23,0.424979
+wikidata,allenai/Olmo-3-7B-Instruct,"award received",85,0.213420
+wikidata,allenai/Olmo-3-7B-Instruct,"capital",10,0.487841
+wikidata,allenai/Olmo-3-7B-Instruct,"cast member",329,0.060921
+wikidata,allenai/Olmo-3-7B-Instruct,"cause of death",11,0.442088
+wikidata,allenai/Olmo-3-7B-Instruct,"child",23,0.527714
+wikidata,allenai/Olmo-3-7B-Instruct,"chromosome",12,0.343607
+wikidata,allenai/Olmo-3-7B-Instruct,"composer",24,0.085949
+wikidata,allenai/Olmo-3-7B-Instruct,"contains the administrative territorial entity",87,0.124631
+wikidata,allenai/Olmo-3-7B-Instruct,"country",168,0.718050
+wikidata,allenai/Olmo-3-7B-Instruct,"country of citizenship",160,0.675152
+wikidata,allenai/Olmo-3-7B-Instruct,"country of origin",59,0.599242
+wikidata,allenai/Olmo-3-7B-Instruct,"depicts",15,0.279876
+wikidata,allenai/Olmo-3-7B-Instruct,"described by source",39,0.396910
+wikidata,allenai/Olmo-3-7B-Instruct,"director",31,0.092472
+wikidata,allenai/Olmo-3-7B-Instruct,"director of photography",17,0.089123
+wikidata,allenai/Olmo-3-7B-Instruct,"distributed by",15,0.412337
+wikidata,allenai/Olmo-3-7B-Instruct,"educated at",72,0.281565
+wikidata,allenai/Olmo-3-7B-Instruct,"employer",16,0.359124
+wikidata,allenai/Olmo-3-7B-Instruct,"family name",18,0.807481
+wikidata,allenai/Olmo-3-7B-Instruct,"father",17,0.641187
+wikidata,allenai/Olmo-3-7B-Instruct,"filming location",13,0.125367
+wikidata,allenai/Olmo-3-7B-Instruct,"followed by",10,0.740280
+wikidata,allenai/Olmo-3-7B-Instruct,"genre",88,0.325538
+wikidata,allenai/Olmo-3-7B-Instruct,"given name",82,0.518858
+wikidata,allenai/Olmo-3-7B-Instruct,"has part(s)",12,0.290292
+wikidata,allenai/Olmo-3-7B-Instruct,"instance of",407,0.783466
+wikidata,allenai/Olmo-3-7B-Instruct,"instrument",11,0.739899
+wikidata,allenai/Olmo-3-7B-Instruct,"languages spoken, written or signed",59,0.851275
+wikidata,allenai/Olmo-3-7B-Instruct,"located in the administrative territorial entity",155,0.245619
+wikidata,allenai/Olmo-3-7B-Instruct,"located in time zone",126,0.646837
+wikidata,allenai/Olmo-3-7B-Instruct,"main subject",12,0.507222
+wikidata,allenai/Olmo-3-7B-Instruct,"manner of death",18,0.748457
+wikidata,allenai/Olmo-3-7B-Instruct,"member of",50,0.339586
+wikidata,allenai/Olmo-3-7B-Instruct,"member of sports team",287,0.126027
+wikidata,allenai/Olmo-3-7B-Instruct,"mother",12,0.243932
+wikidata,allenai/Olmo-3-7B-Instruct,"narrative location",18,0.191748
+wikidata,allenai/Olmo-3-7B-Instruct,"native language",10,0.673163
+wikidata,allenai/Olmo-3-7B-Instruct,"nominated for",28,0.274275
+wikidata,allenai/Olmo-3-7B-Instruct,"occupation",242,0.274556
+wikidata,allenai/Olmo-3-7B-Instruct,"original language of film or TV show",43,0.657436
+wikidata,allenai/Olmo-3-7B-Instruct,"parent taxon",19,0.298594
+wikidata,allenai/Olmo-3-7B-Instruct,"participant in",55,0.270630
+wikidata,allenai/Olmo-3-7B-Instruct,"participating team",14,0.471901
+wikidata,allenai/Olmo-3-7B-Instruct,"place of birth",128,0.149800
+wikidata,allenai/Olmo-3-7B-Instruct,"place of burial",12,0.371689
+wikidata,allenai/Olmo-3-7B-Instruct,"place of death",63,0.309827
+wikidata,allenai/Olmo-3-7B-Instruct,"position held",19,0.618866
+wikidata,allenai/Olmo-3-7B-Instruct,"position played on team / speciality",25,0.465333
+wikidata,allenai/Olmo-3-7B-Instruct,"producer",22,0.137689
+wikidata,allenai/Olmo-3-7B-Instruct,"record label",11,0.363181
+wikidata,allenai/Olmo-3-7B-Instruct,"religion or worldview",11,0.710606
+wikidata,allenai/Olmo-3-7B-Instruct,"said to be the same as",20,0.327070
+wikidata,allenai/Olmo-3-7B-Instruct,"screenwriter",15,0.116145
+wikidata,allenai/Olmo-3-7B-Instruct,"shares border with",345,0.135852
+wikidata,allenai/Olmo-3-7B-Instruct,"sibling",59,0.510364
+wikidata,allenai/Olmo-3-7B-Instruct,"sport",58,0.697412
+wikidata,allenai/Olmo-3-7B-Instruct,"spouse",22,0.457159
+wikidata,allenai/Olmo-3-7B-Instruct,"subclass of",15,0.622036
+wikidata,allenai/Olmo-3-7B-Instruct,"taxon rank",37,0.960360
+wikidata,allenai/Olmo-3-7B-Instruct,"twinned administrative body",40,0.058286
+wikidata,allenai/Olmo-3-7B-Instruct,"winner",26,0.210732
+wikidata,allenai/Olmo-3-7B-Instruct,"work location",23,0.411513
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"award received",85,0.317433
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"capital",10,0.550829
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"cast member",329,0.056992
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"cause of death",11,0.476267
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"child",23,0.583485
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"chromosome",12,0.255214
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"composer",24,0.171731
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"contains the administrative territorial entity",87,0.293237
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"country",168,0.802908
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"country of citizenship",160,0.742636
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"country of origin",59,0.564618
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"depicts",15,0.243112
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"described by source",39,0.425024
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"director",31,0.102821
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"director of photography",17,0.125867
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"distributed by",15,0.359608
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"educated at",72,0.333922
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"employer",16,0.453412
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"family name",18,0.882559
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"father",17,0.782826
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"filming location",13,0.123164
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"followed by",10,0.704479
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"genre",88,0.356030
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"given name",82,0.531305
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"has part(s)",12,0.612032
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"instance of",407,0.822101
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"instrument",11,0.750000
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"languages spoken, written or signed",59,0.815268
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"located in the administrative territorial entity",155,0.442734
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"located in time zone",126,0.728204
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"main subject",12,0.456826
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"manner of death",18,0.800926
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"member of",50,0.472770
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"member of sports team",287,0.145326
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"mother",12,0.298846
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"narrative location",18,0.209908
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"native language",10,0.725618
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"nominated for",28,0.360741
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"occupation",242,0.376176
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"original language of film or TV show",43,0.591438
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"parent taxon",19,0.572834
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"participant in",55,0.341614
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"participating team",14,0.415297
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"place of birth",128,0.221446
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"place of burial",12,0.382709
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"place of death",63,0.380835
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"position held",19,0.648350
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"position played on team / speciality",25,0.472222
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"producer",22,0.213523
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"record label",11,0.389152
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"religion or worldview",11,0.724026
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"said to be the same as",20,0.557991
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"screenwriter",15,0.175151
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"shares border with",345,0.249615
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"sibling",59,0.553459
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"sport",58,0.747989
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"spouse",22,0.383114
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"subclass of",15,0.664164
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"taxon rank",37,0.966002
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"twinned administrative body",40,0.075164
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"winner",26,0.280642
+wikidata,mistralai/Ministral-3-8B-Instruct-2512-BF16,"work location",23,0.472529
+wikidata,ibm-granite/granite-4.2-8b,"award received",85,0.205089
+wikidata,ibm-granite/granite-4.2-8b,"capital",10,0.230722
+wikidata,ibm-granite/granite-4.2-8b,"cast member",329,0.055168
+wikidata,ibm-granite/granite-4.2-8b,"cause of death",11,0.432533
+wikidata,ibm-granite/granite-4.2-8b,"child",23,0.310320
+wikidata,ibm-granite/granite-4.2-8b,"chromosome",12,0.283653
+wikidata,ibm-granite/granite-4.2-8b,"composer",24,0.033863
+wikidata,ibm-granite/granite-4.2-8b,"contains the administrative territorial entity",87,0.177383
+wikidata,ibm-granite/granite-4.2-8b,"country",168,0.415479
+wikidata,ibm-granite/granite-4.2-8b,"country of citizenship",160,0.451498
+wikidata,ibm-granite/granite-4.2-8b,"country of origin",59,0.481817
+wikidata,ibm-granite/granite-4.2-8b,"depicts",15,0.236248
+wikidata,ibm-granite/granite-4.2-8b,"described by source",39,0.452963
+wikidata,ibm-granite/granite-4.2-8b,"director",31,0.043770
+wikidata,ibm-granite/granite-4.2-8b,"director of photography",17,0.033303
+wikidata,ibm-granite/granite-4.2-8b,"distributed by",15,0.292337
+wikidata,ibm-granite/granite-4.2-8b,"educated at",72,0.251910
+wikidata,ibm-granite/granite-4.2-8b,"employer",16,0.206807
+wikidata,ibm-granite/granite-4.2-8b,"family name",18,0.426793
+wikidata,ibm-granite/granite-4.2-8b,"father",17,0.315383
+wikidata,ibm-granite/granite-4.2-8b,"filming location",13,0.067766
+wikidata,ibm-granite/granite-4.2-8b,"followed by",10,0.696261
+wikidata,ibm-granite/granite-4.2-8b,"genre",88,0.284547
+wikidata,ibm-granite/granite-4.2-8b,"given name",82,0.293387
+wikidata,ibm-granite/granite-4.2-8b,"has part(s)",12,0.508361
+wikidata,ibm-granite/granite-4.2-8b,"instance of",407,0.679514
+wikidata,ibm-granite/granite-4.2-8b,"instrument",11,0.430364
+wikidata,ibm-granite/granite-4.2-8b,"languages spoken, written or signed",59,0.309746
+wikidata,ibm-granite/granite-4.2-8b,"located in the administrative territorial entity",155,0.260333
+wikidata,ibm-granite/granite-4.2-8b,"located in time zone",126,0.718100
+wikidata,ibm-granite/granite-4.2-8b,"main subject",12,0.315955
+wikidata,ibm-granite/granite-4.2-8b,"manner of death",18,0.806584
+wikidata,ibm-granite/granite-4.2-8b,"member of",50,0.407504
+wikidata,ibm-granite/granite-4.2-8b,"member of sports team",287,0.118468
+wikidata,ibm-granite/granite-4.2-8b,"mother",12,0.130733
+wikidata,ibm-granite/granite-4.2-8b,"narrative location",18,0.081466
+wikidata,ibm-granite/granite-4.2-8b,"native language",10,0.175824
+wikidata,ibm-granite/granite-4.2-8b,"nominated for",28,0.244267
+wikidata,ibm-granite/granite-4.2-8b,"occupation",242,0.233202
+wikidata,ibm-granite/granite-4.2-8b,"original language of film or TV show",43,0.351382
+wikidata,ibm-granite/granite-4.2-8b,"parent taxon",19,0.350658
+wikidata,ibm-granite/granite-4.2-8b,"participant in",55,0.260038
+wikidata,ibm-granite/granite-4.2-8b,"participating team",14,0.412510
+wikidata,ibm-granite/granite-4.2-8b,"place of birth",128,0.150089
+wikidata,ibm-granite/granite-4.2-8b,"place of burial",12,0.496130
+wikidata,ibm-granite/granite-4.2-8b,"place of death",63,0.296530
+wikidata,ibm-granite/granite-4.2-8b,"position held",19,0.600197
+wikidata,ibm-granite/granite-4.2-8b,"position played on team / speciality",25,0.311660
+wikidata,ibm-granite/granite-4.2-8b,"producer",22,0.071991
+wikidata,ibm-granite/granite-4.2-8b,"record label",11,0.391208
+wikidata,ibm-granite/granite-4.2-8b,"religion or worldview",11,0.632303
+wikidata,ibm-granite/granite-4.2-8b,"said to be the same as",20,0.235691
+wikidata,ibm-granite/granite-4.2-8b,"screenwriter",15,0.068049
+wikidata,ibm-granite/granite-4.2-8b,"shares border with",345,0.134989
+wikidata,ibm-granite/granite-4.2-8b,"sibling",59,0.429686
+wikidata,ibm-granite/granite-4.2-8b,"sport",58,0.658242
+wikidata,ibm-granite/granite-4.2-8b,"spouse",22,0.324678
+wikidata,ibm-granite/granite-4.2-8b,"subclass of",15,0.411839
+wikidata,ibm-granite/granite-4.2-8b,"taxon rank",37,0.820178
+wikidata,ibm-granite/granite-4.2-8b,"twinned administrative body",40,0.038686
+wikidata,ibm-granite/granite-4.2-8b,"winner",26,0.178498
+wikidata,ibm-granite/granite-4.2-8b,"work location",23,0.260682
+wikidata,answerdotai/ModernBERT-base,"award received",85,0.035331
+wikidata,answerdotai/ModernBERT-base,"capital",10,0.013743
+wikidata,answerdotai/ModernBERT-base,"cast member",329,0.011360
+wikidata,answerdotai/ModernBERT-base,"cause of death",11,0.329051
+wikidata,answerdotai/ModernBERT-base,"child",23,0.045556
+wikidata,answerdotai/ModernBERT-base,"chromosome",12,0.362257
+wikidata,answerdotai/ModernBERT-base,"composer",24,0.005776
+wikidata,answerdotai/ModernBERT-base,"contains the administrative territorial entity",87,0.011731
+wikidata,answerdotai/ModernBERT-base,"country",168,0.409933
+wikidata,answerdotai/ModernBERT-base,"country of citizenship",160,0.378492
+wikidata,answerdotai/ModernBERT-base,"country of origin",59,0.533393
+wikidata,answerdotai/ModernBERT-base,"depicts",15,0.033829
+wikidata,answerdotai/ModernBERT-base,"described by source",39,0.318393
+wikidata,answerdotai/ModernBERT-base,"director",31,0.006371
+wikidata,answerdotai/ModernBERT-base,"director of photography",17,0.005419
+wikidata,answerdotai/ModernBERT-base,"distributed by",15,0.148163
+wikidata,answerdotai/ModernBERT-base,"educated at",72,0.106251
+wikidata,answerdotai/ModernBERT-base,"employer",16,0.021996
+wikidata,answerdotai/ModernBERT-base,"family name",18,0.063732
+wikidata,answerdotai/ModernBERT-base,"father",17,0.046825
+wikidata,answerdotai/ModernBERT-base,"filming location",13,0.081720
+wikidata,answerdotai/ModernBERT-base,"followed by",10,0.052703
+wikidata,answerdotai/ModernBERT-base,"genre",88,0.136114
+wikidata,answerdotai/ModernBERT-base,"given name",82,0.139478
+wikidata,answerdotai/ModernBERT-base,"has part(s)",12,0.234412
+wikidata,answerdotai/ModernBERT-base,"instance of",407,0.540380
+wikidata,answerdotai/ModernBERT-base,"instrument",11,0.095999
+wikidata,answerdotai/ModernBERT-base,"languages spoken, written or signed",59,0.546057
+wikidata,answerdotai/ModernBERT-base,"located in the administrative territorial entity",155,0.021283
+wikidata,answerdotai/ModernBERT-base,"located in time zone",126,0.492696
+wikidata,answerdotai/ModernBERT-base,"main subject",12,0.087264
+wikidata,answerdotai/ModernBERT-base,"manner of death",18,0.724440
+wikidata,answerdotai/ModernBERT-base,"member of",50,0.109953
+wikidata,answerdotai/ModernBERT-base,"member of sports team",287,0.023077
+wikidata,answerdotai/ModernBERT-base,"mother",12,0.186488
+wikidata,answerdotai/ModernBERT-base,"narrative location",18,0.194364
+wikidata,answerdotai/ModernBERT-base,"native language",10,0.645687
+wikidata,answerdotai/ModernBERT-base,"nominated for",28,0.162719
+wikidata,answerdotai/ModernBERT-base,"occupation",242,0.173255
+wikidata,answerdotai/ModernBERT-base,"original language of film or TV show",43,0.573108
+wikidata,answerdotai/ModernBERT-base,"parent taxon",19,0.166223
+wikidata,answerdotai/ModernBERT-base,"participant in",55,0.087336
+wikidata,answerdotai/ModernBERT-base,"participating team",14,0.009682
+wikidata,answerdotai/ModernBERT-base,"place of birth",128,0.028552
+wikidata,answerdotai/ModernBERT-base,"place of burial",12,0.236001
+wikidata,answerdotai/ModernBERT-base,"place of death",63,0.035015
+wikidata,answerdotai/ModernBERT-base,"position held",19,0.103558
+wikidata,answerdotai/ModernBERT-base,"position played on team / speciality",25,0.533452
+wikidata,answerdotai/ModernBERT-base,"producer",22,0.012984
+wikidata,answerdotai/ModernBERT-base,"record label",11,0.212777
+wikidata,answerdotai/ModernBERT-base,"religion or worldview",11,0.379926
+wikidata,answerdotai/ModernBERT-base,"said to be the same as",20,0.009845
+wikidata,answerdotai/ModernBERT-base,"screenwriter",15,0.007216
+wikidata,answerdotai/ModernBERT-base,"shares border with",345,0.031351
+wikidata,answerdotai/ModernBERT-base,"sibling",59,0.080406
+wikidata,answerdotai/ModernBERT-base,"sport",58,0.353577
+wikidata,answerdotai/ModernBERT-base,"spouse",22,0.052535
+wikidata,answerdotai/ModernBERT-base,"subclass of",15,0.038135
+wikidata,answerdotai/ModernBERT-base,"taxon rank",37,0.839897
+wikidata,answerdotai/ModernBERT-base,"twinned administrative body",40,0.004019
+wikidata,answerdotai/ModernBERT-base,"winner",26,0.011789
+wikidata,answerdotai/ModernBERT-base,"work location",23,0.073273
+wikidata,HuggingFaceTB/SmolLM3-3B,"award received",85,0.276038
+wikidata,HuggingFaceTB/SmolLM3-3B,"capital",10,0.259268
+wikidata,HuggingFaceTB/SmolLM3-3B,"cast member",329,0.052367
+wikidata,HuggingFaceTB/SmolLM3-3B,"cause of death",11,0.373140
+wikidata,HuggingFaceTB/SmolLM3-3B,"child",23,0.404833
+wikidata,HuggingFaceTB/SmolLM3-3B,"chromosome",12,0.339120
+wikidata,HuggingFaceTB/SmolLM3-3B,"composer",24,0.123607
+wikidata,HuggingFaceTB/SmolLM3-3B,"contains the administrative territorial entity",87,0.205139
+wikidata,HuggingFaceTB/SmolLM3-3B,"country",168,0.620549
+wikidata,HuggingFaceTB/SmolLM3-3B,"country of citizenship",160,0.589286
+wikidata,HuggingFaceTB/SmolLM3-3B,"country of origin",59,0.594452
+wikidata,HuggingFaceTB/SmolLM3-3B,"depicts",15,0.273046
+wikidata,HuggingFaceTB/SmolLM3-3B,"described by source",39,0.473689
+wikidata,HuggingFaceTB/SmolLM3-3B,"director",31,0.204716
+wikidata,HuggingFaceTB/SmolLM3-3B,"director of photography",17,0.044918
+wikidata,HuggingFaceTB/SmolLM3-3B,"distributed by",15,0.439065
+wikidata,HuggingFaceTB/SmolLM3-3B,"educated at",72,0.266691
+wikidata,HuggingFaceTB/SmolLM3-3B,"employer",16,0.305928
+wikidata,HuggingFaceTB/SmolLM3-3B,"family name",18,0.412839
+wikidata,HuggingFaceTB/SmolLM3-3B,"father",17,0.334581
+wikidata,HuggingFaceTB/SmolLM3-3B,"filming location",13,0.151535
+wikidata,HuggingFaceTB/SmolLM3-3B,"followed by",10,0.736326
+wikidata,HuggingFaceTB/SmolLM3-3B,"genre",88,0.343511
+wikidata,HuggingFaceTB/SmolLM3-3B,"given name",82,0.380301
+wikidata,HuggingFaceTB/SmolLM3-3B,"has part(s)",12,0.426072
+wikidata,HuggingFaceTB/SmolLM3-3B,"instance of",407,0.783955
+wikidata,HuggingFaceTB/SmolLM3-3B,"instrument",11,0.598485
+wikidata,HuggingFaceTB/SmolLM3-3B,"languages spoken, written or signed",59,0.612449
+wikidata,HuggingFaceTB/SmolLM3-3B,"located in the administrative territorial entity",155,0.284703
+wikidata,HuggingFaceTB/SmolLM3-3B,"located in time zone",126,0.724228
+wikidata,HuggingFaceTB/SmolLM3-3B,"main subject",12,0.380788
+wikidata,HuggingFaceTB/SmolLM3-3B,"manner of death",18,0.839506
+wikidata,HuggingFaceTB/SmolLM3-3B,"member of",50,0.408267
+wikidata,HuggingFaceTB/SmolLM3-3B,"member of sports team",287,0.118916
+wikidata,HuggingFaceTB/SmolLM3-3B,"mother",12,0.137555
+wikidata,HuggingFaceTB/SmolLM3-3B,"narrative location",18,0.127295
+wikidata,HuggingFaceTB/SmolLM3-3B,"native language",10,0.471115
+wikidata,HuggingFaceTB/SmolLM3-3B,"nominated for",28,0.321003
+wikidata,HuggingFaceTB/SmolLM3-3B,"occupation",242,0.312854
+wikidata,HuggingFaceTB/SmolLM3-3B,"original language of film or TV show",43,0.409955
+wikidata,HuggingFaceTB/SmolLM3-3B,"parent taxon",19,0.333278
+wikidata,HuggingFaceTB/SmolLM3-3B,"participant in",55,0.310746
+wikidata,HuggingFaceTB/SmolLM3-3B,"participating team",14,0.447403
+wikidata,HuggingFaceTB/SmolLM3-3B,"place of birth",128,0.153860
+wikidata,HuggingFaceTB/SmolLM3-3B,"place of burial",12,0.440516
+wikidata,HuggingFaceTB/SmolLM3-3B,"place of death",63,0.315815
+wikidata,HuggingFaceTB/SmolLM3-3B,"position held",19,0.635215
+wikidata,HuggingFaceTB/SmolLM3-3B,"position played on team / speciality",25,0.394267
+wikidata,HuggingFaceTB/SmolLM3-3B,"producer",22,0.185740
+wikidata,HuggingFaceTB/SmolLM3-3B,"record label",11,0.303326
+wikidata,HuggingFaceTB/SmolLM3-3B,"religion or worldview",11,0.502646
+wikidata,HuggingFaceTB/SmolLM3-3B,"said to be the same as",20,0.231233
+wikidata,HuggingFaceTB/SmolLM3-3B,"screenwriter",15,0.172892
+wikidata,HuggingFaceTB/SmolLM3-3B,"shares border with",345,0.150104
+wikidata,HuggingFaceTB/SmolLM3-3B,"sibling",59,0.475144
+wikidata,HuggingFaceTB/SmolLM3-3B,"sport",58,0.806010
+wikidata,HuggingFaceTB/SmolLM3-3B,"spouse",22,0.373926
+wikidata,HuggingFaceTB/SmolLM3-3B,"subclass of",15,0.524645
+wikidata,HuggingFaceTB/SmolLM3-3B,"taxon rank",37,0.880749
+wikidata,HuggingFaceTB/SmolLM3-3B,"twinned administrative body",40,0.062089
+wikidata,HuggingFaceTB/SmolLM3-3B,"winner",26,0.195573
+wikidata,HuggingFaceTB/SmolLM3-3B,"work location",23,0.318626
+conceptnet,Qwen/Qwen3.5-0.8B,"antonym of",508,0.561620
+conceptnet,Qwen/Qwen3.5-0.8B,"at location",499,0.228106
+conceptnet,Qwen/Qwen3.5-0.8B,"capable of",493,0.190216
+conceptnet,Qwen/Qwen3.5-0.8B,"causes",494,0.174235
+conceptnet,Qwen/Qwen3.5-0.8B,"causes desire",463,0.185542
+conceptnet,Qwen/Qwen3.5-0.8B,"created by",24,0.290928
+conceptnet,Qwen/Qwen3.5-0.8B,"desires",320,0.074871
+conceptnet,Qwen/Qwen3.5-0.8B,"distinct from",343,0.436033
+conceptnet,Qwen/Qwen3.5-0.8B,"has a",491,0.225492
+conceptnet,Qwen/Qwen3.5-2B,"antonym of",508,0.579637
+conceptnet,Qwen/Qwen3.5-2B,"at location",499,0.236546
+conceptnet,Qwen/Qwen3.5-2B,"capable of",493,0.215664
+conceptnet,Qwen/Qwen3.5-2B,"causes",494,0.195729
+conceptnet,Qwen/Qwen3.5-2B,"causes desire",463,0.211661
+conceptnet,Qwen/Qwen3.5-2B,"created by",24,0.333062
+conceptnet,Qwen/Qwen3.5-2B,"desires",320,0.077581
+conceptnet,Qwen/Qwen3.5-2B,"distinct from",343,0.428405
+conceptnet,Qwen/Qwen3.5-2B,"has a",491,0.260880
+conceptnet,Qwen/Qwen3.5-4B,"antonym of",508,0.580976
+conceptnet,Qwen/Qwen3.5-4B,"at location",499,0.260421
+conceptnet,Qwen/Qwen3.5-4B,"capable of",493,0.209114
+conceptnet,Qwen/Qwen3.5-4B,"causes",494,0.209728
+conceptnet,Qwen/Qwen3.5-4B,"causes desire",463,0.208014
+conceptnet,Qwen/Qwen3.5-4B,"created by",24,0.324310
+conceptnet,Qwen/Qwen3.5-4B,"desires",320,0.098994
+conceptnet,Qwen/Qwen3.5-4B,"distinct from",343,0.466130
+conceptnet,Qwen/Qwen3.5-4B,"has a",491,0.294623
+conceptnet,Qwen/Qwen3.5-4B-Base,"antonym of",508,0.565192
+conceptnet,Qwen/Qwen3.5-4B-Base,"at location",499,0.255670
+conceptnet,Qwen/Qwen3.5-4B-Base,"capable of",493,0.220086
+conceptnet,Qwen/Qwen3.5-4B-Base,"causes",494,0.211855
+conceptnet,Qwen/Qwen3.5-4B-Base,"causes desire",463,0.228091
+conceptnet,Qwen/Qwen3.5-4B-Base,"created by",24,0.284259
+conceptnet,Qwen/Qwen3.5-4B-Base,"desires",320,0.087953
+conceptnet,Qwen/Qwen3.5-4B-Base,"distinct from",343,0.434291
+conceptnet,Qwen/Qwen3.5-4B-Base,"has a",491,0.307883
+conceptnet,Qwen/Qwen3.5-9B,"antonym of",508,0.588872
+conceptnet,Qwen/Qwen3.5-9B,"at location",499,0.273655
+conceptnet,Qwen/Qwen3.5-9B,"capable of",493,0.233652
+conceptnet,Qwen/Qwen3.5-9B,"causes",494,0.200755
+conceptnet,Qwen/Qwen3.5-9B,"causes desire",463,0.239008
+conceptnet,Qwen/Qwen3.5-9B,"created by",24,0.267726
+conceptnet,Qwen/Qwen3.5-9B,"desires",320,0.089972
+conceptnet,Qwen/Qwen3.5-9B,"distinct from",343,0.454679
+conceptnet,Qwen/Qwen3.5-9B,"has a",491,0.312145
+conceptnet,google/gemma-4-E2B,"antonym of",508,0.520347
+conceptnet,google/gemma-4-E2B,"at location",499,0.256725
+conceptnet,google/gemma-4-E2B,"capable of",493,0.197110
+conceptnet,google/gemma-4-E2B,"causes",494,0.201779
+conceptnet,google/gemma-4-E2B,"causes desire",463,0.202669
+conceptnet,google/gemma-4-E2B,"created by",24,0.298908
+conceptnet,google/gemma-4-E2B,"desires",320,0.068958
+conceptnet,google/gemma-4-E2B,"distinct from",343,0.404790
+conceptnet,google/gemma-4-E2B,"has a",491,0.261438
+conceptnet,google/gemma-4-E4B,"antonym of",508,0.482219
+conceptnet,google/gemma-4-E4B,"at location",499,0.257695
+conceptnet,google/gemma-4-E4B,"capable of",493,0.208433
+conceptnet,google/gemma-4-E4B,"causes",494,0.203821
+conceptnet,google/gemma-4-E4B,"causes desire",463,0.207224
+conceptnet,google/gemma-4-E4B,"created by",24,0.317572
+conceptnet,google/gemma-4-E4B,"desires",320,0.072927
+conceptnet,google/gemma-4-E4B,"distinct from",343,0.380081
+conceptnet,google/gemma-4-E4B,"has a",491,0.275670
+conceptnet,google/gemma-4-E4B-it,"antonym of",508,0.484960
+conceptnet,google/gemma-4-E4B-it,"at location",499,0.151902
+conceptnet,google/gemma-4-E4B-it,"capable of",493,0.122259
+conceptnet,google/gemma-4-E4B-it,"causes",494,0.123031
+conceptnet,google/gemma-4-E4B-it,"causes desire",463,0.132148
+conceptnet,google/gemma-4-E4B-it,"created by",24,0.160094
+conceptnet,google/gemma-4-E4B-it,"desires",320,0.064553
+conceptnet,google/gemma-4-E4B-it,"distinct from",343,0.258577
+conceptnet,google/gemma-4-E4B-it,"has a",491,0.130157
+conceptnet,google/gemma-4-12B,"antonym of",508,0.532535
+conceptnet,google/gemma-4-12B,"at location",499,0.247383
+conceptnet,google/gemma-4-12B,"capable of",493,0.217005
+conceptnet,google/gemma-4-12B,"causes",494,0.199125
+conceptnet,google/gemma-4-12B,"causes desire",463,0.239490
+conceptnet,google/gemma-4-12B,"created by",24,0.267102
+conceptnet,google/gemma-4-12B,"desires",320,0.074965
+conceptnet,google/gemma-4-12B,"distinct from",343,0.399713
+conceptnet,google/gemma-4-12B,"has a",491,0.282959
+conceptnet,meta-llama/Llama-3.1-8B,"antonym of",508,0.614998
+conceptnet,meta-llama/Llama-3.1-8B,"at location",499,0.296681
+conceptnet,meta-llama/Llama-3.1-8B,"capable of",493,0.215834
+conceptnet,meta-llama/Llama-3.1-8B,"causes",494,0.213760
+conceptnet,meta-llama/Llama-3.1-8B,"causes desire",463,0.239245
+conceptnet,meta-llama/Llama-3.1-8B,"created by",24,0.237540
+conceptnet,meta-llama/Llama-3.1-8B,"desires",320,0.112150
+conceptnet,meta-llama/Llama-3.1-8B,"distinct from",343,0.507383
+conceptnet,meta-llama/Llama-3.1-8B,"has a",491,0.322943
+conceptnet,meta-llama/Llama-3.1-8B-Instruct,"antonym of",508,0.633522
+conceptnet,meta-llama/Llama-3.1-8B-Instruct,"at location",499,0.301280
+conceptnet,meta-llama/Llama-3.1-8B-Instruct,"capable of",493,0.227848
+conceptnet,meta-llama/Llama-3.1-8B-Instruct,"causes",494,0.219196
+conceptnet,meta-llama/Llama-3.1-8B-Instruct,"causes desire",463,0.237856
+conceptnet,meta-llama/Llama-3.1-8B-Instruct,"created by",24,0.266561
+conceptnet,meta-llama/Llama-3.1-8B-Instruct,"desires",320,0.091843
+conceptnet,meta-llama/Llama-3.1-8B-Instruct,"distinct from",343,0.509566
+conceptnet,meta-llama/Llama-3.1-8B-Instruct,"has a",491,0.291572
+conceptnet,meta-llama/Llama-3.2-1B,"antonym of",508,0.624734
+conceptnet,meta-llama/Llama-3.2-1B,"at location",499,0.267169
+conceptnet,meta-llama/Llama-3.2-1B,"capable of",493,0.204098
+conceptnet,meta-llama/Llama-3.2-1B,"causes",494,0.204978
+conceptnet,meta-llama/Llama-3.2-1B,"causes desire",463,0.232062
+conceptnet,meta-llama/Llama-3.2-1B,"created by",24,0.269469
+conceptnet,meta-llama/Llama-3.2-1B,"desires",320,0.077870
+conceptnet,meta-llama/Llama-3.2-1B,"distinct from",343,0.509194
+conceptnet,meta-llama/Llama-3.2-1B,"has a",491,0.284345
+conceptnet,meta-llama/Llama-3.2-3B,"antonym of",508,0.620689
+conceptnet,meta-llama/Llama-3.2-3B,"at location",499,0.276415
+conceptnet,meta-llama/Llama-3.2-3B,"capable of",493,0.219949
+conceptnet,meta-llama/Llama-3.2-3B,"causes",494,0.207847
+conceptnet,meta-llama/Llama-3.2-3B,"causes desire",463,0.229663
+conceptnet,meta-llama/Llama-3.2-3B,"created by",24,0.239339
+conceptnet,meta-llama/Llama-3.2-3B,"desires",320,0.095584
+conceptnet,meta-llama/Llama-3.2-3B,"distinct from",343,0.490695
+conceptnet,meta-llama/Llama-3.2-3B,"has a",491,0.294196
+conceptnet,allenai/Olmo-3-1025-7B,"antonym of",508,0.585461
+conceptnet,allenai/Olmo-3-1025-7B,"at location",499,0.297713
+conceptnet,allenai/Olmo-3-1025-7B,"capable of",493,0.245610
+conceptnet,allenai/Olmo-3-1025-7B,"causes",494,0.213513
+conceptnet,allenai/Olmo-3-1025-7B,"causes desire",463,0.243638
+conceptnet,allenai/Olmo-3-1025-7B,"created by",24,0.326049
+conceptnet,allenai/Olmo-3-1025-7B,"desires",320,0.094212
+conceptnet,allenai/Olmo-3-1025-7B,"distinct from",343,0.453391
+conceptnet,allenai/Olmo-3-1025-7B,"has a",491,0.327001
+conceptnet,allenai/Olmo-3-7B-Instruct,"antonym of",508,0.558111
+conceptnet,allenai/Olmo-3-7B-Instruct,"at location",499,0.237940
+conceptnet,allenai/Olmo-3-7B-Instruct,"capable of",493,0.232761
+conceptnet,allenai/Olmo-3-7B-Instruct,"causes",494,0.208109
+conceptnet,allenai/Olmo-3-7B-Instruct,"causes desire",463,0.219446
+conceptnet,allenai/Olmo-3-7B-Instruct,"created by",24,0.278012
+conceptnet,allenai/Olmo-3-7B-Instruct,"desires",320,0.121386
+conceptnet,allenai/Olmo-3-7B-Instruct,"distinct from",343,0.431439
+conceptnet,allenai/Olmo-3-7B-Instruct,"has a",491,0.292453
+conceptnet,mistralai/Ministral-3-8B-Instruct-2512-BF16,"antonym of",508,0.596673
+conceptnet,mistralai/Ministral-3-8B-Instruct-2512-BF16,"at location",499,0.261757
+conceptnet,mistralai/Ministral-3-8B-Instruct-2512-BF16,"capable of",493,0.199288
+conceptnet,mistralai/Ministral-3-8B-Instruct-2512-BF16,"causes",494,0.208209
+conceptnet,mistralai/Ministral-3-8B-Instruct-2512-BF16,"causes desire",463,0.217891
+conceptnet,mistralai/Ministral-3-8B-Instruct-2512-BF16,"created by",24,0.318392
+conceptnet,mistralai/Ministral-3-8B-Instruct-2512-BF16,"desires",320,0.073658
+conceptnet,mistralai/Ministral-3-8B-Instruct-2512-BF16,"distinct from",343,0.477048
+conceptnet,mistralai/Ministral-3-8B-Instruct-2512-BF16,"has a",491,0.281660
+conceptnet,ibm-granite/granite-4.2-8b,"antonym of",508,0.394734
+conceptnet,ibm-granite/granite-4.2-8b,"at location",499,0.159591
+conceptnet,ibm-granite/granite-4.2-8b,"capable of",493,0.123098
+conceptnet,ibm-granite/granite-4.2-8b,"causes",494,0.171731
+conceptnet,ibm-granite/granite-4.2-8b,"causes desire",463,0.186621
+conceptnet,ibm-granite/granite-4.2-8b,"created by",24,0.118450
+conceptnet,ibm-granite/granite-4.2-8b,"desires",320,0.046234
+conceptnet,ibm-granite/granite-4.2-8b,"distinct from",343,0.146213
+conceptnet,ibm-granite/granite-4.2-8b,"has a",491,0.193294
+conceptnet,answerdotai/ModernBERT-base,"antonym of",508,0.169395
+conceptnet,answerdotai/ModernBERT-base,"at location",499,0.022150
+conceptnet,answerdotai/ModernBERT-base,"capable of",493,0.012792
+conceptnet,answerdotai/ModernBERT-base,"causes",494,0.032106
+conceptnet,answerdotai/ModernBERT-base,"causes desire",463,0.017032
+conceptnet,answerdotai/ModernBERT-base,"created by",24,0.060231
+conceptnet,answerdotai/ModernBERT-base,"desires",320,0.026277
+conceptnet,answerdotai/ModernBERT-base,"distinct from",343,0.056578
+conceptnet,answerdotai/ModernBERT-base,"has a",491,0.033481
+conceptnet,HuggingFaceTB/SmolLM3-3B,"antonym of",508,0.411991
+conceptnet,HuggingFaceTB/SmolLM3-3B,"at location",499,0.183134
+conceptnet,HuggingFaceTB/SmolLM3-3B,"capable of",493,0.168357
+conceptnet,HuggingFaceTB/SmolLM3-3B,"causes",494,0.192728
+conceptnet,HuggingFaceTB/SmolLM3-3B,"causes desire",463,0.188568
+conceptnet,HuggingFaceTB/SmolLM3-3B,"created by",24,0.136484
+conceptnet,HuggingFaceTB/SmolLM3-3B,"desires",320,0.050359
+conceptnet,HuggingFaceTB/SmolLM3-3B,"distinct from",343,0.216630
+conceptnet,HuggingFaceTB/SmolLM3-3B,"has a",491,0.217912

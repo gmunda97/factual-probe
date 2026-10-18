@@ -1,0 +1,19 @@
+model,variant,setting,n_triples,subset,n,lm_MRR,lm_MRR_unnormalised,lm_H1,probe_MRR,diff,lo,hi
+Qwen/Qwen3.5-4B,Qwen__Qwen3.5-4B_bare,bare prompt,1000,all,1000,0.151417,0.228871,0.107000,0.449062,0.297644,0.271049,0.322971
+Qwen/Qwen3.5-4B,Qwen__Qwen3.5-4B_bare,bare prompt,1000,can_say,100,0.509222,0.848679,0.440000,0.812440,0.303218,0.205681,0.396379
+Qwen/Qwen3.5-4B,Qwen__Qwen3.5-4B_bare,bare prompt,1000,cannot_say,900,0.111661,0.160003,0.070000,0.408686,0.297025,0.270385,0.323517
+Qwen/Qwen3.5-4B,Qwen__Qwen3.5-4B_nothink_nospace,template with thinking block closed and candidate starting the turn,1000,all,1000,0.051418,0.100824,0.028000,0.449062,0.397644,0.369754,0.423120
+Qwen/Qwen3.5-4B,Qwen__Qwen3.5-4B_nothink_nospace,template with thinking block closed and candidate starting the turn,1000,can_say,100,0.042799,0.518477,0.030000,0.812440,0.769641,0.692379,0.840069
+Qwen/Qwen3.5-4B,Qwen__Qwen3.5-4B_nothink_nospace,template with thinking block closed and candidate starting the turn,1000,cannot_say,900,0.052376,0.054419,0.027778,0.408686,0.356311,0.329303,0.383508
+Qwen/Qwen3.5-4B,Qwen__Qwen3.5-4B_nothink,template with thinking block closed and leading space,1000,all,1000,0.013646,0.094298,0.000000,0.449062,0.435415,0.408638,0.459664
+Qwen/Qwen3.5-4B,Qwen__Qwen3.5-4B_nothink,template with thinking block closed and leading space,1000,can_say,100,0.002254,0.427044,0.000000,0.812440,0.810186,0.742876,0.870103
+Qwen/Qwen3.5-4B,Qwen__Qwen3.5-4B_nothink,template with thinking block closed and leading space,1000,cannot_say,900,0.014912,0.057326,0.000000,0.408686,0.393774,0.367310,0.419411
+Qwen/Qwen3.5-4B,Qwen__Qwen3.5-4B,template as shipped with leading space,1000,all,1000,0.007665,0.017578,0.000000,0.449062,0.441397,0.414338,0.465506
+Qwen/Qwen3.5-4B,Qwen__Qwen3.5-4B,template as shipped with leading space,1000,can_say,100,0.000879,0.039725,0.000000,0.812440,0.811561,0.744352,0.871421
+Qwen/Qwen3.5-4B,Qwen__Qwen3.5-4B,template as shipped with leading space,1000,cannot_say,900,0.008419,0.015117,0.000000,0.408686,0.400267,0.373560,0.426214
+Qwen/Qwen3.5-4B,Qwen__Qwen3.5-4B_bare_diag100,bare prompt,100,all,100,0.187484,0.278670,0.150000,0.486292,0.298807,0.210875,0.386782
+Qwen/Qwen3.5-4B,Qwen__Qwen3.5-4B_bare_diag100,bare prompt,100,can_say,13,0.616257,0.910256,0.538462,0.923233,0.306976,0.088591,0.545159
+Qwen/Qwen3.5-4B,Qwen__Qwen3.5-4B_bare_diag100,bare prompt,100,cannot_say,87,0.123415,0.184295,0.091954,0.421002,0.297587,0.201048,0.389979
+Qwen/Qwen3.5-4B,Qwen__Qwen3.5-4B_nothink_nospace_diag100,template with thinking block closed and candidate starting the turn,100,all,100,0.071779,0.132649,0.060000,0.486292,0.414513,0.318880,0.507571
+Qwen/Qwen3.5-4B,Qwen__Qwen3.5-4B_nothink_nospace_diag100,template with thinking block closed and candidate starting the turn,100,can_say,13,0.007996,0.573538,0.000000,0.923233,0.915237,0.755499,0.997767
+Qwen/Qwen3.5-4B,Qwen__Qwen3.5-4B_nothink_nospace_diag100,template with thinking block closed and candidate starting the turn,100,cannot_say,87,0.081309,0.066769,0.068966,0.421002,0.339692,0.240033,0.440009

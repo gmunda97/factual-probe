@@ -1,0 +1,41 @@
+{
+ "artifacts": {
+  "appendix_table": "writing/restored_revision/tables/independent_layer_selection.tex",
+  "figure_pdf": "writing/restored_revision/figures/fig_independent_layer_selection.pdf",
+  "paired_differences": "final_results/appendix/independent_layer_selection_paired_differences.json",
+  "raw_seed_metrics": "final_results/appendix/independent_layer_selection_raw_seeds.csv",
+  "raw_state": "results/appendix/independent_layer_selection/state.json",
+  "test_metrics": "final_results/appendix/independent_layer_selection_test_metrics.csv"
+ },
+ "design_sha256": "5344bef1a0375d90944885f4fa369d6a39cd9ec0e063f735c4d1a8e69a9345e6",
+ "experiment": "independent_layer_selection",
+ "feature_sources": {
+  "legacy": 117,
+  "revision": 3,
+  "revision_generated": 36
+ },
+ "final_training_seconds": 838.008424282074,
+ "gpu": "physical 0, NVIDIA RTX A6000",
+ "pairs": [
+  "bert_wikidata",
+  "bert_conceptnet",
+  "qwen4b_wikidata",
+  "gemmae4b_wikidata"
+ ],
+ "script_sha256": "f66a1b11f18404d013e4a5a4210e2b6cae38b01ec4c72b7eea57b68dce7f8103",
+ "selection_cells": 80,
+ "selection_training_seconds": 359.8420350551605,
+ "unique_final_cells": 63,
+ "validation": {
+  "final_complete": true,
+  "metric_gold_pool_alignment_assertions": "pass",
+  "ordered_triple_hashes_recorded": true,
+  "resumability_rerun": "pass",
+  "selection_complete": true,
+  "smoke_cells": 8,
+  "smoke_rr_metric_consistency": "pass",
+  "static_compile": "pass",
+  "test_ranks_or_test_candidate_pool_used_for_selection": false,
+  "test_triples_used_only_as_standard_known-positive filter": true
+ }
+}

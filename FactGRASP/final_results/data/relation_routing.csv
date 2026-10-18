@@ -1,0 +1,46 @@
+graph,seed,relation,n,chosen_model,best_single_model,MRR_chosen,MRR_best_single,MRR_oracle
+wikidata,0,"composer",24,meta-llama/Llama-3.1-8B-Instruct,meta-llama/Llama-3.1-8B,0.293925,0.242435,0.293925
+wikidata,0,"father",17,meta-llama/Llama-3.1-8B-Instruct,meta-llama/Llama-3.1-8B,0.741375,0.750034,0.782826
+wikidata,0,"filming location",13,meta-llama/Llama-3.1-8B-Instruct,meta-llama/Llama-3.1-8B,0.119800,0.127793,0.173555
+wikidata,0,"genre",88,meta-llama/Llama-3.1-8B-Instruct,meta-llama/Llama-3.1-8B,0.429566,0.429959,0.432459
+wikidata,0,"given name",82,Qwen/Qwen3.5-2B,meta-llama/Llama-3.1-8B,0.527243,0.417003,0.631888
+wikidata,0,"member of sports team",287,google/gemma-4-E4B,meta-llama/Llama-3.1-8B,0.155052,0.187609,0.187609
+wikidata,0,"original language of film or TV show",43,meta-llama/Llama-3.1-8B,meta-llama/Llama-3.1-8B,0.715786,0.715786,0.721023
+wikidata,0,"participating team",14,meta-llama/Llama-3.1-8B,meta-llama/Llama-3.1-8B,0.478893,0.478893,0.536751
+wikidata,0,"place of birth",128,meta-llama/Llama-3.1-8B,meta-llama/Llama-3.1-8B,0.283012,0.283012,0.283012
+wikidata,0,"position played on team / speciality",25,meta-llama/Llama-3.1-8B,meta-llama/Llama-3.1-8B,0.578222,0.578222,0.648222
+wikidata,0,"screenwriter",15,meta-llama/Llama-3.1-8B-Instruct,meta-llama/Llama-3.1-8B,0.333080,0.359308,0.359308
+wikidata,0,"sport",58,allenai/Olmo-3-1025-7B,meta-llama/Llama-3.1-8B,0.783646,0.876274,0.876274
+wikidata,0,"taxon rank",37,meta-llama/Llama-3.1-8B-Instruct,meta-llama/Llama-3.1-8B,0.979279,0.981231,0.981231
+wikidata,0,"winner",26,meta-llama/Llama-3.1-8B-Instruct,meta-llama/Llama-3.1-8B,0.253732,0.307839,0.318199
+wikidata,1,"composer",24,meta-llama/Llama-3.1-8B,meta-llama/Llama-3.1-8B,0.242435,0.242435,0.293925
+wikidata,1,"father",17,meta-llama/Llama-3.1-8B-Instruct,meta-llama/Llama-3.1-8B,0.741375,0.750034,0.782826
+wikidata,1,"filming location",13,meta-llama/Llama-3.1-8B,meta-llama/Llama-3.1-8B,0.127793,0.127793,0.173555
+wikidata,1,"genre",88,meta-llama/Llama-3.1-8B-Instruct,meta-llama/Llama-3.1-8B,0.429566,0.429959,0.432459
+wikidata,1,"given name",82,Qwen/Qwen3.5-2B,meta-llama/Llama-3.1-8B,0.527243,0.417003,0.631888
+wikidata,1,"member of sports team",287,google/gemma-4-12B,meta-llama/Llama-3.1-8B,0.177277,0.187609,0.187609
+wikidata,1,"original language of film or TV show",43,Qwen/Qwen3.5-9B,meta-llama/Llama-3.1-8B,0.700188,0.715786,0.721023
+wikidata,1,"participating team",14,meta-llama/Llama-3.1-8B,meta-llama/Llama-3.1-8B,0.478893,0.478893,0.536751
+wikidata,1,"place of birth",128,Qwen/Qwen3.5-9B,meta-llama/Llama-3.1-8B,0.237863,0.283012,0.283012
+wikidata,1,"position played on team / speciality",25,Qwen/Qwen3.5-9B,meta-llama/Llama-3.1-8B,0.648222,0.578222,0.648222
+wikidata,1,"screenwriter",15,meta-llama/Llama-3.1-8B,meta-llama/Llama-3.1-8B,0.359308,0.359308,0.359308
+wikidata,1,"sport",58,meta-llama/Llama-3.1-8B,meta-llama/Llama-3.1-8B,0.876274,0.876274,0.876274
+wikidata,1,"taxon rank",37,meta-llama/Llama-3.1-8B-Instruct,meta-llama/Llama-3.1-8B,0.979279,0.981231,0.981231
+wikidata,1,"winner",26,meta-llama/Llama-3.1-8B-Instruct,meta-llama/Llama-3.1-8B,0.253732,0.307839,0.318199
+wikidata,2,"composer",24,meta-llama/Llama-3.1-8B-Instruct,meta-llama/Llama-3.1-8B,0.293925,0.242435,0.293925
+wikidata,2,"father",17,meta-llama/Llama-3.1-8B-Instruct,meta-llama/Llama-3.1-8B,0.741375,0.750034,0.782826
+wikidata,2,"filming location",13,meta-llama/Llama-3.1-8B-Instruct,meta-llama/Llama-3.1-8B,0.119800,0.127793,0.173555
+wikidata,2,"genre",88,meta-llama/Llama-3.1-8B-Instruct,meta-llama/Llama-3.1-8B,0.429566,0.429959,0.432459
+wikidata,2,"given name",82,Qwen/Qwen3.5-2B,meta-llama/Llama-3.1-8B,0.527243,0.417003,0.631888
+wikidata,2,"member of sports team",287,google/gemma-4-E4B,meta-llama/Llama-3.1-8B,0.155052,0.187609,0.187609
+wikidata,2,"original language of film or TV show",43,meta-llama/Llama-3.1-8B,meta-llama/Llama-3.1-8B,0.715786,0.715786,0.721023
+wikidata,2,"participating team",14,google/gemma-4-E4B,meta-llama/Llama-3.1-8B,0.355963,0.478893,0.536751
+wikidata,2,"place of birth",128,meta-llama/Llama-3.1-8B,meta-llama/Llama-3.1-8B,0.283012,0.283012,0.283012
+wikidata,2,"position played on team / speciality",25,meta-llama/Llama-3.1-8B,meta-llama/Llama-3.1-8B,0.578222,0.578222,0.648222
+wikidata,2,"screenwriter",15,meta-llama/Llama-3.1-8B-Instruct,meta-llama/Llama-3.1-8B,0.333080,0.359308,0.359308
+wikidata,2,"sport",58,meta-llama/Llama-3.1-8B-Instruct,meta-llama/Llama-3.1-8B,0.865278,0.876274,0.876274
+wikidata,2,"taxon rank",37,meta-llama/Llama-3.1-8B-Instruct,meta-llama/Llama-3.1-8B,0.979279,0.981231,0.981231
+wikidata,2,"winner",26,meta-llama/Llama-3.1-8B-Instruct,meta-llama/Llama-3.1-8B,0.253732,0.307839,0.318199
+conceptnet,0,"at location",499,allenai/Olmo-3-7B-Instruct,meta-llama/Llama-3.1-8B,0.237940,0.296681,0.301280
+conceptnet,1,"at location",499,allenai/Olmo-3-7B-Instruct,meta-llama/Llama-3.1-8B,0.237940,0.296681,0.301280
+conceptnet,2,"at location",499,allenai/Olmo-3-7B-Instruct,meta-llama/Llama-3.1-8B,0.237940,0.296681,0.301280

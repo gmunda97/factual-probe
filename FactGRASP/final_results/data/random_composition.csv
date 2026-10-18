@@ -1,0 +1,5 @@
+model,layer,hub,native_MRR,ladder_single_MRR,ladder_mixture_MRR,hub_native_MRR,hub_MRR_strings,ratio_strings,hub_MRR_queries,ratio_queries,hub_MRR_random_pairs,ratio_random_pairs,n_strings_fit,n_query_rows_fit
+google/gemma-4-31B,47,meta-llama/Llama-3.1-8B,0.482814,0.484417,0.486512,0.491847,0.351613,0.728259,0.476246,0.986396,0.476604,0.987138,45513,33937
+google/gemma-4-31B,47,Qwen/Qwen3.5-9B,0.482814,0.484417,0.486512,0.474016,0.354053,0.733312,0.466936,0.967113,0.469093,0.971582,45513,33937
+Qwen/Qwen3.6-27B,63,meta-llama/Llama-3.1-8B,0.463601,0.465596,0.471959,0.491847,0.333843,0.720108,0.460801,0.993961,0.461810,0.996136,45513,33937
+Qwen/Qwen3.6-27B,63,Qwen/Qwen3.5-9B,0.463601,0.465596,0.471959,0.474016,0.370363,0.798883,0.464953,1.002915,0.464200,1.001291,45513,33937

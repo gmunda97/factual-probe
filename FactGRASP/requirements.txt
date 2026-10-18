@@ -1,0 +1,18 @@
+# tested with torch 2.14, transformers 5.16, python 3.11
+# qwen3.5 and gemma-4 configs need transformers 5.x
+torch>=2.6
+transformers>=5.15
+accelerate
+safetensors
+sentencepiece
+datasets
+pandas
+numpy
+scipy
+scikit-learn
+tqdm
+matplotlib
+# only for the int8 loading path of a few big models
+bitsandbytes
+# layer selector the ladder logs as a diagnostic
+loes @ git+https://github.com/arnesh2212/loes@76d9993895a8a3308348fd9b1bcc552538108512

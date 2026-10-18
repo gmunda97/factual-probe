@@ -1,0 +1,282 @@
+{
+ "bert_conceptnet": {
+  "layer_selection_gain": {
+   "mixture8_composite_infonce": {
+    "ci_high": 0.018678918480873108,
+    "ci_low": 0.004561517853289843,
+    "diff": 0.011749830096960068,
+    "significant": true
+   },
+   "mixture8_cosine": {
+    "ci_high": 0.03964680805802345,
+    "ci_low": 0.025889672338962555,
+    "diff": 0.03278930112719536,
+    "significant": true
+   },
+   "single_composite_infonce": {
+    "ci_high": 0.021628903225064278,
+    "ci_low": 0.007629923056811094,
+    "diff": 0.014785392209887505,
+    "significant": true
+   },
+   "single_cosine": {
+    "ci_high": 0.035104554146528244,
+    "ci_low": 0.02248380333185196,
+    "diff": 0.028743334114551544,
+    "significant": true
+   }
+  },
+  "mixture_advantage": {
+   "fixed_shared": {
+    "composite_infonce": {
+     "ci_high": 0.043719831854104996,
+     "ci_low": 0.031495530158281326,
+     "diff": 0.037597790360450745,
+     "significant": true
+    },
+    "composite_minus_cosine": {
+     "ci_high": 0.01870179921388626,
+     "ci_low": 0.004795254673808813,
+     "diff": 0.011822253465652466,
+     "significant": true
+    },
+    "cosine": {
+     "ci_high": 0.030163563787937164,
+     "ci_low": 0.02167823351919651,
+     "diff": 0.02577553689479828,
+     "significant": true
+    }
+   },
+   "independent": {
+    "composite_infonce": {
+     "ci_high": 0.039777204394340515,
+     "ci_low": 0.029476212337613106,
+     "diff": 0.03456222638487816,
+     "significant": true
+    },
+    "composite_minus_cosine": {
+     "ci_high": 0.010662001557648182,
+     "ci_low": -0.0013079444179311395,
+     "diff": 0.0047407206147909164,
+     "significant": false
+    },
+    "cosine": {
+     "ci_high": 0.03406156599521637,
+     "ci_low": 0.025762777775526047,
+     "diff": 0.029821503907442093,
+     "significant": true
+    }
+   }
+  }
+ },
+ "bert_wikidata": {
+  "layer_selection_gain": {
+   "mixture8_composite_infonce": {
+    "ci_high": 0.0,
+    "ci_low": 0.0,
+    "diff": 0.0,
+    "significant": false
+   },
+   "mixture8_cosine": {
+    "ci_high": 0.0,
+    "ci_low": 0.0,
+    "diff": 0.0,
+    "significant": false
+   },
+   "single_composite_infonce": {
+    "ci_high": -0.0011019951198250055,
+    "ci_low": -0.01388996746391058,
+    "diff": -0.0075492155738174915,
+    "significant": true
+   },
+   "single_cosine": {
+    "ci_high": 0.0,
+    "ci_low": 0.0,
+    "diff": 0.0,
+    "significant": false
+   }
+  },
+  "mixture_advantage": {
+   "fixed_shared": {
+    "composite_infonce": {
+     "ci_high": 0.0200556218624115,
+     "ci_low": 0.01042876485735178,
+     "diff": 0.015216412954032421,
+     "significant": true
+    },
+    "composite_minus_cosine": {
+     "ci_high": -0.028524668887257576,
+     "ci_low": -0.043106723576784134,
+     "diff": -0.035632286220788956,
+     "significant": true
+    },
+    "cosine": {
+     "ci_high": 0.05703934654593468,
+     "ci_low": 0.04474596679210663,
+     "diff": 0.05084870383143425,
+     "significant": true
+    }
+   },
+   "independent": {
+    "composite_infonce": {
+     "ci_high": 0.029712514951825142,
+     "ci_low": 0.015836011618375778,
+     "diff": 0.02276562713086605,
+     "significant": true
+    },
+    "composite_minus_cosine": {
+     "ci_high": -0.01955968141555786,
+     "ci_low": -0.03679322451353073,
+     "diff": -0.0280830729752779,
+     "significant": true
+    },
+    "cosine": {
+     "ci_high": 0.05703934654593468,
+     "ci_low": 0.04474596679210663,
+     "diff": 0.05084870383143425,
+     "significant": true
+    }
+   }
+  }
+ },
+ "gemmae4b_wikidata": {
+  "layer_selection_gain": {
+   "mixture8_composite_infonce": {
+    "ci_high": 0.0,
+    "ci_low": 0.0,
+    "diff": 0.0,
+    "significant": false
+   },
+   "mixture8_cosine": {
+    "ci_high": 0.0,
+    "ci_low": 0.0,
+    "diff": 0.0,
+    "significant": false
+   },
+   "single_composite_infonce": {
+    "ci_high": 0.0,
+    "ci_low": 0.0,
+    "diff": 0.0,
+    "significant": false
+   },
+   "single_cosine": {
+    "ci_high": 0.0,
+    "ci_low": 0.0,
+    "diff": 0.0,
+    "significant": false
+   }
+  },
+  "mixture_advantage": {
+   "fixed_shared": {
+    "composite_infonce": {
+     "ci_high": 0.012547862716019154,
+     "ci_low": 0.0019049571128562093,
+     "diff": 0.007189209572970867,
+     "significant": true
+    },
+    "composite_minus_cosine": {
+     "ci_high": -0.07399369031190872,
+     "ci_low": -0.09169813990592957,
+     "diff": -0.08270879834890366,
+     "significant": true
+    },
+    "cosine": {
+     "ci_high": 0.09761156886816025,
+     "ci_low": 0.08246316760778427,
+     "diff": 0.0898980051279068,
+     "significant": true
+    }
+   },
+   "independent": {
+    "composite_infonce": {
+     "ci_high": 0.012547862716019154,
+     "ci_low": 0.0019049571128562093,
+     "diff": 0.007189209572970867,
+     "significant": true
+    },
+    "composite_minus_cosine": {
+     "ci_high": -0.07399369031190872,
+     "ci_low": -0.09169813990592957,
+     "diff": -0.08270879834890366,
+     "significant": true
+    },
+    "cosine": {
+     "ci_high": 0.09761156886816025,
+     "ci_low": 0.08246316760778427,
+     "diff": 0.0898980051279068,
+     "significant": true
+    }
+   }
+  }
+ },
+ "qwen4b_wikidata": {
+  "layer_selection_gain": {
+   "mixture8_composite_infonce": {
+    "ci_high": 0.0,
+    "ci_low": 0.0,
+    "diff": 0.0,
+    "significant": false
+   },
+   "mixture8_cosine": {
+    "ci_high": 0.0,
+    "ci_low": 0.0,
+    "diff": 0.0,
+    "significant": false
+   },
+   "single_composite_infonce": {
+    "ci_high": 0.0,
+    "ci_low": 0.0,
+    "diff": 0.0,
+    "significant": false
+   },
+   "single_cosine": {
+    "ci_high": 0.0,
+    "ci_low": 0.0,
+    "diff": 0.0,
+    "significant": false
+   }
+  },
+  "mixture_advantage": {
+   "fixed_shared": {
+    "composite_infonce": {
+     "ci_high": 0.007775433361530304,
+     "ci_low": -0.0030025134328752756,
+     "diff": 0.002428982174023986,
+     "significant": false
+    },
+    "composite_minus_cosine": {
+     "ci_high": -0.04822639748454094,
+     "ci_low": -0.06446179747581482,
+     "diff": -0.056233394891023636,
+     "significant": true
+    },
+    "cosine": {
+     "ci_high": 0.06539886444807053,
+     "ci_low": 0.052118439227342606,
+     "diff": 0.058662381023168564,
+     "significant": true
+    }
+   },
+   "independent": {
+    "composite_infonce": {
+     "ci_high": 0.007775433361530304,
+     "ci_low": -0.0030025134328752756,
+     "diff": 0.002428982174023986,
+     "significant": false
+    },
+    "composite_minus_cosine": {
+     "ci_high": -0.04822639748454094,
+     "ci_low": -0.06446179747581482,
+     "diff": -0.056233394891023636,
+     "significant": true
+    },
+    "cosine": {
+     "ci_high": 0.06539886444807053,
+     "ci_low": 0.052118439227342606,
+     "diff": 0.058662381023168564,
+     "significant": true
+    }
+   }
+  }
+ }
+}

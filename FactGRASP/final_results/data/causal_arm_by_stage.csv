@@ -1,0 +1,6 @@
+model,stage,verbalisation_can_say,verbalisation_cannot_say,verbalisation_n_can,verbalisation_n_cannot,decode_ceiling,ppl_base,ppl_rel_change,ppl_steered_one_pos,steer_best_alpha,steer_ci_low,steer_gain_nats,steer_monotone
+Qwen/Qwen3.5-4B,base,0.815196,0.409733,196,1804,0.0,229.1603,0.337139,306.4193,4.0,1.286658,1.607557,4/4
+google/gemma-4-E4B,base,0.746321,0.419024,276,1724,0.0,401.8143,0.050242,422.0023,4.0,1.314183,2.127487,3/4
+HuggingFaceTB/SmolLM3-3B,post,0.603347,0.362943,177,1823,0.0,2147.4194,-0.294194,1515.6605,4.0,1.934275,3.116595,4/4
+meta-llama/Llama-3.1-8B-Instruct,post,0.794808,0.465896,270,1730,0.0,252.3427,5.513834,1643.7181,4.0,1.008941,1.37155,4/4
+allenai/Olmo-3-7B-Instruct,post,0.769236,0.358854,149,1851,0.0,677.9761,0.453388,985.3625,4.0,0.372567,0.671779,4/4

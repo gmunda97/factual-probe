@@ -1,0 +1,9 @@
+A,B,group,layer_A,layer_B,mrr_native_A,mrr_native_B,mrr_stitched,tau,mrr_fresh,mrr_fresh_sd,portability
+Qwen/Qwen3.5-4B,Qwen/Qwen3.5-9B,within-family,26,28,0.423288,0.474016,0.436381,1.030931,0.446609,0.001020,0.977100
+google/gemma-4-E4B,google/gemma-4-12B,within-family,33,39,0.448735,0.465089,0.443562,0.988473,0.455080,0.001279,0.974691
+meta-llama/Llama-3.2-3B,meta-llama/Llama-3.1-8B,within-family,19,25,0.455387,0.491847,0.461147,1.012648,0.475684,0.000472,0.969438
+Qwen/Qwen3.5-4B,meta-llama/Llama-3.1-8B,cross-family,26,25,0.423288,0.491847,0.441758,1.043634,0.454821,0.001007,0.971279
+google/gemma-4-E4B,Qwen/Qwen3.5-9B,cross-family,33,28,0.448735,0.474016,0.432934,0.964787,0.443564,0.001062,0.976035
+meta-llama/Llama-3.1-8B,google/gemma-4-12B,cross-family,25,39,0.491847,0.465089,0.471067,0.957753,0.477456,0.000770,0.986619
+meta-llama/Llama-3.1-8B,bert-base-uncased,encoder-decoder,25,10,0.491847,0.340789,0.347777,0.707084,0.358547,0.003479,0.969961
+Qwen/Qwen3.5-4B,roberta-large,encoder-decoder,26,22,0.423288,0.331955,0.342491,0.809119,0.353024,0.002138,0.970161
