@@ -1,0 +1,8 @@
+family,stage,stage_order,model,MRR_mixture_infonce,best_layer,n_layers,relative_depth,steer_gain_nats,steer_ci_low,ppl_rel_change
+Olmo-3,base,0,allenai/Olmo-3-1025-7B,0.434973,27,32,0.84375,1.350378,1.015253,0.289979
+Olmo-3,SFT,1,allenai/Olmo-3-7B-Instruct-SFT,0.386382,23,32,0.71875,0.700376,0.407903,0.42526
+Olmo-3,DPO,2,allenai/Olmo-3-7B-Instruct-DPO,0.387624,23,32,0.71875,0.74078,0.441764,0.451411
+Olmo-3,final RLVR,3,allenai/Olmo-3-7B-Instruct,0.388773,23,32,0.71875,0.671779,0.372567,0.453388
+Olmo-Hybrid,base,0,allenai/Olmo-Hybrid-7B,0.441936,27,32,0.84375,1.633054,1.295032,0.150058
+Olmo-Hybrid,SFT,1,allenai/Olmo-Hybrid-Instruct-SFT-7B,0.395461,28,32,0.875,1.159681,0.875369,-0.005905
+Olmo-Hybrid,DPO (final),2,allenai/Olmo-Hybrid-Instruct-DPO-7B,0.398272,28,32,0.875,1.129816,0.842964,0.023803

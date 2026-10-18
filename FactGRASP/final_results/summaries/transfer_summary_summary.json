@@ -1,0 +1,96 @@
+{
+ "status": "completed",
+ "conditions_planned": 105,
+ "conditions_completed": 105,
+ "conditions_failed": 0,
+ "primary_results": {
+  "n_models": 19,
+  "n_directed_pairs": 342,
+  "median_tau_all": 0.95932,
+  "median_tau_within_family": 0.989035,
+  "n_within": 38,
+  "median_tau_cross_family": 0.9559145,
+  "n_cross": 304,
+  "median_tau_decoder_decoder": 0.9594484999999999,
+  "n_decoder_decoder": 306,
+  "median_tau_encoder_involved": 0.8883995,
+  "n_encoder_involved": 36,
+  "spearman_native_vs_median_tau_as_input": 0.9877192982456139,
+  "spearman_native_vs_median_tau_as_reference": -0.9421052631578946,
+  "input_medians_lowest": [
+   [
+    0.627691,
+    "answerdotai/ModernBERT-base"
+   ],
+   [
+    0.6952985,
+    "google/gemma-4-E4B-it"
+   ],
+   [
+    0.8465739999999999,
+    "Qwen/Qwen3.5-0.8B"
+   ]
+  ],
+  "input_medians_highest": [
+   [
+    1.019756,
+    "google/gemma-4-12B"
+   ],
+   [
+    1.0237965,
+    "meta-llama/Llama-3.1-8B-Instruct"
+   ],
+   [
+    1.0272975,
+    "meta-llama/Llama-3.1-8B"
+   ]
+  ],
+  "directionality": {
+   "n_unordered_pairs": 171,
+   "stronger_reads_weaker_higher": 8,
+   "median_abs_asymmetry": 0.15223699999999996,
+   "max_abs_asymmetry": 0.48979400000000006
+  },
+  "return_space_reverse_map": {
+   "n_models": 18,
+   "median_ratio_reference_space": 1.0189159026310406,
+   "median_ratio_query_reverse": 0.6368795,
+   "median_ratio_object_reverse": 0.7996113396578748
+  },
+  "fresh_probe_ceiling_fresh_map": {
+   "n_pairs": 8,
+   "median_portability": 0.972985,
+   "min": 0.969438,
+   "max": 0.986619
+  }
+ },
+ "null_or_adverse_results": {
+  "weakest_inputs": [
+   "answerdotai/ModernBERT-base: median tau as input 0.628",
+   "google/gemma-4-E4B-it: median tau as input 0.695"
+  ],
+  "own_space_return": "the reference-space ratio 1.019 falls to 0.637 (query-fitted reverse map) and 0.800 (object-fitted) in the input model's own candidate space"
+ },
+ "protocol_deviations": [],
+ "limitations": [
+  "342 directed pairs from 19 models are correlated observations; no pair is an independent replication",
+  "the matrix uses the historical last-token ModernBERT-base cache (main table: mean pooling)",
+  "the Spearman between native MRR and median tau as input is descriptive over 19 models",
+  "seed-0 stitches"
+ ],
+ "artifact_paths": [
+  "final_results/summaries/transfer_summary_source_medians.csv",
+  "final_results/summaries/transfer_summary_family_blocks.csv",
+  "final_results/summaries/transfer_summary_directionality.csv",
+  "final_results/summaries/transfer_summary_return_space.csv",
+  "final_results/summaries/transfer_summary_results.csv",
+  "final_results/summaries/transfer_summary_summary.json",
+  "final_results/summaries/transfer_summary_report.md"
+ ],
+ "inputs_sha256": {
+  "final_results/data/transfer_all_pairs.csv": "7e012a602e3d58c3103d1112eeaab0272a958d7a68fdc1760c7522b501713fd2",
+  "final_results/data/fresh_map_comparison.csv": "3edf863efe432dd7f949573849e89048d2e3d5008788d23a4156dc59cd4d73f0",
+  "final_results/data/reverse_map.csv": "89ff6eed048792b77aa384ba852c2d249d14d8c0c32b5693b616b8772b86ca68"
+ },
+ "completed_at_utc": "2026-09-21T02:50:07Z"
+}

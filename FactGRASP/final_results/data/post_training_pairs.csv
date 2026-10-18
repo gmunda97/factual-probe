@@ -1,0 +1,8 @@
+pair,base_model,post_model,readability_base,readability_post,readability_delta,steer_base,steer_post,steer_delta,steer_ci_low_base,steer_ci_low_post,ppl_change_base,ppl_change_post,ppl_change_delta,complete,missing
+Llama-3.1-8B,meta-llama/Llama-3.1-8B,meta-llama/Llama-3.1-8B-Instruct,0.502587,0.499008,-0.003579,1.400014,1.371550,-0.028464,1.019318,1.008941,2.847196,5.513834,2.666638,True,""
+Olmo-3-7B,allenai/Olmo-3-1025-7B,allenai/Olmo-3-7B-Instruct,0.434973,0.388773,-0.046200,1.350378,0.671779,-0.678599,1.015253,0.372567,0.289979,0.453388,0.163409,True,""
+Gemma-4-E4B,google/gemma-4-E4B,google/gemma-4-E4B-it,0.452690,0.280506,-0.172185,2.127487,0.818484,-1.309003,1.314183,0.396839,0.050242,0.264447,0.214205,True,""
+Qwen3.5-4B,Qwen/Qwen3.5-4B-Base,Qwen/Qwen3.5-4B,0.439588,0.434320,-0.005268,2.023873,1.607557,-0.416316,1.667651,1.286658,0.313177,0.337139,0.023962,True,""
+Gemma-4-E2B,google/gemma-4-E2B,google/gemma-4-E2B-it,0.416927,0.267324,-0.149603,0.683044,0.881930,0.198886,0.399087,0.289902,0.055866,-0.159731,-0.215597,True,""
+Gemma-4-12B,google/gemma-4-12B,google/gemma-4-12B-it,0.473016,0.215308,-0.257708,11.134048,0.263102,-10.870946,8.870246,0.023353,1.974571,0.104352,-1.870219,True,""
+Olmo-Hybrid-7B,allenai/Olmo-Hybrid-7B,allenai/Olmo-Hybrid-Instruct-DPO-7B,0.441936,0.398272,-0.043665,1.633054,1.129816,-0.503238,1.295032,0.842964,0.150058,0.023803,-0.126255,True,""

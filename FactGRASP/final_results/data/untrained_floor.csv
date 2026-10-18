@@ -1,0 +1,21 @@
+model,layer,pooling,width,trained_MRR,untrained_MRR,delta_MRR,trained_bits,untrained_bits,bits_added_over_untrained,trained_mixture_MRR,untrained_pool,trained_pool,untrained_seeds,status,trained_MRR_3seed,trained_MRR_source
+meta-llama/Llama-3.1-8B,25,last,4096,0.495669,0.186843,0.308826,7.0818,2.5223,4.5595,0.502587,2766,2766,1,readout,0.497174,five-seed atlas row (seed_counts.csv)
+meta-llama/Llama-3.1-8B-Instruct,23,last,4096,0.492804,0.186052,0.306752,7.0307,2.5539,4.4768,0.499008,2766,2766,1,readout,0.493192,five-seed atlas row (seed_counts.csv)
+Qwen/Qwen3.5-9B,28,last,4096,0.470719,0.167360,0.303359,6.7936,2.0614,4.7322,0.475833,2766,2766,1,readout,0.469685,five-seed atlas row (seed_counts.csv)
+google/gemma-4-12B,39,last,3840,0.463078,0.197468,0.265610,6.5400,2.7215,3.8185,0.473016,2766,2766,1,readout,0.463349,five-seed atlas row (seed_counts.csv)
+meta-llama/Llama-3.2-3B,19,last,3072,0.457881,0.194400,0.263481,6.8019,2.6338,4.1681,0.469357,2766,2766,1,readout,0.457204,five-seed atlas row (seed_counts.csv)
+google/gemma-4-E4B,33,last,2560,0.446115,0.197637,0.248478,6.6359,2.7360,3.8998,0.452690,2766,2766,3,readout,0.447434,five-seed atlas row (seed_counts.csv)
+mistralai/Ministral-3-8B-Instruct-2512-BF16,27,last,4096,0.439593,0.181664,0.257929,6.5318,2.5223,4.0094,0.449083,2766,2766,1,readout,0.439055,five-seed atlas row (seed_counts.csv)
+Qwen/Qwen3.5-4B-Base,28,last,2560,0.434985,0.166903,0.268082,6.5473,2.0152,4.5321,0.439588,2766,2766,1,readout,0.435968,five-seed atlas row (seed_counts.csv)
+Qwen/Qwen3.5-4B,26,last,2560,0.429406,0.167749,0.261657,6.4851,2.0079,4.4772,0.434320,2766,2766,3,readout,0.427576,five-seed atlas row (seed_counts.csv); five-seed layer 25 against the floor's 26
+meta-llama/Llama-3.2-1B,11,last,2048,0.426971,0.198005,0.228966,6.5122,2.6385,3.8737,0.434604,2766,2766,1,readout,0.427101,five-seed atlas row (seed_counts.csv)
+allenai/Olmo-3-1025-7B,27,last,4096,0.423024,0.184272,0.238752,6.3863,2.7423,3.6440,0.434973,2766,2766,1,readout,0.423453,five-seed atlas row (seed_counts.csv)
+google/gemma-4-E2B,27,last,1536,0.410292,0.189545,0.220747,6.3442,2.5845,3.7597,0.416927,2766,2766,1,readout,0.410049,five-seed atlas row (seed_counts.csv)
+Qwen/Qwen3.5-2B,21,last,2048,0.387643,0.167299,0.220344,6.1690,2.0537,4.1153,0.400171,2766,2766,1,readout,0.387370,five-seed atlas row (seed_counts.csv)
+allenai/Olmo-3-7B-Instruct,23,last,4096,0.370732,0.188172,0.182560,5.8438,2.7575,3.0862,0.388773,2766,2766,1,readout,0.370563,five-seed atlas row (seed_counts.csv)
+Qwen/Qwen3.5-0.8B,21,last,1024,0.357842,0.170848,0.186994,5.8274,2.0451,3.7824,0.366368,2766,2766,1,readout,0.358406,five-seed atlas row (seed_counts.csv)
+HuggingFaceTB/SmolLM3-3B,35,last,2048,0.343643,0.185950,0.157693,5.4527,2.4126,3.0401,0.376489,2766,2766,3,readout,0.344670,five-seed atlas row (seed_counts.csv)
+ibm-granite/granite-4.2-8b,40,last,4096,0.295229,0.168153,0.127076,5.0957,2.0659,3.0298,0.319275,2766,2766,1,readout,0.294761,five-seed atlas row (seed_counts.csv)
+google/gemma-4-E4B-it,5,last,2560,0.272459,0.199151,0.073308,4.3155,2.7157,1.5998,0.280506,2766,2766,1,readout,0.272711,five-seed atlas row (seed_counts.csv)
+answerdotai/ModernBERT-base,3,mean,768,0.268600,0.239385,0.029215,2.4544,3.3560,-0.9016,0.300105,2766,2766,1,at floor,0.268600,mean-pooled ladder three seeds (the atlas row; no five-seed mean-pooled row exists)
+answerdotai/ModernBERT-base,3,last,768,0.158070,0.156145,0.001925,0.9242,0.0236,0.9006,0.194962,2766,2766,1,at floor; last-token convention superseded by the mean-pooled row,0.158070,ladder three seeds last token

@@ -1,0 +1,801 @@
+{
+ "id": "layer summary",
+ "question": "How does the validation-selected layer compare with the final layer on test, and with the best test layer on a fixed cached grid (a post-hoc oracle envelope)?",
+ "status": "completed",
+ "approved_scope": "E3: the selected-versus-final table from the saved ladder JSONs for all 19 models; the bounded oracle only where the cache inventory shows complete train/valid/test caches at every grid layer",
+ "inputs": [
+  {
+   "path": "results/runs/ladder_HuggingFaceTB__SmolLM3-3B.json",
+   "sha256": "ac2af25823422f2c8619b01f64fa1b27ee31ae3f673209e3eae99b7c5181ed36",
+   "bytes": 67597
+  },
+  {
+   "path": "results/runs/ladder_HuggingFaceTB__SmolLM3-3B_concat.json",
+   "sha256": "44a88beed2ffe6392f51f8a94ee8877338a69a4c67827aaed276d225581975dc",
+   "bytes": 65747
+  },
+  {
+   "path": "results/runs/ladder_HuggingFaceTB__SmolLM3-3B_concat1536.json",
+   "sha256": "092fc3f7cabc4cfd57021f2f988d0f6ec6fae9e8c203820c83798c2872036153",
+   "bytes": 65866
+  },
+  {
+   "path": "results/runs/ladder_HuggingFaceTB__SmolLM3-3B_raw.json",
+   "sha256": "538af7650530fb31b0cab227446ccbd61a97c96568be34b045edbcc98f6c71fa",
+   "bytes": 68485
+  },
+  {
+   "path": "results/runs/ladder_HuggingFaceTB__SmolLM3-3B_seeds10.json",
+   "sha256": "69ef6d0d06dcb53d3b053cd9abb08c026b9b9feba7a74db0f00eccb8e108ce39",
+   "bytes": 109445
+  },
+  {
+   "path": "results/runs/ladder_HuggingFaceTB__SmolLM3-3B_seeds5.json",
+   "sha256": "aa19db934db8df10cab067325fe58e97ced55488b61883ba4e60e7f133a0d8f8",
+   "bytes": 79674
+  },
+  {
+   "path": "results/runs/ladder_Qwen__Qwen3.5-0.8B.json",
+   "sha256": "de889ab51268cab72225e6820462ad4a82a901297d1c9f79ef0918c1beea4d43",
+   "bytes": 43545
+  },
+  {
+   "path": "results/runs/ladder_Qwen__Qwen3.5-0.8B_seeds10.json",
+   "sha256": "199bc3ed70cbd603184eac5590295e8f1d09f1195f7ae2bf93912706978ffc65",
+   "bytes": 85309
+  },
+  {
+   "path": "results/runs/ladder_Qwen__Qwen3.5-0.8B_seeds5.json",
+   "sha256": "432394ee561d5e74ebe75d135b578ac88949729841fda955236d05d0abb86775",
+   "bytes": 55575
+  },
+  {
+   "path": "results/runs/ladder_Qwen__Qwen3.5-2B.json",
+   "sha256": "d5c093677fa47ac83871640cc42642ee10747bd5f600326ea362e87e5d063499",
+   "bytes": 43488
+  },
+  {
+   "path": "results/runs/ladder_Qwen__Qwen3.5-2B_seeds10.json",
+   "sha256": "719cef9ec3000dacf5f38184900e9e375a0ad1b686d563d1260278ae564a9b87",
+   "bytes": 85232
+  },
+  {
+   "path": "results/runs/ladder_Qwen__Qwen3.5-2B_seeds5.json",
+   "sha256": "adf9c819a237f332b2df1f85c7a4e508d69918a1bd0ee09639832f5b612ff074",
+   "bytes": 55501
+  },
+  {
+   "path": "results/runs/ladder_Qwen__Qwen3.5-4B-Base.json",
+   "sha256": "bbafc2610257fe9be53e67f42cb4f657bad5491c53dfaddaf0b6754b63f95ba5",
+   "bytes": 47875
+  },
+  {
+   "path": "results/runs/ladder_Qwen__Qwen3.5-4B-Base_seeds10.json",
+   "sha256": "2022460f858125a3e7585fc1e6df1caf97ea1bd663822b794e96967067fe89ae",
+   "bytes": 89627
+  },
+  {
+   "path": "results/runs/ladder_Qwen__Qwen3.5-4B-Base_seeds5.json",
+   "sha256": "8b7961e15f7ea0e3e76cb190876abe0d40800f997aa1be434ab5d537a5075346",
+   "bytes": 59913
+  },
+  {
+   "path": "results/runs/ladder_Qwen__Qwen3.5-4B.json",
+   "sha256": "1957fc1881bc1424005d4671dd6c36eed7d809eb3c9c4a668b5b855b69cc6f84",
+   "bytes": 63796
+  },
+  {
+   "path": "results/runs/ladder_Qwen__Qwen3.5-4B_concat.json",
+   "sha256": "f0294475a5c5acb1611a21574a8112926bc00ca6f63f31cfe544c3253d3f5966",
+   "bytes": 61957
+  },
+  {
+   "path": "results/runs/ladder_Qwen__Qwen3.5-4B_concat1536.json",
+   "sha256": "d7aa8506a947bb73ed893d1474821d2eb084430e1bf11b53acd84cfa161835c2",
+   "bytes": 61977
+  },
+  {
+   "path": "results/runs/ladder_Qwen__Qwen3.5-4B_raw.json",
+   "sha256": "f5417e099618d833ab4dba490e6bca7dd1e250277c585ec6ee0a64b2ac83e888",
+   "bytes": 64233
+  },
+  {
+   "path": "results/runs/ladder_Qwen__Qwen3.5-4B_seeds10.json",
+   "sha256": "7373bdc2b268e2a124025b9e22ab1402278ea93aecb6244bdbf156707af0db79",
+   "bytes": 105560
+  },
+  {
+   "path": "results/runs/ladder_Qwen__Qwen3.5-4B_seeds5.json",
+   "sha256": "90b169a0b8d6ad9c3056a40c067b8f748f68164223b6a724af6c2fccc3f8039f",
+   "bytes": 75826
+  },
+  {
+   "path": "results/runs/ladder_Qwen__Qwen3.5-4B_smoke.json",
+   "sha256": "b784cdbb7be0e70416ca25b46bf91d3d5130f4cc7ab69d38cf782b28d48f46e8",
+   "bytes": 21700
+  },
+  {
+   "path": "results/runs/ladder_Qwen__Qwen3.5-9B.json",
+   "sha256": "f00b7b1008b9bbd29a0483f5bb65fb1e138430b8f08f74973159b8c2c1c4862f",
+   "bytes": 47920
+  },
+  {
+   "path": "results/runs/ladder_Qwen__Qwen3.5-9B_concat.json",
+   "sha256": "6baaf25eefa0d652114bbd9d2f1410e669d1439b8869d7cb12edc6ddeba288fd",
+   "bytes": 62059
+  },
+  {
+   "path": "results/runs/ladder_Qwen__Qwen3.5-9B_concat1536.json",
+   "sha256": "f62a053a42cf90d355a35641d1662b0e1c8c19e62e364f51126f0bbf9929cbe7",
+   "bytes": 62168
+  },
+  {
+   "path": "results/runs/ladder_Qwen__Qwen3.5-9B_seeds10.json",
+   "sha256": "c6961871d849354d84c92bf22f7e050f7cabaacbd60e58dd201b68ebfd82b2a2",
+   "bytes": 89662
+  },
+  {
+   "path": "results/runs/ladder_Qwen__Qwen3.5-9B_seeds5.json",
+   "sha256": "8c0e42dfd3cc76d57a3c7c361a02ad3642d0375fe38f78987c1abd4d05b8b211",
+   "bytes": 59950
+  },
+  {
+   "path": "results/runs/ladder_Qwen__Qwen3.6-27B.json",
+   "sha256": "046e2e8ac507a0d3b4ce5660bfd716bcb33450cc3a1f8abef84a91bac1778718",
+   "bytes": 38183
+  },
+  {
+   "path": "results/runs/ladder_allenai__OLMo-2-0425-1B.json",
+   "sha256": "b0ada434b0c0b30a26748a130ebbefd70aa61c0f0dd910052498987e46ef6136",
+   "bytes": 35167
+  },
+  {
+   "path": "results/runs/ladder_allenai__Olmo-3-1025-7B.json",
+   "sha256": "7c0267481745444e3180729c81b437307a0c5facb127d77725221d55477b4686",
+   "bytes": 47992
+  },
+  {
+   "path": "results/runs/ladder_allenai__Olmo-3-1025-7B_concat.json",
+   "sha256": "1f212f913c047abf59e4aa181c6fa592a14da1bea056ddff920dbe3422f0b36e",
+   "bytes": 62134
+  },
+  {
+   "path": "results/runs/ladder_allenai__Olmo-3-1025-7B_concat1536.json",
+   "sha256": "4f02195667b70612b548d4a74b1d11507381a390efd15ce82697f07d7a529402",
+   "bytes": 62275
+  },
+  {
+   "path": "results/runs/ladder_allenai__Olmo-3-1025-7B_seeds10.json",
+   "sha256": "45e8d5b48c941b669645b6d808d5d5264a045cf739d535fb2e677858084fc52b",
+   "bytes": 89700
+  },
+  {
+   "path": "results/runs/ladder_allenai__Olmo-3-1025-7B_seeds5.json",
+   "sha256": "d486566720f48551ca36bb973b39d009a2e0b4274ebbb8baea720d98ad5bae33",
+   "bytes": 59989
+  },
+  {
+   "path": "results/runs/ladder_allenai__Olmo-3-7B-Instruct-DPO.json",
+   "sha256": "0ade78724c9514123c1d886dad83d64dfc67ac60b26283ca1b564044505e35b3",
+   "bytes": 48105
+  },
+  {
+   "path": "results/runs/ladder_allenai__Olmo-3-7B-Instruct-SFT.json",
+   "sha256": "e2fca0c2978349c5dbbbe94a60b914db0e4e240e66d9b072f89ac65b3694cec2",
+   "bytes": 48032
+  },
+  {
+   "path": "results/runs/ladder_allenai__Olmo-3-7B-Instruct.json",
+   "sha256": "8c8c653bb383d4c004276207d11bda2f0dd48486a601f9ea3b12168c157aab0f",
+   "bytes": 48009
+  },
+  {
+   "path": "results/runs/ladder_allenai__Olmo-3-7B-Instruct_seeds10.json",
+   "sha256": "a5d320fdd0120384b9c27dd048d0ebad3d3f594b79f4cf650d109f07fe70eda2",
+   "bytes": 89762
+  },
+  {
+   "path": "results/runs/ladder_allenai__Olmo-3-7B-Instruct_seeds5.json",
+   "sha256": "59b45aa863b4c9e18ac1b96e322fdb7f8e0e8976e966b2faf55d9dd3c5f9727c",
+   "bytes": 60013
+  },
+  {
+   "path": "results/runs/ladder_allenai__Olmo-Hybrid-7B.json",
+   "sha256": "734fc4b9a8932b8919dcb18641dc2cb8b7543067debd169fa35632d96abed457",
+   "bytes": 47941
+  },
+  {
+   "path": "results/runs/ladder_allenai__Olmo-Hybrid-Instruct-DPO-7B.json",
+   "sha256": "7a5db464248b31a56a17267b2e4cf4372fb1dbce3d8a47bf750ad577a8dcda94",
+   "bytes": 48041
+  },
+  {
+   "path": "results/runs/ladder_allenai__Olmo-Hybrid-Instruct-SFT-7B.json",
+   "sha256": "405dfcba98055dea6ef8c42de642c04edf414b4c7da070065a18a10f1b9800e1",
+   "bytes": 48059
+  },
+  {
+   "path": "results/runs/ladder_answerdotai__ModernBERT-base.json",
+   "sha256": "a7c43771ac69683d28f30907ccc4dc73bb586c01d345d37517da083f17517940",
+   "bytes": 44011
+  },
+  {
+   "path": "results/runs/ladder_answerdotai__ModernBERT-base_mean.json",
+   "sha256": "812fce8a31186e9246d1e2226429c1e1c672c3fa2726e83e92802dcbefe0fb47",
+   "bytes": 43781
+  },
+  {
+   "path": "results/runs/ladder_answerdotai__ModernBERT-base_seeds10.json",
+   "sha256": "c466c218a338779b716a7f1249136d13da107ed851103f5af2de75a8644feef8",
+   "bytes": 85746
+  },
+  {
+   "path": "results/runs/ladder_answerdotai__ModernBERT-base_seeds5.json",
+   "sha256": "870b708d4e923eeaef28a6dfa36cb7b3514b26d8eea01c80d1c5d75efa112799",
+   "bytes": 55875
+  },
+  {
+   "path": "results/runs/ladder_bert-base-uncased.json",
+   "sha256": "674ab5647eebcba89c813d85714982f7f3797932deda0394663773ad444f6f09",
+   "bytes": 42987
+  },
+  {
+   "path": "results/runs/ladder_bert-large-uncased.json",
+   "sha256": "16edfc772b8863f37fe770303793fb41b3f4d7179c18915f64e0ad3b01cc7695",
+   "bytes": 55296
+  },
+  {
+   "path": "results/runs/ladder_bert-large-uncased_concat.json",
+   "sha256": "84bdd5dcae598239c432902f297a3483403f1cf614838879fe0ea1a46895a345",
+   "bytes": 53332
+  },
+  {
+   "path": "results/runs/ladder_bert-large-uncased_concat1536.json",
+   "sha256": "ebbea59c58425896cdcdc7e112dba19b6104cf26672d76778737bfbc7b621f4e",
+   "bytes": 53472
+  },
+  {
+   "path": "results/runs/ladder_bert-large-uncased_mean.json",
+   "sha256": "387828b9bcc0fa4771b641d1d27bfcce453404c6bed6ba2ab0c4aa9eb55410f6",
+   "bytes": 55463
+  },
+  {
+   "path": "results/runs/ladder_google__gemma-4-12B-it.json",
+   "sha256": "97539f5f54b67999393d6d4eb2edcbc517bd5462fb73e1a6d0cab70656f96297",
+   "bytes": 64754
+  },
+  {
+   "path": "results/runs/ladder_google__gemma-4-12B.json",
+   "sha256": "cbc8282753e081e5854d15cab1423b7e624f20064806736f79bb65c90532401c",
+   "bytes": 56558
+  },
+  {
+   "path": "results/runs/ladder_google__gemma-4-12B_seeds10.json",
+   "sha256": "6cac7a95a725f2dbe13609f6e9f9632aa332ca9e520b3f678d1c4fed6f685dcd",
+   "bytes": 98240
+  },
+  {
+   "path": "results/runs/ladder_google__gemma-4-12B_seeds5.json",
+   "sha256": "cb19a141c7bc78cf1ddaa7bf4670097c91c3fd3a7093f8f93466300b019f1d8e",
+   "bytes": 68512
+  },
+  {
+   "path": "results/runs/ladder_google__gemma-4-31B.json",
+   "sha256": "bdfa12523f7bd9cbc507998ad40bb9500837cba1592e7c2a80d4fceb2247abde",
+   "bytes": 39023
+  },
+  {
+   "path": "results/runs/ladder_google__gemma-4-E2B-it.json",
+   "sha256": "1440bebd1c201defa173bcc0a1f9112db961f58fc47d7ecd4bf466982c5cd0da",
+   "bytes": 68290
+  },
+  {
+   "path": "results/runs/ladder_google__gemma-4-E2B.json",
+   "sha256": "9c1edecac4c997d45c82e4e67755cfc8d4fdd54eab6129dfea969bec9d15f673",
+   "bytes": 50028
+  },
+  {
+   "path": "results/runs/ladder_google__gemma-4-E2B_seeds10.json",
+   "sha256": "1d1b6098f0ca94e72fca5e05e6119a10ba330666d221b17da6c7a077b7ffedd5",
+   "bytes": 91842
+  },
+  {
+   "path": "results/runs/ladder_google__gemma-4-E2B_seeds5.json",
+   "sha256": "d28c9882ca0a379a45755583cc98e1caa7876ff193f7b2a0f9c9c134ad5ee583",
+   "bytes": 62114
+  },
+  {
+   "path": "results/runs/ladder_google__gemma-4-E4B-it.json",
+   "sha256": "fb036cb96e6c2a7a70352e6fa1936a0cac6e4fe261b10ea8b5377353e0ccb99b",
+   "bytes": 54352
+  },
+  {
+   "path": "results/runs/ladder_google__gemma-4-E4B-it_seeds10.json",
+   "sha256": "9b8f51ef7ead0f34e1152a7ff75d5d5eba5a6ff3b8fa36640d09464066590497",
+   "bytes": 96152
+  },
+  {
+   "path": "results/runs/ladder_google__gemma-4-E4B-it_seeds5.json",
+   "sha256": "2bfd571740f49633eea226ada05a321ce13e112bdf4c5f8d0b56f3304d147f85",
+   "bytes": 66395
+  },
+  {
+   "path": "results/runs/ladder_google__gemma-4-E4B.json",
+   "sha256": "6fa82a5892c59ccd5777d78b20dca522f67adb438c834d8973acc458159b3a34",
+   "bytes": 60157
+  },
+  {
+   "path": "results/runs/ladder_google__gemma-4-E4B_concat.json",
+   "sha256": "aab22b2023707a07f762ab71be90278d450bbb7788979e1ee90b05e45708a972",
+   "bytes": 58329
+  },
+  {
+   "path": "results/runs/ladder_google__gemma-4-E4B_concat1536.json",
+   "sha256": "e0bb391fda2e07ae5ba0bbd2ae00ebdafcf03c68b28405d0fde2585e68212cb4",
+   "bytes": 58399
+  },
+  {
+   "path": "results/runs/ladder_google__gemma-4-E4B_seeds10.json",
+   "sha256": "651ecccba3af0a30dbf3fa2ada1833e35710ae9b4124b183dbb158df1d9782fa",
+   "bytes": 101961
+  },
+  {
+   "path": "results/runs/ladder_google__gemma-4-E4B_seeds5.json",
+   "sha256": "7c0ba423547918d1c24d6d35bb1f54009aff0a78875f4887b4ebac464788ff9e",
+   "bytes": 72226
+  },
+  {
+   "path": "results/runs/ladder_ibm-granite__granite-4.2-8b.json",
+   "sha256": "5b2a7c874a2f725d6fbe12de363be0854c37ffbf3860f1f1bff6dd2b75f56890",
+   "bytes": 47733
+  },
+  {
+   "path": "results/runs/ladder_ibm-granite__granite-4.2-8b_seeds10.json",
+   "sha256": "c26ecd10fd59223115ece077f3fa4f3f6f08b198234b1323380ae0d2f18a3175",
+   "bytes": 82822
+  },
+  {
+   "path": "results/runs/ladder_ibm-granite__granite-4.2-8b_seeds5.json",
+   "sha256": "fdc9ba0a9775126fb52ef4b661e7fa199e9d89011afa356fcbdffab8aa74fd70",
+   "bytes": 57806
+  },
+  {
+   "path": "results/runs/ladder_meta-llama__Llama-3.1-8B-Instruct.json",
+   "sha256": "4a85898329867c7b9f4c1af38facd0058922b8a51ded78b55bab2b3a908a44b8",
+   "bytes": 47377
+  },
+  {
+   "path": "results/runs/ladder_meta-llama__Llama-3.1-8B-Instruct_seeds10.json",
+   "sha256": "72e92433bb74ab068e989fa465c93975b7947e62135b482ddcb0c343075cc4c0",
+   "bytes": 89119
+  },
+  {
+   "path": "results/runs/ladder_meta-llama__Llama-3.1-8B-Instruct_seeds5.json",
+   "sha256": "4d285f923bdbed96dadad641aa962e8f37d167bdef30e7bd3dafd26b3d492120",
+   "bytes": 59409
+  },
+  {
+   "path": "results/runs/ladder_meta-llama__Llama-3.1-8B.json",
+   "sha256": "0851832c071e7530b61f50804c2505ff0e97b9cbef2994b9e9767ba1a69cddb6",
+   "bytes": 47292
+  },
+  {
+   "path": "results/runs/ladder_meta-llama__Llama-3.1-8B_concat.json",
+   "sha256": "04f9060a9ecbdf0ee6a8bf58a25908fe439eef8e545d19d1b933f864222c595d",
+   "bytes": 61457
+  },
+  {
+   "path": "results/runs/ladder_meta-llama__Llama-3.1-8B_concat1536.json",
+   "sha256": "b84615f9dde32071932ba371a2d3b7b485991b9435dd5e27c974d1225863330d",
+   "bytes": 61566
+  },
+  {
+   "path": "results/runs/ladder_meta-llama__Llama-3.1-8B_seeds10.json",
+   "sha256": "e0bf50042fd53bde76c6dc8a16d7e8be34f2bb3b8ac6a1d450f01ab434d5143f",
+   "bytes": 89013
+  },
+  {
+   "path": "results/runs/ladder_meta-llama__Llama-3.1-8B_seeds5.json",
+   "sha256": "85d57510610a3df983ff82c6e2f283f4f965ca76846afd819f4d9e40850135eb",
+   "bytes": 59318
+  },
+  {
+   "path": "results/runs/ladder_meta-llama__Llama-3.2-1B.json",
+   "sha256": "fd70899ee87d6cced2de40d9651e7c372075216c80e8635259ad7acf58d09de6",
+   "bytes": 38911
+  },
+  {
+   "path": "results/runs/ladder_meta-llama__Llama-3.2-1B_seeds10.json",
+   "sha256": "13c42ebdda7cd1a21bcab53031ee54bf0f4f76921855e7d9cc7e5d210166da81",
+   "bytes": 80635
+  },
+  {
+   "path": "results/runs/ladder_meta-llama__Llama-3.2-1B_seeds5.json",
+   "sha256": "4f695c28318f9c2cb9cfb7ff61c7e8c0787e697236baed8bb12cef45d24cd105",
+   "bytes": 50907
+  },
+  {
+   "path": "results/runs/ladder_meta-llama__Llama-3.2-3B.json",
+   "sha256": "b49b750b450437b178eb6609e6b6d5313a7ecaf984f74bbe59fe762f492e1a0a",
+   "bytes": 45197
+  },
+  {
+   "path": "results/runs/ladder_meta-llama__Llama-3.2-3B_seeds10.json",
+   "sha256": "a55e0f2c33e1b24a7246e875093550d1f7c895cf2cf05bff7ae98c82532d2f19",
+   "bytes": 86898
+  },
+  {
+   "path": "results/runs/ladder_meta-llama__Llama-3.2-3B_seeds5.json",
+   "sha256": "7f47326300cb6053954e1574d41fd9081838e3429259f776c193a2e2d2426707",
+   "bytes": 57216
+  },
+  {
+   "path": "results/runs/ladder_microsoft__deberta-v3-large.json",
+   "sha256": "400ca16b4cba552ae04f6b6a5daca7b637ef4f82950b4b3a43b4ada2ccf3642d",
+   "bytes": 55394
+  },
+  {
+   "path": "results/runs/ladder_microsoft__deberta-v3-large_concat.json",
+   "sha256": "74031f596e93b1214e244fb2f9eed29dbf3e802b231ab3c276209ec73fdd48d3",
+   "bytes": 53402
+  },
+  {
+   "path": "results/runs/ladder_microsoft__deberta-v3-large_concat1536.json",
+   "sha256": "db1190500adafb76332a0df43d5a692c5c9dff7e6db9c38e044aa1ed54be0e7f",
+   "bytes": 53521
+  },
+  {
+   "path": "results/runs/ladder_microsoft__deberta-v3-large_mean.json",
+   "sha256": "5e4d39dff30823c7656925b024475793b5f8c0b9d86c7fb0d5ce1ae351e06af3",
+   "bytes": 16225
+  },
+  {
+   "path": "results/runs/ladder_mistralai__Ministral-3-8B-Instruct-2512-BF16.json",
+   "sha256": "1d4b6c3ac196e77e90803c45eac09502be3d807694e9b00bab56f7ea49acd8b1",
+   "bytes": 49548
+  },
+  {
+   "path": "results/runs/ladder_mistralai__Ministral-3-8B-Instruct-2512-BF16_seeds10.json",
+   "sha256": "7a4bbcc7200f2f1f3b8232ec3dd856820c1e74061ad57855898a8d9e07c2d343",
+   "bytes": 91294
+  },
+  {
+   "path": "results/runs/ladder_mistralai__Ministral-3-8B-Instruct-2512-BF16_seeds5.json",
+   "sha256": "8b91981e1bc0fbc7a4cdc2e04e5dafa329e58b5610857954229c763743a0fb82",
+   "bytes": 61553
+  },
+  {
+   "path": "results/runs/ladder_openai__gpt-oss-20b.json",
+   "sha256": "7dbf0ee814055d27dfabe2950dfb1bbdbb0eadd43886abac61d38ed20cfac83b",
+   "bytes": 43653
+  },
+  {
+   "path": "results/runs/ladder_roberta-large.json",
+   "sha256": "8b4f527a23e067be12a7900ac05fc20857e3ee8fcd05a63ff7fdf12a3b4fd8c4",
+   "bytes": 55363
+  },
+  {
+   "path": "results/runs/ladder_roberta-large_mean.json",
+   "sha256": "1062c90d127883947a96083c9a443120d2cac62d2789076987ca31214824c3cf",
+   "bytes": 55531
+  },
+  {
+   "path": "results/runs/ladder_tiiuae__falcon-mamba-7b.json",
+   "sha256": "bbbd6a400bb8d20b82811679f4445b21c1e34bbf43de9d82479256a23f1bfe5f",
+   "bytes": 65037
+  },
+  {
+   "path": "results/summaries/layer_cache_inventory_raw.json",
+   "sha256": "e0791d482f405957e7521aef06a69c568244a8a27ba4d1cb17cbd3494e70b84a",
+   "bytes": 6519
+  }
+ ],
+ "checkpoint_ids": [
+  "Qwen/Qwen3.5-0.8B",
+  "Qwen/Qwen3.5-2B",
+  "Qwen/Qwen3.5-4B",
+  "Qwen/Qwen3.5-4B-Base",
+  "Qwen/Qwen3.5-9B",
+  "google/gemma-4-E2B",
+  "google/gemma-4-E4B",
+  "google/gemma-4-E4B-it",
+  "google/gemma-4-12B",
+  "meta-llama/Llama-3.1-8B",
+  "meta-llama/Llama-3.1-8B-Instruct",
+  "meta-llama/Llama-3.2-1B",
+  "meta-llama/Llama-3.2-3B",
+  "allenai/Olmo-3-1025-7B",
+  "allenai/Olmo-3-7B-Instruct",
+  "mistralai/Ministral-3-8B-Instruct-2512-BF16",
+  "ibm-granite/granite-4.2-8b",
+  "answerdotai/ModernBERT-base",
+  "HuggingFaceTB/SmolLM3-3B",
+  "bert-base-uncased (table only; caches at 3 layers)"
+ ],
+ "dataset": "wikidata (the paper's Wikidata subset; data_extra audits)",
+ "split": "train 33,937 / valid 4,242 / test 4,243 (frozen since Phase 0)",
+ "candidate_policy": "the 2,766 unique test objects, each model's own embedding of them (own candidate space) unless a reference space is named",
+ "filtering": "filtered ranking: other valid objects of the same (subject, relation) removed from the candidate list; ties broken at random with the seed",
+ "representation": "cached last-token residual at the named hidden-state layer, final-norm frame (mean pooling for bert-base-uncased); PCA-768 fitted on the layer's own training rows, seed 0",
+ "pooling": "last (bert-base-uncased: mean)",
+ "pca_dim": 768,
+ "probe": "shared contrastive probe = FlexMixtureOfW with one expert (the single map, 590,593 parameters); mixture = eight experts with a softmax gate on the relation vector",
+ "objective": "in-batch InfoNCE, temperature 0.05, 60 epochs, batch 512, lr 1e-3, weight decay 1e-4, patience 12 on filtered validation MRR (layers.train_single_map, the ladder's stage-2 recipe)",
+ "layer_grid": {
+  "Qwen/Qwen3.5-0.8B": [
+   4,
+   8,
+   12,
+   16,
+   19,
+   20,
+   21,
+   24
+  ],
+  "Qwen/Qwen3.5-2B": [
+   4,
+   8,
+   12,
+   16,
+   19,
+   20,
+   21,
+   24
+  ],
+  "Qwen/Qwen3.5-4B": [
+   2,
+   4,
+   6,
+   8,
+   10,
+   12,
+   14,
+   16,
+   18,
+   20,
+   22,
+   24,
+   25,
+   26,
+   27,
+   28,
+   30,
+   32
+  ],
+  "Qwen/Qwen3.5-4B-Base": [
+   4,
+   8,
+   12,
+   16,
+   20,
+   24,
+   27,
+   28,
+   29,
+   32
+  ],
+  "Qwen/Qwen3.5-9B": [
+   4,
+   8,
+   12,
+   16,
+   20,
+   24,
+   26,
+   27,
+   28,
+   29,
+   32
+  ],
+  "google/gemma-4-E2B": [
+   4,
+   8,
+   12,
+   16,
+   20,
+   24,
+   27,
+   28,
+   29,
+   32,
+   35
+  ],
+  "google/gemma-4-E4B": [
+   3,
+   6,
+   9,
+   12,
+   15,
+   18,
+   21,
+   24,
+   27,
+   30,
+   32,
+   33,
+   34,
+   36,
+   39,
+   42
+  ],
+  "google/gemma-4-E4B-it": [
+   3,
+   4,
+   5,
+   8,
+   12,
+   16,
+   20,
+   24,
+   28,
+   32,
+   36,
+   40,
+   42
+  ],
+  "google/gemma-4-12B": [
+   4,
+   8,
+   12,
+   16,
+   20,
+   24,
+   28,
+   32,
+   36,
+   39,
+   40,
+   41,
+   44,
+   48
+  ],
+  "meta-llama/Llama-3.1-8B": [
+   4,
+   8,
+   12,
+   16,
+   20,
+   23,
+   24,
+   25,
+   28,
+   32
+  ],
+  "meta-llama/Llama-3.1-8B-Instruct": [
+   4,
+   8,
+   12,
+   16,
+   20,
+   23,
+   24,
+   25,
+   28,
+   32
+  ],
+  "meta-llama/Llama-3.2-1B": [
+   4,
+   8,
+   11,
+   12,
+   13,
+   16
+  ],
+  "meta-llama/Llama-3.2-3B": [
+   4,
+   8,
+   12,
+   16,
+   19,
+   20,
+   21,
+   24,
+   28
+  ],
+  "allenai/Olmo-3-1025-7B": [
+   2,
+   4,
+   8,
+   12,
+   16,
+   20,
+   23,
+   24,
+   26,
+   27,
+   28,
+   29,
+   32
+  ],
+  "allenai/Olmo-3-7B-Instruct": [
+   4,
+   8,
+   12,
+   16,
+   20,
+   23,
+   24,
+   25,
+   28,
+   32
+  ],
+  "mistralai/Ministral-3-8B-Instruct-2512-BF16": [
+   4,
+   8,
+   12,
+   16,
+   20,
+   24,
+   27,
+   28,
+   29,
+   32,
+   34
+  ],
+  "ibm-granite/granite-4.2-8b": [
+   4,
+   8,
+   12,
+   16,
+   20,
+   24,
+   28,
+   32,
+   36,
+   39,
+   40
+  ],
+  "answerdotai/ModernBERT-base": [
+   3,
+   4,
+   5,
+   8,
+   12,
+   16,
+   20,
+   22
+  ],
+  "HuggingFaceTB/SmolLM3-3B": [
+   2,
+   4,
+   6,
+   8,
+   10,
+   12,
+   14,
+   16,
+   18,
+   20,
+   22,
+   24,
+   26,
+   28,
+   30,
+   32,
+   34,
+   35,
+   36
+  ],
+  "bert-base-uncased": [
+   2,
+   10,
+   12
+  ]
+ },
+ "layer_grid_rule": "every hidden-state layer of the model with complete cached train, valid and test embeddings at the ladder's pooling (inventoried before any oracle fit)",
+ "selection_rule": "validation_selected_layer = the ladder's best_layer (chosen on the 8,000-row calibration sweep, one seed, refined locally; existing); final_layer = the last hidden state; test_oracle_layer = argmax over the grid of the seed-mean test MRR of the oracle fits (post hoc, test-informed, never a selector); an extra deployable column, full_fit_validation_layer = argmax over the grid of the seed-mean validation MRR of the same fits",
+ "seeds": [
+  0,
+  1,
+  2
+ ],
+ "metrics": [
+  "filtered test MRR and validation MRR per layer and seed",
+  "selected_regret = test_oracle_mrr - validation_selected_test_mrr",
+  "final_regret = test_oracle_mrr - final_layer_test_mrr"
+ ],
+ "stopping_rule": "the oracle runs only on models whose grid caches are complete (all 19 by the inventory); a layer whose cache fails to load is recorded as failed and the model's oracle is over the layers that ran, stated in the row; bert-base-uncased is table-only",
+ "jobs": "two detached jobs: GPU 1 takes Qwen3.5-4B, SmolLM3-3B, Gemma-4-E4B (the dense grids, the primary bounded set), then the odd-indexed remainder of the roster; GPU 0 takes the even-indexed remainder; each job resumes from its registry file",
+ "frozen_at_utc": "2026-09-21T02:48:00Z",
+ "deviations": []
+}

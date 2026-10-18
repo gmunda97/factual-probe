@@ -1,0 +1,2152 @@
+{
+ "data": {
+  "bert_conceptnet": {
+   "test": {
+    "rows": 3635,
+    "sha256_ordered_triples": "66270d9bbb7ee9a00543280b8881a52fad4b3e5088ca932e0d2c3658e502f0b3"
+   },
+   "train": {
+    "rows": 29081,
+    "sha256_ordered_triples": "a6891e70cf7b0750eb794b1c495b5515b52b26ef0c8ee970681a0ccbf3eb2bf5"
+   },
+   "valid": {
+    "rows": 3635,
+    "sha256_ordered_triples": "e2b38e33ce7b1f490fdc20ed79bc12d142ec6bb632ede9f5860d5aa6499b64bf"
+   }
+  },
+  "bert_wikidata": {
+   "test": {
+    "rows": 4243,
+    "sha256_ordered_triples": "df10afbd175daab0e1344b5f772bb530177c3d6b68a68fd5d5e0d847ffa32c04"
+   },
+   "train": {
+    "rows": 33937,
+    "sha256_ordered_triples": "9dc5da6364f35d8ac283063f65ff21d6f57d1ecf4bcabe9256e9a283fd0426fb"
+   },
+   "valid": {
+    "rows": 4242,
+    "sha256_ordered_triples": "59dc06ae47675d3165921040ab8b0d601163d9f8afe0d528769e4b838bbb48eb"
+   }
+  },
+  "gemmae4b_wikidata": {
+   "test": {
+    "rows": 4243,
+    "sha256_ordered_triples": "df10afbd175daab0e1344b5f772bb530177c3d6b68a68fd5d5e0d847ffa32c04"
+   },
+   "train": {
+    "rows": 33937,
+    "sha256_ordered_triples": "9dc5da6364f35d8ac283063f65ff21d6f57d1ecf4bcabe9256e9a283fd0426fb"
+   },
+   "valid": {
+    "rows": 4242,
+    "sha256_ordered_triples": "59dc06ae47675d3165921040ab8b0d601163d9f8afe0d528769e4b838bbb48eb"
+   }
+  },
+  "qwen4b_wikidata": {
+   "test": {
+    "rows": 4243,
+    "sha256_ordered_triples": "df10afbd175daab0e1344b5f772bb530177c3d6b68a68fd5d5e0d847ffa32c04"
+   },
+   "train": {
+    "rows": 33937,
+    "sha256_ordered_triples": "9dc5da6364f35d8ac283063f65ff21d6f57d1ecf4bcabe9256e9a283fd0426fb"
+   },
+   "valid": {
+    "rows": 4242,
+    "sha256_ordered_triples": "59dc06ae47675d3165921040ab8b0d601163d9f8afe0d528769e4b838bbb48eb"
+   }
+  }
+ },
+ "events": [
+  {
+   "gpu": "NVIDIA RTX A6000",
+   "kind": "run_started",
+   "pairs": [
+    "bert_wikidata"
+   ],
+   "smoke": true,
+   "stage": "all",
+   "time_utc": "2026-09-19T22:37:38Z"
+  },
+  {
+   "gpu": "NVIDIA RTX A6000",
+   "kind": "run_started",
+   "pairs": [
+    "bert_wikidata"
+   ],
+   "smoke": true,
+   "stage": "all",
+   "time_utc": "2026-09-19T22:37:56Z"
+  },
+  {
+   "kind": "run_finished",
+   "pairs": [
+    "bert_wikidata"
+   ],
+   "smoke": true,
+   "stage": "all",
+   "time_utc": "2026-09-19T22:38:00Z"
+  },
+  {
+   "gpu": "NVIDIA RTX A6000",
+   "kind": "run_started",
+   "pairs": [
+    "bert_wikidata"
+   ],
+   "smoke": true,
+   "stage": "all",
+   "time_utc": "2026-09-19T22:38:18Z"
+  },
+  {
+   "kind": "run_finished",
+   "pairs": [
+    "bert_wikidata"
+   ],
+   "smoke": true,
+   "stage": "all",
+   "time_utc": "2026-09-19T22:38:19Z"
+  },
+  {
+   "gpu": "NVIDIA RTX A6000",
+   "kind": "run_started",
+   "pairs": [
+    "bert_wikidata",
+    "bert_conceptnet",
+    "qwen4b_wikidata",
+    "gemmae4b_wikidata"
+   ],
+   "smoke": false,
+   "stage": "selection",
+   "time_utc": "2026-09-19T22:38:37Z"
+  },
+  {
+   "kind": "selection_locked",
+   "layers": {
+    "mixture8_composite_infonce": 10,
+    "mixture8_cosine": 10,
+    "single_composite_infonce": 6,
+    "single_cosine": 10
+   },
+   "pair": "bert_wikidata",
+   "time_utc": "2026-09-19T22:39:52Z"
+  },
+  {
+   "field": "subject",
+   "kind": "feature_generated",
+   "layer": 2,
+   "pair": "bert_conceptnet",
+   "path": "results/appendix/independent_layer_selection/feature_cache/bert-base-uncased/conceptnet_traincal8000_subject_mean_L2.pt",
+   "rows": 8000,
+   "split": "traincal8000",
+   "time_utc": "2026-09-19T22:40:00Z"
+  },
+  {
+   "field": "subject",
+   "kind": "feature_generated",
+   "layer": 4,
+   "pair": "bert_conceptnet",
+   "path": "results/appendix/independent_layer_selection/feature_cache/bert-base-uncased/conceptnet_traincal8000_subject_mean_L4.pt",
+   "rows": 8000,
+   "split": "traincal8000",
+   "time_utc": "2026-09-19T22:40:00Z"
+  },
+  {
+   "field": "subject",
+   "kind": "feature_generated",
+   "layer": 6,
+   "pair": "bert_conceptnet",
+   "path": "results/appendix/independent_layer_selection/feature_cache/bert-base-uncased/conceptnet_traincal8000_subject_mean_L6.pt",
+   "rows": 8000,
+   "split": "traincal8000",
+   "time_utc": "2026-09-19T22:40:00Z"
+  },
+  {
+   "field": "subject",
+   "kind": "feature_generated",
+   "layer": 10,
+   "pair": "bert_conceptnet",
+   "path": "results/appendix/independent_layer_selection/feature_cache/bert-base-uncased/conceptnet_traincal8000_subject_mean_L10.pt",
+   "rows": 8000,
+   "split": "traincal8000",
+   "time_utc": "2026-09-19T22:40:00Z"
+  },
+  {
+   "field": "subject",
+   "kind": "feature_generated",
+   "layer": 12,
+   "pair": "bert_conceptnet",
+   "path": "results/appendix/independent_layer_selection/feature_cache/bert-base-uncased/conceptnet_traincal8000_subject_mean_L12.pt",
+   "rows": 8000,
+   "split": "traincal8000",
+   "time_utc": "2026-09-19T22:40:00Z"
+  },
+  {
+   "field": "pred_value",
+   "kind": "feature_generated",
+   "layer": 2,
+   "pair": "bert_conceptnet",
+   "path": "results/appendix/independent_layer_selection/feature_cache/bert-base-uncased/conceptnet_traincal8000_pred_value_mean_L2.pt",
+   "rows": 8000,
+   "split": "traincal8000",
+   "time_utc": "2026-09-19T22:40:01Z"
+  },
+  {
+   "field": "pred_value",
+   "kind": "feature_generated",
+   "layer": 4,
+   "pair": "bert_conceptnet",
+   "path": "results/appendix/independent_layer_selection/feature_cache/bert-base-uncased/conceptnet_traincal8000_pred_value_mean_L4.pt",
+   "rows": 8000,
+   "split": "traincal8000",
+   "time_utc": "2026-09-19T22:40:01Z"
+  },
+  {
+   "field": "pred_value",
+   "kind": "feature_generated",
+   "layer": 6,
+   "pair": "bert_conceptnet",
+   "path": "results/appendix/independent_layer_selection/feature_cache/bert-base-uncased/conceptnet_traincal8000_pred_value_mean_L6.pt",
+   "rows": 8000,
+   "split": "traincal8000",
+   "time_utc": "2026-09-19T22:40:01Z"
+  },
+  {
+   "field": "pred_value",
+   "kind": "feature_generated",
+   "layer": 10,
+   "pair": "bert_conceptnet",
+   "path": "results/appendix/independent_layer_selection/feature_cache/bert-base-uncased/conceptnet_traincal8000_pred_value_mean_L10.pt",
+   "rows": 8000,
+   "split": "traincal8000",
+   "time_utc": "2026-09-19T22:40:01Z"
+  },
+  {
+   "field": "pred_value",
+   "kind": "feature_generated",
+   "layer": 12,
+   "pair": "bert_conceptnet",
+   "path": "results/appendix/independent_layer_selection/feature_cache/bert-base-uncased/conceptnet_traincal8000_pred_value_mean_L12.pt",
+   "rows": 8000,
+   "split": "traincal8000",
+   "time_utc": "2026-09-19T22:40:01Z"
+  },
+  {
+   "field": "object",
+   "kind": "feature_generated",
+   "layer": 2,
+   "pair": "bert_conceptnet",
+   "path": "results/appendix/independent_layer_selection/feature_cache/bert-base-uncased/conceptnet_traincal8000_object_mean_L2.pt",
+   "rows": 8000,
+   "split": "traincal8000",
+   "time_utc": "2026-09-19T22:40:02Z"
+  },
+  {
+   "field": "object",
+   "kind": "feature_generated",
+   "layer": 4,
+   "pair": "bert_conceptnet",
+   "path": "results/appendix/independent_layer_selection/feature_cache/bert-base-uncased/conceptnet_traincal8000_object_mean_L4.pt",
+   "rows": 8000,
+   "split": "traincal8000",
+   "time_utc": "2026-09-19T22:40:02Z"
+  },
+  {
+   "field": "object",
+   "kind": "feature_generated",
+   "layer": 6,
+   "pair": "bert_conceptnet",
+   "path": "results/appendix/independent_layer_selection/feature_cache/bert-base-uncased/conceptnet_traincal8000_object_mean_L6.pt",
+   "rows": 8000,
+   "split": "traincal8000",
+   "time_utc": "2026-09-19T22:40:02Z"
+  },
+  {
+   "field": "object",
+   "kind": "feature_generated",
+   "layer": 10,
+   "pair": "bert_conceptnet",
+   "path": "results/appendix/independent_layer_selection/feature_cache/bert-base-uncased/conceptnet_traincal8000_object_mean_L10.pt",
+   "rows": 8000,
+   "split": "traincal8000",
+   "time_utc": "2026-09-19T22:40:02Z"
+  },
+  {
+   "field": "object",
+   "kind": "feature_generated",
+   "layer": 12,
+   "pair": "bert_conceptnet",
+   "path": "results/appendix/independent_layer_selection/feature_cache/bert-base-uncased/conceptnet_traincal8000_object_mean_L12.pt",
+   "rows": 8000,
+   "split": "traincal8000",
+   "time_utc": "2026-09-19T22:40:02Z"
+  },
+  {
+   "field": "subject",
+   "kind": "feature_generated",
+   "layer": 2,
+   "pair": "bert_conceptnet",
+   "path": "results/appendix/independent_layer_selection/feature_cache/bert-base-uncased/conceptnet_valid_subject_mean_L2.pt",
+   "rows": 3635,
+   "split": "valid",
+   "time_utc": "2026-09-19T22:40:03Z"
+  },
+  {
+   "field": "subject",
+   "kind": "feature_generated",
+   "layer": 4,
+   "pair": "bert_conceptnet",
+   "path": "results/appendix/independent_layer_selection/feature_cache/bert-base-uncased/conceptnet_valid_subject_mean_L4.pt",
+   "rows": 3635,
+   "split": "valid",
+   "time_utc": "2026-09-19T22:40:03Z"
+  },
+  {
+   "field": "subject",
+   "kind": "feature_generated",
+   "layer": 6,
+   "pair": "bert_conceptnet",
+   "path": "results/appendix/independent_layer_selection/feature_cache/bert-base-uncased/conceptnet_valid_subject_mean_L6.pt",
+   "rows": 3635,
+   "split": "valid",
+   "time_utc": "2026-09-19T22:40:03Z"
+  },
+  {
+   "field": "subject",
+   "kind": "feature_generated",
+   "layer": 12,
+   "pair": "bert_conceptnet",
+   "path": "results/appendix/independent_layer_selection/feature_cache/bert-base-uncased/conceptnet_valid_subject_mean_L12.pt",
+   "rows": 3635,
+   "split": "valid",
+   "time_utc": "2026-09-19T22:40:03Z"
+  },
+  {
+   "field": "pred_value",
+   "kind": "feature_generated",
+   "layer": 2,
+   "pair": "bert_conceptnet",
+   "path": "results/appendix/independent_layer_selection/feature_cache/bert-base-uncased/conceptnet_valid_pred_value_mean_L2.pt",
+   "rows": 3635,
+   "split": "valid",
+   "time_utc": "2026-09-19T22:40:03Z"
+  },
+  {
+   "field": "pred_value",
+   "kind": "feature_generated",
+   "layer": 4,
+   "pair": "bert_conceptnet",
+   "path": "results/appendix/independent_layer_selection/feature_cache/bert-base-uncased/conceptnet_valid_pred_value_mean_L4.pt",
+   "rows": 3635,
+   "split": "valid",
+   "time_utc": "2026-09-19T22:40:03Z"
+  },
+  {
+   "field": "pred_value",
+   "kind": "feature_generated",
+   "layer": 6,
+   "pair": "bert_conceptnet",
+   "path": "results/appendix/independent_layer_selection/feature_cache/bert-base-uncased/conceptnet_valid_pred_value_mean_L6.pt",
+   "rows": 3635,
+   "split": "valid",
+   "time_utc": "2026-09-19T22:40:03Z"
+  },
+  {
+   "field": "pred_value",
+   "kind": "feature_generated",
+   "layer": 12,
+   "pair": "bert_conceptnet",
+   "path": "results/appendix/independent_layer_selection/feature_cache/bert-base-uncased/conceptnet_valid_pred_value_mean_L12.pt",
+   "rows": 3635,
+   "split": "valid",
+   "time_utc": "2026-09-19T22:40:03Z"
+  },
+  {
+   "field": "object",
+   "kind": "feature_generated",
+   "layer": 2,
+   "pair": "bert_conceptnet",
+   "path": "results/appendix/independent_layer_selection/feature_cache/bert-base-uncased/conceptnet_valid_object_mean_L2.pt",
+   "rows": 3635,
+   "split": "valid",
+   "time_utc": "2026-09-19T22:40:04Z"
+  },
+  {
+   "field": "object",
+   "kind": "feature_generated",
+   "layer": 4,
+   "pair": "bert_conceptnet",
+   "path": "results/appendix/independent_layer_selection/feature_cache/bert-base-uncased/conceptnet_valid_object_mean_L4.pt",
+   "rows": 3635,
+   "split": "valid",
+   "time_utc": "2026-09-19T22:40:04Z"
+  },
+  {
+   "field": "object",
+   "kind": "feature_generated",
+   "layer": 6,
+   "pair": "bert_conceptnet",
+   "path": "results/appendix/independent_layer_selection/feature_cache/bert-base-uncased/conceptnet_valid_object_mean_L6.pt",
+   "rows": 3635,
+   "split": "valid",
+   "time_utc": "2026-09-19T22:40:04Z"
+  },
+  {
+   "field": "object",
+   "kind": "feature_generated",
+   "layer": 12,
+   "pair": "bert_conceptnet",
+   "path": "results/appendix/independent_layer_selection/feature_cache/bert-base-uncased/conceptnet_valid_object_mean_L12.pt",
+   "rows": 3635,
+   "split": "valid",
+   "time_utc": "2026-09-19T22:40:04Z"
+  },
+  {
+   "kind": "selection_locked",
+   "layers": {
+    "mixture8_composite_infonce": 4,
+    "mixture8_cosine": 4,
+    "single_composite_infonce": 4,
+    "single_cosine": 4
+   },
+   "pair": "bert_conceptnet",
+   "time_utc": "2026-09-19T22:41:18Z"
+  },
+  {
+   "kind": "selection_locked",
+   "layers": {
+    "mixture8_composite_infonce": 26,
+    "mixture8_cosine": 26,
+    "single_composite_infonce": 26,
+    "single_cosine": 26
+   },
+   "pair": "qwen4b_wikidata",
+   "time_utc": "2026-09-19T22:43:13Z"
+  },
+  {
+   "kind": "selection_locked",
+   "layers": {
+    "mixture8_composite_infonce": 33,
+    "mixture8_cosine": 33,
+    "single_composite_infonce": 33,
+    "single_cosine": 33
+   },
+   "pair": "gemmae4b_wikidata",
+   "time_utc": "2026-09-19T22:45:29Z"
+  },
+  {
+   "kind": "run_finished",
+   "pairs": [
+    "bert_wikidata",
+    "bert_conceptnet",
+    "qwen4b_wikidata",
+    "gemmae4b_wikidata"
+   ],
+   "smoke": false,
+   "stage": "selection",
+   "time_utc": "2026-09-19T22:45:29Z"
+  },
+  {
+   "gpu": "NVIDIA RTX A6000",
+   "kind": "run_started",
+   "pairs": [
+    "bert_wikidata",
+    "bert_conceptnet",
+    "qwen4b_wikidata",
+    "gemmae4b_wikidata"
+   ],
+   "smoke": false,
+   "stage": "final",
+   "time_utc": "2026-09-19T22:46:15Z"
+  },
+  {
+   "field": "subject",
+   "kind": "feature_generated",
+   "layer": 6,
+   "pair": "bert_wikidata",
+   "path": "results/appendix/independent_layer_selection/feature_cache/bert-base-uncased/wikidata_train_subject_mean_L6.pt",
+   "rows": 33937,
+   "split": "train",
+   "time_utc": "2026-09-19T22:46:26Z"
+  },
+  {
+   "field": "pred_value",
+   "kind": "feature_generated",
+   "layer": 6,
+   "pair": "bert_wikidata",
+   "path": "results/appendix/independent_layer_selection/feature_cache/bert-base-uncased/wikidata_train_pred_value_mean_L6.pt",
+   "rows": 33937,
+   "split": "train",
+   "time_utc": "2026-09-19T22:46:31Z"
+  },
+  {
+   "field": "object",
+   "kind": "feature_generated",
+   "layer": 6,
+   "pair": "bert_wikidata",
+   "path": "results/appendix/independent_layer_selection/feature_cache/bert-base-uncased/wikidata_train_object_mean_L6.pt",
+   "rows": 33937,
+   "split": "train",
+   "time_utc": "2026-09-19T22:46:39Z"
+  },
+  {
+   "field": "subject",
+   "kind": "feature_generated",
+   "layer": 6,
+   "pair": "bert_wikidata",
+   "path": "results/appendix/independent_layer_selection/feature_cache/bert-base-uncased/wikidata_test_subject_mean_L6.pt",
+   "rows": 4243,
+   "split": "test",
+   "time_utc": "2026-09-19T22:46:40Z"
+  },
+  {
+   "field": "pred_value",
+   "kind": "feature_generated",
+   "layer": 6,
+   "pair": "bert_wikidata",
+   "path": "results/appendix/independent_layer_selection/feature_cache/bert-base-uncased/wikidata_test_pred_value_mean_L6.pt",
+   "rows": 4243,
+   "split": "test",
+   "time_utc": "2026-09-19T22:46:40Z"
+  },
+  {
+   "field": "object",
+   "kind": "feature_generated",
+   "layer": 6,
+   "pair": "bert_wikidata",
+   "path": "results/appendix/independent_layer_selection/feature_cache/bert-base-uncased/wikidata_test_object_mean_L6.pt",
+   "rows": 4243,
+   "split": "test",
+   "time_utc": "2026-09-19T22:46:41Z"
+  },
+  {
+   "field": "subject",
+   "kind": "feature_generated",
+   "layer": 4,
+   "pair": "bert_conceptnet",
+   "path": "results/appendix/independent_layer_selection/feature_cache/bert-base-uncased/conceptnet_train_subject_mean_L4.pt",
+   "rows": 29081,
+   "split": "train",
+   "time_utc": "2026-09-19T22:49:59Z"
+  },
+  {
+   "field": "pred_value",
+   "kind": "feature_generated",
+   "layer": 4,
+   "pair": "bert_conceptnet",
+   "path": "results/appendix/independent_layer_selection/feature_cache/bert-base-uncased/conceptnet_train_pred_value_mean_L4.pt",
+   "rows": 29081,
+   "split": "train",
+   "time_utc": "2026-09-19T22:50:02Z"
+  },
+  {
+   "field": "object",
+   "kind": "feature_generated",
+   "layer": 4,
+   "pair": "bert_conceptnet",
+   "path": "results/appendix/independent_layer_selection/feature_cache/bert-base-uncased/conceptnet_train_object_mean_L4.pt",
+   "rows": 29081,
+   "split": "train",
+   "time_utc": "2026-09-19T22:50:07Z"
+  },
+  {
+   "field": "subject",
+   "kind": "feature_generated",
+   "layer": 4,
+   "pair": "bert_conceptnet",
+   "path": "results/appendix/independent_layer_selection/feature_cache/bert-base-uncased/conceptnet_test_subject_mean_L4.pt",
+   "rows": 3635,
+   "split": "test",
+   "time_utc": "2026-09-19T22:50:07Z"
+  },
+  {
+   "field": "pred_value",
+   "kind": "feature_generated",
+   "layer": 4,
+   "pair": "bert_conceptnet",
+   "path": "results/appendix/independent_layer_selection/feature_cache/bert-base-uncased/conceptnet_test_pred_value_mean_L4.pt",
+   "rows": 3635,
+   "split": "test",
+   "time_utc": "2026-09-19T22:50:08Z"
+  },
+  {
+   "field": "object",
+   "kind": "feature_generated",
+   "layer": 4,
+   "pair": "bert_conceptnet",
+   "path": "results/appendix/independent_layer_selection/feature_cache/bert-base-uncased/conceptnet_test_object_mean_L4.pt",
+   "rows": 3635,
+   "split": "test",
+   "time_utc": "2026-09-19T22:50:08Z"
+  }
+ ],
+ "feature_sources": {
+  "bert_conceptnet|test|object|L10": "legacy",
+  "bert_conceptnet|test|object|L4": "revision_generated",
+  "bert_conceptnet|test|pred_value|L10": "legacy",
+  "bert_conceptnet|test|pred_value|L4": "revision_generated",
+  "bert_conceptnet|test|subject|L10": "legacy",
+  "bert_conceptnet|test|subject|L4": "revision_generated",
+  "bert_conceptnet|traincal8000|object|L10": "revision_generated",
+  "bert_conceptnet|traincal8000|object|L12": "revision_generated",
+  "bert_conceptnet|traincal8000|object|L2": "revision_generated",
+  "bert_conceptnet|traincal8000|object|L4": "revision_generated",
+  "bert_conceptnet|traincal8000|object|L6": "revision_generated",
+  "bert_conceptnet|traincal8000|pred_value|L10": "revision_generated",
+  "bert_conceptnet|traincal8000|pred_value|L12": "revision_generated",
+  "bert_conceptnet|traincal8000|pred_value|L2": "revision_generated",
+  "bert_conceptnet|traincal8000|pred_value|L4": "revision_generated",
+  "bert_conceptnet|traincal8000|pred_value|L6": "revision_generated",
+  "bert_conceptnet|traincal8000|subject|L10": "revision_generated",
+  "bert_conceptnet|traincal8000|subject|L12": "revision_generated",
+  "bert_conceptnet|traincal8000|subject|L2": "revision_generated",
+  "bert_conceptnet|traincal8000|subject|L4": "revision_generated",
+  "bert_conceptnet|traincal8000|subject|L6": "revision_generated",
+  "bert_conceptnet|train|object|L10": "legacy",
+  "bert_conceptnet|train|object|L4": "revision_generated",
+  "bert_conceptnet|train|pred_value|L10": "legacy",
+  "bert_conceptnet|train|pred_value|L4": "revision_generated",
+  "bert_conceptnet|train|subject|L10": "legacy",
+  "bert_conceptnet|train|subject|L4": "revision_generated",
+  "bert_conceptnet|valid|object|L10": "legacy",
+  "bert_conceptnet|valid|object|L12": "revision_generated",
+  "bert_conceptnet|valid|object|L2": "revision_generated",
+  "bert_conceptnet|valid|object|L4": "revision",
+  "bert_conceptnet|valid|object|L6": "revision_generated",
+  "bert_conceptnet|valid|pred_value|L10": "legacy",
+  "bert_conceptnet|valid|pred_value|L12": "revision_generated",
+  "bert_conceptnet|valid|pred_value|L2": "revision_generated",
+  "bert_conceptnet|valid|pred_value|L4": "revision",
+  "bert_conceptnet|valid|pred_value|L6": "revision_generated",
+  "bert_conceptnet|valid|subject|L10": "legacy",
+  "bert_conceptnet|valid|subject|L12": "revision_generated",
+  "bert_conceptnet|valid|subject|L2": "revision_generated",
+  "bert_conceptnet|valid|subject|L4": "revision",
+  "bert_conceptnet|valid|subject|L6": "revision_generated",
+  "bert_wikidata|test|object|L10": "legacy",
+  "bert_wikidata|test|object|L6": "revision_generated",
+  "bert_wikidata|test|pred_value|L10": "legacy",
+  "bert_wikidata|test|pred_value|L6": "revision_generated",
+  "bert_wikidata|test|subject|L10": "legacy",
+  "bert_wikidata|test|subject|L6": "revision_generated",
+  "bert_wikidata|traincal8000|object|L10": "legacy",
+  "bert_wikidata|traincal8000|object|L12": "legacy",
+  "bert_wikidata|traincal8000|object|L2": "legacy",
+  "bert_wikidata|traincal8000|object|L4": "legacy",
+  "bert_wikidata|traincal8000|object|L6": "legacy",
+  "bert_wikidata|traincal8000|pred_value|L10": "legacy",
+  "bert_wikidata|traincal8000|pred_value|L12": "legacy",
+  "bert_wikidata|traincal8000|pred_value|L2": "legacy",
+  "bert_wikidata|traincal8000|pred_value|L4": "legacy",
+  "bert_wikidata|traincal8000|pred_value|L6": "legacy",
+  "bert_wikidata|traincal8000|subject|L10": "legacy",
+  "bert_wikidata|traincal8000|subject|L12": "legacy",
+  "bert_wikidata|traincal8000|subject|L2": "legacy",
+  "bert_wikidata|traincal8000|subject|L4": "legacy",
+  "bert_wikidata|traincal8000|subject|L6": "legacy",
+  "bert_wikidata|train|object|L10": "legacy",
+  "bert_wikidata|train|object|L6": "revision_generated",
+  "bert_wikidata|train|pred_value|L10": "legacy",
+  "bert_wikidata|train|pred_value|L6": "revision_generated",
+  "bert_wikidata|train|subject|L10": "legacy",
+  "bert_wikidata|train|subject|L6": "revision_generated",
+  "bert_wikidata|valid|object|L10": "legacy",
+  "bert_wikidata|valid|object|L12": "legacy",
+  "bert_wikidata|valid|object|L2": "legacy",
+  "bert_wikidata|valid|object|L4": "legacy",
+  "bert_wikidata|valid|object|L6": "legacy",
+  "bert_wikidata|valid|pred_value|L10": "legacy",
+  "bert_wikidata|valid|pred_value|L12": "legacy",
+  "bert_wikidata|valid|pred_value|L2": "legacy",
+  "bert_wikidata|valid|pred_value|L4": "legacy",
+  "bert_wikidata|valid|pred_value|L6": "legacy",
+  "bert_wikidata|valid|subject|L10": "legacy",
+  "bert_wikidata|valid|subject|L12": "legacy",
+  "bert_wikidata|valid|subject|L2": "legacy",
+  "bert_wikidata|valid|subject|L4": "legacy",
+  "bert_wikidata|valid|subject|L6": "legacy",
+  "gemmae4b_wikidata|test|object|L33": "legacy",
+  "gemmae4b_wikidata|test|pred_value|L33": "legacy",
+  "gemmae4b_wikidata|test|subject|L33": "legacy",
+  "gemmae4b_wikidata|traincal8000|object|L18": "legacy",
+  "gemmae4b_wikidata|traincal8000|object|L24": "legacy",
+  "gemmae4b_wikidata|traincal8000|object|L33": "legacy",
+  "gemmae4b_wikidata|traincal8000|object|L42": "legacy",
+  "gemmae4b_wikidata|traincal8000|object|L9": "legacy",
+  "gemmae4b_wikidata|traincal8000|pred_value|L18": "legacy",
+  "gemmae4b_wikidata|traincal8000|pred_value|L24": "legacy",
+  "gemmae4b_wikidata|traincal8000|pred_value|L33": "legacy",
+  "gemmae4b_wikidata|traincal8000|pred_value|L42": "legacy",
+  "gemmae4b_wikidata|traincal8000|pred_value|L9": "legacy",
+  "gemmae4b_wikidata|traincal8000|subject|L18": "legacy",
+  "gemmae4b_wikidata|traincal8000|subject|L24": "legacy",
+  "gemmae4b_wikidata|traincal8000|subject|L33": "legacy",
+  "gemmae4b_wikidata|traincal8000|subject|L42": "legacy",
+  "gemmae4b_wikidata|traincal8000|subject|L9": "legacy",
+  "gemmae4b_wikidata|train|object|L33": "legacy",
+  "gemmae4b_wikidata|train|pred_value|L33": "legacy",
+  "gemmae4b_wikidata|train|subject|L33": "legacy",
+  "gemmae4b_wikidata|valid|object|L18": "legacy",
+  "gemmae4b_wikidata|valid|object|L24": "legacy",
+  "gemmae4b_wikidata|valid|object|L33": "legacy",
+  "gemmae4b_wikidata|valid|object|L42": "legacy",
+  "gemmae4b_wikidata|valid|object|L9": "legacy",
+  "gemmae4b_wikidata|valid|pred_value|L18": "legacy",
+  "gemmae4b_wikidata|valid|pred_value|L24": "legacy",
+  "gemmae4b_wikidata|valid|pred_value|L33": "legacy",
+  "gemmae4b_wikidata|valid|pred_value|L42": "legacy",
+  "gemmae4b_wikidata|valid|pred_value|L9": "legacy",
+  "gemmae4b_wikidata|valid|subject|L18": "legacy",
+  "gemmae4b_wikidata|valid|subject|L24": "legacy",
+  "gemmae4b_wikidata|valid|subject|L33": "legacy",
+  "gemmae4b_wikidata|valid|subject|L42": "legacy",
+  "gemmae4b_wikidata|valid|subject|L9": "legacy",
+  "qwen4b_wikidata|test|object|L26": "legacy",
+  "qwen4b_wikidata|test|pred_value|L26": "legacy",
+  "qwen4b_wikidata|test|subject|L26": "legacy",
+  "qwen4b_wikidata|traincal8000|object|L12": "legacy",
+  "qwen4b_wikidata|traincal8000|object|L20": "legacy",
+  "qwen4b_wikidata|traincal8000|object|L26": "legacy",
+  "qwen4b_wikidata|traincal8000|object|L32": "legacy",
+  "qwen4b_wikidata|traincal8000|object|L6": "legacy",
+  "qwen4b_wikidata|traincal8000|pred_value|L12": "legacy",
+  "qwen4b_wikidata|traincal8000|pred_value|L20": "legacy",
+  "qwen4b_wikidata|traincal8000|pred_value|L26": "legacy",
+  "qwen4b_wikidata|traincal8000|pred_value|L32": "legacy",
+  "qwen4b_wikidata|traincal8000|pred_value|L6": "legacy",
+  "qwen4b_wikidata|traincal8000|subject|L12": "legacy",
+  "qwen4b_wikidata|traincal8000|subject|L20": "legacy",
+  "qwen4b_wikidata|traincal8000|subject|L26": "legacy",
+  "qwen4b_wikidata|traincal8000|subject|L32": "legacy",
+  "qwen4b_wikidata|traincal8000|subject|L6": "legacy",
+  "qwen4b_wikidata|train|object|L26": "legacy",
+  "qwen4b_wikidata|train|pred_value|L26": "legacy",
+  "qwen4b_wikidata|train|subject|L26": "legacy",
+  "qwen4b_wikidata|valid|object|L12": "legacy",
+  "qwen4b_wikidata|valid|object|L20": "legacy",
+  "qwen4b_wikidata|valid|object|L26": "legacy",
+  "qwen4b_wikidata|valid|object|L32": "legacy",
+  "qwen4b_wikidata|valid|object|L6": "legacy",
+  "qwen4b_wikidata|valid|pred_value|L12": "legacy",
+  "qwen4b_wikidata|valid|pred_value|L20": "legacy",
+  "qwen4b_wikidata|valid|pred_value|L26": "legacy",
+  "qwen4b_wikidata|valid|pred_value|L32": "legacy",
+  "qwen4b_wikidata|valid|pred_value|L6": "legacy",
+  "qwen4b_wikidata|valid|subject|L12": "legacy",
+  "qwen4b_wikidata|valid|subject|L20": "legacy",
+  "qwen4b_wikidata|valid|subject|L26": "legacy",
+  "qwen4b_wikidata|valid|subject|L32": "legacy",
+  "qwen4b_wikidata|valid|subject|L6": "legacy"
+ },
+ "final": {
+  "bert_conceptnet": {
+   "mixture8_composite_infonce|L10|seed0": {
+    "Hits@1": 0.1452544778585434,
+    "MRR": 0.22992324829101562,
+    "best_epoch": 18,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/final_mixture8_composite_infonce_L10_seed0.pt",
+    "epochs_run": 30,
+    "roles": [
+     "fixed_shared"
+    ],
+    "seconds": 18.5704927444458
+   },
+   "mixture8_composite_infonce|L10|seed1": {
+    "Hits@1": 0.1485557109117508,
+    "MRR": 0.23147498071193695,
+    "best_epoch": 13,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/final_mixture8_composite_infonce_L10_seed1.pt",
+    "epochs_run": 25,
+    "roles": [
+     "fixed_shared"
+    ],
+    "seconds": 14.813963413238525
+   },
+   "mixture8_composite_infonce|L10|seed2": {
+    "Hits@1": 0.14938101172447205,
+    "MRR": 0.23389306664466858,
+    "best_epoch": 15,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/final_mixture8_composite_infonce_L10_seed2.pt",
+    "epochs_run": 27,
+    "roles": [
+     "fixed_shared"
+    ],
+    "seconds": 16.75101590156555
+   },
+   "mixture8_composite_infonce|L4|seed0": {
+    "Hits@1": 0.1554332822561264,
+    "MRR": 0.24476760625839233,
+    "best_epoch": 6,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/final_mixture8_composite_infonce_L4_seed0.pt",
+    "epochs_run": 18,
+    "roles": [
+     "independent"
+    ],
+    "seconds": 11.344177484512329
+   },
+   "mixture8_composite_infonce|L4|seed1": {
+    "Hits@1": 0.15570838749408722,
+    "MRR": 0.2419384866952896,
+    "best_epoch": 5,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/final_mixture8_composite_infonce_L4_seed1.pt",
+    "epochs_run": 17,
+    "roles": [
+     "independent"
+    ],
+    "seconds": 10.008570909500122
+   },
+   "mixture8_composite_infonce|L4|seed2": {
+    "Hits@1": 0.15680880844593048,
+    "MRR": 0.2438346892595291,
+    "best_epoch": 6,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/final_mixture8_composite_infonce_L4_seed2.pt",
+    "epochs_run": 18,
+    "roles": [
+     "independent"
+    ],
+    "seconds": 11.037042617797852
+   },
+   "mixture8_cosine|L10|seed0": {
+    "Hits@1": 0.05254470556974411,
+    "MRR": 0.08430437743663788,
+    "best_epoch": 10,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/final_mixture8_cosine_L10_seed0.pt",
+    "epochs_run": 22,
+    "roles": [
+     "fixed_shared"
+    ],
+    "seconds": 10.652225255966187
+   },
+   "mixture8_cosine|L10|seed1": {
+    "Hits@1": 0.0574965626001358,
+    "MRR": 0.09169614315032959,
+    "best_epoch": 13,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/final_mixture8_cosine_L10_seed1.pt",
+    "epochs_run": 25,
+    "roles": [
+     "fixed_shared"
+    ],
+    "seconds": 12.039050817489624
+   },
+   "mixture8_cosine|L10|seed2": {
+    "Hits@1": 0.04951857030391693,
+    "MRR": 0.08122386783361435,
+    "best_epoch": 9,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/final_mixture8_cosine_L10_seed2.pt",
+    "epochs_run": 21,
+    "roles": [
+     "fixed_shared"
+    ],
+    "seconds": 10.67741322517395
+   },
+   "mixture8_cosine|L4|seed0": {
+    "Hits@1": 0.07537826895713806,
+    "MRR": 0.11824064701795578,
+    "best_epoch": 8,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/final_mixture8_cosine_L4_seed0.pt",
+    "epochs_run": 20,
+    "roles": [
+     "independent"
+    ],
+    "seconds": 10.445973873138428
+   },
+   "mixture8_cosine|L4|seed1": {
+    "Hits@1": 0.07510316371917725,
+    "MRR": 0.11671021580696106,
+    "best_epoch": 7,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/final_mixture8_cosine_L4_seed1.pt",
+    "epochs_run": 19,
+    "roles": [
+     "independent"
+    ],
+    "seconds": 9.526028156280518
+   },
+   "mixture8_cosine|L4|seed2": {
+    "Hits@1": 0.0759284719824791,
+    "MRR": 0.12064142525196075,
+    "best_epoch": 8,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/final_mixture8_cosine_L4_seed2.pt",
+    "epochs_run": 20,
+    "roles": [
+     "independent"
+    ],
+    "seconds": 10.459688425064087
+   },
+   "single_composite_infonce|L10|seed0": {
+    "Hits@1": 0.11581843346357346,
+    "MRR": 0.1937367469072342,
+    "best_epoch": 18,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/final_single_composite_infonce_L10_seed0.pt",
+    "epochs_run": 30,
+    "roles": [
+     "fixed_shared"
+    ],
+    "seconds": 5.252333164215088
+   },
+   "single_composite_infonce|L10|seed1": {
+    "Hits@1": 0.11801926046609879,
+    "MRR": 0.1956300139427185,
+    "best_epoch": 28,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/final_single_composite_infonce_L10_seed1.pt",
+    "epochs_run": 40,
+    "roles": [
+     "fixed_shared"
+    ],
+    "seconds": 13.039197444915771
+   },
+   "single_composite_infonce|L10|seed2": {
+    "Hits@1": 0.11361760646104813,
+    "MRR": 0.19313114881515503,
+    "best_epoch": 23,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/final_single_composite_infonce_L10_seed2.pt",
+    "epochs_run": 35,
+    "roles": [
+     "fixed_shared"
+    ],
+    "seconds": 13.979445934295654
+   },
+   "single_composite_infonce|L4|seed0": {
+    "Hits@1": 0.121595598757267,
+    "MRR": 0.20455344021320343,
+    "best_epoch": 9,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/final_single_composite_infonce_L4_seed0.pt",
+    "epochs_run": 21,
+    "roles": [
+     "independent"
+    ],
+    "seconds": 8.63779354095459
+   },
+   "single_composite_infonce|L4|seed1": {
+    "Hits@1": 0.12434662878513336,
+    "MRR": 0.21000318229198456,
+    "best_epoch": 14,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/final_single_composite_infonce_L4_seed1.pt",
+    "epochs_run": 26,
+    "roles": [
+     "independent"
+    ],
+    "seconds": 10.485139608383179
+   },
+   "single_composite_infonce|L4|seed2": {
+    "Hits@1": 0.1284731775522232,
+    "MRR": 0.21229751408100128,
+    "best_epoch": 14,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/final_single_composite_infonce_L4_seed2.pt",
+    "epochs_run": 26,
+    "roles": [
+     "independent"
+    ],
+    "seconds": 10.39193844795227
+   },
+   "single_cosine|L10|seed0": {
+    "Hits@1": 0.032187070697546005,
+    "MRR": 0.05857497826218605,
+    "best_epoch": 42,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/final_single_cosine_L10_seed0.pt",
+    "epochs_run": 54,
+    "roles": [
+     "fixed_shared"
+    ],
+    "seconds": 14.855971813201904
+   },
+   "single_cosine|L10|seed1": {
+    "Hits@1": 0.03328748419880867,
+    "MRR": 0.060786906629800797,
+    "best_epoch": 48,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/final_single_cosine_L10_seed1.pt",
+    "epochs_run": 60,
+    "roles": [
+     "fixed_shared"
+    ],
+    "seconds": 16.896814584732056
+   },
+   "single_cosine|L10|seed2": {
+    "Hits@1": 0.03356258571147919,
+    "MRR": 0.06053589656949043,
+    "best_epoch": 52,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/final_single_cosine_L10_seed2.pt",
+    "epochs_run": 60,
+    "roles": [
+     "fixed_shared"
+    ],
+    "seconds": 16.793957471847534
+   },
+   "single_cosine|L4|seed0": {
+    "Hits@1": 0.05612104386091232,
+    "MRR": 0.08912930637598038,
+    "best_epoch": 33,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/final_single_cosine_L4_seed0.pt",
+    "epochs_run": 45,
+    "roles": [
+     "independent"
+    ],
+    "seconds": 12.165749311447144
+   },
+   "single_cosine|L4|seed1": {
+    "Hits@1": 0.0574965626001358,
+    "MRR": 0.0902516096830368,
+    "best_epoch": 32,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/final_single_cosine_L4_seed1.pt",
+    "epochs_run": 44,
+    "roles": [
+     "independent"
+    ],
+    "seconds": 12.64658260345459
+   },
+   "single_cosine|L4|seed2": {
+    "Hits@1": 0.05392022058367729,
+    "MRR": 0.08674686402082443,
+    "best_epoch": 23,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/final_single_cosine_L4_seed2.pt",
+    "epochs_run": 35,
+    "roles": [
+     "independent"
+    ],
+    "seconds": 9.959070682525635
+   }
+  },
+  "bert_wikidata": {
+   "mixture8_composite_infonce|L10|seed0": {
+    "Hits@1": 0.26962053775787354,
+    "MRR": 0.36249375343322754,
+    "best_epoch": 6,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_wikidata/final_mixture8_composite_infonce_L10_seed0.pt",
+    "epochs_run": 18,
+    "roles": [
+     "independent",
+     "fixed_shared"
+    ],
+    "seconds": 13.15883207321167
+   },
+   "mixture8_composite_infonce|L10|seed1": {
+    "Hits@1": 0.2634928226470947,
+    "MRR": 0.3583081066608429,
+    "best_epoch": 4,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_wikidata/final_mixture8_composite_infonce_L10_seed1.pt",
+    "epochs_run": 16,
+    "roles": [
+     "independent",
+     "fixed_shared"
+    ],
+    "seconds": 11.298472166061401
+   },
+   "mixture8_composite_infonce|L10|seed2": {
+    "Hits@1": 0.26914918422698975,
+    "MRR": 0.3600790202617645,
+    "best_epoch": 4,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_wikidata/final_mixture8_composite_infonce_L10_seed2.pt",
+    "epochs_run": 16,
+    "roles": [
+     "independent",
+     "fixed_shared"
+    ],
+    "seconds": 10.86162257194519
+   },
+   "mixture8_cosine|L10|seed0": {
+    "Hits@1": 0.24181003868579865,
+    "MRR": 0.3200362026691437,
+    "best_epoch": 11,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_wikidata/final_mixture8_cosine_L10_seed0.pt",
+    "epochs_run": 23,
+    "roles": [
+     "independent",
+     "fixed_shared"
+    ],
+    "seconds": 13.607181787490845
+   },
+   "mixture8_cosine|L10|seed1": {
+    "Hits@1": 0.24463823437690735,
+    "MRR": 0.3195439875125885,
+    "best_epoch": 9,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_wikidata/final_mixture8_cosine_L10_seed1.pt",
+    "epochs_run": 21,
+    "roles": [
+     "independent",
+     "fixed_shared"
+    ],
+    "seconds": 12.56139612197876
+   },
+   "mixture8_cosine|L10|seed2": {
+    "Hits@1": 0.25382983684539795,
+    "MRR": 0.33054298162460327,
+    "best_epoch": 15,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_wikidata/final_mixture8_cosine_L10_seed2.pt",
+    "epochs_run": 27,
+    "roles": [
+     "independent",
+     "fixed_shared"
+    ],
+    "seconds": 16.10076642036438
+   },
+   "single_composite_infonce|L10|seed0": {
+    "Hits@1": 0.25076597929000854,
+    "MRR": 0.344125896692276,
+    "best_epoch": 8,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_wikidata/final_single_composite_infonce_L10_seed0.pt",
+    "epochs_run": 20,
+    "roles": [
+     "fixed_shared"
+    ],
+    "seconds": 8.952379941940308
+   },
+   "single_composite_infonce|L10|seed1": {
+    "Hits@1": 0.2524157464504242,
+    "MRR": 0.34490716457366943,
+    "best_epoch": 8,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_wikidata/final_single_composite_infonce_L10_seed1.pt",
+    "epochs_run": 20,
+    "roles": [
+     "fixed_shared"
+    ],
+    "seconds": 9.191160678863525
+   },
+   "single_composite_infonce|L10|seed2": {
+    "Hits@1": 0.2550082504749298,
+    "MRR": 0.34619852900505066,
+    "best_epoch": 8,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_wikidata/final_single_composite_infonce_L10_seed2.pt",
+    "epochs_run": 20,
+    "roles": [
+     "fixed_shared"
+    ],
+    "seconds": 8.825339317321777
+   },
+   "single_composite_infonce|L6|seed0": {
+    "Hits@1": 0.24770209193229675,
+    "MRR": 0.33383163809776306,
+    "best_epoch": 5,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_wikidata/final_single_composite_infonce_L6_seed0.pt",
+    "epochs_run": 17,
+    "roles": [
+     "independent"
+    ],
+    "seconds": 8.32263970375061
+   },
+   "single_composite_infonce|L6|seed1": {
+    "Hits@1": 0.25076597929000854,
+    "MRR": 0.33895343542099,
+    "best_epoch": 7,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_wikidata/final_single_composite_infonce_L6_seed1.pt",
+    "epochs_run": 19,
+    "roles": [
+     "independent"
+    ],
+    "seconds": 9.151433229446411
+   },
+   "single_composite_infonce|L6|seed2": {
+    "Hits@1": 0.25335848331451416,
+    "MRR": 0.3397989571094513,
+    "best_epoch": 8,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_wikidata/final_single_composite_infonce_L6_seed2.pt",
+    "epochs_run": 20,
+    "roles": [
+     "independent"
+    ],
+    "seconds": 9.489951372146606
+   },
+   "single_cosine|L10|seed0": {
+    "Hits@1": 0.19608767330646515,
+    "MRR": 0.2717321515083313,
+    "best_epoch": 59,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_wikidata/final_single_cosine_L10_seed0.pt",
+    "epochs_run": 60,
+    "roles": [
+     "independent",
+     "fixed_shared"
+    ],
+    "seconds": 19.57518434524536
+   },
+   "single_cosine|L10|seed1": {
+    "Hits@1": 0.19844450056552887,
+    "MRR": 0.27329328656196594,
+    "best_epoch": 60,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_wikidata/final_single_cosine_L10_seed1.pt",
+    "epochs_run": 60,
+    "roles": [
+     "independent",
+     "fixed_shared"
+    ],
+    "seconds": 19.52450394630432
+   },
+   "single_cosine|L10|seed2": {
+    "Hits@1": 0.1975017637014389,
+    "MRR": 0.27255165576934814,
+    "best_epoch": 58,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_wikidata/final_single_cosine_L10_seed2.pt",
+    "epochs_run": 60,
+    "roles": [
+     "independent",
+     "fixed_shared"
+    ],
+    "seconds": 18.291017770767212
+   }
+  },
+  "gemmae4b_wikidata": {
+   "mixture8_composite_infonce|L33|seed0": {
+    "Hits@1": 0.3462173044681549,
+    "MRR": 0.4520874619483948,
+    "best_epoch": 7,
+    "cell": "results/appendix/independent_layer_selection/cells/gemmae4b_wikidata/final_mixture8_composite_infonce_L33_seed0.pt",
+    "epochs_run": 19,
+    "roles": [
+     "independent",
+     "fixed_shared"
+    ],
+    "seconds": 14.40436601638794
+   },
+   "mixture8_composite_infonce|L33|seed1": {
+    "Hits@1": 0.34551024436950684,
+    "MRR": 0.45299816131591797,
+    "best_epoch": 7,
+    "cell": "results/appendix/independent_layer_selection/cells/gemmae4b_wikidata/final_mixture8_composite_infonce_L33_seed1.pt",
+    "epochs_run": 19,
+    "roles": [
+     "independent",
+     "fixed_shared"
+    ],
+    "seconds": 14.198838710784912
+   },
+   "mixture8_composite_infonce|L33|seed2": {
+    "Hits@1": 0.34763139486312866,
+    "MRR": 0.45391911268234253,
+    "best_epoch": 7,
+    "cell": "results/appendix/independent_layer_selection/cells/gemmae4b_wikidata/final_mixture8_composite_infonce_L33_seed2.pt",
+    "epochs_run": 19,
+    "roles": [
+     "independent",
+     "fixed_shared"
+    ],
+    "seconds": 14.478012323379517
+   },
+   "mixture8_cosine|L33|seed0": {
+    "Hits@1": 0.2830544412136078,
+    "MRR": 0.37309905886650085,
+    "best_epoch": 12,
+    "cell": "results/appendix/independent_layer_selection/cells/gemmae4b_wikidata/final_mixture8_cosine_L33_seed0.pt",
+    "epochs_run": 24,
+    "roles": [
+     "independent",
+     "fixed_shared"
+    ],
+    "seconds": 14.875061511993408
+   },
+   "mixture8_cosine|L33|seed1": {
+    "Hits@1": 0.2922460436820984,
+    "MRR": 0.3767561912536621,
+    "best_epoch": 12,
+    "cell": "results/appendix/independent_layer_selection/cells/gemmae4b_wikidata/final_mixture8_cosine_L33_seed1.pt",
+    "epochs_run": 24,
+    "roles": [
+     "independent",
+     "fixed_shared"
+    ],
+    "seconds": 14.922775268554688
+   },
+   "mixture8_cosine|L33|seed2": {
+    "Hits@1": 0.2938958406448364,
+    "MRR": 0.3802242577075958,
+    "best_epoch": 14,
+    "cell": "results/appendix/independent_layer_selection/cells/gemmae4b_wikidata/final_mixture8_cosine_L33_seed2.pt",
+    "epochs_run": 26,
+    "roles": [
+     "independent",
+     "fixed_shared"
+    ],
+    "seconds": 16.13786792755127
+   },
+   "single_composite_infonce|L33|seed0": {
+    "Hits@1": 0.3372613787651062,
+    "MRR": 0.44601622223854065,
+    "best_epoch": 16,
+    "cell": "results/appendix/independent_layer_selection/cells/gemmae4b_wikidata/final_single_composite_infonce_L33_seed0.pt",
+    "epochs_run": 28,
+    "roles": [
+     "independent",
+     "fixed_shared"
+    ],
+    "seconds": 13.42931580543518
+   },
+   "single_composite_infonce|L33|seed1": {
+    "Hits@1": 0.33820411562919617,
+    "MRR": 0.44610825181007385,
+    "best_epoch": 17,
+    "cell": "results/appendix/independent_layer_selection/cells/gemmae4b_wikidata/final_single_composite_infonce_L33_seed1.pt",
+    "epochs_run": 29,
+    "roles": [
+     "independent",
+     "fixed_shared"
+    ],
+    "seconds": 13.098836421966553
+   },
+   "single_composite_infonce|L33|seed2": {
+    "Hits@1": 0.3374970555305481,
+    "MRR": 0.44531261920928955,
+    "best_epoch": 17,
+    "cell": "results/appendix/independent_layer_selection/cells/gemmae4b_wikidata/final_single_composite_infonce_L33_seed2.pt",
+    "epochs_run": 29,
+    "roles": [
+     "independent",
+     "fixed_shared"
+    ],
+    "seconds": 13.890920400619507
+   },
+   "single_cosine|L33|seed0": {
+    "Hits@1": 0.20150837302207947,
+    "MRR": 0.287404865026474,
+    "best_epoch": 59,
+    "cell": "results/appendix/independent_layer_selection/cells/gemmae4b_wikidata/final_single_cosine_L33_seed0.pt",
+    "epochs_run": 60,
+    "roles": [
+     "independent",
+     "fixed_shared"
+    ],
+    "seconds": 20.13105273246765
+   },
+   "single_cosine|L33|seed1": {
+    "Hits@1": 0.2005656361579895,
+    "MRR": 0.2865291237831116,
+    "best_epoch": 57,
+    "cell": "results/appendix/independent_layer_selection/cells/gemmae4b_wikidata/final_single_cosine_L33_seed1.pt",
+    "epochs_run": 60,
+    "roles": [
+     "independent",
+     "fixed_shared"
+    ],
+    "seconds": 20.199543714523315
+   },
+   "single_cosine|L33|seed2": {
+    "Hits@1": 0.2008013129234314,
+    "MRR": 0.2864514887332916,
+    "best_epoch": 58,
+    "cell": "results/appendix/independent_layer_selection/cells/gemmae4b_wikidata/final_single_cosine_L33_seed2.pt",
+    "epochs_run": 60,
+    "roles": [
+     "independent",
+     "fixed_shared"
+    ],
+    "seconds": 20.130183458328247
+   }
+  },
+  "qwen4b_wikidata": {
+   "mixture8_composite_infonce|L26|seed0": {
+    "Hits@1": 0.3250058889389038,
+    "MRR": 0.43064531683921814,
+    "best_epoch": 4,
+    "cell": "results/appendix/independent_layer_selection/cells/qwen4b_wikidata/final_mixture8_composite_infonce_L26_seed0.pt",
+    "epochs_run": 16,
+    "roles": [
+     "independent",
+     "fixed_shared"
+    ],
+    "seconds": 12.305151462554932
+   },
+   "mixture8_composite_infonce|L26|seed1": {
+    "Hits@1": 0.3280697762966156,
+    "MRR": 0.43205055594444275,
+    "best_epoch": 4,
+    "cell": "results/appendix/independent_layer_selection/cells/qwen4b_wikidata/final_mixture8_composite_infonce_L26_seed1.pt",
+    "epochs_run": 16,
+    "roles": [
+     "independent",
+     "fixed_shared"
+    ],
+    "seconds": 12.139142513275146
+   },
+   "mixture8_composite_infonce|L26|seed2": {
+    "Hits@1": 0.3280697762966156,
+    "MRR": 0.43088284134864807,
+    "best_epoch": 4,
+    "cell": "results/appendix/independent_layer_selection/cells/qwen4b_wikidata/final_mixture8_composite_infonce_L26_seed2.pt",
+    "epochs_run": 16,
+    "roles": [
+     "independent",
+     "fixed_shared"
+    ],
+    "seconds": 11.311341762542725
+   },
+   "mixture8_cosine|L26|seed0": {
+    "Hits@1": 0.29342445731163025,
+    "MRR": 0.3799053728580475,
+    "best_epoch": 10,
+    "cell": "results/appendix/independent_layer_selection/cells/qwen4b_wikidata/final_mixture8_cosine_L26_seed0.pt",
+    "epochs_run": 22,
+    "roles": [
+     "independent",
+     "fixed_shared"
+    ],
+    "seconds": 13.687013864517212
+   },
+   "mixture8_cosine|L26|seed1": {
+    "Hits@1": 0.29695969820022583,
+    "MRR": 0.3845776319503784,
+    "best_epoch": 10,
+    "cell": "results/appendix/independent_layer_selection/cells/qwen4b_wikidata/final_mixture8_cosine_L26_seed1.pt",
+    "epochs_run": 22,
+    "roles": [
+     "independent",
+     "fixed_shared"
+    ],
+    "seconds": 13.715172290802002
+   },
+   "mixture8_cosine|L26|seed2": {
+    "Hits@1": 0.29695969820022583,
+    "MRR": 0.3847056031227112,
+    "best_epoch": 10,
+    "cell": "results/appendix/independent_layer_selection/cells/qwen4b_wikidata/final_mixture8_cosine_L26_seed2.pt",
+    "epochs_run": 22,
+    "roles": [
+     "independent",
+     "fixed_shared"
+    ],
+    "seconds": 13.70283579826355
+   },
+   "single_composite_infonce|L26|seed0": {
+    "Hits@1": 0.32453453540802,
+    "MRR": 0.4283480942249298,
+    "best_epoch": 11,
+    "cell": "results/appendix/independent_layer_selection/cells/qwen4b_wikidata/final_single_composite_infonce_L26_seed0.pt",
+    "epochs_run": 23,
+    "roles": [
+     "independent",
+     "fixed_shared"
+    ],
+    "seconds": 10.273146629333496
+   },
+   "single_composite_infonce|L26|seed1": {
+    "Hits@1": 0.32406315207481384,
+    "MRR": 0.4285067617893219,
+    "best_epoch": 10,
+    "cell": "results/appendix/independent_layer_selection/cells/qwen4b_wikidata/final_single_composite_infonce_L26_seed1.pt",
+    "epochs_run": 22,
+    "roles": [
+     "independent",
+     "fixed_shared"
+    ],
+    "seconds": 10.668486833572388
+   },
+   "single_composite_infonce|L26|seed2": {
+    "Hits@1": 0.3259486258029938,
+    "MRR": 0.42943692207336426,
+    "best_epoch": 10,
+    "cell": "results/appendix/independent_layer_selection/cells/qwen4b_wikidata/final_single_composite_infonce_L26_seed2.pt",
+    "epochs_run": 22,
+    "roles": [
+     "independent",
+     "fixed_shared"
+    ],
+    "seconds": 10.787402153015137
+   },
+   "single_cosine|L26|seed0": {
+    "Hits@1": 0.24181003868579865,
+    "MRR": 0.32481998205184937,
+    "best_epoch": 60,
+    "cell": "results/appendix/independent_layer_selection/cells/qwen4b_wikidata/final_single_cosine_L26_seed0.pt",
+    "epochs_run": 60,
+    "roles": [
+     "independent",
+     "fixed_shared"
+    ],
+    "seconds": 19.324052572250366
+   },
+   "single_cosine|L26|seed1": {
+    "Hits@1": 0.24157436192035675,
+    "MRR": 0.3243754804134369,
+    "best_epoch": 57,
+    "cell": "results/appendix/independent_layer_selection/cells/qwen4b_wikidata/final_single_cosine_L26_seed1.pt",
+    "epochs_run": 60,
+    "roles": [
+     "independent",
+     "fixed_shared"
+    ],
+    "seconds": 19.907652378082275
+   },
+   "single_cosine|L26|seed2": {
+    "Hits@1": 0.24063162505626678,
+    "MRR": 0.324006050825119,
+    "best_epoch": 58,
+    "cell": "results/appendix/independent_layer_selection/cells/qwen4b_wikidata/final_single_cosine_L26_seed2.pt",
+    "epochs_run": 60,
+    "roles": [
+     "independent",
+     "fixed_shared"
+    ],
+    "seconds": 19.94873285293579
+   }
+  }
+ },
+ "selected_layers": {
+  "bert_conceptnet": {
+   "mixture8_composite_infonce": 4,
+   "mixture8_cosine": 4,
+   "single_composite_infonce": 4,
+   "single_cosine": 4
+  },
+  "bert_wikidata": {
+   "mixture8_composite_infonce": 10,
+   "mixture8_cosine": 10,
+   "single_composite_infonce": 6,
+   "single_cosine": 10
+  },
+  "gemmae4b_wikidata": {
+   "mixture8_composite_infonce": 33,
+   "mixture8_cosine": 33,
+   "single_composite_infonce": 33,
+   "single_cosine": 33
+  },
+  "qwen4b_wikidata": {
+   "mixture8_composite_infonce": 26,
+   "mixture8_cosine": 26,
+   "single_composite_infonce": 26,
+   "single_cosine": 26
+  }
+ },
+ "selection": {
+  "bert_conceptnet": {
+   "mixture8_composite_infonce|L10": {
+    "Hits@1": 0.09518569707870483,
+    "MRR": 0.16220560669898987,
+    "best_epoch": 7,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/selection_mixture8_composite_infonce_L10_seed1729.pt",
+    "epochs_run": 19,
+    "seconds": 4.164383172988892
+   },
+   "mixture8_composite_infonce|L12": {
+    "Hits@1": 0.08500687777996063,
+    "MRR": 0.15058735013008118,
+    "best_epoch": 10,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/selection_mixture8_composite_infonce_L12_seed1729.pt",
+    "epochs_run": 22,
+    "seconds": 4.783941984176636
+   },
+   "mixture8_composite_infonce|L2": {
+    "Hits@1": 0.09986244887113571,
+    "MRR": 0.1734779179096222,
+    "best_epoch": 6,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/selection_mixture8_composite_infonce_L2_seed1729.pt",
+    "epochs_run": 18,
+    "seconds": 3.632918357849121
+   },
+   "mixture8_composite_infonce|L4": {
+    "Hits@1": 0.11114168167114258,
+    "MRR": 0.1874069720506668,
+    "best_epoch": 6,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/selection_mixture8_composite_infonce_L4_seed1729.pt",
+    "epochs_run": 18,
+    "seconds": 4.029850721359253
+   },
+   "mixture8_composite_infonce|L6": {
+    "Hits@1": 0.1097661629319191,
+    "MRR": 0.17956969141960144,
+    "best_epoch": 6,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/selection_mixture8_composite_infonce_L6_seed1729.pt",
+    "epochs_run": 18,
+    "seconds": 3.961851119995117
+   },
+   "mixture8_cosine|L10": {
+    "Hits@1": 0.031361762434244156,
+    "MRR": 0.05481427535414696,
+    "best_epoch": 10,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/selection_mixture8_cosine_L10_seed1729.pt",
+    "epochs_run": 22,
+    "seconds": 3.962106466293335
+   },
+   "mixture8_cosine|L12": {
+    "Hits@1": 0.022008253261446953,
+    "MRR": 0.040800176560878754,
+    "best_epoch": 12,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/selection_mixture8_cosine_L12_seed1729.pt",
+    "epochs_run": 24,
+    "seconds": 4.252070188522339
+   },
+   "mixture8_cosine|L2": {
+    "Hits@1": 0.026960110291838646,
+    "MRR": 0.051436956971883774,
+    "best_epoch": 8,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/selection_mixture8_cosine_L2_seed1729.pt",
+    "epochs_run": 20,
+    "seconds": 3.57466983795166
+   },
+   "mixture8_cosine|L4": {
+    "Hits@1": 0.048418156802654266,
+    "MRR": 0.08242287486791611,
+    "best_epoch": 8,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/selection_mixture8_cosine_L4_seed1729.pt",
+    "epochs_run": 20,
+    "seconds": 3.4562039375305176
+   },
+   "mixture8_cosine|L6": {
+    "Hits@1": 0.04071526974439621,
+    "MRR": 0.06556464731693268,
+    "best_epoch": 8,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/selection_mixture8_cosine_L6_seed1729.pt",
+    "epochs_run": 20,
+    "seconds": 3.674661159515381
+   },
+   "single_composite_infonce|L10": {
+    "Hits@1": 0.09023384004831314,
+    "MRR": 0.1588730365037918,
+    "best_epoch": 11,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/selection_single_composite_infonce_L10_seed1729.pt",
+    "epochs_run": 23,
+    "seconds": 3.239551305770874
+   },
+   "single_composite_infonce|L12": {
+    "Hits@1": 0.07785419374704361,
+    "MRR": 0.14000779390335083,
+    "best_epoch": 15,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/selection_single_composite_infonce_L12_seed1729.pt",
+    "epochs_run": 27,
+    "seconds": 3.758779764175415
+   },
+   "single_composite_infonce|L2": {
+    "Hits@1": 0.08885832130908966,
+    "MRR": 0.1614096462726593,
+    "best_epoch": 7,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/selection_single_composite_infonce_L2_seed1729.pt",
+    "epochs_run": 19,
+    "seconds": 2.6203525066375732
+   },
+   "single_composite_infonce|L4": {
+    "Hits@1": 0.10261347889900208,
+    "MRR": 0.1725381463766098,
+    "best_epoch": 7,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/selection_single_composite_infonce_L4_seed1729.pt",
+    "epochs_run": 19,
+    "seconds": 2.4689226150512695
+   },
+   "single_composite_infonce|L6": {
+    "Hits@1": 0.0995873436331749,
+    "MRR": 0.1663583666086197,
+    "best_epoch": 7,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/selection_single_composite_infonce_L6_seed1729.pt",
+    "epochs_run": 19,
+    "seconds": 2.8671505451202393
+   },
+   "single_cosine|L10": {
+    "Hits@1": 0.025584593415260315,
+    "MRR": 0.0450412780046463,
+    "best_epoch": 23,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/selection_single_cosine_L10_seed1729.pt",
+    "epochs_run": 35,
+    "seconds": 3.4759974479675293
+   },
+   "single_cosine|L12": {
+    "Hits@1": 0.015955982729792595,
+    "MRR": 0.03155454248189926,
+    "best_epoch": 28,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/selection_single_cosine_L12_seed1729.pt",
+    "epochs_run": 40,
+    "seconds": 3.9062044620513916
+   },
+   "single_cosine|L2": {
+    "Hits@1": 0.015405776910483837,
+    "MRR": 0.036896947771310806,
+    "best_epoch": 14,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/selection_single_cosine_L2_seed1729.pt",
+    "epochs_run": 26,
+    "seconds": 2.683298110961914
+   },
+   "single_cosine|L4": {
+    "Hits@1": 0.03383769094944,
+    "MRR": 0.06172753497958183,
+    "best_epoch": 14,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/selection_single_cosine_L4_seed1729.pt",
+    "epochs_run": 26,
+    "seconds": 2.490453004837036
+   },
+   "single_cosine|L6": {
+    "Hits@1": 0.03191196545958519,
+    "MRR": 0.054636627435684204,
+    "best_epoch": 17,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_conceptnet/selection_single_cosine_L6_seed1729.pt",
+    "epochs_run": 29,
+    "seconds": 2.914341926574707
+   }
+  },
+  "bert_wikidata": {
+   "mixture8_composite_infonce|L10": {
+    "Hits@1": 0.23644506931304932,
+    "MRR": 0.3227985203266144,
+    "best_epoch": 5,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_wikidata/selection_mixture8_composite_infonce_L10_seed1729.pt",
+    "epochs_run": 17,
+    "seconds": 3.377318859100342
+   },
+   "mixture8_composite_infonce|L12": {
+    "Hits@1": 0.23455916345119476,
+    "MRR": 0.31862860918045044,
+    "best_epoch": 6,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_wikidata/selection_mixture8_composite_infonce_L12_seed1729.pt",
+    "epochs_run": 18,
+    "seconds": 3.5115864276885986
+   },
+   "mixture8_composite_infonce|L2": {
+    "Hits@1": 0.22159358859062195,
+    "MRR": 0.30251458287239075,
+    "best_epoch": 4,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_wikidata/selection_mixture8_composite_infonce_L2_seed1729.pt",
+    "epochs_run": 16,
+    "seconds": 3.1539740562438965
+   },
+   "mixture8_composite_infonce|L4": {
+    "Hits@1": 0.2296086698770523,
+    "MRR": 0.3118267357349396,
+    "best_epoch": 5,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_wikidata/selection_mixture8_composite_infonce_L4_seed1729.pt",
+    "epochs_run": 17,
+    "seconds": 3.574937105178833
+   },
+   "mixture8_composite_infonce|L6": {
+    "Hits@1": 0.23644506931304932,
+    "MRR": 0.31759583950042725,
+    "best_epoch": 5,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_wikidata/selection_mixture8_composite_infonce_L6_seed1729.pt",
+    "epochs_run": 17,
+    "seconds": 3.5093836784362793
+   },
+   "mixture8_cosine|L10": {
+    "Hits@1": 0.22395096719264984,
+    "MRR": 0.29953283071517944,
+    "best_epoch": 13,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_wikidata/selection_mixture8_cosine_L10_seed1729.pt",
+    "epochs_run": 25,
+    "seconds": 4.060144662857056
+   },
+   "mixture8_cosine|L12": {
+    "Hits@1": 0.20603488385677338,
+    "MRR": 0.27483686804771423,
+    "best_epoch": 14,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_wikidata/selection_mixture8_cosine_L12_seed1729.pt",
+    "epochs_run": 26,
+    "seconds": 3.8129336833953857
+   },
+   "mixture8_cosine|L2": {
+    "Hits@1": 0.20249882340431213,
+    "MRR": 0.2695010304450989,
+    "best_epoch": 9,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_wikidata/selection_mixture8_cosine_L2_seed1729.pt",
+    "epochs_run": 21,
+    "seconds": 3.392194986343384
+   },
+   "mixture8_cosine|L4": {
+    "Hits@1": 0.2173503041267395,
+    "MRR": 0.28420528769493103,
+    "best_epoch": 9,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_wikidata/selection_mixture8_cosine_L4_seed1729.pt",
+    "epochs_run": 21,
+    "seconds": 3.86145281791687
+   },
+   "mixture8_cosine|L6": {
+    "Hits@1": 0.20909948647022247,
+    "MRR": 0.277018666267395,
+    "best_epoch": 10,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_wikidata/selection_mixture8_cosine_L6_seed1729.pt",
+    "epochs_run": 22,
+    "seconds": 3.522831439971924
+   },
+   "single_composite_infonce|L10": {
+    "Hits@1": 0.21711456775665283,
+    "MRR": 0.30933085083961487,
+    "best_epoch": 8,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_wikidata/selection_single_composite_infonce_L10_seed1729.pt",
+    "epochs_run": 20,
+    "seconds": 2.5737295150756836
+   },
+   "single_composite_infonce|L12": {
+    "Hits@1": 0.20792078971862793,
+    "MRR": 0.2991999685764313,
+    "best_epoch": 10,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_wikidata/selection_single_composite_infonce_L12_seed1729.pt",
+    "epochs_run": 22,
+    "seconds": 2.8558011054992676
+   },
+   "single_composite_infonce|L2": {
+    "Hits@1": 0.21098537743091583,
+    "MRR": 0.2948361933231354,
+    "best_epoch": 6,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_wikidata/selection_single_composite_infonce_L2_seed1729.pt",
+    "epochs_run": 18,
+    "seconds": 2.4037938117980957
+   },
+   "single_composite_infonce|L4": {
+    "Hits@1": 0.2234794944524765,
+    "MRR": 0.3078744411468506,
+    "best_epoch": 8,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_wikidata/selection_single_composite_infonce_L4_seed1729.pt",
+    "epochs_run": 20,
+    "seconds": 2.802950859069824
+   },
+   "single_composite_infonce|L6": {
+    "Hits@1": 0.22748702764511108,
+    "MRR": 0.31142523884773254,
+    "best_epoch": 8,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_wikidata/selection_single_composite_infonce_L6_seed1729.pt",
+    "epochs_run": 20,
+    "seconds": 2.648900032043457
+   },
+   "single_cosine|L10": {
+    "Hits@1": 0.1874115914106369,
+    "MRR": 0.26082584261894226,
+    "best_epoch": 33,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_wikidata/selection_single_cosine_L10_seed1729.pt",
+    "epochs_run": 45,
+    "seconds": 3.9704060554504395
+   },
+   "single_cosine|L12": {
+    "Hits@1": 0.1619519144296646,
+    "MRR": 0.22589489817619324,
+    "best_epoch": 43,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_wikidata/selection_single_cosine_L12_seed1729.pt",
+    "epochs_run": 55,
+    "seconds": 4.453474283218384
+   },
+   "single_cosine|L2": {
+    "Hits@1": 0.15487977862358093,
+    "MRR": 0.2257409542798996,
+    "best_epoch": 28,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_wikidata/selection_single_cosine_L2_seed1729.pt",
+    "epochs_run": 40,
+    "seconds": 2.454829216003418
+   },
+   "single_cosine|L4": {
+    "Hits@1": 0.17138142883777618,
+    "MRR": 0.24167487025260925,
+    "best_epoch": 32,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_wikidata/selection_single_cosine_L4_seed1729.pt",
+    "epochs_run": 44,
+    "seconds": 3.5853166580200195
+   },
+   "single_cosine|L6": {
+    "Hits@1": 0.1673738807439804,
+    "MRR": 0.2362551987171173,
+    "best_epoch": 44,
+    "cell": "results/appendix/independent_layer_selection/cells/bert_wikidata/selection_single_cosine_L6_seed1729.pt",
+    "epochs_run": 56,
+    "seconds": 4.779278516769409
+   }
+  },
+  "gemmae4b_wikidata": {
+   "mixture8_composite_infonce|L18": {
+    "Hits@1": 0.1782178282737732,
+    "MRR": 0.2545488774776459,
+    "best_epoch": 40,
+    "cell": "results/appendix/independent_layer_selection/cells/gemmae4b_wikidata/selection_mixture8_composite_infonce_L18_seed1729.pt",
+    "epochs_run": 52,
+    "seconds": 10.138887643814087
+   },
+   "mixture8_composite_infonce|L24": {
+    "Hits@1": 0.20980669558048248,
+    "MRR": 0.2975452244281769,
+    "best_epoch": 25,
+    "cell": "results/appendix/independent_layer_selection/cells/gemmae4b_wikidata/selection_mixture8_composite_infonce_L24_seed1729.pt",
+    "epochs_run": 37,
+    "seconds": 7.437446594238281
+   },
+   "mixture8_composite_infonce|L33": {
+    "Hits@1": 0.28854313492774963,
+    "MRR": 0.39429348707199097,
+    "best_epoch": 14,
+    "cell": "results/appendix/independent_layer_selection/cells/gemmae4b_wikidata/selection_mixture8_composite_infonce_L33_seed1729.pt",
+    "epochs_run": 26,
+    "seconds": 5.405982971191406
+   },
+   "mixture8_composite_infonce|L42": {
+    "Hits@1": 0.27840641140937805,
+    "MRR": 0.37769073247909546,
+    "best_epoch": 18,
+    "cell": "results/appendix/independent_layer_selection/cells/gemmae4b_wikidata/selection_mixture8_composite_infonce_L42_seed1729.pt",
+    "epochs_run": 30,
+    "seconds": 6.118657112121582
+   },
+   "mixture8_composite_infonce|L9": {
+    "Hits@1": 0.21923620998859406,
+    "MRR": 0.3016721308231354,
+    "best_epoch": 18,
+    "cell": "results/appendix/independent_layer_selection/cells/gemmae4b_wikidata/selection_mixture8_composite_infonce_L9_seed1729.pt",
+    "epochs_run": 30,
+    "seconds": 5.58673882484436
+   },
+   "mixture8_cosine|L18": {
+    "Hits@1": 0.10537482053041458,
+    "MRR": 0.16190920770168304,
+    "best_epoch": 27,
+    "cell": "results/appendix/independent_layer_selection/cells/gemmae4b_wikidata/selection_mixture8_cosine_L18_seed1729.pt",
+    "epochs_run": 39,
+    "seconds": 5.905847549438477
+   },
+   "mixture8_cosine|L24": {
+    "Hits@1": 0.19000472128391266,
+    "MRR": 0.2572164535522461,
+    "best_epoch": 27,
+    "cell": "results/appendix/independent_layer_selection/cells/gemmae4b_wikidata/selection_mixture8_cosine_L24_seed1729.pt",
+    "epochs_run": 39,
+    "seconds": 6.441932916641235
+   },
+   "mixture8_cosine|L33": {
+    "Hits@1": 0.2687411606311798,
+    "MRR": 0.35716626048088074,
+    "best_epoch": 19,
+    "cell": "results/appendix/independent_layer_selection/cells/gemmae4b_wikidata/selection_mixture8_cosine_L33_seed1729.pt",
+    "epochs_run": 31,
+    "seconds": 5.216866731643677
+   },
+   "mixture8_cosine|L42": {
+    "Hits@1": 0.26921263337135315,
+    "MRR": 0.3543737828731537,
+    "best_epoch": 18,
+    "cell": "results/appendix/independent_layer_selection/cells/gemmae4b_wikidata/selection_mixture8_cosine_L42_seed1729.pt",
+    "epochs_run": 30,
+    "seconds": 5.063715934753418
+   },
+   "mixture8_cosine|L9": {
+    "Hits@1": 0.18929749727249146,
+    "MRR": 0.263236403465271,
+    "best_epoch": 21,
+    "cell": "results/appendix/independent_layer_selection/cells/gemmae4b_wikidata/selection_mixture8_cosine_L9_seed1729.pt",
+    "epochs_run": 33,
+    "seconds": 5.137410640716553
+   },
+   "single_composite_infonce|L18": {
+    "Hits@1": 0.13955681025981903,
+    "MRR": 0.2226114571094513,
+    "best_epoch": 60,
+    "cell": "results/appendix/independent_layer_selection/cells/gemmae4b_wikidata/selection_single_composite_infonce_L18_seed1729.pt",
+    "epochs_run": 60,
+    "seconds": 6.903441667556763
+   },
+   "single_composite_infonce|L24": {
+    "Hits@1": 0.19259783625602722,
+    "MRR": 0.2815397083759308,
+    "best_epoch": 50,
+    "cell": "results/appendix/independent_layer_selection/cells/gemmae4b_wikidata/selection_single_composite_infonce_L24_seed1729.pt",
+    "epochs_run": 60,
+    "seconds": 7.604250192642212
+   },
+   "single_composite_infonce|L33": {
+    "Hits@1": 0.29137200117111206,
+    "MRR": 0.3975137174129486,
+    "best_epoch": 36,
+    "cell": "results/appendix/independent_layer_selection/cells/gemmae4b_wikidata/selection_single_composite_infonce_L33_seed1729.pt",
+    "epochs_run": 48,
+    "seconds": 6.2053587436676025
+   },
+   "single_composite_infonce|L42": {
+    "Hits@1": 0.2743988633155823,
+    "MRR": 0.37583136558532715,
+    "best_epoch": 46,
+    "cell": "results/appendix/independent_layer_selection/cells/gemmae4b_wikidata/selection_single_composite_infonce_L42_seed1729.pt",
+    "epochs_run": 58,
+    "seconds": 6.701276063919067
+   },
+   "single_composite_infonce|L9": {
+    "Hits@1": 0.19542668759822845,
+    "MRR": 0.2822326123714447,
+    "best_epoch": 38,
+    "cell": "results/appendix/independent_layer_selection/cells/gemmae4b_wikidata/selection_single_composite_infonce_L9_seed1729.pt",
+    "epochs_run": 50,
+    "seconds": 5.79200005531311
+   },
+   "single_cosine|L18": {
+    "Hits@1": 0.06034889072179794,
+    "MRR": 0.11378507316112518,
+    "best_epoch": 60,
+    "cell": "results/appendix/independent_layer_selection/cells/gemmae4b_wikidata/selection_single_cosine_L18_seed1729.pt",
+    "epochs_run": 60,
+    "seconds": 4.858334064483643
+   },
+   "single_cosine|L24": {
+    "Hits@1": 0.14238566160202026,
+    "MRR": 0.20631183683872223,
+    "best_epoch": 60,
+    "cell": "results/appendix/independent_layer_selection/cells/gemmae4b_wikidata/selection_single_cosine_L24_seed1729.pt",
+    "epochs_run": 60,
+    "seconds": 5.332720994949341
+   },
+   "single_cosine|L33": {
+    "Hits@1": 0.21074964106082916,
+    "MRR": 0.2946915626525879,
+    "best_epoch": 60,
+    "cell": "results/appendix/independent_layer_selection/cells/gemmae4b_wikidata/selection_single_cosine_L33_seed1729.pt",
+    "epochs_run": 60,
+    "seconds": 5.343149423599243
+   },
+   "single_cosine|L42": {
+    "Hits@1": 0.20768505334854126,
+    "MRR": 0.2913424074649811,
+    "best_epoch": 60,
+    "cell": "results/appendix/independent_layer_selection/cells/gemmae4b_wikidata/selection_single_cosine_L42_seed1729.pt",
+    "epochs_run": 60,
+    "seconds": 5.594825506210327
+   },
+   "single_cosine|L9": {
+    "Hits@1": 0.1428571492433548,
+    "MRR": 0.21164439618587494,
+    "best_epoch": 60,
+    "cell": "results/appendix/independent_layer_selection/cells/gemmae4b_wikidata/selection_single_cosine_L9_seed1729.pt",
+    "epochs_run": 60,
+    "seconds": 4.951736927032471
+   }
+  },
+  "qwen4b_wikidata": {
+   "mixture8_composite_infonce|L12": {
+    "Hits@1": 0.24375294148921967,
+    "MRR": 0.3345131576061249,
+    "best_epoch": 19,
+    "cell": "results/appendix/independent_layer_selection/cells/qwen4b_wikidata/selection_mixture8_composite_infonce_L12_seed1729.pt",
+    "epochs_run": 31,
+    "seconds": 5.789679288864136
+   },
+   "mixture8_composite_infonce|L20": {
+    "Hits@1": 0.27982082962989807,
+    "MRR": 0.37412869930267334,
+    "best_epoch": 14,
+    "cell": "results/appendix/independent_layer_selection/cells/qwen4b_wikidata/selection_mixture8_composite_infonce_L20_seed1729.pt",
+    "epochs_run": 26,
+    "seconds": 4.968806266784668
+   },
+   "mixture8_composite_infonce|L26": {
+    "Hits@1": 0.28760018944740295,
+    "MRR": 0.3889855444431305,
+    "best_epoch": 9,
+    "cell": "results/appendix/independent_layer_selection/cells/qwen4b_wikidata/selection_mixture8_composite_infonce_L26_seed1729.pt",
+    "epochs_run": 21,
+    "seconds": 4.112267971038818
+   },
+   "mixture8_composite_infonce|L32": {
+    "Hits@1": 0.2720414996147156,
+    "MRR": 0.37091493606567383,
+    "best_epoch": 15,
+    "cell": "results/appendix/independent_layer_selection/cells/qwen4b_wikidata/selection_mixture8_composite_infonce_L32_seed1729.pt",
+    "epochs_run": 27,
+    "seconds": 5.140457630157471
+   },
+   "mixture8_composite_infonce|L6": {
+    "Hits@1": 0.24870343506336212,
+    "MRR": 0.3355378806591034,
+    "best_epoch": 11,
+    "cell": "results/appendix/independent_layer_selection/cells/qwen4b_wikidata/selection_mixture8_composite_infonce_L6_seed1729.pt",
+    "epochs_run": 23,
+    "seconds": 4.66659140586853
+   },
+   "mixture8_cosine|L12": {
+    "Hits@1": 0.21263554692268372,
+    "MRR": 0.2948342263698578,
+    "best_epoch": 18,
+    "cell": "results/appendix/independent_layer_selection/cells/qwen4b_wikidata/selection_mixture8_cosine_L12_seed1729.pt",
+    "epochs_run": 30,
+    "seconds": 4.687229156494141
+   },
+   "mixture8_cosine|L20": {
+    "Hits@1": 0.2597831189632416,
+    "MRR": 0.3378490209579468,
+    "best_epoch": 18,
+    "cell": "results/appendix/independent_layer_selection/cells/qwen4b_wikidata/selection_mixture8_cosine_L20_seed1729.pt",
+    "epochs_run": 30,
+    "seconds": 4.6746509075164795
+   },
+   "mixture8_cosine|L26": {
+    "Hits@1": 0.2788778841495514,
+    "MRR": 0.36924973130226135,
+    "best_epoch": 14,
+    "cell": "results/appendix/independent_layer_selection/cells/qwen4b_wikidata/selection_mixture8_cosine_L26_seed1729.pt",
+    "epochs_run": 26,
+    "seconds": 4.02316427230835
+   },
+   "mixture8_cosine|L32": {
+    "Hits@1": 0.2505893409252167,
+    "MRR": 0.3339725434780121,
+    "best_epoch": 20,
+    "cell": "results/appendix/independent_layer_selection/cells/qwen4b_wikidata/selection_mixture8_cosine_L32_seed1729.pt",
+    "epochs_run": 32,
+    "seconds": 4.97705864906311
+   },
+   "mixture8_cosine|L6": {
+    "Hits@1": 0.2404526174068451,
+    "MRR": 0.3200579285621643,
+    "best_epoch": 13,
+    "cell": "results/appendix/independent_layer_selection/cells/qwen4b_wikidata/selection_mixture8_cosine_L6_seed1729.pt",
+    "epochs_run": 25,
+    "seconds": 4.494380235671997
+   },
+   "single_composite_infonce|L12": {
+    "Hits@1": 0.2220650613307953,
+    "MRR": 0.31659644842147827,
+    "best_epoch": 52,
+    "cell": "results/appendix/independent_layer_selection/cells/qwen4b_wikidata/selection_single_composite_infonce_L12_seed1729.pt",
+    "epochs_run": 60,
+    "seconds": 6.967091083526611
+   },
+   "single_composite_infonce|L20": {
+    "Hits@1": 0.2710985243320465,
+    "MRR": 0.367191880941391,
+    "best_epoch": 34,
+    "cell": "results/appendix/independent_layer_selection/cells/qwen4b_wikidata/selection_single_composite_infonce_L20_seed1729.pt",
+    "epochs_run": 46,
+    "seconds": 5.394132137298584
+   },
+   "single_composite_infonce|L26": {
+    "Hits@1": 0.2871287167072296,
+    "MRR": 0.38882243633270264,
+    "best_epoch": 25,
+    "cell": "results/appendix/independent_layer_selection/cells/qwen4b_wikidata/selection_single_composite_infonce_L26_seed1729.pt",
+    "epochs_run": 37,
+    "seconds": 4.370208978652954
+   },
+   "single_composite_infonce|L32": {
+    "Hits@1": 0.26072606444358826,
+    "MRR": 0.363275945186615,
+    "best_epoch": 36,
+    "cell": "results/appendix/independent_layer_selection/cells/qwen4b_wikidata/selection_single_composite_infonce_L32_seed1729.pt",
+    "epochs_run": 48,
+    "seconds": 5.580668926239014
+   },
+   "single_composite_infonce|L6": {
+    "Hits@1": 0.23479491472244263,
+    "MRR": 0.32549431920051575,
+    "best_epoch": 31,
+    "cell": "results/appendix/independent_layer_selection/cells/qwen4b_wikidata/selection_single_composite_infonce_L6_seed1729.pt",
+    "epochs_run": 43,
+    "seconds": 5.324096441268921
+   },
+   "single_cosine|L12": {
+    "Hits@1": 0.16383780539035797,
+    "MRR": 0.23846079409122467,
+    "best_epoch": 60,
+    "cell": "results/appendix/independent_layer_selection/cells/qwen4b_wikidata/selection_single_cosine_L12_seed1729.pt",
+    "epochs_run": 60,
+    "seconds": 4.796037435531616
+   },
+   "single_cosine|L20": {
+    "Hits@1": 0.2050919383764267,
+    "MRR": 0.27795466780662537,
+    "best_epoch": 60,
+    "cell": "results/appendix/independent_layer_selection/cells/qwen4b_wikidata/selection_single_cosine_L20_seed1729.pt",
+    "epochs_run": 60,
+    "seconds": 4.834830045700073
+   },
+   "single_cosine|L26": {
+    "Hits@1": 0.22984440624713898,
+    "MRR": 0.3152463436126709,
+    "best_epoch": 60,
+    "cell": "results/appendix/independent_layer_selection/cells/qwen4b_wikidata/selection_single_cosine_L26_seed1729.pt",
+    "epochs_run": 60,
+    "seconds": 4.798152923583984
+   },
+   "single_cosine|L32": {
+    "Hits@1": 0.2050919383764267,
+    "MRR": 0.28212088346481323,
+    "best_epoch": 60,
+    "cell": "results/appendix/independent_layer_selection/cells/qwen4b_wikidata/selection_single_cosine_L32_seed1729.pt",
+    "epochs_run": 60,
+    "seconds": 4.92328667640686
+   },
+   "single_cosine|L6": {
+    "Hits@1": 0.19071193039417267,
+    "MRR": 0.2642059624195099,
+    "best_epoch": 60,
+    "cell": "results/appendix/independent_layer_selection/cells/qwen4b_wikidata/selection_single_cosine_L6_seed1729.pt",
+    "epochs_run": 60,
+    "seconds": 5.355717658996582
+   }
+  }
+ }
+}

@@ -1,0 +1,5 @@
+pair,base_model,post_model,steer_base,steer_post,steer_delta,steer_ci_low_base,steer_ci_low_post,ppl_change_base,ppl_change_post,decode_ceiling_base,decode_ceiling_post
+Llama-3.1-8B,meta-llama/Llama-3.1-8B,meta-llama/Llama-3.1-8B-Instruct,1.400014,1.37155,-0.028464,1.019318,1.008941,2.847196,5.513834,0.0,0.0
+Olmo-3-7B,allenai/Olmo-3-1025-7B,allenai/Olmo-3-7B-Instruct,1.350378,0.671779,-0.678599,1.015253,0.372567,0.289979,0.453388,0.0,0.0
+Gemma-4-E4B,google/gemma-4-E4B,google/gemma-4-E4B-it,2.127487,0.818484,-1.309003,1.314183,0.396839,0.050242,0.264447,0.0,0.0
+Qwen3.5-4B,Qwen/Qwen3.5-4B-Base,Qwen/Qwen3.5-4B,2.023873,1.607557,-0.416316,1.667651,1.286658,0.313177,0.337139,0.0,0.0

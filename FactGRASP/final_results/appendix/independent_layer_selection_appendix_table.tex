@@ -1,0 +1,34 @@
+% Source: final_results/appendix/independent_layer_selection_test_metrics.csv
+%         final_results/appendix/independent_layer_selection_paired_differences.json
+\begin{table}[t]
+\centering
+\small
+\caption{Independent validation-layer selection on a predeclared five-depth grid. $\ell_0$ is the fixed shared layer and $\hat\ell$ is the validation-selected layer. MRR entries are mean $\pm$ seed SD for full-training seeds 0, 1, and 2. $\Delta$ is selected minus the same-code fixed-layer reference; intervals are paired bootstrap 95\% intervals over test triples after averaging reciprocal rank across seeds. Selection used seed 1729 only.}
+\label{tab:independent-layer-selection}
+\setlength{\tabcolsep}{2.8pt}
+\begin{tabular}{llrrccc}
+\toprule
+Setting & Recipe & $\ell_0$ & $\hat\ell$ & Fixed MRR & Selected MRR & $\Delta$ [95\% CI] \\
+\midrule
+BERT / Wikidata & single / cos. & 10 & 10 & 0.273 $\pm$ 0.001 & 0.273 $\pm$ 0.001 & +0.000 [+0.000, +0.000] \\
+ & mix. / cos. & 10 & 10 & 0.323 $\pm$ 0.006 & 0.323 $\pm$ 0.006 & +0.000 [+0.000, +0.000] \\
+ & single / comp. & 10 & 6 & 0.345 $\pm$ 0.001 & 0.338 $\pm$ 0.003 & -0.008 [-0.014, -0.001] \\
+ & mix. / comp. & 10 & 10 & 0.360 $\pm$ 0.002 & 0.360 $\pm$ 0.002 & +0.000 [+0.000, +0.000] \\
+\addlinespace[2pt]
+BERT / ConceptNet & single / cos. & 10 & 4 & 0.060 $\pm$ 0.001 & 0.089 $\pm$ 0.002 & +0.029 [+0.022, +0.035] \\
+ & mix. / cos. & 10 & 4 & 0.086 $\pm$ 0.005 & 0.119 $\pm$ 0.002 & +0.033 [+0.026, +0.040] \\
+ & single / comp. & 10 & 4 & 0.194 $\pm$ 0.001 & 0.209 $\pm$ 0.004 & +0.015 [+0.008, +0.022] \\
+ & mix. / comp. & 10 & 4 & 0.232 $\pm$ 0.002 & 0.244 $\pm$ 0.001 & +0.012 [+0.005, +0.019] \\
+\addlinespace[2pt]
+Qwen3.5-4B / Wikidata & single / cos. & 26 & 26 & 0.324 $\pm$ 0.000 & 0.324 $\pm$ 0.000 & +0.000 [+0.000, +0.000] \\
+ & mix. / cos. & 26 & 26 & 0.383 $\pm$ 0.003 & 0.383 $\pm$ 0.003 & +0.000 [+0.000, +0.000] \\
+ & single / comp. & 26 & 26 & 0.429 $\pm$ 0.001 & 0.429 $\pm$ 0.001 & +0.000 [+0.000, +0.000] \\
+ & mix. / comp. & 26 & 26 & 0.431 $\pm$ 0.001 & 0.431 $\pm$ 0.001 & +0.000 [+0.000, +0.000] \\
+\addlinespace[2pt]
+Gemma-4-E4B / Wikidata & single / cos. & 33 & 33 & 0.287 $\pm$ 0.001 & 0.287 $\pm$ 0.001 & +0.000 [+0.000, +0.000] \\
+ & mix. / cos. & 33 & 33 & 0.377 $\pm$ 0.004 & 0.377 $\pm$ 0.004 & +0.000 [+0.000, +0.000] \\
+ & single / comp. & 33 & 33 & 0.446 $\pm$ 0.000 & 0.446 $\pm$ 0.000 & +0.000 [+0.000, +0.000] \\
+ & mix. / comp. & 33 & 33 & 0.453 $\pm$ 0.001 & 0.453 $\pm$ 0.001 & +0.000 [+0.000, +0.000] \\
+\bottomrule
+\end{tabular}
+\end{table}

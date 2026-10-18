@@ -1,0 +1,9 @@
+dataset,control,probe_MRR,control_MRR,gap,ci_low,ci_high,significant
+wikidata,control_task,0.354671,0.162497,0.192173,0.18321,0.201735,True
+wikidata,random_encoder,0.354671,0.225765,0.128906,0.117973,0.139583,True
+wikidata,majority,0.354671,0.216497,0.138174,0.127033,0.149821,True
+wikidata,lexical,0.354671,0.071984,0.282687,0.270316,0.295705,True
+conceptnet,control_task,0.217403,0.010046,0.207357,0.195808,0.218014,True
+conceptnet,random_encoder,0.217403,0.048857,0.168546,0.158579,0.178923,True
+conceptnet,majority,0.217403,0.020396,0.197007,0.18555,0.207926,True
+conceptnet,lexical,0.217403,0.075772,0.141631,0.130145,0.152788,True

@@ -1,0 +1,108 @@
+{
+ "bert_conceptnet_cache": "missing multi-layer representations are generated once into the isolated revision feature cache; legacy cache is read-only",
+ "coarse_grid_limitation": "five predeclared depths can miss a better intervening layer",
+ "comparison": "same new implementation and seeds at independently selected and fixed shared layers",
+ "frozen_before_test": true,
+ "hyperparameters": {
+  "balance_penalty": 0.01,
+  "batch_size": 512,
+  "calibration_rows": 8000,
+  "epochs": 60,
+  "experts": 8,
+  "final_seeds": [
+   0,
+   1,
+   2
+  ],
+  "lr": 0.001,
+  "patience": 12,
+  "pca": 768,
+  "pca_niter": 4,
+  "pca_sample": 20000,
+  "selection_seed": 1729,
+  "temperature": 0.05,
+  "tie": "random",
+  "weight_decay": 0.0001
+ },
+ "name": "independent_layer_selection",
+ "pairs": [
+  {
+   "dataset": "wikidata",
+   "key": "bert_wikidata",
+   "layers": [
+    2,
+    4,
+    6,
+    10,
+    12
+   ],
+   "model": "bert-base-uncased",
+   "pooling": "mean",
+   "shared_layer": 10
+  },
+  {
+   "dataset": "conceptnet",
+   "key": "bert_conceptnet",
+   "layers": [
+    2,
+    4,
+    6,
+    10,
+    12
+   ],
+   "model": "bert-base-uncased",
+   "pooling": "mean",
+   "shared_layer": 10
+  },
+  {
+   "dataset": "wikidata",
+   "key": "qwen4b_wikidata",
+   "layers": [
+    6,
+    12,
+    20,
+    26,
+    32
+   ],
+   "model": "Qwen/Qwen3.5-4B",
+   "pooling": "last",
+   "shared_layer": 26
+  },
+  {
+   "dataset": "wikidata",
+   "key": "gemmae4b_wikidata",
+   "layers": [
+    9,
+    18,
+    24,
+    33,
+    42
+   ],
+   "model": "google/gemma-4-E4B",
+   "pooling": "last",
+   "shared_layer": 33
+  }
+ ],
+ "recipes": {
+  "mixture8_composite_infonce": {
+   "experts": 8,
+   "loss": "infonce"
+  },
+  "mixture8_cosine": {
+   "experts": 8,
+   "loss": "cosine"
+  },
+  "single_composite_infonce": {
+   "experts": 1,
+   "loss": "infonce"
+  },
+  "single_cosine": {
+   "experts": 1,
+   "loss": "cosine"
+  }
+ },
+ "scope": "bounded three-model, four-model-graph-cell pilot; no population-general claim",
+ "selection": "maximum filtered validation MRR; ties choose the shallower layer",
+ "smollm": "excluded before outcomes, by runtime-bounded pilot decision",
+ "test_access": "test embeddings/pools are loaded only in the final stage, after selection is saved"
+}

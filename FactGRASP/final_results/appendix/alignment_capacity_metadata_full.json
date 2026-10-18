@@ -1,0 +1,197 @@
+{
+ "baseline_numerical_audit": {
+  "decision": "use float64 CPU accumulation/decomposition and return float32 maps",
+  "float32_mrr_by_cpu_threads": {
+   "1": 0.2710255980491638,
+   "16": 0.2710835635662079,
+   "2": 0.27103564143180847,
+   "32": 0.2710835635662079,
+   "4": 0.27103927731513977,
+   "8": 0.2710762321949005
+  },
+  "float64_accumulation_mrr": 0.2710953950881958,
+  "pair": "meta-llama/Llama-3.1-8B <- answerdotai/ModernBERT-base",
+  "stored_mrr": 0.2710835635662079
+ },
+ "baseline_tolerance": 2e-05,
+ "collected_utc": "2026-09-19T22:53:25.831300+00:00",
+ "cpu_threads": 4,
+ "cuda_visible_devices": "1",
+ "elapsed_seconds_this_invocation": 107.415711,
+ "existing_fresh_probe_context": [
+  {
+   "A": "Qwen/Qwen3.5-4B",
+   "B": "Qwen/Qwen3.5-9B",
+   "mrr_fresh": 0.44660861293474835,
+   "mrr_fresh_sd": 0.0010204328573662767,
+   "mrr_stitched": 0.43638142943382263,
+   "source": "results/runs/fresh_map_comparison_all.json",
+   "stitched_over_fresh": 0.9771003442282025
+  },
+  {
+   "A": "Qwen/Qwen3.5-4B",
+   "B": "meta-llama/Llama-3.1-8B",
+   "mrr_fresh": 0.4548210899035136,
+   "mrr_fresh_sd": 0.0010066390595575032,
+   "mrr_stitched": 0.441758394241333,
+   "source": "results/runs/fresh_map_comparison_all.json",
+   "stitched_over_fresh": 0.9712794855995975
+  },
+  {
+   "A": "meta-llama/Llama-3.1-8B",
+   "B": "google/gemma-4-12B",
+   "mrr_fresh": 0.4774562319119771,
+   "mrr_fresh_sd": 0.000770334133796996,
+   "mrr_stitched": 0.47106748819351196,
+   "source": "results/runs/fresh_map_comparison_all.json",
+   "stitched_over_fresh": 0.9866192055073166
+  }
+ ],
+ "finished_utc": "2026-09-19T22:44:02.684954+00:00",
+ "full_size_replicates": 1,
+ "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+ "host": "sbilabwstsn",
+ "intercept": false,
+ "interop_threads": 1,
+ "known_object_filter": "valid subject-relation objects built from Wikidata train+valid+test, as in the transfer run",
+ "linear_algebra": "CPU float64 accumulation/decomposition, returned maps float32",
+ "logical_device": "cuda:0",
+ "metric_tie_seed": 0,
+ "model_spaces": {
+  "HuggingFaceTB/SmolLM3-3B": {
+   "ladder_source": "results/runs/ladder_HuggingFaceTB__SmolLM3-3B.json",
+   "pca_component_shape": [
+    2048,
+    768
+   ],
+   "pooling": "last",
+   "query_dimension": 768,
+   "selected_layer": 35,
+   "slug": "HuggingFaceTB__SmolLM3-3B",
+   "space_checkpoint": "code/kg_layer_moe/cache/decoders/HuggingFaceTB__SmolLM3-3B/probe_E8_infonce_L35_seed0.pt"
+  },
+  "Qwen/Qwen3.5-0.8B": {
+   "ladder_source": "results/runs/ladder_Qwen__Qwen3.5-0.8B.json",
+   "pca_component_shape": [
+    1024,
+    768
+   ],
+   "pooling": "last",
+   "query_dimension": 768,
+   "selected_layer": 21,
+   "slug": "Qwen__Qwen3.5-0.8B",
+   "space_checkpoint": "code/kg_layer_moe/cache/decoders/Qwen__Qwen3.5-0.8B/probe_E8_infonce_L21_seed0.pt"
+  },
+  "Qwen/Qwen3.5-4B": {
+   "ladder_source": "results/runs/ladder_Qwen__Qwen3.5-4B.json",
+   "pca_component_shape": [
+    2560,
+    768
+   ],
+   "pooling": "last",
+   "query_dimension": 768,
+   "selected_layer": 26,
+   "slug": "Qwen__Qwen3.5-4B",
+   "space_checkpoint": "code/kg_layer_moe/cache/decoders/Qwen__Qwen3.5-4B/probe_E8_infonce_L26_seed0.pt"
+  },
+  "Qwen/Qwen3.5-9B": {
+   "ladder_source": "results/runs/ladder_Qwen__Qwen3.5-9B.json",
+   "pca_component_shape": [
+    4096,
+    768
+   ],
+   "pooling": "last",
+   "query_dimension": 768,
+   "selected_layer": 28,
+   "slug": "Qwen__Qwen3.5-9B",
+   "space_checkpoint": "code/kg_layer_moe/cache/decoders/Qwen__Qwen3.5-9B/probe_E8_infonce_L28_seed0.pt"
+  },
+  "answerdotai/ModernBERT-base": {
+   "ladder_source": "results/runs/ladder_answerdotai__ModernBERT-base.json",
+   "pca_component_shape": null,
+   "pooling": "last",
+   "query_dimension": 768,
+   "selected_layer": 3,
+   "slug": "answerdotai__ModernBERT-base",
+   "space_checkpoint": "code/kg_layer_moe/cache/decoders/answerdotai__ModernBERT-base/probe_E8_infonce_L3_seed0.pt"
+  },
+  "google/gemma-4-12B": {
+   "ladder_source": "results/runs/ladder_google__gemma-4-12B.json",
+   "pca_component_shape": [
+    3840,
+    768
+   ],
+   "pooling": "last",
+   "query_dimension": 768,
+   "selected_layer": 39,
+   "slug": "google__gemma-4-12B",
+   "space_checkpoint": "code/kg_layer_moe/cache/decoders/google__gemma-4-12B/probe_E8_infonce_L39_seed0.pt"
+  },
+  "meta-llama/Llama-3.1-8B": {
+   "ladder_source": "results/runs/ladder_meta-llama__Llama-3.1-8B.json",
+   "pca_component_shape": [
+    4096,
+    768
+   ],
+   "pooling": "last",
+   "query_dimension": 768,
+   "selected_layer": 25,
+   "slug": "meta-llama__Llama-3.1-8B",
+   "space_checkpoint": "code/kg_layer_moe/cache/decoders/meta-llama__Llama-3.1-8B/probe_E8_infonce_L25_seed0.pt"
+  }
+ },
+ "modernbert_note": "historical the transfer run last-token space; not the later mean-pooled atlas row",
+ "n_test": 4243,
+ "n_train_all": 33937,
+ "normalization": "checkpoint PCA per field, then subject + relation; no additional normalization",
+ "pairs": [
+  {
+   "A": "Qwen/Qwen3.5-4B",
+   "B": "Qwen/Qwen3.5-0.8B",
+   "stratum": "within-family / weaker source"
+  },
+  {
+   "A": "Qwen/Qwen3.5-4B",
+   "B": "Qwen/Qwen3.5-9B",
+   "stratum": "within-family / stronger source"
+  },
+  {
+   "A": "Qwen/Qwen3.5-4B",
+   "B": "HuggingFaceTB/SmolLM3-3B",
+   "stratum": "cross-family / weaker source"
+  },
+  {
+   "A": "Qwen/Qwen3.5-4B",
+   "B": "meta-llama/Llama-3.1-8B",
+   "stratum": "cross-family / stronger source"
+  },
+  {
+   "A": "meta-llama/Llama-3.1-8B",
+   "B": "answerdotai/ModernBERT-base",
+   "stratum": "cross-family / historical last-token encoder"
+  },
+  {
+   "A": "meta-llama/Llama-3.1-8B",
+   "B": "google/gemma-4-12B",
+   "stratum": "cross-family / stronger source"
+  }
+ ],
+ "python": "3.11.16",
+ "ridge": 0.01,
+ "sample_sizes": [
+  512,
+  2048,
+  8192,
+  33937
+ ],
+ "script_sha256": "46845b9fd18aa536423795ce65a77fd7fbffa76e0958140d3a3747a6c5d09440",
+ "seeds": [
+  0,
+  1,
+  2
+ ],
+ "started_utc": "2026-09-19T22:42:15.269243+00:00",
+ "target_candidate_pool_size": 2766,
+ "torch": "2.14.0+cu130",
+ "truncated_ridge_definition": "source-spectrum principal-component ridge; not response-aware reduced-rank regression"
+}
